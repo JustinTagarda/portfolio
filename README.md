@@ -1,70 +1,64 @@
 # Justiniano Tagarda | Portfolio
 
-Modern, single-page portfolio website built with React, TypeScript, Vite, and Tailwind CSS.
+Modern single-page portfolio focused on enterprise-grade full-stack delivery and backend-first engineering.
 
-This site is designed to showcase enterprise-focused full-stack delivery, with emphasis on:
-- Scalable backend APIs
-- Maintainable architecture
-- Production-ready implementation
-- Practical, business-driven software outcomes
+## Production
 
-## About Me
+- Primary: https://justintagarda.com
+- Firebase Hosting: https://justintagarda-portfolio.web.app
 
-I am a Full-Stack .NET Developer with 15+ years of experience building and maintaining enterprise web systems, APIs, internal business platforms, and operational tooling.
+## Overview
 
-My work is centered on reliability, clarity, and execution quality: systems that are easy to maintain, perform well under production load, and solve real business problems.
+This portfolio presents Justiniano Tagarda as a Full-Stack .NET Developer with 15+ years of hands-on delivery across:
 
-## What This Portfolio Highlights
+- High-availability APIs
+- ERP and internal operations systems
+- Production support and reliability work
+- Client-facing and business-critical web platforms
 
-- Clear positioning for client-facing opportunities
-- Featured case study presentation (Product Costing)
-- Skills grouped by delivery domain (Backend, Frontend, Databases, DevOps, Tools, Collaboration)
-- Screenshot gallery modal for project walkthroughs
-- Contact-oriented section tailored for client inquiries
-- Responsive design optimized for desktop and mobile
+The goal of this site is clear positioning for hiring teams and clients looking for dependable, production-ready engineering execution.
 
-## Project Showcases
+## Key Features
 
-The portfolio includes project case studies directly on the page, each focused on real-world product delivery, technical depth, and production quality. These showcases highlight architecture decisions, implementation details, and business-facing outcomes.
+- Enterprise-style landing page with strong visual hierarchy
+- Sticky top navigation with smooth section anchor scrolling
+- Hero section with credibility highlights and availability status
+- About section with concise delivery-focused narrative
+- Featured project case-study card with:
+  - architecture and capability highlights
+  - stack tags
+  - external live demo and GitHub links
+  - screenshot gallery modal
+- Image gallery viewer with keyboard navigation (`Esc`, left/right arrows)
+- Skills and tools grouped by domain:
+  - Backend
+  - Frontend
+  - Databases
+  - DevOps
+  - Tools
+  - Collaboration
+- Contact section with engagement details and communication channels
+- Custom `JT` favicon
 
 ## Tech Stack
 
 - React 19
 - TypeScript
-- Vite
+- Vite 7
 - Tailwind CSS v4
-
-## Local Development
-
-1. Install dependencies:
-
-```bash
-npm install
-```
-
-2. Start development server:
-
-```bash
-npm run dev
-```
-
-3. Build for production:
-
-```bash
-npm run build
-```
-
-4. Preview production build:
-
-```bash
-npm run preview
-```
+- ESLint (JS/TS + React hooks)
+- Firebase Hosting (Classic)
+- GitHub Actions (auto-deploy on push to `main`)
 
 ## Project Structure
 
 ```text
 portfolio/
+  .github/
+    workflows/
+      firebase-hosting-production.yml
   public/
+    favicon.svg
     projects/
       product-costing/
   src/
@@ -73,18 +67,48 @@ portfolio/
     App.tsx
     index.css
     main.tsx
+  firebase.json
+  .firebaserc
+```
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run locally:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
 ```
 
 ## Deployment
 
-This project is configured as a static site and is suitable for Firebase Hosting (classic):
+This repository is configured for Firebase Hosting static deployment:
+
 - Build output directory: `dist`
+- SPA rewrite rule to `index.html`
+- Auto-deploy workflow: `.github/workflows/firebase-hosting-production.yml`
+
+Every push to `main` triggers build and production deployment through GitHub Actions.
 
 ## Contact
 
 - Email: justintagarda@gmail.com
 - LinkedIn: https://www.linkedin.com/in/justintagarda
-
----
-
-If you are looking for support on backend-heavy web platforms, API design, internal systems modernization, or long-term engineering collaboration, feel free to reach out.
+- GitHub: https://github.com/JustinTagarda
