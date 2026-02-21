@@ -27,12 +27,6 @@ My work is centered on reliability, clarity, and execution quality: systems that
 
 The portfolio includes project case studies directly on the page, each focused on real-world product delivery, technical depth, and production quality. These showcases highlight architecture decisions, implementation details, and business-facing outcomes.
 
-Live demo:
-- https://costing.justintagarda.com
-
-Repository:
-- https://github.com/JustinTagarda/product-costing
-
 ## Tech Stack
 
 - React 19
