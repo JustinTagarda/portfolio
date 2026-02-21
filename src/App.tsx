@@ -1,0 +1,740 @@
+import { useEffect, useState } from "react";
+import profilePhoto from "./assets/images/profile-photo.webp";
+
+const data = {
+  name: "Justiniano Tagarda",
+  headline: "Full-Stack .NET Developer",
+  lead: "I build scalable backend APIs and enterprise web systems: reliable, maintainable, production-ready.",
+  heroChips: ["15+ Years", ".NET / ASP.NET", "SQL Server", "Web APIs", "React", "Remote"],
+  socialLinks: [
+    { label: "GitHub", href: "#" },
+    { label: "LinkedIn", href: "#" },
+    { label: "Email", href: "mailto:justintagarda@gmail.com" },
+  ],
+  about: {
+    eyebrow: "Enterprise systems specialist",
+    subheadline: "Backend-first engineering for business-critical web platforms.",
+    paragraphs: [
+      "For 15+ years, I have built enterprise applications that keep day-to-day operations moving, from high-availability APIs to full internal ERP workflows.",
+      "My recent backend work supported .NET production systems with thousands of daily users, with a focus on clean architecture, stable deployments, and maintainable code.",
+    ],
+    highlights: [
+      "15+ years delivering enterprise software across web, backend, and internal operations systems",
+      "Built and maintained high-availability APIs supporting thousands of daily users",
+      "Delivered ERP, inventory, and customer portal workflows used by distributed teams",
+      "Owned IIS deployment, SQL Server performance tuning, backups, and incident response",
+    ],
+  },
+  projects: [
+    {
+      id: "product-costing",
+      featured: true,
+      title: "Product Costing",
+      subtitle: "Cloud-based product costing and operations workspace for small businesses.",
+      browserLabel: "costing.justintagarda.com",
+      coverImage: "/projects/product-costing/Screenshot-02.png",
+      coverAlt: "Product Costing application screenshot",
+      galleryImages: [
+        "/projects/product-costing/Screenshot-01.png",
+        "/projects/product-costing/Screenshot-02.png",
+        "/projects/product-costing/Screenshot-03.png",
+        "/projects/product-costing/Screenshot-04.png",
+        "/projects/product-costing/Screenshot-05.png",
+        "/projects/product-costing/Screenshot-06.png",
+        "/projects/product-costing/Screenshot-07.png",
+        "/projects/product-costing/Screenshot-08.png",
+      ],
+      bullets: [
+        "Google OAuth sign-in + session persistence",
+        "Account-level sharing (owner/editor/viewer)",
+        "RLS + RPC enforced access control",
+        "Mobile/tablet-friendly editors for dense workflows",
+        "Costing engine: BOM rollups, weighted purchase costs, waste/markup/tax",
+        "Import/export tooling + audit history",
+      ],
+      stack: ["Next.js", "React", "TypeScript", "Tailwind", "Supabase", "Postgres"],
+      links: {
+        liveDemo: "https://costing.justintagarda.com",
+        github: "https://github.com/JustinTagarda/product-costing",
+      },
+    },
+  ],
+  primaryStack: [".NET", "ASP.NET", "SQL Server", "Web APIs", "React"],
+  skillGroups: [
+    {
+      title: "Backend",
+      accent: "#3B82F6",
+      focus: "API architecture, business rules, and enterprise integrations",
+      items: [".NET", "ASP.NET", "Web APIs", "C#", ".NET Core"],
+    },
+    {
+      title: "Frontend",
+      accent: "#14B8A6",
+      focus: "Responsive interfaces for dense and operational workflows",
+      items: ["React", "Next.js", "TypeScript", "Knockout.js", "jQuery"],
+    },
+    {
+      title: "Databases",
+      accent: "#F59E0B",
+      focus: "Relational modeling, query performance, and cloud data services",
+      items: ["SQL Server", "Supabase", "NoSQL (Document)"],
+    },
+    {
+      title: "DevOps",
+      accent: "#60A5FA",
+      focus: "Deployments, CI/CD pipelines, and runtime reliability",
+      items: ["Azure DevOps", "Docker", "IIS"],
+    },
+    {
+      title: "Tools",
+      accent: "#94A3B8",
+      focus: "Daily engineering workflow, debugging, and delivery tooling",
+      items: ["Git", "GitHub", "VS Code", "Visual Studio", "PowerShell"],
+    },
+    {
+      title: "Collaboration",
+      accent: "#F97316",
+      focus: "Async execution with product, design, and cross-functional teams",
+      items: ["Jira", "Slack", "Figma", "GitHub Copilot", "ChatGPT"],
+    },
+  ],
+  contact: {
+    email: "justintagarda@gmail.com",
+    linkedin: "https://www.linkedin.com/in/justintagarda",
+    location: "Remote (UTC+8)",
+    responseTime: "Usually replies within 24 hours",
+    engagement: "Open to full-time, long-term contract, and project-based engagements.",
+    channels: [
+      {
+        label: "Email",
+        value: "justintagarda@gmail.com",
+        href: "mailto:justintagarda@gmail.com",
+        accent: "#3B82F6",
+        primary: true,
+      },
+      {
+        label: "LinkedIn",
+        value: "justintagarda",
+        href: "https://www.linkedin.com/in/justintagarda",
+        accent: "#0EA5E9",
+        primary: false,
+      },
+    ],
+  },
+  footer: {
+    note: "Full-Stack .NET Developer focused on reliable, maintainable enterprise systems.",
+    social: [
+      { label: "GitHub", href: "https://github.com/JustinTagarda" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/justintagarda" },
+      { label: "Email", href: "mailto:justintagarda@gmail.com" },
+    ],
+  },
+  nav: [
+    { label: "About", href: "#about" },
+    { label: "Work", href: "#work" },
+    { label: "Skills", href: "#skills" },
+    { label: "Contact", href: "#contact" },
+  ],
+};
+
+function SectionDivider() {
+  return (
+    <div aria-hidden className="mx-auto max-w-7xl px-5 md:px-8">
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.20)] to-transparent" />
+    </div>
+  );
+}
+
+export default function App() {
+  const year = new Date().getFullYear();
+  const featuredProjectIndex = data.projects.findIndex((project) => project.featured);
+  const resolvedFeaturedProjectIndex = featuredProjectIndex >= 0 ? featuredProjectIndex : 0;
+  const featuredProject = data.projects[resolvedFeaturedProjectIndex];
+
+  const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  const activeProject = activeProjectIndex !== null ? data.projects[activeProjectIndex] : null;
+  const activeGallery = activeProject?.galleryImages ?? [];
+  const activeImage = activeGallery[activeImageIndex];
+  const isGalleryOpen = activeProject !== null;
+  const primarySkillSet = new Set(data.primaryStack.map((skill) => skill.toLowerCase()));
+
+  const openGallery = (projectIndex: number, startAt = 0) => {
+    setActiveProjectIndex(projectIndex);
+    setActiveImageIndex(startAt);
+  };
+
+  const closeGallery = () => {
+    setActiveProjectIndex(null);
+  };
+
+  const showPreviousImage = () => {
+    if (activeGallery.length <= 1) return;
+    setActiveImageIndex((current) => (current - 1 + activeGallery.length) % activeGallery.length);
+  };
+
+  const showNextImage = () => {
+    if (activeGallery.length <= 1) return;
+    setActiveImageIndex((current) => (current + 1) % activeGallery.length);
+  };
+
+  useEffect(() => {
+    if (!isGalleryOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeGallery();
+        return;
+      }
+
+      if (activeGallery.length <= 1) return;
+
+      if (event.key === "ArrowLeft") {
+        setActiveImageIndex((current) => (current - 1 + activeGallery.length) % activeGallery.length);
+      }
+
+      if (event.key === "ArrowRight") {
+        setActiveImageIndex((current) => (current + 1) % activeGallery.length);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isGalleryOpen, activeGallery.length]);
+
+  return (
+    <main className="relative min-h-screen overflow-x-clip bg-[#0B1220] text-[rgba(255,255,255,0.92)]">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
+        <div className="absolute -left-40 -top-40 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.45)_0%,_rgba(59,130,246,0)_70%)] opacity-30 blur-3xl" />
+        <div className="absolute -bottom-48 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,_rgba(245,158,11,0.40)_0%,_rgba(245,158,11,0)_70%)] opacity-25 blur-3xl" />
+      </div>
+
+      <div className="relative z-10">
+        <header className="sticky top-0 z-40 border-b border-[rgba(255,255,255,0.10)] bg-[rgba(11,18,32,0.60)] backdrop-blur-xl">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5 md:px-8">
+            <a href="#" className="text-sm font-medium tracking-tight text-[rgba(255,255,255,0.94)] sm:text-base">
+              {data.name}
+            </a>
+
+            <nav className="flex w-full flex-wrap items-center justify-start gap-1 text-[11px] font-medium text-[rgba(255,255,255,0.78)] sm:w-auto sm:justify-end sm:gap-2 md:gap-3 md:text-sm">
+              {data.nav.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="rounded-full px-2.5 py-1.5 transition hover:bg-[rgba(255,255,255,0.08)] hover:text-[rgba(255,255,255,0.96)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] md:px-3 md:py-1.5"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <a
+                href="#work"
+                className="rounded-full bg-[#3B82F6] px-3.5 py-1.5 text-xs font-semibold text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1220] md:px-4 md:py-1.5 md:text-sm"
+              >
+                View Work
+              </a>
+            </nav>
+          </div>
+        </header>
+
+        <section className="mx-auto grid max-w-7xl items-start gap-8 px-4 pb-10 pt-10 sm:px-5 md:px-8 md:pb-12 md:pt-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-14 lg:pb-16 lg:pt-16">
+          <div className="space-y-7 lg:max-w-[42rem]">
+            <p className="inline-flex rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-[rgba(255,255,255,0.70)]">
+              ASP.NET / SQL Server / Web APIs / React
+            </p>
+
+            <div className="space-y-5">
+              <h1 className="text-4xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl lg:text-6xl lg:leading-tight">
+                {data.headline}
+              </h1>
+              <p className="max-w-2xl text-base leading-relaxed text-[rgba(255,255,255,0.70)] md:text-lg">
+                {data.lead}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-2.5">
+              {data.heroChips.map((chip) => (
+                <span
+                  key={chip}
+                  className="rounded-full border border-[rgba(245,158,11,0.35)] bg-[rgba(245,158,11,0.16)] px-3 py-1.5 text-xs font-medium text-[rgba(255,255,255,0.92)] md:text-sm"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="#work"
+                className="rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(59,130,246,0.30)] transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1220]"
+              >
+                View Featured Project
+              </a>
+              <a
+                href="#contact"
+                className="rounded-xl border border-[rgba(255,255,255,0.24)] bg-transparent px-5 py-3 text-sm font-semibold text-[rgba(255,255,255,0.92)] transition hover:-translate-y-0.5 hover:bg-[rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+              >
+                Contact Me
+              </a>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 text-sm text-[rgba(255,255,255,0.70)]">
+              {data.socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-3 py-1.5 transition hover:text-[rgba(255,255,255,0.92)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18rem] lg:mx-0">
+            <article className="group relative rounded-3xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] p-4 shadow-[0_20px_60px_rgba(2,6,23,0.35)] transition hover:-translate-y-1">
+              <div className="relative overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)]">
+                <img
+                  src={profilePhoto}
+                  alt={`${data.name} portrait`}
+                  width={800}
+                  height={1000}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="aspect-[4/5] w-full object-cover object-center"
+                />
+                <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(11,18,32,0.78)] px-3 py-1.5 text-center text-[11px] font-medium leading-tight text-[rgba(255,255,255,0.92)] backdrop-blur">
+                  <span className="block">Available for</span>
+                  <span className="block">Full-time / Long-term contract</span>
+                </div>
+              </div>
+            </article>
+
+            <div className="mt-4 grid grid-cols-1 gap-3">
+              <div className="rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] p-4 text-sm text-[rgba(255,255,255,0.92)] shadow-[0_12px_30px_rgba(2,6,23,0.25)] transition hover:-translate-y-1">
+                High-availability APIs
+              </div>
+              <div className="rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] p-4 text-sm text-[rgba(255,255,255,0.92)] shadow-[0_12px_30px_rgba(2,6,23,0.25)] transition hover:-translate-y-1">
+                ERP & internal systems
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        <section id="about" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
+          <div className="rounded-3xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 shadow-[0_18px_50px_rgba(15,23,42,0.14)] sm:p-6 md:p-10">
+            <div className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#475569]">{data.about.eyebrow}</p>
+              <h2 className="text-2xl font-semibold tracking-tight text-[#0F172A] md:text-3xl">About</h2>
+              <p className="text-sm leading-relaxed text-[#334155] md:text-base">{data.about.subheadline}</p>
+            </div>
+            <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="space-y-5 lg:max-w-[34rem]">
+                {data.about.paragraphs.map((text) => (
+                  <p key={text} className="text-base leading-relaxed text-[#334155]">
+                    {text}
+                  </p>
+                ))}
+              </div>
+              <ul className="space-y-4 text-sm leading-relaxed text-[#334155] md:text-base lg:border-l lg:border-[#E2E8F0] lg:pl-8">
+                {data.about.highlights.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        <section id="work" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
+          <div className="space-y-2.5">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Case Study</p>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Featured Project</h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
+              A production-focused, full-stack build showcasing secure collaboration, domain-heavy costing logic, and responsive operational workflows.
+            </p>
+          </div>
+
+          <article className="mt-5 grid items-start gap-6 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_60px_rgba(2,6,23,0.35)] transition hover:-translate-y-1 sm:p-5 md:mt-7 md:gap-8 md:p-8 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.04)] p-4 sm:p-5">
+              <div className="flex items-center gap-2 border-b border-[rgba(255,255,255,0.10)] pb-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]" />
+                <span className="ml-2 text-xs text-[rgba(255,255,255,0.70)]">{featuredProject.browserLabel}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  const coverIndex = featuredProject.galleryImages.findIndex((image) => image === featuredProject.coverImage);
+                  openGallery(resolvedFeaturedProjectIndex, coverIndex >= 0 ? coverIndex : 0);
+                }}
+                className="group mt-4 block w-full overflow-hidden rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.03)] text-left transition hover:border-[rgba(59,130,246,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+              >
+                <img
+                  src={featuredProject.coverImage}
+                  alt={featuredProject.coverAlt}
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                />
+                <div className="flex items-center justify-between border-t border-[rgba(255,255,255,0.10)] bg-[rgba(11,18,32,0.70)] px-3 py-2 text-[11px] text-[rgba(255,255,255,0.84)] backdrop-blur">
+                  <span>Open gallery</span>
+                  <span>{featuredProject.galleryImages.length} screenshots</span>
+                </div>
+              </button>
+            </div>
+
+            <div className="space-y-6 lg:pt-1">
+              <div className="space-y-3">
+                <h3 className="text-2xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)]">
+                  {featuredProject.title}
+                </h3>
+                <p className="text-base leading-relaxed text-[rgba(255,255,255,0.70)]">
+                  {featuredProject.subtitle}
+                </p>
+              </div>
+
+              <ul className="space-y-2 text-sm leading-relaxed text-[rgba(255,255,255,0.92)] md:text-base">
+                {featuredProject.bullets.map((bullet) => (
+                  <li key={bullet} className="flex items-start gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2.5">
+                {featuredProject.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-3 py-1.5 text-xs font-medium text-[rgba(255,255,255,0.92)]"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={featuredProject.links.liveDemo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                >
+                  Live Demo
+                </a>
+                <a
+                  href={featuredProject.links.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-xl border border-[rgba(255,255,255,0.22)] px-5 py-3 text-sm font-semibold text-[rgba(255,255,255,0.92)] transition hover:-translate-y-0.5 hover:bg-[rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                >
+                  GitHub Repo
+                </a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <SectionDivider />
+
+        <section id="skills" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
+          <div className="space-y-2.5">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Capability Map</p>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Skills & Tools</h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
+              Core technologies and delivery tooling used to build, ship, and support enterprise-grade applications.
+            </p>
+          </div>
+          <div className="mt-5 grid gap-4 md:mt-7 md:gap-5 md:grid-cols-2">
+            {data.skillGroups.map((group) => (
+              <article
+                key={group.title}
+                className="group rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-5 shadow-[0_18px_50px_rgba(2,6,23,0.30)] transition hover:-translate-y-1 hover:border-[rgba(59,130,246,0.45)] md:p-6"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: group.accent }} />
+                      <h3 className="text-lg font-semibold tracking-tight">{group.title}</h3>
+                    </div>
+                    <p className="text-xs leading-relaxed text-[rgba(255,255,255,0.62)] transition group-hover:text-[rgba(255,255,255,0.78)]">
+                      {group.focus}
+                    </p>
+                  </div>
+                  <span
+                    className="rounded-full border px-2.5 py-1 text-[11px] font-medium text-[rgba(255,255,255,0.86)]"
+                    style={{ borderColor: `${group.accent}66`, backgroundColor: `${group.accent}1A` }}
+                  >
+                    {group.items.length} skills
+                  </span>
+                </div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {group.items.map((item) => {
+                    const isPrimary = primarySkillSet.has(item.toLowerCase());
+                    return (
+                      <span
+                        key={item}
+                        className={
+                          isPrimary
+                            ? "rounded-full border border-[rgba(59,130,246,0.50)] bg-[rgba(59,130,246,0.18)] px-3 py-1.5 text-xs font-medium text-[rgba(255,255,255,0.96)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
+                            : "rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-3 py-1.5 text-xs text-[rgba(255,255,255,0.92)]"
+                        }
+                      >
+                        {item}
+                      </span>
+                    );
+                  })}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        <section id="contact" className="mx-auto max-w-7xl px-4 pb-12 pt-10 sm:px-5 md:px-8 md:pb-20 md:pt-14 lg:pt-16 lg:pb-20">
+          <div className="space-y-2.5">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Get In Touch</p>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Contact</h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
+              Let&apos;s discuss backend-focused projects, system modernization, or long-term product collaboration.
+            </p>
+          </div>
+          <div className="mt-5 grid gap-6 md:mt-7 md:gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="space-y-5 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)] p-5 shadow-[0_18px_50px_rgba(2,6,23,0.26)] md:p-6">
+              <h3 className="text-xl font-semibold tracking-tight md:text-2xl">Let&apos;s connect</h3>
+              <p className="max-w-xl text-base leading-relaxed text-[rgba(255,255,255,0.70)] md:text-lg">
+                If you&apos;re building a backend-heavy product or modernizing an internal system, I&apos;d be glad to discuss how I can help.
+              </p>
+
+              <div className="flex flex-wrap gap-2 text-xs">
+                <span className="rounded-full border border-[rgba(59,130,246,0.45)] bg-[rgba(59,130,246,0.18)] px-3 py-1.5 font-medium text-[rgba(255,255,255,0.94)]">
+                  {data.contact.location}
+                </span>
+                <span className="rounded-full border border-[rgba(16,185,129,0.45)] bg-[rgba(16,185,129,0.16)] px-3 py-1.5 font-medium text-[rgba(255,255,255,0.94)]">
+                  {data.contact.responseTime}
+                </span>
+              </div>
+
+              <p className="text-sm leading-relaxed text-[rgba(255,255,255,0.74)]">{data.contact.engagement}</p>
+
+              <div className="grid gap-2.5 sm:grid-cols-2">
+                {data.contact.channels.map((channel) => (
+                  <a
+                    key={channel.label}
+                    href={channel.href}
+                    target={channel.href.startsWith("http") ? "_blank" : undefined}
+                    rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
+                    className={`rounded-2xl border px-3.5 py-3 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
+                      channel.primary
+                        ? "border-[rgba(59,130,246,0.52)] bg-[rgba(59,130,246,0.16)] hover:border-[rgba(59,130,246,0.78)]"
+                        : "border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] hover:border-[rgba(14,165,233,0.56)]"
+                    }`}
+                    style={!channel.primary ? { boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.03)" } : undefined}
+                  >
+                    <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-[rgba(255,255,255,0.68)]">{channel.label}</span>
+                    <span className="mt-1 block text-sm font-medium text-[rgba(255,255,255,0.96)]">{channel.value}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <form
+              onSubmit={(event) => event.preventDefault()}
+              className="rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.30)] sm:p-5 md:p-7"
+            >
+              <div className="space-y-4">
+                <label className="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+                  Name
+                  <input
+                    type="text"
+                    name="name"
+                    className="mt-1.5 w-full rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2.5 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
+                    placeholder="Your name"
+                  />
+                </label>
+
+                <label className="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    className="mt-1.5 w-full rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2.5 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
+                    placeholder="you@example.com"
+                  />
+                </label>
+
+                <label className="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+                  Message
+                  <textarea
+                    name="message"
+                    rows={4}
+                    className="mt-1.5 w-full resize-y rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-3 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
+                    placeholder="How can I help?"
+                  />
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                className="mt-5 inline-flex rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+              >
+                Send
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <footer className="border-t border-[rgba(255,255,255,0.10)]">
+          <div className="mx-auto max-w-7xl px-4 py-7 sm:px-5 md:px-8 md:py-8">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div className="space-y-2">
+                <p className="text-sm font-semibold tracking-tight text-[rgba(255,255,255,0.92)]">{data.name}</p>
+                <p className="max-w-md text-sm leading-relaxed text-[rgba(255,255,255,0.70)]">{data.footer.note}</p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[rgba(255,255,255,0.74)] md:justify-end">
+                  {data.nav.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="rounded-full px-1 py-0.5 transition hover:text-[rgba(255,255,255,0.94)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+                <div className="flex flex-wrap items-center gap-2 md:justify-end">
+                  {data.footer.social.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                      className="rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] px-3 py-1.5 text-xs text-[rgba(255,255,255,0.86)] transition hover:border-[rgba(59,130,246,0.52)] hover:text-[rgba(255,255,255,0.96)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 border-t border-[rgba(255,255,255,0.10)] pt-4 text-xs text-[rgba(255,255,255,0.66)]">
+              © {year} {data.name}
+            </div>
+          </div>
+        </footer>
+      </div>
+
+      {isGalleryOpen && activeProject && activeImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${activeProject.title} screenshots`}
+          className="fixed inset-0 z-[90] flex items-center justify-center bg-[rgba(2,6,23,0.84)] p-4 backdrop-blur-md md:p-8"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              closeGallery();
+            }
+          }}
+        >
+          <div className="w-full max-w-6xl overflow-hidden rounded-3xl border border-[rgba(255,255,255,0.16)] bg-[rgba(11,18,32,0.92)] shadow-[0_30px_90px_rgba(2,6,23,0.75)]">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[rgba(255,255,255,0.10)] px-4 py-3 md:px-6">
+                <div>
+                  <p className="text-sm font-semibold text-[rgba(255,255,255,0.92)]">{activeProject.title}</p>
+                  <p className="text-xs text-[rgba(255,255,255,0.70)]">
+                    Screenshot {activeImageIndex + 1} of {activeGallery.length}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-[rgba(255,255,255,0.70)]">
+                  <button
+                    type="button"
+                    onClick={closeGallery}
+                    aria-label="Close gallery"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(255,255,255,0.16)] bg-[rgba(255,255,255,0.06)] text-[rgba(255,255,255,0.92)] transition hover:scale-105 hover:border-[rgba(59,130,246,0.65)] hover:bg-[rgba(59,130,246,0.20)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden className="h-4.5 w-4.5" fill="none">
+                      <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+            <div className="relative px-3 pb-3 pt-4 md:px-6 md:pb-6 md:pt-6">
+              <img
+                src={activeImage}
+                alt={`${activeProject.title} screenshot ${activeImageIndex + 1}`}
+                loading="eager"
+                decoding="async"
+                className="mx-auto max-h-[74vh] w-full rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.04)] object-contain"
+              />
+
+              {activeGallery.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={showPreviousImage}
+                    aria-label="Previous screenshot"
+                    className="absolute left-3 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-2xl border border-[rgba(255,255,255,0.22)] bg-[linear-gradient(180deg,_rgba(15,23,42,0.95)_0%,_rgba(30,41,59,0.85)_100%)] text-[rgba(255,255,255,0.96)] shadow-[0_12px_30px_rgba(2,6,23,0.55)] backdrop-blur-md transition duration-200 hover:-translate-y-1/2 hover:scale-105 hover:border-[rgba(59,130,246,0.70)] hover:bg-[linear-gradient(180deg,_rgba(30,58,138,0.75)_0%,_rgba(30,64,175,0.55)_100%)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] md:left-5"
+                  >
+                    <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[rgba(255,255,255,0.10)]" />
+                    <svg viewBox="0 0 24 24" aria-hidden className="relative h-5 w-5" fill="none">
+                      <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showNextImage}
+                    aria-label="Next screenshot"
+                    className="absolute right-3 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-2xl border border-[rgba(255,255,255,0.22)] bg-[linear-gradient(180deg,_rgba(15,23,42,0.95)_0%,_rgba(30,41,59,0.85)_100%)] text-[rgba(255,255,255,0.96)] shadow-[0_12px_30px_rgba(2,6,23,0.55)] backdrop-blur-md transition duration-200 hover:-translate-y-1/2 hover:scale-105 hover:border-[rgba(59,130,246,0.70)] hover:bg-[linear-gradient(180deg,_rgba(30,58,138,0.75)_0%,_rgba(30,64,175,0.55)_100%)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] md:right-5"
+                  >
+                    <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-[rgba(255,255,255,0.10)]" />
+                    <svg viewBox="0 0 24 24" aria-hidden className="relative h-5 w-5" fill="none">
+                      <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                </>
+              )}
+            </div>
+
+            {activeGallery.length > 1 && (
+              <div className="flex flex-wrap items-center justify-center gap-2 border-t border-[rgba(255,255,255,0.10)] px-4 py-3 md:px-6">
+                {activeGallery.map((image, index) => (
+                  <button
+                    key={image}
+                    type="button"
+                    onClick={() => setActiveImageIndex(index)}
+                    aria-label={`View screenshot ${index + 1}`}
+                    className={`h-2.5 rounded-full transition ${
+                      activeImageIndex === index
+                        ? "w-7 bg-[#3B82F6]"
+                        : "w-2.5 bg-[rgba(255,255,255,0.30)] hover:bg-[rgba(255,255,255,0.55)]"
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </main>
+  );
+}
