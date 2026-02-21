@@ -27,27 +27,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to Firebase Hosting (Service Account)
-        if: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JUSTINTAGARDA_PORTFOLIO != '' || secrets.FIREBASE_SERVICE_ACCOUNT != '' }}
+      - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JUSTINTAGARDA_PORTFOLIO != '' && secrets.FIREBASE_SERVICE_ACCOUNT_JUSTINTAGARDA_PORTFOLIO || secrets.FIREBASE_SERVICE_ACCOUNT }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JUSTINTAGARDA_PORTFOLIO }}
           channelId: live
           projectId: justintagarda-portfolio
-
-      - name: Deploy to Firebase Hosting (Token Fallback)
-        if: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JUSTINTAGARDA_PORTFOLIO == '' && secrets.FIREBASE_SERVICE_ACCOUNT == '' && secrets.FIREBASE_TOKEN != '' }}
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseToken: ${{ secrets.FIREBASE_TOKEN }}
-          channelId: live
-          projectId: justintagarda-portfolio
-
-      - name: Fail if Firebase credentials are missing
-        if: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JUSTINTAGARDA_PORTFOLIO == '' && secrets.FIREBASE_SERVICE_ACCOUNT == '' && secrets.FIREBASE_TOKEN == '' }}
-        run: |
-          echo "Missing Firebase credentials secret."
-          echo "Add FIREBASE_SERVICE_ACCOUNT_JUSTINTAGARDA_PORTFOLIO (recommended), FIREBASE_SERVICE_ACCOUNT, or FIREBASE_TOKEN in GitHub repo secrets."
-          exit 1
