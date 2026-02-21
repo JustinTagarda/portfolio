@@ -23,18 +23,9 @@ My work is centered on reliability, clarity, and execution quality: systems that
 - Contact-oriented section tailored for client inquiries
 - Responsive design optimized for desktop and mobile
 
-## Featured Case Study
+## Project Showcases
 
-### Product Costing
-Cloud-based product costing and operations workspace for small businesses.
-
-Key capabilities highlighted:
-- Google OAuth sign-in with persistent sessions
-- Role-based collaboration (`owner`, `editor`, `viewer`)
-- Access enforcement with Supabase RLS + RPC
-- Costing engine (BOM rollups, weighted purchase costs, waste/markup/tax)
-- Mobile/tablet-friendly editors for operational workflows
-- Import/export tooling and audit history
+The portfolio includes project case studies directly on the page, each focused on real-world product delivery, technical depth, and production quality. These showcases highlight architecture decisions, implementation details, and business-facing outcomes.
 
 Live demo:
 - https://costing.justintagarda.com
