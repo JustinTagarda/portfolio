@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import profilePhoto from "./assets/images/profile-photo.webp";
+
+type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
 
 const data = {
   name: "Justiniano Tagarda",
@@ -137,6 +139,9 @@ const data = {
   ],
 };
 
+const formspreeEndpoint =
+  import.meta.env.VITE_FORMSPREE_ENDPOINT?.trim() || "https://formspree.io/f/mpqjyoov";
+
 function SectionDivider() {
   return (
     <div aria-hidden className="mx-auto max-w-7xl px-5 md:px-8">
@@ -153,6 +158,8 @@ export default function App() {
 
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [contactStatus, setContactStatus] = useState<ContactSubmitStatus>("idle");
+  const [contactFeedback, setContactFeedback] = useState("");
 
   const activeProject = activeProjectIndex !== null ? data.projects[activeProjectIndex] : null;
   const activeGallery = activeProject?.galleryImages ?? [];
@@ -177,6 +184,82 @@ export default function App() {
   const showNextImage = () => {
     if (activeGallery.length <= 1) return;
     setActiveImageIndex((current) => (current + 1) % activeGallery.length);
+  };
+
+  const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+
+    if (!formspreeEndpoint) {
+      setContactStatus("error");
+      setContactFeedback(`Contact form is not configured yet. Please email ${data.contact.email}.`);
+      return;
+    }
+
+    const formData = new FormData(form);
+    const honeypotValue = formData.get("_gotcha");
+    if (typeof honeypotValue === "string" && honeypotValue.trim().length > 0) {
+      return;
+    }
+
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+
+    if (!name || !email || !message) {
+      setContactStatus("error");
+      setContactFeedback("Please complete all required fields.");
+      return;
+    }
+
+    setContactStatus("sending");
+    setContactFeedback("");
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _subject: `Portfolio inquiry from ${name}`,
+        }),
+      });
+
+      if (!response.ok) {
+        let errorMessage = "Unable to send your message right now. Please try again shortly.";
+
+        try {
+          const payload = (await response.json()) as { errors?: Array<{ message?: string }> };
+          const apiMessage = payload.errors
+            ?.map((entry) => entry.message?.trim())
+            .filter((entry): entry is string => Boolean(entry))
+            .join(", ");
+
+          if (apiMessage) {
+            errorMessage = apiMessage;
+          }
+        } catch {
+          // Keep default fallback error message.
+        }
+
+        throw new Error(errorMessage);
+      }
+
+      setContactStatus("success");
+      setContactFeedback("Message sent. I will get back to you soon.");
+      form.reset();
+    } catch (error) {
+      const fallback = "Unable to send your message right now. Please email me directly.";
+      const errorMessage = error instanceof Error ? error.message : fallback;
+      setContactStatus("error");
+      setContactFeedback(errorMessage);
+    }
   };
 
   useEffect(() => {
@@ -556,15 +639,26 @@ export default function App() {
             </div>
 
             <form
-              onSubmit={(event) => event.preventDefault()}
+              onSubmit={handleContactSubmit}
+              noValidate
               className="rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.30)] sm:p-5 md:p-7"
             >
+              <input
+                type="text"
+                name="_gotcha"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+              />
+
               <div className="space-y-4">
                 <label className="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
                   Name
                   <input
                     type="text"
                     name="name"
+                    required
                     className="mt-1.5 w-full rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2.5 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
                     placeholder="Your name"
                   />
@@ -575,6 +669,7 @@ export default function App() {
                   <input
                     type="email"
                     name="email"
+                    required
                     className="mt-1.5 w-full rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2.5 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
                     placeholder="you@example.com"
                   />
@@ -585,6 +680,7 @@ export default function App() {
                   <textarea
                     name="message"
                     rows={4}
+                    required
                     className="mt-1.5 w-full resize-y rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-3 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
                     placeholder="How can I help?"
                   />
@@ -593,10 +689,26 @@ export default function App() {
 
               <button
                 type="submit"
-                className="mt-5 inline-flex rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                disabled={contactStatus === "sending"}
+                className={`mt-5 inline-flex rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
+                  contactStatus === "sending"
+                    ? "cursor-not-allowed opacity-75"
+                    : "hover:-translate-y-0.5 hover:brightness-110"
+                }`}
               >
-                Send
+                {contactStatus === "sending" ? "Sending..." : "Send"}
               </button>
+
+              {contactFeedback && (
+                <p
+                  role={contactStatus === "error" ? "alert" : "status"}
+                  className={`mt-3 text-sm leading-relaxed ${
+                    contactStatus === "success" ? "text-[#86EFAC]" : "text-[#FCA5A5]"
+                  }`}
+                >
+                  {contactFeedback}
+                </p>
+              )}
             </form>
           </div>
         </section>
