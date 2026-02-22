@@ -28,6 +28,8 @@ Every new session should read this file first before re-scanning the project.
 - App type: static SPA portfolio.
 - Architecture: single React app, no backend code in this repo, no API calls observed.
 - Main implementation is centralized in `src/App.tsx:4` (large in-file `data` object + full UI rendering).
+- Work Experience section is implemented and rendered from `resume.json` data.
+- Featured project gallery images are now loaded via `src/assets` imports (bundler-managed paths).
 - Contact form is wired to Formspree via frontend POST, with env override support and default endpoint fallback.
 - Build/deploy pipeline is configured and working (lint/build passed, Firebase deploy workflow present).
 - Working tree state during analysis: clean (`git status --short` returned no changes).
@@ -141,57 +143,72 @@ Config highlights:
 
 Primary anchors:
 
-- Central data model starts at `src/App.tsx:4`
-- `SectionDivider` component at `src/App.tsx:140`
-- Main app component at `src/App.tsx:148`
+- Central data model starts at `src/App.tsx:18`
+- `SectionDivider` component at `src/App.tsx:161`
+- Main app component at `src/App.tsx:169`
 
 Rendered sections:
 
-- About section: `src/App.tsx:334`
-- Work section: `src/App.tsx:363`
-- Skills section: `src/App.tsx:456`
-- Contact section: `src/App.tsx:511`
+- About section: `src/App.tsx:433`
+- Experience section: `src/App.tsx:462`
+- Work section: `src/App.tsx:537`
+- Skills section: `src/App.tsx:630`
+- Contact section: `src/App.tsx:685`
 
 Navigation:
 
-- Nav data array at `src/App.tsx:132`
+- Nav data array at `src/App.tsx:146` (includes `#experience`)
 - Header nav links + CTA render near top of component.
+
+### Work Experience Section
+
+- Resume data source:
+  - imported raw JSON: `src/App.tsx:3`
+  - parsed resume object: `src/App.tsx:157`
+  - mapped timeline items: `src/App.tsx:158`
+- Section renders in timeline/card layout with dark-theme styling:
+  - section root: `src/App.tsx:462`
+  - timeline map: `src/App.tsx:498`
+  - sticky-style snapshot card metrics: `src/App.tsx:475`
 
 ## Key Feature Behavior
 
 ### Featured Project + Gallery Modal
 
-- Project list exists in data (`src/App.tsx:28`) with `featured: true` (`src/App.tsx:31`).
-- Gallery images array at `src/App.tsx:37`.
-- Cover click opens modal at selected image (`src/App.tsx:383`).
-- Screenshot count shown (`src/App.tsx:397`).
+- Project list exists in data (`src/App.tsx:27`) with `featured: true` (`src/App.tsx:54`).
+- Featured cover + gallery images use imported assets from:
+  - `src/assets/projects/product-costing/`
+  - image imports begin at `src/App.tsx:4`
+- Gallery images array in project data at `src/App.tsx:60`.
+- Cover click opens modal at selected image (`src/App.tsx:565`).
+- Screenshot count shown (`src/App.tsx:579`).
 - Modal state uses:
   - `activeProjectIndex`
   - `activeImageIndex`
   - `activeGallery`
-- Keyboard/UX behavior in `useEffect` (`src/App.tsx:182`):
-  - Locks body scroll on open (`src/App.tsx:186`)
-  - Restores previous overflow on cleanup (`src/App.tsx:208`)
+- Keyboard/UX behavior in `useEffect` (`src/App.tsx:290`):
+  - Locks body scroll on open (`src/App.tsx:294`)
+  - Restores previous overflow on cleanup (`src/App.tsx:316`)
   - `Escape` closes
-  - `ArrowLeft` previous (`src/App.tsx:196`)
-  - `ArrowRight` next (`src/App.tsx:200`)
+  - `ArrowLeft` previous (`src/App.tsx:304`)
+  - `ArrowRight` next (`src/App.tsx:308`)
 
 ### Contact Form
 
 - Form submits via Formspree endpoint from client-side handler:
-  - endpoint resolution (env override + default): `src/App.tsx:142`
+  - endpoint resolution (env override + default): `src/App.tsx:164`
   - current default endpoint: `https://formspree.io/f/mpqjyoov`
-  - submit handler: `src/App.tsx:189`
-  - request send via `fetch`: `src/App.tsx:220`
-  - success message state: `src/App.tsx:255`
+  - submit handler: `src/App.tsx:213`
+  - request send via `fetch`: `src/App.tsx:244`
+  - success message state: `src/App.tsx:279`
 - Configuration:
   - `VITE_FORMSPREE_ENDPOINT` defined in `.env.example:1`
   - local runtime value set in `.env.local:1`
 - Spam mitigation:
-  - hidden `_gotcha` honeypot field at `src/App.tsx:648`
+  - hidden `_gotcha` honeypot field at `src/App.tsx:748`
 - UX states:
-  - button disabled while sending (`src/App.tsx:692`)
-  - sending label toggle (`src/App.tsx:699`)
+  - button disabled while sending (`src/App.tsx:792`)
+  - sending label toggle (`src/App.tsx:799`)
 
 ### Social Links Consistency
 
@@ -238,6 +255,18 @@ From `index.html`:
 
 ## Asset Notes
 
+`src/assets/projects/product-costing` (active source used by gallery/cover):
+
+- `cover.webp` 39,494 B
+- `Screenshot-01.png` 94,719 B
+- `Screenshot-02.png` 542,834 B
+- `Screenshot-03.png` 248,912 B
+- `Screenshot-04.png` 409,593 B
+- `Screenshot-05.png` 969,518 B
+- `Screenshot-06.png` 497,779 B
+- `Screenshot-07.png` 338,205 B
+- `Screenshot-08.png` 92,383 B
+
 `public/projects/product-costing` sizes observed:
 
 - `.gitkeep` 1 B
@@ -253,7 +282,6 @@ From `index.html`:
 
 Potentially unused artifacts from grep checks:
 
-- `resume.json` (no references found)
 - `src/assets/images/profile-photo.png` (no references found; `.webp` is used)
 - `public/projects/product-costing/cover.webp` (no references found)
 
@@ -264,6 +292,12 @@ Commands executed:
 - `npm run lint` -> passed.
 - `npm run build` -> passed.
 - Re-ran after Formspree integration:
+  - `npm run lint` -> passed.
+  - `npm run build` -> passed.
+- Re-ran after Experience section integration:
+  - `npm run lint` -> passed.
+  - `npm run build` -> passed.
+- Re-ran after featured gallery image source migration (`public` paths -> imported assets):
   - `npm run lint` -> passed.
   - `npm run build` -> passed.
 
@@ -280,9 +314,8 @@ Build output summary:
 - No tests were found (`rg --files -g "*test*" -g "*spec*"` returned none).
 - CI deploy workflow does not run lint/tests before deploy (build only).
 - Hero social links are partially placeholder links (`#`), potential UX credibility issue.
-- Contact form is non-functional by design at current state (visual only).
 - Large screenshot assets may impact load/perf over slower networks.
-- Core app content and layout are heavily centralized in one large file (`src/App.tsx`, ~686 lines), increasing merge and maintenance friction.
+- Core app content and layout are heavily centralized in one large file (`src/App.tsx`, ~875 lines), increasing merge and maintenance friction.
 
 ## Git Snapshot (during analysis)
 
@@ -322,6 +355,15 @@ npm run preview
 
 ## Recent Change Notes (append-only, newest first)
 
+- `2026-02-22`: Fixed featured project image reliability in local/dev rendering.
+  - Migrated gallery + cover image source from `/public/projects/...` string paths to imported assets under `src/assets/projects/product-costing/`.
+  - This ensures Vite-managed URLs and avoids base/path inconsistencies.
+  - Verified with lint + production build passes.
+- `2026-02-22`: Added initial Work Experience section design.
+  - Added `#experience` navigation entry and section between About and Work.
+  - Wired section content to `resume.json` (`work_experience`) and rendered as timeline cards.
+  - Kept existing theme direction (dark glass cards, blue/amber accents, rounded panels).
+  - Verified with lint + production build passes.
 - `2026-02-22`: Contact form implementation added with Formspree integration.
   - Added frontend submit handler, loading/success/error states, and response parsing in `src/App.tsx`.
   - Added hidden `_gotcha` honeypot field for basic bot filtering.

@@ -1,7 +1,28 @@
 import { useEffect, useState, type FormEvent } from "react";
 import profilePhoto from "./assets/images/profile-photo.webp";
+import resumeRaw from "../resume.json?raw";
+import productCostingCover from "./assets/projects/product-costing/Screenshot-02.png";
+import productCostingScreenshot01 from "./assets/projects/product-costing/Screenshot-01.png";
+import productCostingScreenshot02 from "./assets/projects/product-costing/Screenshot-02.png";
+import productCostingScreenshot03 from "./assets/projects/product-costing/Screenshot-03.png";
+import productCostingScreenshot04 from "./assets/projects/product-costing/Screenshot-04.png";
+import productCostingScreenshot05 from "./assets/projects/product-costing/Screenshot-05.png";
+import productCostingScreenshot06 from "./assets/projects/product-costing/Screenshot-06.png";
+import productCostingScreenshot07 from "./assets/projects/product-costing/Screenshot-07.png";
+import productCostingScreenshot08 from "./assets/projects/product-costing/Screenshot-08.png";
 
 type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
+type ResumeExperience = {
+  job_title: string;
+  company: string | null;
+  location: string | null;
+  start: string;
+  end: string;
+  responsibilities: string[];
+};
+type ResumeData = {
+  work_experience: ResumeExperience[];
+};
 
 const data = {
   name: "Justiniano Tagarda",
@@ -34,17 +55,17 @@ const data = {
       title: "Product Costing",
       subtitle: "Cloud-based product costing and operations workspace for small businesses.",
       browserLabel: "costing.justintagarda.com",
-      coverImage: "/projects/product-costing/Screenshot-02.png",
+      coverImage: productCostingCover,
       coverAlt: "Product Costing application screenshot",
       galleryImages: [
-        "/projects/product-costing/Screenshot-01.png",
-        "/projects/product-costing/Screenshot-02.png",
-        "/projects/product-costing/Screenshot-03.png",
-        "/projects/product-costing/Screenshot-04.png",
-        "/projects/product-costing/Screenshot-05.png",
-        "/projects/product-costing/Screenshot-06.png",
-        "/projects/product-costing/Screenshot-07.png",
-        "/projects/product-costing/Screenshot-08.png",
+        productCostingScreenshot01,
+        productCostingScreenshot02,
+        productCostingScreenshot03,
+        productCostingScreenshot04,
+        productCostingScreenshot05,
+        productCostingScreenshot06,
+        productCostingScreenshot07,
+        productCostingScreenshot08,
       ],
       bullets: [
         "Google OAuth sign-in + session persistence",
@@ -133,6 +154,7 @@ const data = {
   },
   nav: [
     { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
     { label: "Work", href: "#work" },
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
@@ -141,6 +163,9 @@ const data = {
 
 const formspreeEndpoint =
   import.meta.env.VITE_FORMSPREE_ENDPOINT?.trim() || "https://formspree.io/f/mpqjyoov";
+const resumeData = JSON.parse(resumeRaw) as ResumeData;
+const workExperiences = resumeData.work_experience;
+const currentlyActiveExperience = workExperiences.find((item) => item.end.toLowerCase().includes("present"));
 
 function SectionDivider() {
   return (
@@ -437,6 +462,81 @@ export default function App() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        <section id="experience" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
+          <div className="space-y-2.5">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">
+              Career Timeline
+            </p>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Work Experience</h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
+              Roles and delivery scope sourced from the current resume, focused on enterprise systems, backend APIs, and
+              long-term production support.
+            </p>
+          </div>
+
+          <div className="mt-5 grid items-start gap-5 md:mt-7 md:gap-6 lg:grid-cols-[18rem_minmax(0,1fr)]">
+            <aside className="space-y-3 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.30)] sm:p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[rgba(255,255,255,0.72)]">
+                Snapshot
+              </p>
+              <div className="space-y-2.5">
+                <div className="rounded-2xl border border-[rgba(59,130,246,0.36)] bg-[rgba(59,130,246,0.16)] px-3 py-2.5">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Experience</p>
+                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">15+ years</p>
+                </div>
+                <div className="rounded-2xl border border-[rgba(245,158,11,0.36)] bg-[rgba(245,158,11,0.14)] px-3 py-2.5">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Roles Listed</p>
+                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">{workExperiences.length}</p>
+                </div>
+                <div className="rounded-2xl border border-[rgba(16,185,129,0.36)] bg-[rgba(16,185,129,0.14)] px-3 py-2.5">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Current Track</p>
+                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">
+                    {currentlyActiveExperience?.job_title ?? "Freelance delivery"}
+                  </p>
+                </div>
+              </div>
+            </aside>
+
+            <div className="relative space-y-4 pl-6 before:absolute before:bottom-2 before:left-2 before:top-2 before:w-px before:bg-[linear-gradient(180deg,_rgba(59,130,246,0.65)_0%,_rgba(148,163,184,0.20)_45%,_rgba(245,158,11,0.55)_100%)]">
+              {workExperiences.map((role) => {
+                const companyLine = role.company ? role.company : "Freelance";
+                const metaLine = role.location ? `${companyLine} · ${role.location}` : companyLine;
+                return (
+                  <article
+                    key={`${role.job_title}-${role.start}`}
+                    className="relative rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.28)] transition hover:-translate-y-0.5 hover:border-[rgba(59,130,246,0.48)] sm:p-5"
+                  >
+                    <span className="absolute -left-[1.45rem] top-7 h-3 w-3 rounded-full border border-[#0B1220] bg-[#3B82F6] shadow-[0_0_0_4px_rgba(59,130,246,0.25)]" />
+
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-lg font-semibold tracking-tight text-[rgba(255,255,255,0.94)]">
+                          {role.job_title}
+                        </h3>
+                        <p className="mt-1 text-sm text-[rgba(255,255,255,0.72)]">{metaLine}</p>
+                      </div>
+                      <span className="rounded-full border border-[rgba(255,255,255,0.16)] bg-[rgba(255,255,255,0.06)] px-3 py-1 text-xs font-medium text-[rgba(255,255,255,0.88)]">
+                        {role.start} - {role.end}
+                      </span>
+                    </div>
+
+                    <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[rgba(255,255,255,0.90)] md:text-[15px]">
+                      {role.responsibilities.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
