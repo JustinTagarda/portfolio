@@ -1,6 +1,7 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useState, type FormEvent } from "react";
 import profilePhoto from "./assets/images/profile-photo.webp";
 import resumeRaw from "../resume.json?raw";
+import type { ResumeData } from "./components/ResumePdfDocument";
 import productCostingCover from "./assets/projects/product-costing/Screenshot-02.png";
 import productCostingScreenshot01 from "./assets/projects/product-costing/Screenshot-01.png";
 import productCostingScreenshot02 from "./assets/projects/product-costing/Screenshot-02.png";
@@ -17,17 +18,6 @@ import gedacCompanyWebsiteScreenshot04 from "./assets/projects/gedac-company-web
 import gedacCompanyWebsiteScreenshot05 from "./assets/projects/gedac-company-website/Screenshot-05.png";
 
 type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
-type ResumeExperience = {
-  job_title: string;
-  company: string | null;
-  location: string | null;
-  start: string;
-  end: string;
-  responsibilities: string[];
-};
-type ResumeData = {
-  work_experience: ResumeExperience[];
-};
 
 const data = {
   name: "Justiniano Tagarda",
@@ -226,6 +216,13 @@ export default function App() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [contactStatus, setContactStatus] = useState<ContactSubmitStatus>("idle");
   const [contactFeedback, setContactFeedback] = useState("");
+  const [isResumePreviewOpen, setIsResumePreviewOpen] = useState(false);
+  const [isResumePreviewLoading, setIsResumePreviewLoading] = useState(false);
+  const [isResumeDownloading, setIsResumeDownloading] = useState(false);
+  const [pdfProfilePhotoSrc, setPdfProfilePhotoSrc] = useState<string | null>(null);
+  const [resumePreviewUrl, setResumePreviewUrl] = useState<string | null>(null);
+  const [resumePdfBlob, setResumePdfBlob] = useState<Blob | null>(null);
+  const [resumeFeedback, setResumeFeedback] = useState("");
 
   const activeProject = activeProjectIndex !== null ? data.projects[activeProjectIndex] : null;
   const activeGallery = activeProject?.galleryImages ?? [];
@@ -251,6 +248,157 @@ export default function App() {
     if (activeGallery.length <= 1) return;
     setActiveImageIndex((current) => (current + 1) % activeGallery.length);
   };
+
+  const openResumePreview = () => {
+    setResumeFeedback("");
+    setIsResumePreviewOpen(true);
+  };
+
+  const getPdfProfilePhotoSrc = useCallback(async () => {
+    if (pdfProfilePhotoSrc) {
+      return pdfProfilePhotoSrc;
+    }
+
+    const convertedPhotoSrc = await new Promise<string>((resolve) => {
+      const image = new window.Image();
+      image.crossOrigin = "anonymous";
+
+      image.onload = () => {
+        try {
+          const width = image.naturalWidth || image.width;
+          const height = image.naturalHeight || image.height;
+          const canvas = document.createElement("canvas");
+          canvas.width = width;
+          canvas.height = height;
+          const context = canvas.getContext("2d");
+
+          if (!context || width === 0 || height === 0) {
+            resolve(profilePhoto);
+            return;
+          }
+
+          context.drawImage(image, 0, 0, width, height);
+          resolve(canvas.toDataURL("image/png"));
+        } catch {
+          resolve(profilePhoto);
+        }
+      };
+
+      image.onerror = () => resolve(profilePhoto);
+      image.src = profilePhoto;
+    });
+
+    setPdfProfilePhotoSrc(convertedPhotoSrc);
+    return convertedPhotoSrc;
+  }, [pdfProfilePhotoSrc]);
+
+  const generateResumePdfBlob = useCallback(async () => {
+    const { renderResumePdfBlob } = await import("./components/renderResumePdf");
+    const resolvedPhotoSrc = await getPdfProfilePhotoSrc();
+    return renderResumePdfBlob(resumeData, resolvedPhotoSrc);
+  }, [getPdfProfilePhotoSrc]);
+
+  const setResumePreviewUrlFromBlob = (blob: Blob) => {
+    const nextUrl = URL.createObjectURL(blob);
+    setResumePreviewUrl((currentUrl) => {
+      if (currentUrl) {
+        URL.revokeObjectURL(currentUrl);
+      }
+      return nextUrl;
+    });
+  };
+
+  const closeResumePreview = () => {
+    if (isResumeDownloading) return;
+    setIsResumePreviewOpen(false);
+    setIsResumePreviewLoading(false);
+    setResumePreviewUrl((currentUrl) => {
+      if (currentUrl) {
+        URL.revokeObjectURL(currentUrl);
+      }
+      return null;
+    });
+  };
+
+  const downloadResumePdf = async () => {
+    setIsResumeDownloading(true);
+    setResumeFeedback("");
+
+    try {
+      const pdfBlob =
+        resumePdfBlob ??
+        (await generateResumePdfBlob());
+
+      if (!resumePdfBlob) {
+        setResumePdfBlob(pdfBlob);
+      }
+
+      const pdfUrl = URL.createObjectURL(pdfBlob);
+      const link = document.createElement("a");
+      link.href = pdfUrl;
+      link.download = "Justiniano-Tagarda-Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(pdfUrl), 2000);
+
+      setResumeFeedback("Resume PDF downloaded.");
+    } catch {
+      setResumeFeedback("Unable to generate the PDF right now. Please try again.");
+    } finally {
+      setIsResumeDownloading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!isResumePreviewOpen) return;
+
+    setResumeFeedback("");
+
+    if (resumePdfBlob) {
+      setIsResumePreviewLoading(false);
+      setResumePreviewUrlFromBlob(resumePdfBlob);
+      return;
+    }
+
+    let isCancelled = false;
+    setIsResumePreviewLoading(true);
+
+    const renderResumePreview = async () => {
+      try {
+        const nextBlob = await generateResumePdfBlob();
+        if (isCancelled) return;
+        setResumePdfBlob(nextBlob);
+        setResumePreviewUrlFromBlob(nextBlob);
+      } catch {
+        if (!isCancelled) {
+          setResumeFeedback("Unable to render the resume preview right now. Please try again.");
+        }
+      } finally {
+        if (!isCancelled) {
+          setIsResumePreviewLoading(false);
+        }
+      }
+    };
+
+    void renderResumePreview();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [generateResumePdfBlob, isResumePreviewOpen, resumePdfBlob]);
+
+  useEffect(() => {
+    if (isResumePreviewOpen) return;
+
+    setIsResumePreviewLoading(false);
+    setResumePreviewUrl((currentUrl) => {
+      if (currentUrl) {
+        URL.revokeObjectURL(currentUrl);
+      }
+      return null;
+    });
+  }, [isResumePreviewOpen]);
 
   const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -359,6 +507,26 @@ export default function App() {
     };
   }, [isGalleryOpen, activeGallery.length]);
 
+  useEffect(() => {
+    if (!isResumePreviewOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && !isResumeDownloading) {
+        setIsResumePreviewOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isResumePreviewOpen, isResumeDownloading]);
+
   return (
     <main className="relative min-h-screen overflow-x-clip bg-[#0B1220] text-[rgba(255,255,255,0.92)]">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
@@ -432,6 +600,13 @@ export default function App() {
               >
                 Contact Me
               </a>
+              <button
+                type="button"
+                onClick={openResumePreview}
+                className="rounded-xl border border-[rgba(59,130,246,0.40)] bg-[rgba(59,130,246,0.16)] px-5 py-3 text-sm font-semibold text-[rgba(255,255,255,0.96)] transition hover:-translate-y-0.5 hover:border-[rgba(59,130,246,0.68)] hover:bg-[rgba(59,130,246,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+              >
+                Download Resume
+              </button>
             </div>
 
             <div className="flex flex-wrap items-center gap-3 text-sm text-[rgba(255,255,255,0.70)]">
@@ -893,6 +1068,13 @@ export default function App() {
                       {link.label}
                     </a>
                   ))}
+                  <button
+                    type="button"
+                    onClick={openResumePreview}
+                    className="rounded-xl border border-[rgba(59,130,246,0.40)] bg-[rgba(59,130,246,0.16)] px-4 py-2 text-xs font-semibold text-[rgba(255,255,255,0.96)] transition hover:-translate-y-0.5 hover:border-[rgba(59,130,246,0.68)] hover:bg-[rgba(59,130,246,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                  >
+                    Download Resume
+                  </button>
                 </div>
               </div>
             </div>
@@ -903,6 +1085,71 @@ export default function App() {
           </div>
         </footer>
       </div>
+
+      {isResumePreviewOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Resume PDF preview"
+          className="fixed inset-0 z-[88] flex items-center justify-center bg-[rgba(2,6,23,0.86)] p-3 backdrop-blur-md md:p-6"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              closeResumePreview();
+            }
+          }}
+        >
+          <div className="flex max-h-[94vh] w-full max-w-[98vw] flex-col overflow-hidden rounded-3xl border border-[rgba(255,255,255,0.16)] bg-[rgba(11,18,32,0.94)] shadow-[0_30px_90px_rgba(2,6,23,0.78)] md:max-w-[94vw]">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[rgba(255,255,255,0.10)] px-4 py-3 md:px-6">
+              <div>
+                <p className="text-sm font-semibold text-[rgba(255,255,255,0.94)]">Resume Preview</p>
+                <p className="text-xs text-[rgba(255,255,255,0.70)]">A4 format • Download ready PDF</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={downloadResumePdf}
+                  disabled={isResumeDownloading}
+                  className={`rounded-xl bg-[#3B82F6] px-4 py-2 text-xs font-semibold text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
+                    isResumeDownloading ? "cursor-not-allowed opacity-75" : "hover:brightness-110"
+                  }`}
+                >
+                  {isResumeDownloading ? "Generating..." : "Download PDF"}
+                </button>
+                <button
+                  type="button"
+                  onClick={closeResumePreview}
+                  disabled={isResumeDownloading}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(255,255,255,0.16)] bg-[rgba(255,255,255,0.06)] text-[rgba(255,255,255,0.92)] transition hover:scale-105 hover:border-[rgba(59,130,246,0.65)] hover:bg-[rgba(59,130,246,0.20)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden className="h-4.5 w-4.5" fill="none">
+                    <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div className="h-[80vh] bg-[rgba(2,6,23,0.50)] p-2 md:h-[84vh] md:p-4">
+              {resumePreviewUrl ? (
+                <iframe
+                  title="Resume PDF preview"
+                  src={resumePreviewUrl}
+                  className="h-full w-full rounded-2xl border border-[rgba(255,255,255,0.16)] bg-white"
+                />
+              ) : (
+                <div className="flex h-full items-center justify-center rounded-2xl border border-[rgba(255,255,255,0.16)] bg-[rgba(255,255,255,0.04)] px-4 text-center text-sm text-[rgba(255,255,255,0.76)]">
+                  {isResumePreviewLoading ? "Rendering PDF preview..." : "Preview unavailable. Use Download PDF to try again."}
+                </div>
+              )}
+            </div>
+
+            {resumeFeedback && (
+              <p className="border-t border-[rgba(255,255,255,0.10)] px-4 py-3 text-sm text-[rgba(255,255,255,0.84)] md:px-6">
+                {resumeFeedback}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
 
       {isGalleryOpen && activeProject && activeImage && (
         <div

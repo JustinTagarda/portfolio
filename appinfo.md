@@ -31,6 +31,8 @@ Every new session should read this file first before re-scanning the project.
 - Work Experience section is implemented and rendered from `resume.json` data.
 - Work section now supports multiple featured projects rendered from the same project data model.
 - Featured gallery images are loaded via `src/assets` imports (bundler-managed paths).
+- Resume PDF feature is implemented with in-app preview modal and A4 download action.
+- Resume layout/design status: `DONE` (single-page A4, preview/download parity, aligned capsules/chips).
 - Contact form is wired to Formspree via frontend POST, with env override support and default endpoint fallback.
 - Build/deploy pipeline is configured and working (lint/build passed, Firebase deploy workflow present).
 - Working tree state during analysis: clean (`git status --short` returned no changes).
@@ -111,8 +113,9 @@ From `package.json`:
   - `lint`: `eslint .` (`package.json:9`)
   - `preview`: `vite preview` (`package.json:10`)
 - Runtime deps:
-  - `react` `^19.2.0` (`package.json:13`)
-  - `react-dom` `^19.2.0` (`package.json:14`)
+  - `@react-pdf/renderer` `^4.3.2` (`package.json:13`)
+  - `react` `^19.2.0` (`package.json:14`)
+  - `react-dom` `^19.2.0` (`package.json:15`)
 - Key dev deps:
   - `vite` `^7.3.1` (`package.json:30`)
   - `tailwindcss` `^4.1.17` (`package.json:27`)
@@ -216,6 +219,37 @@ Navigation:
   - button disabled while sending (`src/App.tsx:834`)
   - sending label toggle (`src/App.tsx:841`)
 
+### Resume PDF Preview + Download
+
+- Dedicated resume document component:
+  - PDF document component: `src/components/ResumePdfDocument.tsx`
+  - lazy-loaded renderer helper: `src/components/renderResumePdf.tsx`
+- App integration:
+  - preview trigger button: `src/App.tsx:516`
+  - modal state: `src/App.tsx:219`
+  - preview modal root: `src/App.tsx:1033`
+  - resume preview uses generated blob URL in `iframe` (same bytes used for download)
+- PDF generation:
+  - download handler: `src/App.tsx:274`
+  - renderer module is dynamically imported: `src/App.tsx:257`
+  - download button in modal: `src/App.tsx:1054`
+- UX behavior:
+  - modal close on overlay click / `Esc` support with download guard
+  - body scroll lock while preview modal is open
+
+### Resume Work Summary
+
+Status: `DONE` for now.
+
+- Replaced HTML-to-canvas export with true PDF renderer (`@react-pdf/renderer`).
+- Preview and download now use the same PDF output path (blob-based preview + file download).
+- Enforced single-page A4 design with compact spacing and balanced typography.
+- Fixed profile photo rendering by converting source image to renderer-safe PNG data URL.
+- Standardized alignment:
+  - work date capsules centered (container + text)
+  - portfolio chip aligned to header block with centered text inside
+- Final visual polish completed (borders, spacing rhythm, readability balance).
+
 ### Social Links Consistency
 
 - Hero social links include placeholders (`#`) for GitHub/LinkedIn:
@@ -317,6 +351,9 @@ Commands executed:
 - Re-ran after adding GEDAC featured project + multi-featured rendering:
   - `npm run lint` -> passed.
   - `npm run build` -> passed.
+- Re-ran after adding Resume PDF preview + download feature:
+  - `npm run lint` -> passed.
+  - `npm run build` -> passed.
 
 Build output summary:
 
@@ -333,7 +370,8 @@ Build output summary:
 - Hero social links are partially placeholder links (`#`), potential UX credibility issue.
 - Large screenshot assets may impact load/perf over slower networks.
   - GEDAC gallery images are especially large (~1.55 MB to ~3.37 MB each).
-- Core app content and layout are heavily centralized in one large file (`src/App.tsx`, ~917 lines), increasing merge and maintenance friction.
+- Resume renderer loads in a lazy chunk (`renderResumePdf-*.js`) when preview/download is used.
+- Core app content and layout are heavily centralized in one large file (`src/App.tsx`, ~1043 lines), increasing merge and maintenance friction.
 
 ## Git Snapshot (during analysis)
 
@@ -373,32 +411,18 @@ npm run preview
 
 ## Recent Change Notes (append-only, newest first)
 
-- `2026-02-22`: Simplified Skills section to names-only badges and rebalanced capability coverage.
-  - Removed per-skill evidence labels for a cleaner, faster-to-scan presentation.
-  - Expanded relevance with clearer client-facing capability mix (backend, frontend, data, DevOps, delivery).
-  - Added `Delivery` skill group for architecture, leadership, and production support signals.
-  - Verified with lint + production build passes.
-- `2026-02-22`: Added second featured project (GEDAC Company Website) and upgraded Work section to multi-feature rendering.
-  - Added GEDAC project data with improved copy and stack phrasing.
-  - Added optional GitHub button rendering to avoid empty/placeholder repo links.
-  - Added bundled GEDAC screenshot assets under `src/assets/projects/gedac-company-website/`.
-  - Verified with lint + production build passes.
-- `2026-02-22`: Fixed featured project image reliability in local/dev rendering.
-  - Migrated gallery + cover image source from `/public/projects/...` string paths to imported assets under `src/assets/projects/product-costing/`.
-  - This ensures Vite-managed URLs and avoids base/path inconsistencies.
-  - Verified with lint + production build passes.
-- `2026-02-22`: Added initial Work Experience section design.
-  - Added `#experience` navigation entry and section between About and Work.
-  - Wired section content to `resume.json` (`work_experience`) and rendered as timeline cards.
-  - Kept existing theme direction (dark glass cards, blue/amber accents, rounded panels).
-  - Verified with lint + production build passes.
-- `2026-02-22`: Contact form implementation added with Formspree integration.
-  - Added frontend submit handler, loading/success/error states, and response parsing in `src/App.tsx`.
-  - Added hidden `_gotcha` honeypot field for basic bot filtering.
-  - Set `VITE_FORMSPREE_ENDPOINT` to `https://formspree.io/f/mpqjyoov` in `.env.example` and `.env.local`.
-  - Added default Formspree endpoint fallback in `src/App.tsx` while keeping env override.
-  - Updated deploy workflow to pass `VITE_FORMSPREE_ENDPOINT` from GitHub repository variable.
-  - Verified with lint + production build passes.
-- `2026-02-22`: Initial app reconnaissance completed and persisted to `appinfo.md`.
-  - Confirmed runtime/deploy health with lint + build passes.
-  - Documented architecture, line references, risks, and likely dead assets.
+- `2026-02-22`: Resume layout/design finalized (`DONE`) and condensed.
+  - True PDF renderer in place; preview/download parity confirmed.
+  - Single-page A4 layout tuned; photo rendering fixed; bullets/capsules/chips aligned.
+  - Portfolio chip emphasized and left-aligned with centered inner text.
+  - Detailed intermediate resume notes were compacted into `Resume Work Summary` above.
+- `2026-02-22`: Portfolio and content updates.
+  - Added Work Experience section from `resume.json`.
+  - Added GEDAC as second featured project and enabled multi-feature Work rendering.
+  - Simplified Skills section into cleaner client-facing groups.
+- `2026-02-22`: Contact workflow completed.
+  - Formspree integration added (env override + default fallback + honeypot + UI states).
+  - Deploy workflow updated to inject `VITE_FORMSPREE_ENDPOINT`.
+- `2026-02-22`: Baseline analysis and verification logged.
+  - Architecture, risks, and runtime map documented.
+  - Lint/build checks captured.
