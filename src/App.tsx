@@ -10,6 +10,11 @@ import productCostingScreenshot05 from "./assets/projects/product-costing/Screen
 import productCostingScreenshot06 from "./assets/projects/product-costing/Screenshot-06.png";
 import productCostingScreenshot07 from "./assets/projects/product-costing/Screenshot-07.png";
 import productCostingScreenshot08 from "./assets/projects/product-costing/Screenshot-08.png";
+import gedacCompanyWebsiteScreenshot01 from "./assets/projects/gedac-company-website/Screenshot-01.png";
+import gedacCompanyWebsiteScreenshot02 from "./assets/projects/gedac-company-website/Screenshot-02.png";
+import gedacCompanyWebsiteScreenshot03 from "./assets/projects/gedac-company-website/Screenshot-03.png";
+import gedacCompanyWebsiteScreenshot04 from "./assets/projects/gedac-company-website/Screenshot-04.png";
+import gedacCompanyWebsiteScreenshot05 from "./assets/projects/gedac-company-website/Screenshot-05.png";
 
 type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
 type ResumeExperience = {
@@ -81,32 +86,67 @@ const data = {
         github: "https://github.com/JustinTagarda/product-costing",
       },
     },
+    {
+      id: "gedac-company-website",
+      featured: true,
+      title: "GEDAC Company Website",
+      subtitle:
+        "Corporate website conceived, designed, and developed end-to-end for GEDAC Electric Company to present products, services, and company capabilities.",
+      browserLabel: "gedac.com (HTTP)",
+      coverImage: gedacCompanyWebsiteScreenshot01,
+      coverAlt: "GEDAC company website screenshot",
+      galleryImages: [
+        gedacCompanyWebsiteScreenshot01,
+        gedacCompanyWebsiteScreenshot02,
+        gedacCompanyWebsiteScreenshot03,
+        gedacCompanyWebsiteScreenshot04,
+        gedacCompanyWebsiteScreenshot05,
+      ],
+      bullets: [
+        "Planned the site structure and built the full public-facing company web presence from the ground up.",
+        "Implemented frontend interactions using jQuery and vanilla JavaScript for lightweight, maintainable behavior.",
+        "Designed and styled page layouts with custom vanilla CSS tailored to the company brand and content.",
+        "Delivered and maintained the site on ASP.NET Framework with ongoing updates and operational support.",
+        "Live URL: http://gedac.com (currently HTTP-only due to the hosting certificate setup).",
+      ],
+      stack: ["ASP.NET Framework", "jQuery", "JavaScript", "CSS", "HTML"],
+      links: {
+        liveDemo: "http://gedac.com",
+        github: "",
+      },
+    },
   ],
-  primaryStack: [".NET", "ASP.NET", "SQL Server", "Web APIs", "React"],
+  primaryStack: [".NET", "ASP.NET", "ASP.NET Framework", "SQL Server", "Web APIs", "React", "JavaScript", "IIS"],
   skillGroups: [
     {
       title: "Backend",
       accent: "#3B82F6",
-      focus: "API architecture, business rules, and enterprise integrations",
-      items: [".NET", "ASP.NET", "Web APIs", "C#", ".NET Core"],
+      focus: "Enterprise APIs, business logic, and full lifecycle backend delivery",
+      items: [".NET", ".NET Core", "ASP.NET", "ASP.NET Framework", "Web APIs", "C#", "Entity Framework"],
     },
     {
       title: "Frontend",
       accent: "#14B8A6",
-      focus: "Responsive interfaces for dense and operational workflows",
-      items: ["React", "Next.js", "TypeScript", "Knockout.js", "jQuery"],
+      focus: "Operational UIs and corporate websites with pragmatic frontend stacks",
+      items: ["React", "Next.js", "TypeScript", "JavaScript", "jQuery", "Knockout.js", "HTML", "CSS", "Tailwind CSS"],
     },
     {
       title: "Databases",
       accent: "#F59E0B",
       focus: "Relational modeling, query performance, and cloud data services",
-      items: ["SQL Server", "Supabase", "NoSQL (Document)"],
+      items: ["SQL Server", "PostgreSQL", "Supabase", "NoSQL (Document)", "Query Optimization"],
     },
     {
       title: "DevOps",
       accent: "#60A5FA",
-      focus: "Deployments, CI/CD pipelines, and runtime reliability",
-      items: ["Azure DevOps", "Docker", "IIS"],
+      focus: "Deployments, CI/CD automation, and production runtime reliability",
+      items: ["IIS", "Azure DevOps", "GitHub Actions", "Docker", "CI/CD"],
+    },
+    {
+      title: "Delivery",
+      accent: "#22C55E",
+      focus: "Execution skills that keep projects moving and production systems stable",
+      items: ["System Architecture", "Technical Leadership", "Production Support", "Incident Response", "Requirements Analysis"],
     },
     {
       title: "Tools",
@@ -118,7 +158,7 @@ const data = {
       title: "Collaboration",
       accent: "#F97316",
       focus: "Async execution with product, design, and cross-functional teams",
-      items: ["Jira", "Slack", "Figma", "GitHub Copilot", "ChatGPT"],
+      items: ["Jira", "Slack", "Figma"],
     },
   ],
   contact: {
@@ -177,9 +217,10 @@ function SectionDivider() {
 
 export default function App() {
   const year = new Date().getFullYear();
-  const featuredProjectIndex = data.projects.findIndex((project) => project.featured);
-  const resolvedFeaturedProjectIndex = featuredProjectIndex >= 0 ? featuredProjectIndex : 0;
-  const featuredProject = data.projects[resolvedFeaturedProjectIndex];
+  const featuredProjects = data.projects
+    .map((project, index) => ({ project, index }))
+    .filter(({ project }) => project.featured);
+  const projectsToShow = featuredProjects.length > 0 ? featuredProjects : data.projects.map((project, index) => ({ project, index }));
 
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -383,7 +424,7 @@ export default function App() {
                 href="#work"
                 className="rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(59,130,246,0.30)] transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1220]"
               >
-                View Featured Project
+                View Featured Projects
               </a>
               <a
                 href="#contact"
@@ -546,92 +587,99 @@ export default function App() {
         <section id="work" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
           <div className="space-y-2.5">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Case Study</p>
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Featured Project</h2>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+              {projectsToShow.length > 1 ? "Featured Projects" : "Featured Project"}
+            </h2>
             <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              A production-focused, full-stack build showcasing secure collaboration, domain-heavy costing logic, and responsive operational workflows.
+              Production-focused builds highlighting enterprise web delivery, operational reliability, and long-term maintainability.
             </p>
           </div>
 
-          <article className="mt-5 grid items-start gap-6 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_60px_rgba(2,6,23,0.35)] transition hover:-translate-y-1 sm:p-5 md:mt-7 md:gap-8 md:p-8 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.04)] p-4 sm:p-5">
-              <div className="flex items-center gap-2 border-b border-[rgba(255,255,255,0.10)] pb-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]" />
-                <span className="ml-2 text-xs text-[rgba(255,255,255,0.70)]">{featuredProject.browserLabel}</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => {
-                  const coverIndex = featuredProject.galleryImages.findIndex((image) => image === featuredProject.coverImage);
-                  openGallery(resolvedFeaturedProjectIndex, coverIndex >= 0 ? coverIndex : 0);
-                }}
-                className="group mt-4 block w-full overflow-hidden rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.03)] text-left transition hover:border-[rgba(59,130,246,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+          <div className="mt-5 space-y-5 md:mt-7 md:space-y-7">
+            {projectsToShow.map(({ project, index: projectIndex }) => (
+              <article
+                key={project.id}
+                className="grid items-start gap-6 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_60px_rgba(2,6,23,0.35)] transition hover:-translate-y-1 sm:p-5 md:gap-8 md:p-8 lg:grid-cols-[1.05fr_0.95fr]"
               >
-                <img
-                  src={featuredProject.coverImage}
-                  alt={featuredProject.coverAlt}
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-[1.02]"
-                />
-                <div className="flex items-center justify-between border-t border-[rgba(255,255,255,0.10)] bg-[rgba(11,18,32,0.70)] px-3 py-2 text-[11px] text-[rgba(255,255,255,0.84)] backdrop-blur">
-                  <span>Open gallery</span>
-                  <span>{featuredProject.galleryImages.length} screenshots</span>
-                </div>
-              </button>
-            </div>
-
-            <div className="space-y-6 lg:pt-1">
-              <div className="space-y-3">
-                <h3 className="text-2xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)]">
-                  {featuredProject.title}
-                </h3>
-                <p className="text-base leading-relaxed text-[rgba(255,255,255,0.70)]">
-                  {featuredProject.subtitle}
-                </p>
-              </div>
-
-              <ul className="space-y-2 text-sm leading-relaxed text-[rgba(255,255,255,0.92)] md:text-base">
-                {featuredProject.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="flex flex-wrap gap-2.5">
-                {featuredProject.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-3 py-1.5 text-xs font-medium text-[rgba(255,255,255,0.92)]"
+                <div className="rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.04)] p-4 sm:p-5">
+                  <div className="flex items-center gap-2 border-b border-[rgba(255,255,255,0.10)] pb-3">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]" />
+                    <span className="ml-2 text-xs text-[rgba(255,255,255,0.70)]">{project.browserLabel}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const coverIndex = project.galleryImages.findIndex((image) => image === project.coverImage);
+                      openGallery(projectIndex, coverIndex >= 0 ? coverIndex : 0);
+                    }}
+                    className="group mt-4 block w-full overflow-hidden rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.03)] text-left transition hover:border-[rgba(59,130,246,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
                   >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+                    <img
+                      src={project.coverImage}
+                      alt={project.coverAlt}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                    />
+                    <div className="flex items-center justify-between border-t border-[rgba(255,255,255,0.10)] bg-[rgba(11,18,32,0.70)] px-3 py-2 text-[11px] text-[rgba(255,255,255,0.84)] backdrop-blur">
+                      <span>Open gallery</span>
+                      <span>{project.galleryImages.length} screenshots</span>
+                    </div>
+                  </button>
+                </div>
 
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={featuredProject.links.liveDemo}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
-                >
-                  Live Demo
-                </a>
-                <a
-                  href={featuredProject.links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-xl border border-[rgba(255,255,255,0.22)] px-5 py-3 text-sm font-semibold text-[rgba(255,255,255,0.92)] transition hover:-translate-y-0.5 hover:bg-[rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
-                >
-                  GitHub Repo
-                </a>
-              </div>
-            </div>
-          </article>
+                <div className="space-y-6 lg:pt-1">
+                  <div className="space-y-3">
+                    <h3 className="text-2xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)]">{project.title}</h3>
+                    <p className="text-base leading-relaxed text-[rgba(255,255,255,0.70)]">{project.subtitle}</p>
+                  </div>
+
+                  <ul className="space-y-2 text-sm leading-relaxed text-[rgba(255,255,255,0.92)] md:text-base">
+                    {project.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2">
+                        <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2.5">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-3 py-1.5 text-xs font-medium text-[rgba(255,255,255,0.92)]"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      href={project.links.liveDemo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                    >
+                      Live Demo
+                    </a>
+                    {project.links.github && (
+                      <a
+                        href={project.links.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-xl border border-[rgba(255,255,255,0.22)] px-5 py-3 text-sm font-semibold text-[rgba(255,255,255,0.92)] transition hover:-translate-y-0.5 hover:bg-[rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                      >
+                        GitHub Repo
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
 
         <SectionDivider />
@@ -641,7 +689,7 @@ export default function App() {
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Capability Map</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Skills & Tools</h2>
             <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Core technologies and delivery tooling used to build, ship, and support enterprise-grade applications.
+              Core technologies and delivery capabilities used to build, ship, and support enterprise-grade applications.
             </p>
           </div>
           <div className="mt-5 grid gap-4 md:mt-7 md:gap-5 md:grid-cols-2">
