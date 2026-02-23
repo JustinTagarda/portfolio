@@ -22,25 +22,25 @@ type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
 const data = {
   name: "Justiniano Tagarda",
   headline: "Full-Stack .NET Developer",
-  lead: "I build scalable backend APIs and enterprise web systems: reliable, maintainable, production-ready.",
-  heroChips: ["15+ Years", ".NET / ASP.NET", "SQL Server", "Web APIs", "React", "Remote"],
+  lead: "I design and deliver scalable backend-first systems with reliable APIs, optimized data layers, and production-focused execution.",
+  heroChips: ["15+ Years", "Enterprise Systems", "Backend Architecture", "Full-Stack Delivery", "Remote"],
   socialLinks: [
     { label: "GitHub", href: "#" },
     { label: "LinkedIn", href: "#" },
     { label: "Email", href: "mailto:justintagarda@gmail.com" },
   ],
   about: {
-    eyebrow: "Enterprise systems specialist",
-    subheadline: "Backend-first engineering for business-critical web platforms.",
+    eyebrow: "Full-stack enterprise delivery",
+    subheadline: "Backend architecture, API development, and database performance optimization for production systems.",
     paragraphs: [
-      "For 15+ years, I have built enterprise applications that keep day-to-day operations moving, from high-availability APIs to full internal ERP workflows.",
-      "My recent backend work supported .NET production systems with thousands of daily users, with a focus on clean architecture, stable deployments, and maintainable code.",
+      "Across 15+ years, I have delivered enterprise software for e-commerce platforms, internal business operations, and custom applications, from API layers to full workflow systems.",
+      "I focus on stable architecture, maintainable code, and measurable operational impact, collaborating directly with clients and distributed teams through implementation and long-term support.",
     ],
     highlights: [
-      "15+ years delivering enterprise software across web, backend, and internal operations systems",
-      "Built and maintained high-availability APIs supporting thousands of daily users",
-      "Delivered ERP, inventory, and customer portal workflows used by distributed teams",
-      "Owned IIS deployment, SQL Server performance tuning, backups, and incident response",
+      "Built and maintained high-availability .NET APIs supporting production systems used by thousands of daily users",
+      "Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications",
+      "Designed, deployed, and maintained ERP, inventory, and customer portal systems for long-term operations",
+      "Collaborated directly with clients and distributed teams to refine requirements and deliver maintainable production software",
     ],
   },
   projects: [
@@ -106,49 +106,49 @@ const data = {
       },
     },
   ],
-  primaryStack: [".NET", "ASP.NET", "ASP.NET Framework", "SQL Server", "Web APIs", "React", "JavaScript", "IIS"],
+  primaryStack: [".NET", "ASP.NET Core", "REST APIs", "SQL Server", "React", "Next.js", "TypeScript", "IIS"],
   skillGroups: [
     {
       title: "Backend",
       accent: "#3B82F6",
-      focus: "Enterprise APIs, business logic, and full lifecycle backend delivery",
-      items: [".NET", ".NET Core", "ASP.NET", "ASP.NET Framework", "Web APIs", "C#", "Entity Framework"],
+      focus: "API-first backend engineering for scalable enterprise workflows.",
+      items: ["C#", ".NET", "ASP.NET Core", "REST APIs"],
     },
     {
       title: "Frontend",
       accent: "#14B8A6",
-      focus: "Operational UIs and corporate websites with pragmatic frontend stacks",
-      items: ["React", "Next.js", "TypeScript", "JavaScript", "jQuery", "Knockout.js", "HTML", "CSS", "Tailwind CSS"],
+      focus: "Modern React interfaces plus support for legacy enterprise UI stacks.",
+      items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "jQuery", "Knockout.js"],
     },
     {
       title: "Databases",
       accent: "#F59E0B",
-      focus: "Relational modeling, query performance, and cloud data services",
-      items: ["SQL Server", "PostgreSQL", "Supabase", "NoSQL (Document)", "Query Optimization"],
+      focus: "Relational-first data design, query tuning, and reliable persistence.",
+      items: ["SQL Server", "PostgreSQL (Supabase)", "NoSQL"],
     },
     {
-      title: "DevOps",
+      title: "DevOps & Infrastructure",
       accent: "#60A5FA",
-      focus: "Deployments, CI/CD automation, and production runtime reliability",
-      items: ["IIS", "Azure DevOps", "GitHub Actions", "Docker", "CI/CD"],
-    },
-    {
-      title: "Delivery",
-      accent: "#22C55E",
-      focus: "Execution skills that keep projects moving and production systems stable",
-      items: ["System Architecture", "Technical Leadership", "Production Support", "Incident Response", "Requirements Analysis"],
+      focus: "Deployment pipelines, IIS hosting, and production reliability practices.",
+      items: ["Docker", "IIS", "Azure DevOps"],
     },
     {
       title: "Tools",
-      accent: "#94A3B8",
-      focus: "Daily engineering workflow, debugging, and delivery tooling",
-      items: ["Git", "GitHub", "VS Code", "Visual Studio", "PowerShell"],
+      accent: "#22C55E",
+      focus: "Daily engineering toolkit for development, debugging, and delivery.",
+      items: ["Git", "GitHub", "Visual Studio", "VS Code", "PowerShell"],
     },
     {
       title: "Collaboration",
-      accent: "#F97316",
-      focus: "Async execution with product, design, and cross-functional teams",
+      accent: "#94A3B8",
+      focus: "Remote-first coordination with clients and distributed product teams.",
       items: ["Jira", "Slack", "Figma"],
+    },
+    {
+      title: "Productivity",
+      accent: "#F97316",
+      focus: "Acceleration tools for coding, analysis, and documentation workflows.",
+      items: ["GitHub Copilot", "ChatGPT"],
     },
   ],
   contact: {
@@ -156,7 +156,7 @@ const data = {
     linkedin: "https://www.linkedin.com/in/justintagarda",
     location: "Remote (UTC+8)",
     responseTime: "Usually replies within 24 hours",
-    engagement: "Open to full-time, long-term contract, and project-based engagements.",
+    engagement: "Available for full-time roles, long-term contracts, and project-based work.",
     channels: [
       {
         label: "Email",
@@ -167,7 +167,7 @@ const data = {
       },
       {
         label: "LinkedIn",
-        value: "justintagarda",
+        value: "linkedin.com/in/justintagarda",
         href: "https://www.linkedin.com/in/justintagarda",
         accent: "#0EA5E9",
         primary: false,
@@ -175,7 +175,8 @@ const data = {
     ],
   },
   footer: {
-    note: "Full-Stack .NET Developer focused on reliable, maintainable enterprise systems.",
+    note: "Full-stack .NET developer delivering reliable APIs and enterprise systems.",
+    projectStack: "Built with React, TypeScript, Vite, Tailwind CSS, React PDF, Formspree, and Firebase Hosting.",
     social: [
       { label: "GitHub", href: "https://github.com/JustinTagarda" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/justintagarda" },
@@ -563,9 +564,9 @@ export default function App() {
 
         <section className="mx-auto grid max-w-7xl items-start gap-8 px-4 pb-10 pt-10 sm:px-5 md:px-8 md:pb-12 md:pt-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-14 lg:pb-16 lg:pt-16">
           <div className="space-y-7 lg:max-w-[42rem]">
-            <p className="inline-flex rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-[rgba(255,255,255,0.70)]">
-              ASP.NET / SQL Server / Web APIs / React
-            </p>
+              <p className="inline-flex rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-[rgba(255,255,255,0.70)]">
+               .NET Core / REST APIs / SQL Server / React
+              </p>
 
             <div className="space-y-5">
               <h1 className="text-4xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl lg:text-6xl lg:leading-tight">
@@ -622,9 +623,10 @@ export default function App() {
             </div>
           </div>
 
-          <div className="mx-auto w-full max-w-[16.5rem] sm:max-w-[18rem] lg:mx-0">
-            <article className="group relative rounded-3xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] p-4 shadow-[0_20px_60px_rgba(2,6,23,0.35)] transition hover:-translate-y-1">
-              <div className="relative overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)]">
+          <div className="mx-auto w-full max-w-[17rem] sm:max-w-[19rem] lg:mx-0">
+            <article className="group relative overflow-hidden rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] p-3.5 shadow-[0_24px_70px_rgba(2,6,23,0.40)] transition hover:-translate-y-1">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_32%_20%,rgba(59,130,246,0.18),transparent_55%)] opacity-80" />
+              <div className="relative overflow-hidden rounded-[1.2rem] border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)]">
                 <img
                   src={profilePhoto}
                   alt={`${data.name} portrait`}
@@ -635,19 +637,14 @@ export default function App() {
                   decoding="async"
                   className="aspect-[4/5] w-full object-cover object-center"
                 />
-                <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-full border border-[rgba(255,255,255,0.12)] bg-[rgba(11,18,32,0.78)] px-3 py-1.5 text-center text-[11px] font-medium leading-tight text-[rgba(255,255,255,0.92)] backdrop-blur">
-                  <span className="block">Available for</span>
-                  <span className="block">Full-time / Long-term contract</span>
-                </div>
               </div>
             </article>
 
-            <div className="mt-4 grid grid-cols-1 gap-3">
-              <div className="rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] p-4 text-sm text-[rgba(255,255,255,0.92)] shadow-[0_12px_30px_rgba(2,6,23,0.25)] transition hover:-translate-y-1">
-                High-availability APIs
-              </div>
-              <div className="rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] p-4 text-sm text-[rgba(255,255,255,0.92)] shadow-[0_12px_30px_rgba(2,6,23,0.25)] transition hover:-translate-y-1">
-                ERP & internal systems
+            <div className="mt-3.5 grid grid-cols-1 gap-3">
+              <div className="rounded-2xl border border-[rgba(255,255,255,0.12)] bg-[linear-gradient(160deg,rgba(255,255,255,0.09)_0%,rgba(255,255,255,0.04)_100%)] p-4 text-center text-sm text-[rgba(255,255,255,0.92)] shadow-[0_14px_36px_rgba(2,6,23,0.28)] transition hover:-translate-y-1">
+                <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.74)]">Available for</span>
+                <span className="mt-1 block text-[15px] font-semibold leading-snug">Full-time / Long-term contract</span>
+                <span className="block text-[15px] font-semibold leading-snug text-[rgba(191,219,254,0.96)]">Project-based / Remote</span>
               </div>
             </div>
           </div>
@@ -864,7 +861,7 @@ export default function App() {
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Capability Map</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Skills & Tools</h2>
             <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Core technologies and delivery capabilities used to build, ship, and support enterprise-grade applications.
+              Core technologies I use to deliver scalable, production-ready business systems.
             </p>
           </div>
           <div className="mt-5 grid gap-4 md:mt-7 md:gap-5 md:grid-cols-2">
@@ -919,14 +916,14 @@ export default function App() {
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Get In Touch</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Contact</h2>
             <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Let&apos;s discuss backend-focused projects, system modernization, or long-term product collaboration.
+              Share your project goals, scope, and timeline. I usually respond within 24 hours.
             </p>
           </div>
           <div className="mt-5 grid gap-6 md:mt-7 md:gap-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="space-y-5 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)] p-5 shadow-[0_18px_50px_rgba(2,6,23,0.26)] md:p-6">
-              <h3 className="text-xl font-semibold tracking-tight md:text-2xl">Let&apos;s connect</h3>
+              <h3 className="text-xl font-semibold tracking-tight md:text-2xl">Let&apos;s build something reliable</h3>
               <p className="max-w-xl text-base leading-relaxed text-[rgba(255,255,255,0.70)] md:text-lg">
-                If you&apos;re building a backend-heavy product or modernizing an internal system, I&apos;d be glad to discuss how I can help.
+                I help teams design, build, and modernize .NET backends, APIs, and internal systems with production-ready execution.
               </p>
 
               <div className="flex flex-wrap gap-2 text-xs">
@@ -1005,7 +1002,7 @@ export default function App() {
                     rows={4}
                     required
                     className="mt-1.5 w-full resize-y rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-3 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
-                    placeholder="How can I help?"
+                    placeholder="Tell me about your project, current stack, timeline, and goals."
                   />
                 </label>
               </div>
@@ -1019,7 +1016,7 @@ export default function App() {
                     : "hover:-translate-y-0.5 hover:brightness-110"
                 }`}
               >
-                {contactStatus === "sending" ? "Sending..." : "Send"}
+                {contactStatus === "sending" ? "Sending..." : "Send message"}
               </button>
 
               {contactFeedback && (
@@ -1079,8 +1076,9 @@ export default function App() {
               </div>
             </div>
 
-            <div className="mt-6 border-t border-[rgba(255,255,255,0.10)] pt-4 text-xs text-[rgba(255,255,255,0.66)]">
-              © {year} {data.name}
+            <div className="mt-6 flex flex-col gap-2 border-t border-[rgba(255,255,255,0.10)] pt-4 text-xs text-[rgba(255,255,255,0.66)] sm:flex-row sm:items-center sm:justify-between">
+              <span>© {year} {data.name}</span>
+              <span className="max-w-[42rem] text-[rgba(255,255,255,0.58)] sm:text-right">{data.footer.projectStack}</span>
             </div>
           </div>
         </footer>

@@ -1,17 +1,17 @@
 {
   "source_file_name": "Resume - Justiniano Tagarda.pdf",
   "name": "JUSTINIANO TAGARDA",
-  "title": "FULL-STACK .NET DEVELOPER | ASP.NET · SQL Server · Web APIs · React",
-  "profile": "Software Developer with 15+ years of experience designing, building, and maintaining enterprise-grade web and desktop applications using .NET, ASP.NET, and SQL Server. Strong background in IIS administration, system deployment, and database optimization. Proven track record delivering scalable, reliable business systems and full-stack solutions used in large-scale production environments. Extensive experience working remotely with distributed teams.",
+  "title": "FULL-STACK .NET DEVELOPER | ASP.NET Core · REST APIs · SQL Server · React",
+  "profile": "Software Developer with 15+ years of experience designing, building, and maintaining enterprise web and desktop applications using .NET, ASP.NET, and SQL Server. Specialized in backend architecture, API development, and database performance optimization. Experienced working across the full stack, including modern JavaScript frameworks, to deliver scalable production systems. Comfortable collaborating with distributed remote teams.",
   "work_experience": [
     {
-      "job_title": "Backend Developer - ASP.NET & SQL Server",
+      "job_title": "Backend Developer - ASP.NET Framework & SQL Server",
       "company": "Drizzio / Digital Entrepreneur LLC",
       "location": "USA (Remote)",
       "start": "Nov 2024",
       "end": "Jan 2026",
       "responsibilities": [
-        "Developed and maintained high-availability backend APIs using .NET, supporting production systems with thousands of daily users.",
+        "Developed and maintained high-availability backend APIs using .NET, supporting production systems used by thousands of daily users.",
         "Collaborated with stakeholders to translate business requirements into scalable backend solutions.",
         "Managed SQL Server performance, backups, and troubleshooting.",
         "Developed client-side components using Knockout.js and jQuery.",
@@ -25,8 +25,10 @@
       "start": "2021",
       "end": "Present (Active)",
       "responsibilities": [
-        "Delivered end-to-end solutions for clients across e-commerce, internal business systems, and custom enterprise tools.",
-        "Acted as technical lead, handling architecture, deployment, and post-launch support."
+        "Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications using modern web technologies.",
+        "Developed responsive, production-ready user interfaces using React, Next.js, and TypeScript, integrated with .NET and RESTful backend services.",
+        "Built full-stack features including API integrations, authentication flows, dashboards, and data-driven interfaces.",
+        "Collaborated directly with clients to gather requirements, refine functionality, and deliver maintainable production software."
       ]
     },
     {
@@ -36,9 +38,10 @@
       "start": "2007",
       "end": "2020",
       "responsibilities": [
-        "Built the company website and multiple internal web applications, including an ERP and inventory system, to streamline operations and improve workflow efficiency.",
-        "Developed a customer portal for real-time project monitoring and delivered web tools for branch office staff.",
-        "Managed and supervised the IT department, ensured reliable systems, support, and technology alignment with business needs."
+        "Built and maintained the company website and multiple internal web applications, including ERP and inventory management systems that streamlined operations and improved data accuracy.",
+        "Developed a customer portal for real-time project tracking and internal tools used by branch offices to manage daily workflows.",
+        "Designed, deployed, and maintained business-critical systems supporting company operations and cross-department processes.",
+        "Supervised IT operations, ensuring system reliability, infrastructure stability, and effective technical support across the organization."
       ]
     },
     {
@@ -48,8 +51,10 @@
       "start": "1999",
       "end": "2006",
       "responsibilities": [
-        "Developed a company-wide inventory system using MS Access to improve tracking, accuracy, and operational efficiency.",
-        "Installed and configured LAN infrastructure across offices, factories, and warehouses, ensured stable connectivity and streamlined communication."
+        "Developed a company-wide inventory management system using Microsoft Access, improving tracking accuracy and streamlining internal processes.",
+        "Maintained and enhanced internal software tools to support daily operations and reporting.",
+        "Installed, configured, and supported LAN infrastructure across offices, factories, and warehouses, ensuring reliable connectivity and communication.",
+        "Provided technical support and troubleshooting for systems, hardware, and network issues across departments."
       ]
     }
   ],
@@ -57,21 +62,22 @@
     "Backend": [
       "C#",
       ".NET",
-      "ASP.NET",
-      ".NET Core",
-      "Web APIs"
+      "ASP.NET Core",
+      "REST APIs"
     ],
     "Frontend": [
       "React",
       "Next.js",
-      "Knockout.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
       "jQuery",
-      "TypeScript"
+      "Knockout.js"
     ],
     "Databases": [
       "SQL Server",
-      "NoSQL (document-based)",
-      "Supabase"
+      "PostgreSQL (Supabase)",
+      "NoSQL"
     ],
     "DevOps & Infrastructure": [
       "Docker",
@@ -83,29 +89,32 @@
       "GitHub",
       "Visual Studio",
       "VS Code",
-      "Microsoft Excel",
-      "Windows PowerShell"
+      "PowerShell"
     ],
     "Collaboration": [
       "Jira",
       "Slack",
       "Figma"
     ],
-    "AI Tools": [
-      "ChatGPT",
-      "GitHub Copilot"
+    "Productivity": [
+      "GitHub Copilot",
+      "ChatGPT"
     ]
   },
   "education": [
     {
-      "degree_or_certificate": "Bachelor of Arts: Accountancy",
+      "degree_or_certificate": "Bachelor of Arts in Accountancy",
       "institution": "Xavier University College",
-      "location": "Cagayan de Oro City, Philippines"
+      "location": "Cagayan de Oro City, Philippines",
+      "start": "June 1987",
+      "end": "March 1992"
     },
     {
-      "degree_or_certificate": "COBOL Programming (Certificate)",
+      "degree_or_certificate": "COBOL Programming Certificate",
       "institution": "Systems Technology Institute",
-      "location": "Cagayan de Oro City, Philippines"
+      "location": "Cagayan de Oro City, Philippines",
+      "start": "June 1992",
+      "end": "November 1992"
     }
   ],
   "contact": {
@@ -114,5 +123,5 @@
     "linkedin": "www.linkedin.com/in/justintagarda",
     "portfolio": "www.justintagarda.com"
   },
-  "extracted_text": "JUSTINIANO TAGARDA\nFULL-STACK .NET DEVELOPER | ASP.NET · SQL Server · Web APIs · React\nBackend Developer - ASP.NET & SQL Server\nDrizzio / Digital Entrepreneur LLC - USA (Remote)\nNov 2024 - Jan 2026\n• Developed and maintained high-availability backend APIs using .NET,\nsupporting production systems with thousands of daily users.\n• Collaborated with stakeholders to translate business requirements into\nscalable backend solutions.\n• Managed SQL Server performance, backups, and troubleshooting.\n• Developed client-side components using Knockout.js and jQuery.\n• Administered IIS deployments and server monitoring.\nSoftware Developer - Freelance\n2021 - Present (Active)\n• Delivered end-to-end solutions for clients across e-commerce, internal\nbusiness systems, and custom enterprise tools\n• Acted as technical lead, handling architecture, deployment, and\npost-launch support\n.NET Developer / System Administrator\nGEDAC Electric Company - Jeddah, Saudi Arabia | 2007-2020\n• Built the company website and multiple internal web applications,\nincluding an ERP and inventory system, to streamline operations and\nimprove workflow efficiency.\n• Developed a customer portal for real-time project monitoring and\ndelivered web tools for branch office staff.\n• Managed and supervised the IT department, ensured reliable systems,\nsupport, and technology alignment with business needs.\nComputer Programmer\nAl Salem Kitchen Company - Jeddah, Saudi Arabia | 1999-2006\n• Developed a company-wide inventory system using MS Access to\nimprove tracking, accuracy, and operational efficiency.\n• Installed and configured LAN infrastructure across offices, factories,\nand warehouses, ensured stable connectivity and streamlined\ncommunication.\nPROFILE\nWORK EXPERIENCE\nSoftware Developer with 15+ years of experience designing, building,\nand maintaining enterprise-grade web and desktop applications using\n.NET, ASP.NET, and SQL Server. Strong background in IIS\nadministration, system deployment, and database optimization. Proven\ntrack record delivering scalable, reliable business systems and\nfull-stack solutions used in large-scale production environments.\nExtensive experience working remotely with distributed teams.\nSKILLS\n• Backend: C#, .NET, ASP.NET, .NET\nCore, Web APIs\n• Frontend: React, Next.js,\nKnockout.js, jQuery, TypeScript\n• Databases: SQL Server, NoSQL\n(document-based), Supabase\n• DevOps & Infrastructure: Docker, IIS,\nAzure DevOps\n• Tools: Git, GitHub, Visual Studio, VS\nCode, Microsoft Excel, Windows\nPowerShell\n• Collaboration: Jira, Slack, Figma\n• AI Tools: ChatGPT, GitHub Copilot\nEDUCATION\nBachelor of Arts: Accountancy\nXavier University College\nCagayan de Oro City, Philippines\nCOBOL Programming (Certificate)\nSystems Technology Institute\nCagayan de Oro City, Philippines\nCONTACT ME\nEmail:\njustintagarda@gmail.com\nPhone:\n(+63) 927-380-0613\nLinkedIn:\nwww.linkedin.com/in/justintagarda\nPortfolio:\nwww.justintagarda.com\n\n-- 1 of 1 --"
+  "extracted_text": "JUSTINIANO TAGARDA\nFULL-STACK .NET DEVELOPER | ASP.NET Core · REST APIs · SQL Server · React\nBackend Developer - ASP.NET Framework & SQL Server\nDrizzio / Digital Entrepreneur LLC - USA (Remote)\nNov 2024 - Jan 2026\n• Developed and maintained high-availability backend APIs using .NET, supporting production systems used by thousands of daily users.\n• Collaborated with stakeholders to translate business requirements into scalable backend solutions.\n• Managed SQL Server performance, backups, and troubleshooting.\n• Developed client-side components using Knockout.js and jQuery.\n• Administered IIS deployments and server monitoring.\nSoftware Developer - Freelance\n2021 - Present (Active)\n• Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications using modern web technologies.\n• Developed responsive, production-ready user interfaces using React, Next.js, and TypeScript, integrated with .NET and RESTful backend services.\n• Built full-stack features including API integrations, authentication flows, dashboards, and data-driven interfaces.\n• Collaborated directly with clients to gather requirements, refine functionality, and deliver maintainable production software.\n.NET Developer / System Administrator\nGEDAC Electric Company - Jeddah, Saudi Arabia\n2007 - 2020\n• Built and maintained the company website and multiple internal web applications, including ERP and inventory management systems that streamlined operations and improved data accuracy.\n• Developed a customer portal for real-time project tracking and internal tools used by branch offices to manage daily workflows.\n• Designed, deployed, and maintained business-critical systems supporting company operations and cross-department processes.\n• Supervised IT operations, ensuring system reliability, infrastructure stability, and effective technical support across the organization.\nComputer Programmer\nAl Salem Kitchen Company - Jeddah, Saudi Arabia\n1999 - 2006\n• Developed a company-wide inventory management system using Microsoft Access, improving tracking accuracy and streamlining internal processes.\n• Maintained and enhanced internal software tools to support daily operations and reporting.\n• Installed, configured, and supported LAN infrastructure across offices, factories, and warehouses, ensuring reliable connectivity and communication.\n• Provided technical support and troubleshooting for systems, hardware, and network issues across departments.\nPROFILE\nWORK EXPERIENCE\nSoftware Developer with 15+ years of experience designing, building, and maintaining enterprise web and desktop applications using .NET, ASP.NET, and SQL Server. Specialized in backend architecture, API development, and database performance optimization. Experienced working across the full stack, including modern JavaScript frameworks, to deliver scalable production systems. Comfortable collaborating with distributed remote teams.\nSKILLS\n• Backend: C#, .NET, ASP.NET Core, REST APIs\n• Frontend: React, Next.js, TypeScript, JavaScript, Tailwind CSS, jQuery, Knockout.js\n• Databases: SQL Server, PostgreSQL (Supabase), NoSQL\n• DevOps & Infrastructure: Docker, IIS, Azure DevOps\n• Tools: Git, GitHub, Visual Studio, VS Code, PowerShell\n• Collaboration: Jira, Slack, Figma\n• Productivity: GitHub Copilot, ChatGPT\nEDUCATION\nBachelor of Arts in Accountancy\nXavier University College\nCagayan de Oro City, Philippines\nJune 1987 - March 1992\nCOBOL Programming Certificate\nSystems Technology Institute\nCagayan de Oro City, Philippines\nJune 1992 - November 1992\nCONTACT ME\nEmail: justintagarda@gmail.com\nPhone: (+63) 927-380-0613\nLinkedIn: www.linkedin.com/in/justintagarda\nPortfolio: www.justintagarda.com\n-- 1 of 1 --"
 }

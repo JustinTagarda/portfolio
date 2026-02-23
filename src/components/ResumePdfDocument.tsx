@@ -13,6 +13,8 @@ export type ResumeEducation = {
   degree_or_certificate: string;
   institution: string;
   location: string;
+  start?: string;
+  end?: string;
 };
 
 export type ResumeContact = {
@@ -42,56 +44,52 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8FAFC",
     color: "#0F172A",
     fontFamily: "Helvetica",
-    paddingTop: 18,
-    paddingBottom: 11,
-    paddingHorizontal: 24,
-    fontSize: 9.5,
-    lineHeight: 1.29,
-  },
-  topRule: {
-    backgroundColor: "#CBD5E1",
-    height: 1,
+    paddingTop: 14,
+    paddingBottom: 8,
+    paddingHorizontal: 20,
+    fontSize: 9.1,
+    lineHeight: 1.24,
   },
   header: {
-    alignItems: "center",
+    alignItems: "flex-start",
     borderBottomColor: "#CBD5E1",
     borderBottomWidth: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 7.5,
-    paddingBottom: 6.5,
+    marginTop: 8,
+    paddingBottom: 5,
   },
   headerInfo: {
     flexGrow: 1,
     flexShrink: 1,
-    paddingRight: 10,
+    paddingRight: 8,
   },
   name: {
     color: "#0F172A",
-    fontSize: 24,
+    fontSize: 21.6,
     fontWeight: 700,
-    letterSpacing: -0.18,
+    letterSpacing: -0.12,
     lineHeight: 1,
   },
   title: {
     color: "#1D4ED8",
-    fontSize: 10.2,
+    fontSize: 8.7,
     fontWeight: 700,
-    letterSpacing: 0.95,
-    marginTop: 2.4,
+    letterSpacing: 0.46,
+    marginTop: 3.1,
     textTransform: "uppercase",
   },
   contactRow: {
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 5.4,
+    marginTop: 4,
   },
   contactItem: {
     color: "#334155",
-    fontSize: 8,
-    marginBottom: 1.5,
-    marginRight: 11,
+    fontSize: 7.7,
+    marginBottom: 1,
+    marginRight: 9,
   },
   contactPortfolioWrap: {
     alignItems: "center",
@@ -101,27 +99,27 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     borderWidth: 1,
     flexDirection: "row",
-    height: 20,
+    height: 18,
     justifyContent: "center",
-    marginTop: 2,
-    paddingHorizontal: 10,
+    marginTop: 1.7,
+    paddingHorizontal: 9,
   },
   contactPortfolioText: {
     color: "#FFFFFF",
-    fontSize: 8,
+    fontSize: 7.45,
     fontWeight: 700,
-    letterSpacing: 0.25,
+    letterSpacing: 0.2,
     lineHeight: 1.05,
     textAlign: "center",
   },
   photoWrap: {
     backgroundColor: "#FFFFFF",
     borderColor: "#CBD5E1",
-    borderRadius: 10,
+    borderRadius: 9,
     borderWidth: 1,
-    height: 82,
+    height: 74,
     overflow: "hidden",
-    width: 82,
+    width: 74,
   },
   photo: {
     height: "100%",
@@ -129,54 +127,54 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   section: {
-    marginTop: 5.8,
+    marginTop: 8,
   },
   sectionTitle: {
     color: "#334155",
-    fontSize: 8,
+    fontSize: 7.7,
     fontWeight: 700,
-    letterSpacing: 1.7,
+    letterSpacing: 2.2,
     textTransform: "uppercase",
   },
   summary: {
     color: "#1E293B",
-    fontSize: 9.2,
-    lineHeight: 1.34,
-    marginTop: 2.9,
+    fontSize: 8.65,
+    lineHeight: 1.25,
+    marginTop: 2.35,
   },
   roleList: {
-    marginTop: 3,
+    marginTop: 2.35,
   },
   roleCard: {
     backgroundColor: "#FFFFFF",
     borderColor: "#DEE6F0",
-    borderRadius: 8,
+    borderRadius: 7,
     borderWidth: 1,
-    marginTop: 3.2,
-    paddingHorizontal: 7.8,
-    paddingVertical: 5.2,
+    marginTop: 2.55,
+    paddingHorizontal: 7,
+    paddingVertical: 4.05,
   },
   roleHeader: {
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
-    minHeight: 24,
+    minHeight: 20,
   },
   roleTitleBlock: {
     flexGrow: 1,
     flexShrink: 1,
-    paddingRight: 7,
+    paddingRight: 6,
   },
   roleTitle: {
     color: "#0F172A",
-    fontSize: 10.5,
+    fontSize: 10.4,
     fontWeight: 700,
-    lineHeight: 1.1,
+    lineHeight: 1.08,
   },
   roleCompany: {
     color: "#334155",
-    fontSize: 8.2,
-    marginTop: 1.25,
+    fontSize: 7.75,
+    marginTop: 2.3,
   },
   roleDateBadge: {
     alignItems: "center",
@@ -186,72 +184,72 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     borderWidth: 1,
     flexDirection: "row",
-    height: 18.5,
+    height: 16.2,
     justifyContent: "center",
-    minWidth: 108,
-    paddingHorizontal: 8,
-    width: 108,
+    minWidth: 104,
+    paddingHorizontal: 7,
+    width: 104,
   },
   roleDateText: {
     color: "#1E293B",
-    fontSize: 7.95,
+    fontSize: 7.35,
     fontWeight: 700,
     lineHeight: 1,
     textAlign: "center",
   },
   bullets: {
-    marginTop: 2.7,
+    marginTop: 1.85,
   },
   bulletRow: {
     flexDirection: "row",
-    marginBottom: 0.8,
+    marginBottom: 0.62,
   },
   bulletDot: {
     color: "#2563EB",
-    fontSize: 8.6,
-    marginTop: -0.1,
-    width: 6,
+    fontSize: 8,
+    marginTop: -0.35,
+    width: 5.2,
   },
   bulletText: {
     color: "#0F172A",
     flexGrow: 1,
     flexShrink: 1,
-    fontSize: 8.3,
-    lineHeight: 1.25,
+    fontSize: 8.05,
+    lineHeight: 1.17,
   },
   bottomGrid: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 6,
+    marginTop: 9.4,
   },
   skillsColumn: {
-    width: "55%",
+    width: "58%",
   },
   educationColumn: {
-    width: "43%",
+    width: "40%",
   },
   blockList: {
-    marginTop: 3,
+    marginTop: 2.4,
   },
   blockCard: {
     backgroundColor: "#FFFFFF",
     borderColor: "#E5EBF3",
-    borderRadius: 6,
+    borderRadius: 5,
     borderWidth: 1,
-    marginTop: 3,
-    paddingHorizontal: 7,
-    paddingVertical: 3.8,
+    marginTop: 2.25,
+    paddingHorizontal: 6,
+    paddingVertical: 3,
   },
   blockTitle: {
     color: "#0F172A",
-    fontSize: 8.2,
+    fontSize: 7.85,
     fontWeight: 700,
   },
   blockBody: {
     color: "#334155",
-    fontSize: 7.95,
-    lineHeight: 1.25,
-    marginTop: 1.05,
+    fontSize: 8.45,
+    lineHeight: 1.18,
+    marginTop: 0.8,
   },
 });
 
@@ -259,8 +257,6 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
   return (
     <Document title={`${resume.name} - Resume`} author={resume.name}>
       <Page size="A4" style={styles.page}>
-        <View style={styles.topRule} />
-
         <View style={styles.header}>
           <View style={styles.headerInfo}>
             <Text style={styles.name}>{resume.name}</Text>
@@ -328,7 +324,7 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
 
         <View style={styles.bottomGrid}>
           <View style={styles.skillsColumn}>
-            <Text style={styles.sectionTitle}>Core Skills</Text>
+            <Text style={styles.sectionTitle}>Skills</Text>
 
             <View style={styles.blockList}>
               {Object.entries(resume.skills).map(([groupName, items]) => (
@@ -355,11 +351,6 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
                   </Text>
                 </View>
               ))}
-
-              <View style={styles.blockCard}>
-                <Text style={styles.blockTitle}>Work Model</Text>
-                <Text style={styles.blockBody}>Remote-ready, distributed team collaboration, async execution.</Text>
-              </View>
             </View>
           </View>
         </View>

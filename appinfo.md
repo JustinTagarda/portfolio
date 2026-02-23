@@ -5,7 +5,7 @@ Every new session should read this file first before re-scanning the project.
 
 ## Session Metadata
 
-- `last_updated`: `2026-02-22`
+- `last_updated`: `2026-02-23`
 - `updated_by`: `GPT-5 coding agent`
 - `source_scope`: `quick know-the-app analysis + local build/lint verification`
 - `workspace`: `d:\Projects\portfolio`
@@ -239,16 +239,12 @@ Navigation:
 
 ### Resume Work Summary
 
-Status: `DONE` for now.
+Status: `DONE` (frozen for now).
 
-- Replaced HTML-to-canvas export with true PDF renderer (`@react-pdf/renderer`).
-- Preview and download now use the same PDF output path (blob-based preview + file download).
-- Enforced single-page A4 design with compact spacing and balanced typography.
-- Fixed profile photo rendering by converting source image to renderer-safe PNG data URL.
-- Standardized alignment:
-  - work date capsules centered (container + text)
-  - portfolio chip aligned to header block with centered text inside
-- Final visual polish completed (borders, spacing rhythm, readability balance).
+- Renderer path uses true PDF output via `@react-pdf/renderer`.
+- Preview and download share the same generated blob source (parity preserved).
+- Layout tuned for single-page A4 with finalized header, spacing, bullets, and alignment.
+- Main files: `src/components/ResumePdfDocument.tsx`, `src/components/renderResumePdf.tsx`, `src/App.tsx`.
 
 ### Social Links Consistency
 
@@ -411,6 +407,15 @@ npm run preview
 
 ## Recent Change Notes (append-only, newest first)
 
+- `2026-02-23`: Reduced hero/about copy redundancy (text-only).
+  - Rewrote hero lead into one concise value proposition line.
+  - Reworked About paragraphs to focus on delivery depth and impact proof instead of repeating hero claims.
+  - No layout/design/component structure changes.
+- `2026-02-23`: Synced portfolio page copy with latest `resume.json` updates (text-only).
+  - Updated hero lead/chips and About copy to match revised profile positioning.
+  - Refreshed Skills section text/group wording and item labels to align with resume skills data.
+  - Updated footer tagline to match current positioning language.
+  - Layout and component structure were preserved.
 - `2026-02-22`: Resume layout/design finalized (`DONE`) and condensed.
   - True PDF renderer in place; preview/download parity confirmed.
   - Single-page A4 layout tuned; photo rendering fixed; bullets/capsules/chips aligned.
