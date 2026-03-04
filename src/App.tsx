@@ -208,10 +208,12 @@ function SectionDivider() {
 
 export default function App() {
   const year = new Date().getFullYear();
+  const isContactSectionVisible = false;
   const featuredProjects = data.projects
     .map((project, index) => ({ project, index }))
     .filter(({ project }) => project.featured);
   const projectsToShow = featuredProjects.length > 0 ? featuredProjects : data.projects.map((project, index) => ({ project, index }));
+  const visibleNavItems = data.nav.filter((item) => isContactSectionVisible || item.href !== "#contact");
 
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -543,7 +545,7 @@ export default function App() {
             </a>
 
             <nav className="flex w-full flex-wrap items-center justify-start gap-1 text-[11px] font-medium text-[rgba(255,255,255,0.78)] sm:w-auto sm:justify-end sm:gap-2 md:gap-3 md:text-sm">
-              {data.nav.map((item) => (
+              {visibleNavItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
@@ -595,12 +597,14 @@ export default function App() {
               >
                 View Featured Projects
               </a>
-              <a
-                href="#contact"
-                className="rounded-xl border border-[rgba(255,255,255,0.24)] bg-transparent px-5 py-3 text-sm font-semibold text-[rgba(255,255,255,0.92)] transition hover:-translate-y-0.5 hover:bg-[rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
-              >
-                Contact Me
-              </a>
+              {isContactSectionVisible && (
+                <a
+                  href="#contact"
+                  className="rounded-xl border border-[rgba(255,255,255,0.24)] bg-transparent px-5 py-3 text-sm font-semibold text-[rgba(255,255,255,0.92)] transition hover:-translate-y-0.5 hover:bg-[rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                >
+                  Contact Me
+                </a>
+              )}
               <button
                 type="button"
                 onClick={openResumePreview}
@@ -909,129 +913,131 @@ export default function App() {
           </div>
         </section>
 
-        <SectionDivider />
+        {isContactSectionVisible && <SectionDivider />}
 
-        <section id="contact" className="mx-auto max-w-7xl px-4 pb-12 pt-10 sm:px-5 md:px-8 md:pb-20 md:pt-14 lg:pt-16 lg:pb-20">
-          <div className="space-y-2.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Get In Touch</p>
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Contact</h2>
-            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Share your project goals, scope, and timeline. I usually respond within 24 hours.
-            </p>
-          </div>
-          <div className="mt-5 grid gap-6 md:mt-7 md:gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="space-y-5 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)] p-5 shadow-[0_18px_50px_rgba(2,6,23,0.26)] md:p-6">
-              <h3 className="text-xl font-semibold tracking-tight md:text-2xl">Let&apos;s build something reliable</h3>
-              <p className="max-w-xl text-base leading-relaxed text-[rgba(255,255,255,0.70)] md:text-lg">
-                I help teams design, build, and modernize .NET backends, APIs, and internal systems with production-ready execution.
+        {isContactSectionVisible && (
+          <section id="contact" className="mx-auto max-w-7xl px-4 pb-12 pt-10 sm:px-5 md:px-8 md:pb-20 md:pt-14 lg:pt-16 lg:pb-20">
+            <div className="space-y-2.5">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Get In Touch</p>
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Contact</h2>
+              <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
+                Share your project goals, scope, and timeline. I usually respond within 24 hours.
               </p>
-
-              <div className="flex flex-wrap gap-2 text-xs">
-                <span className="rounded-full border border-[rgba(59,130,246,0.45)] bg-[rgba(59,130,246,0.18)] px-3 py-1.5 font-medium text-[rgba(255,255,255,0.94)]">
-                  {data.contact.location}
-                </span>
-                <span className="rounded-full border border-[rgba(16,185,129,0.45)] bg-[rgba(16,185,129,0.16)] px-3 py-1.5 font-medium text-[rgba(255,255,255,0.94)]">
-                  {data.contact.responseTime}
-                </span>
-              </div>
-
-              <p className="text-sm leading-relaxed text-[rgba(255,255,255,0.74)]">{data.contact.engagement}</p>
-
-              <div className="grid gap-2.5 sm:grid-cols-2">
-                {data.contact.channels.map((channel) => (
-                  <a
-                    key={channel.label}
-                    href={channel.href}
-                    target={channel.href.startsWith("http") ? "_blank" : undefined}
-                    rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
-                    className={`rounded-2xl border px-3.5 py-3 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
-                      channel.primary
-                        ? "border-[rgba(59,130,246,0.52)] bg-[rgba(59,130,246,0.16)] hover:border-[rgba(59,130,246,0.78)]"
-                        : "border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] hover:border-[rgba(14,165,233,0.56)]"
-                    }`}
-                    style={!channel.primary ? { boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.03)" } : undefined}
-                  >
-                    <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-[rgba(255,255,255,0.68)]">{channel.label}</span>
-                    <span className="mt-1 block text-sm font-medium text-[rgba(255,255,255,0.96)]">{channel.value}</span>
-                  </a>
-                ))}
-              </div>
             </div>
+            <div className="mt-5 grid gap-6 md:mt-7 md:gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="space-y-5 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)] p-5 shadow-[0_18px_50px_rgba(2,6,23,0.26)] md:p-6">
+                <h3 className="text-xl font-semibold tracking-tight md:text-2xl">Let&apos;s build something reliable</h3>
+                <p className="max-w-xl text-base leading-relaxed text-[rgba(255,255,255,0.70)] md:text-lg">
+                  I help teams design, build, and modernize .NET backends, APIs, and internal systems with production-ready execution.
+                </p>
 
-            <form
-              onSubmit={handleContactSubmit}
-              noValidate
-              className="rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.30)] sm:p-5 md:p-7"
-            >
-              <input
-                type="text"
-                name="_gotcha"
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-                className="hidden"
-              />
+                <div className="flex flex-wrap gap-2 text-xs">
+                  <span className="rounded-full border border-[rgba(59,130,246,0.45)] bg-[rgba(59,130,246,0.18)] px-3 py-1.5 font-medium text-[rgba(255,255,255,0.94)]">
+                    {data.contact.location}
+                  </span>
+                  <span className="rounded-full border border-[rgba(16,185,129,0.45)] bg-[rgba(16,185,129,0.16)] px-3 py-1.5 font-medium text-[rgba(255,255,255,0.94)]">
+                    {data.contact.responseTime}
+                  </span>
+                </div>
 
-              <div className="space-y-4">
-                <label className="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
-                  Name
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    className="mt-1.5 w-full rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2.5 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
-                    placeholder="Your name"
-                  />
-                </label>
+                <p className="text-sm leading-relaxed text-[rgba(255,255,255,0.74)]">{data.contact.engagement}</p>
 
-                <label className="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
-                  Email
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    className="mt-1.5 w-full rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2.5 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
-                    placeholder="you@example.com"
-                  />
-                </label>
-
-                <label className="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
-                  Message
-                  <textarea
-                    name="message"
-                    rows={4}
-                    required
-                    className="mt-1.5 w-full resize-y rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-3 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
-                    placeholder="Tell me about your project, current stack, timeline, and goals."
-                  />
-                </label>
+                <div className="grid gap-2.5 sm:grid-cols-2">
+                  {data.contact.channels.map((channel) => (
+                    <a
+                      key={channel.label}
+                      href={channel.href}
+                      target={channel.href.startsWith("http") ? "_blank" : undefined}
+                      rel={channel.href.startsWith("http") ? "noreferrer" : undefined}
+                      className={`rounded-2xl border px-3.5 py-3 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
+                        channel.primary
+                          ? "border-[rgba(59,130,246,0.52)] bg-[rgba(59,130,246,0.16)] hover:border-[rgba(59,130,246,0.78)]"
+                          : "border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] hover:border-[rgba(14,165,233,0.56)]"
+                      }`}
+                      style={!channel.primary ? { boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.03)" } : undefined}
+                    >
+                      <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-[rgba(255,255,255,0.68)]">{channel.label}</span>
+                      <span className="mt-1 block text-sm font-medium text-[rgba(255,255,255,0.96)]">{channel.value}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
 
-              <button
-                type="submit"
-                disabled={contactStatus === "sending"}
-                className={`mt-5 inline-flex rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
-                  contactStatus === "sending"
-                    ? "cursor-not-allowed opacity-75"
-                    : "hover:-translate-y-0.5 hover:brightness-110"
-                }`}
+              <form
+                onSubmit={handleContactSubmit}
+                noValidate
+                className="rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.30)] sm:p-5 md:p-7"
               >
-                {contactStatus === "sending" ? "Sending..." : "Send message"}
-              </button>
+                <input
+                  type="text"
+                  name="_gotcha"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
 
-              {contactFeedback && (
-                <p
-                  role={contactStatus === "error" ? "alert" : "status"}
-                  className={`mt-3 text-sm leading-relaxed ${
-                    contactStatus === "success" ? "text-[#86EFAC]" : "text-[#FCA5A5]"
+                <div className="space-y-4">
+                  <label className="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+                    Name
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      className="mt-1.5 w-full rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2.5 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
+                      placeholder="Your name"
+                    />
+                  </label>
+
+                  <label className="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+                    Email
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      className="mt-1.5 w-full rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2.5 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
+                      placeholder="you@example.com"
+                    />
+                  </label>
+
+                  <label className="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+                    Message
+                    <textarea
+                      name="message"
+                      rows={4}
+                      required
+                      className="mt-1.5 w-full resize-y rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-3 text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.45)] focus:border-[#3B82F6] focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"
+                      placeholder="Tell me about your project, current stack, timeline, and goals."
+                    />
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={contactStatus === "sending"}
+                  className={`mt-5 inline-flex rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
+                    contactStatus === "sending"
+                      ? "cursor-not-allowed opacity-75"
+                      : "hover:-translate-y-0.5 hover:brightness-110"
                   }`}
                 >
-                  {contactFeedback}
-                </p>
-              )}
-            </form>
-          </div>
-        </section>
+                  {contactStatus === "sending" ? "Sending..." : "Send message"}
+                </button>
+
+                {contactFeedback && (
+                  <p
+                    role={contactStatus === "error" ? "alert" : "status"}
+                    className={`mt-3 text-sm leading-relaxed ${
+                      contactStatus === "success" ? "text-[#86EFAC]" : "text-[#FCA5A5]"
+                    }`}
+                  >
+                    {contactFeedback}
+                  </p>
+                )}
+              </form>
+            </div>
+          </section>
+        )}
 
         <footer className="border-t border-[rgba(255,255,255,0.10)]">
           <div className="mx-auto max-w-7xl px-4 py-7 sm:px-5 md:px-8 md:py-8">
@@ -1043,7 +1049,7 @@ export default function App() {
 
               <div className="space-y-3">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[rgba(255,255,255,0.74)] md:justify-end">
-                  {data.nav.map((item) => (
+                  {visibleNavItems.map((item) => (
                     <a
                       key={item.label}
                       href={item.href}
@@ -1077,7 +1083,16 @@ export default function App() {
             </div>
 
             <div className="mt-6 flex flex-col gap-2 border-t border-[rgba(255,255,255,0.10)] pt-4 text-xs text-[rgba(255,255,255,0.66)] sm:flex-row sm:items-center sm:justify-between">
-              <span>© {year} {data.name}</span>
+              <span className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                <span>© {year} {data.name}. All rights reserved.</span>
+                <span aria-hidden>·</span>
+                <a
+                  href={`mailto:${data.contact.email}`}
+                  className="rounded-sm underline decoration-[rgba(255,255,255,0.35)] underline-offset-2 transition hover:text-[rgba(255,255,255,0.88)] hover:decoration-[rgba(255,255,255,0.80)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                >
+                  {data.contact.email}
+                </a>
+              </span>
               <span className="max-w-[42rem] text-[rgba(255,255,255,0.58)] sm:text-right">{data.footer.projectStack}</span>
             </div>
           </div>
