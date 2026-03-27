@@ -58,7 +58,7 @@ const data = {
       subtitle:
         "AI-powered flashcard app for private, per-user studying with spaced repetition, OCR-assisted card creation from notes/images, and voice-enabled review workflows.",
       browserLabel: "memocards.justintagarda.com",
-      coverImage: memocardsScreenshot02,
+      coverImage: memocardsScreenshot01,
       coverAlt: "MemoCards application screenshot",
       galleryImages: [
         memocardsScreenshot01,
