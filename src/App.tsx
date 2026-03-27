@@ -2,6 +2,10 @@ import { useCallback, useEffect, useState, type FormEvent } from "react";
 import profilePhoto from "./assets/images/profile-photo.webp";
 import resumeRaw from "../resume.json?raw";
 import type { ResumeData } from "./components/ResumePdfDocument";
+import audioscriptScreenshot01 from "./assets/projects/audioscript/Screenshot-01.png";
+import audioscriptScreenshot02 from "./assets/projects/audioscript/Screenshot-02.png";
+import audioscriptScreenshot03 from "./assets/projects/audioscript/Screenshot-03.png";
+import audioscriptScreenshot04 from "./assets/projects/audioscript/Screenshot-04.png";
 import memocardsScreenshot01 from "./assets/projects/memocards/Screenshot-01.png";
 import memocardsScreenshot02 from "./assets/projects/memocards/Screenshot-02.png";
 import memocardsScreenshot03 from "./assets/projects/memocards/Screenshot-03.png";
@@ -51,6 +55,30 @@ const data = {
     ],
   },
   projects: [
+    {
+      id: "audioscript",
+      featured: true,
+      title: "AudioScript",
+      subtitle:
+        "Windows desktop transcription app for converting local audio and live playback into clean, editable text, with optional AI transcription and speaker diarization.",
+      browserLabel: "apps.microsoft.com",
+      coverImage: audioscriptScreenshot02,
+      coverAlt: "AudioScript application screenshot",
+      galleryImages: [audioscriptScreenshot01, audioscriptScreenshot02, audioscriptScreenshot03, audioscriptScreenshot04],
+      bullets: [
+        "Published on Microsoft Store for direct install and updates.",
+        "Transcribes both local audio files and live system playback capture.",
+        "Supports manual mode and OpenAI-assisted transcription with diarization.",
+        "Persists sessions for resume/reopen workflows and secures API keys via Windows Credential Manager.",
+        "Built with WPF (.NET 10), NAudio audio processing, and xUnit-tested core behavior.",
+      ],
+      stack: ["WPF", ".NET 10", "C#", "NAudio", "OpenAI API", "xUnit"],
+      primaryLinkLabel: "Microsoft Store",
+      links: {
+        liveDemo: "https://apps.microsoft.com/detail/9mvc9bqrq0r7?hl=en-US&gl=PH",
+        github: "",
+      },
+    },
     {
       id: "memocards",
       featured: true,
@@ -875,7 +903,7 @@ export default function App() {
                       rel="noreferrer"
                       className="rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
                     >
-                      Live Demo
+                      {project.primaryLinkLabel || "Live Demo"}
                     </a>
                     {project.links.github && (
                       <a
