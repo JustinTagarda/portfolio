@@ -2,6 +2,13 @@ import { useCallback, useEffect, useState, type FormEvent } from "react";
 import profilePhoto from "./assets/images/profile-photo.webp";
 import resumeRaw from "../resume.json?raw";
 import type { ResumeData } from "./components/ResumePdfDocument";
+import memocardsScreenshot01 from "./assets/projects/memocards/Screenshot-01.png";
+import memocardsScreenshot02 from "./assets/projects/memocards/Screenshot-02.png";
+import memocardsScreenshot03 from "./assets/projects/memocards/Screenshot-03.png";
+import memocardsScreenshot04 from "./assets/projects/memocards/Screenshot-04.png";
+import memocardsScreenshot05 from "./assets/projects/memocards/Screenshot-05.png";
+import memocardsScreenshot06 from "./assets/projects/memocards/Screenshot-06.png";
+import memocardsScreenshot07 from "./assets/projects/memocards/Screenshot-07.png";
 import productCostingCover from "./assets/projects/product-costing/Screenshot-02.png";
 import productCostingScreenshot01 from "./assets/projects/product-costing/Screenshot-01.png";
 import productCostingScreenshot02 from "./assets/projects/product-costing/Screenshot-02.png";
@@ -44,6 +51,35 @@ const data = {
     ],
   },
   projects: [
+    {
+      id: "memocards",
+      featured: true,
+      title: "MemoCards",
+      subtitle:
+        "AI-powered flashcard app for private, per-user studying with spaced repetition, OCR-assisted card creation from notes/images, and voice-enabled review workflows.",
+      browserLabel: "memocards.justintagarda.com",
+      coverImage: memocardsScreenshot02,
+      coverAlt: "MemoCards application screenshot",
+      galleryImages: [
+        memocardsScreenshot01,
+        memocardsScreenshot02,
+        memocardsScreenshot03,
+        memocardsScreenshot04,
+        memocardsScreenshot05,
+        memocardsScreenshot06,
+        memocardsScreenshot07,
+      ],
+      bullets: [
+        "Google sign-in with private, per-user study data and deck management.",
+        "AI-assisted flashcard generation from uploaded files or note photos using OCR and lesson parsing.",
+        "Voice audio question playback for listening-based review and accessibility.",
+      ],
+      stack: ["Next.js", "React", "TypeScript", "Supabase", "Postgres", "Google Cloud Vision", "Google Cloud Text-to-Speech"],
+      links: {
+        liveDemo: "https://memocards.justintagarda.com",
+        github: "",
+      },
+    },
     {
       id: "product-costing",
       featured: true,
