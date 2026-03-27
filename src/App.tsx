@@ -109,7 +109,7 @@ const data = {
       stack: ["Next.js", "React", "TypeScript", "Tailwind", "Supabase", "Postgres"],
       links: {
         liveDemo: "https://costing.justintagarda.com",
-        github: "https://github.com/JustinTagarda/product-costing",
+        github: "",
       },
     },
     {
