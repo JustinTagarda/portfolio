@@ -21,7 +21,21 @@ export type ResumeContact = {
   email: string;
   phone: string;
   linkedin: string;
+  github?: string;
+  location?: string;
   portfolio: string;
+};
+
+export type ResumeSkillItem = {
+  label: string;
+  highlighted: boolean;
+};
+
+export type ResumeSkillGroup = {
+  title: string;
+  accent: string;
+  focus: string;
+  items: ResumeSkillItem[];
 };
 
 export type ResumeData = {
@@ -29,7 +43,7 @@ export type ResumeData = {
   title: string;
   profile: string;
   work_experience: ResumeWorkExperience[];
-  skills: Record<string, string[]>;
+  skills: ResumeSkillGroup[];
   education: ResumeEducation[];
   contact: ResumeContact;
 };
@@ -83,13 +97,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 4,
+    marginTop: 4.2,
+  },
+  contactRowSecondary: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 0.9,
   },
   contactItem: {
     color: "#334155",
     fontSize: 7.7,
-    marginBottom: 1,
-    marginRight: 9,
+    lineHeight: 1.14,
+    marginBottom: 0,
+    marginRight: 11,
   },
   contactPortfolioWrap: {
     alignItems: "center",
@@ -101,7 +122,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     height: 18,
     justifyContent: "center",
-    marginTop: 1.7,
+    marginTop: 2.2,
     paddingHorizontal: 9,
   },
   contactPortfolioText: {
@@ -143,16 +164,18 @@ const styles = StyleSheet.create({
     marginTop: 2.35,
   },
   roleList: {
-    marginTop: 2.35,
+    marginTop: 2.4,
   },
   roleCard: {
     backgroundColor: "#FFFFFF",
     borderColor: "#DEE6F0",
     borderRadius: 7,
     borderWidth: 1,
-    marginTop: 2.55,
     paddingHorizontal: 7,
     paddingVertical: 4.05,
+  },
+  roleCardGap: {
+    marginTop: 2.4,
   },
   roleHeader: {
     alignItems: "center",
@@ -218,32 +241,63 @@ const styles = StyleSheet.create({
     lineHeight: 1.17,
   },
   bottomGrid: {
+    marginTop: 9,
+  },
+  gridSection: {
+    marginTop: 0,
+  },
+  gridSectionGap: {
+    marginTop: 9.6,
+  },
+  twoColumnGrid: {
+    marginTop: 3.1,
+  },
+  twoColumnRow: {
+    alignItems: "stretch",
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 9.4,
   },
-  skillsColumn: {
-    width: "58%",
+  twoColumnRowGap: {
+    marginTop: 3.1,
   },
-  educationColumn: {
-    width: "40%",
+  twoColumnItem: {
+    width: "48.7%",
+  },
+  twoColumnSpacer: {
+    width: "48.7%",
   },
   blockList: {
-    marginTop: 2.4,
+    marginTop: 0,
   },
   blockCard: {
     backgroundColor: "#FFFFFF",
     borderColor: "#E5EBF3",
     borderRadius: 5,
     borderWidth: 1,
-    marginTop: 2.25,
     paddingHorizontal: 6,
     paddingVertical: 3,
+  },
+  skillCard: {
+    paddingVertical: 3.8,
+  },
+  educationCard: {
+    paddingVertical: 4.4,
   },
   blockTitle: {
     color: "#0F172A",
     fontSize: 7.85,
     fontWeight: 700,
+  },
+  skillCardHeader: {
+    alignItems: "flex-start",
+    flexDirection: "row",
+  },
+  skillCardDot: {
+    borderRadius: 999,
+    height: 5.1,
+    marginRight: 3.8,
+    marginTop: 1.2,
+    width: 5.1,
   },
   blockBody: {
     color: "#334155",
@@ -251,9 +305,64 @@ const styles = StyleSheet.create({
     lineHeight: 1.18,
     marginTop: 0.8,
   },
+  blockMeta: {
+    color: "#475569",
+    fontSize: 7.7,
+    marginTop: 0.7,
+  },
+  skillBulletList: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 0.35,
+  },
+  skillBulletRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    marginBottom: 0.55,
+    marginRight: 6,
+  },
+  skillBulletDot: {
+    color: "#2563EB",
+    fontSize: 8.8,
+    marginRight: 1.9,
+  },
+  skillBulletText: {
+    color: "#334155",
+    fontSize: 8.2,
+    lineHeight: 1.15,
+  },
 });
 
+function chunkIntoPairs<T>(items: T[]): T[][] {
+  const rows: T[][] = [];
+  for (let index = 0; index < items.length; index += 2) {
+    rows.push(items.slice(index, index + 2));
+  }
+  return rows;
+}
+
+function extractYear(value?: string) {
+  if (!value) return "";
+  const yearMatch = value.match(/\b\d{4}\b/);
+  return yearMatch ? yearMatch[0] : value;
+}
+
+function formatEducationYears(start?: string, end?: string) {
+  const startYear = extractYear(start);
+  const endYear = extractYear(end);
+
+  if (startYear && endYear && startYear === endYear) {
+    return startYear;
+  }
+
+  return [startYear, endYear].filter(Boolean).join(" - ");
+}
+
 export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdfDocumentProps) {
+  const visibleSkills = resume.skills.filter((group) => group.title !== "AI Tools");
+  const skillsRows = chunkIntoPairs(visibleSkills);
+  const educationRows = chunkIntoPairs(resume.education);
+
   return (
     <Document title={`${resume.name} - Resume`} author={resume.name}>
       <Page size="A4" style={styles.page}>
@@ -265,7 +374,11 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
             <View style={styles.contactRow}>
               <Text style={styles.contactItem}>{resume.contact.email}</Text>
               <Text style={styles.contactItem}>{resume.contact.phone}</Text>
+              {resume.contact.location && <Text style={styles.contactItem}>{resume.contact.location}</Text>}
+            </View>
+            <View style={styles.contactRowSecondary}>
               <Text style={styles.contactItem}>{resume.contact.linkedin}</Text>
+              {resume.contact.github && <Text style={styles.contactItem}>{resume.contact.github}</Text>}
             </View>
             <View style={styles.contactPortfolioWrap}>
               <Text style={styles.contactPortfolioText}>Portfolio: {resume.contact.portfolio}</Text>
@@ -286,12 +399,12 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
           <Text style={styles.sectionTitle}>Work Experience</Text>
 
           <View style={styles.roleList}>
-            {resume.work_experience.map((role) => {
+            {resume.work_experience.map((role, index) => {
               const companyLine = role.company ? role.company : "Freelance";
               const locationLine = role.location ? ` - ${role.location}` : "";
 
               return (
-                <View key={`${role.job_title}-${role.start}`} style={styles.roleCard}>
+                <View key={`${role.job_title}-${role.start}`} style={index > 0 ? [styles.roleCard, styles.roleCardGap] : styles.roleCard}>
                   <View style={styles.roleHeader}>
                     <View style={styles.roleTitleBlock}>
                       <Text style={styles.roleTitle}>{role.job_title}</Text>
@@ -323,32 +436,54 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
         </View>
 
         <View style={styles.bottomGrid}>
-          <View style={styles.skillsColumn}>
+          <View style={styles.gridSection}>
             <Text style={styles.sectionTitle}>Skills</Text>
 
-            <View style={styles.blockList}>
-              {Object.entries(resume.skills).map(([groupName, items]) => (
-                <View key={groupName} style={styles.blockCard}>
-                  <Text style={styles.blockTitle}>{groupName}</Text>
-                  <Text style={styles.blockBody}>{items.join(", ")}</Text>
+            <View style={styles.twoColumnGrid}>
+              {skillsRows.map((row, rowIndex) => (
+                <View key={`skills-row-${rowIndex}`} style={rowIndex > 0 ? [styles.twoColumnRow, styles.twoColumnRowGap] : styles.twoColumnRow}>
+                  {row.map((group) => (
+                    <View key={group.title} style={[styles.twoColumnItem, styles.blockCard, styles.skillCard]}>
+                      <View style={styles.skillCardHeader}>
+                        <View style={[styles.skillCardDot, { backgroundColor: group.accent }]} />
+                        <Text style={styles.blockTitle}>{group.title}</Text>
+                      </View>
+                      <View style={styles.skillBulletList}>
+                        {group.items.map((skill) => (
+                          <View key={`${group.title}-${skill.label}`} style={styles.skillBulletRow}>
+                            <Text style={[styles.skillBulletDot, { color: group.accent }]}>•</Text>
+                            <Text style={styles.skillBulletText}>{skill.label}</Text>
+                          </View>
+                        ))}
+                      </View>
+                    </View>
+                  ))}
+                  {row.length === 1 && <View style={styles.twoColumnSpacer} />}
                 </View>
               ))}
             </View>
           </View>
 
-          <View style={styles.educationColumn}>
+          <View style={[styles.gridSection, styles.gridSectionGap]}>
             <Text style={styles.sectionTitle}>Education</Text>
 
-            <View style={styles.blockList}>
-              {resume.education.map((item, index) => (
-                <View key={`${item.degree_or_certificate}-${item.institution}`} style={styles.blockCard}>
-                  <Text style={styles.blockTitle}>
-                    {item.degree_or_certificate}
-                    {index === 0 ? " (Highest Qualification)" : ""}
-                  </Text>
-                  <Text style={styles.blockBody}>
-                    {item.institution} - {item.location}
-                  </Text>
+            <View style={styles.twoColumnGrid}>
+              {educationRows.map((row, rowIndex) => (
+                <View key={`education-row-${rowIndex}`} style={rowIndex > 0 ? [styles.twoColumnRow, styles.twoColumnRowGap] : styles.twoColumnRow}>
+                  {row.map((item) => (
+                    <View key={`${item.degree_or_certificate}-${item.institution}`} style={[styles.twoColumnItem, styles.blockCard, styles.educationCard]}>
+                      <Text style={styles.blockTitle}>{item.degree_or_certificate}</Text>
+                      <Text style={styles.blockBody}>
+                        {item.institution} - {item.location}
+                      </Text>
+                      {formatEducationYears(item.start, item.end) && (
+                        <Text style={styles.blockMeta}>
+                          {formatEducationYears(item.start, item.end)}
+                        </Text>
+                      )}
+                    </View>
+                  ))}
+                  {row.length === 1 && <View style={styles.twoColumnSpacer} />}
                 </View>
               ))}
             </View>

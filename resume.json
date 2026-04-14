@@ -58,52 +58,168 @@
       ]
     }
   ],
-  "skills": {
-    "Backend": [
-      "C#",
-      ".NET",
-      "ASP.NET Core",
-      "REST APIs"
-    ],
-    "Frontend": [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "Tailwind CSS",
-      "jQuery",
-      "Knockout.js"
-    ],
-    "Databases": [
-      "SQL Server",
-      "PostgreSQL (Supabase)",
-      "NoSQL"
-    ],
-    "DevOps & Infrastructure": [
-      "Docker",
-      "IIS",
-      "Azure DevOps"
-    ],
-    "Tools": [
-      "Git",
-      "GitHub",
-      "Visual Studio",
-      "VS Code",
-      "PowerShell"
-    ],
-    "Collaboration": [
-      "Jira",
-      "Slack",
-      "Figma"
-    ],
-    "Productivity": [
-      "GitHub Copilot",
-      "ChatGPT"
-    ]
-  },
+  "skills": [
+    {
+      "title": "Backend",
+      "accent": "#3B82F6",
+      "focus": "API-first backend engineering for scalable enterprise workflows.",
+      "items": [
+        {
+          "label": "ASP.NET Core",
+          "highlighted": true
+        },
+        {
+          "label": ".NET",
+          "highlighted": true
+        },
+        {
+          "label": "C#",
+          "highlighted": false
+        },
+        {
+          "label": "REST APIs",
+          "highlighted": true
+        }
+      ]
+    },
+    {
+      "title": "Databases",
+      "accent": "#F59E0B",
+      "focus": "Relational-first data design, query tuning, and reliable persistence.",
+      "items": [
+        {
+          "label": "SQL Server",
+          "highlighted": true
+        },
+        {
+          "label": "PostgreSQL",
+          "highlighted": false
+        },
+        {
+          "label": "NoSQL",
+          "highlighted": false
+        }
+      ]
+    },
+    {
+      "title": "DevOps & Infrastructure",
+      "accent": "#60A5FA",
+      "focus": "Deployment pipelines, IIS hosting, and production reliability practices.",
+      "items": [
+        {
+          "label": "Docker",
+          "highlighted": false
+        },
+        {
+          "label": "IIS",
+          "highlighted": true
+        },
+        {
+          "label": "Azure DevOps",
+          "highlighted": false
+        }
+      ]
+    },
+    {
+      "title": "Frontend",
+      "accent": "#14B8A6",
+      "focus": "Modern React interfaces plus support for legacy enterprise UI stacks.",
+      "items": [
+        {
+          "label": "TypeScript",
+          "highlighted": true
+        },
+        {
+          "label": "React",
+          "highlighted": true
+        },
+        {
+          "label": "Next.js",
+          "highlighted": true
+        },
+        {
+          "label": "JavaScript",
+          "highlighted": false
+        },
+        {
+          "label": "Tailwind CSS",
+          "highlighted": false
+        },
+        {
+          "label": "jQuery",
+          "highlighted": false
+        },
+        {
+          "label": "Knockout",
+          "highlighted": false
+        }
+      ]
+    },
+    {
+      "title": "Tools",
+      "accent": "#22C55E",
+      "focus": "Daily engineering toolkit for development, debugging, and delivery.",
+      "items": [
+        {
+          "label": "Git",
+          "highlighted": false
+        },
+        {
+          "label": "GitHub",
+          "highlighted": false
+        },
+        {
+          "label": "Visual Studio",
+          "highlighted": false
+        },
+        {
+          "label": "VS Code",
+          "highlighted": false
+        },
+        {
+          "label": "PowerShell",
+          "highlighted": false
+        }
+      ]
+    },
+    {
+      "title": "Collaboration",
+      "accent": "#94A3B8",
+      "focus": "Remote-first coordination with clients and distributed product teams.",
+      "items": [
+        {
+          "label": "Jira",
+          "highlighted": false
+        },
+        {
+          "label": "Slack",
+          "highlighted": false
+        },
+        {
+          "label": "Figma",
+          "highlighted": false
+        }
+      ]
+    },
+    {
+      "title": "AI Tools",
+      "accent": "#F97316",
+      "focus": "Supporting AI-assisted tools for coding, analysis, and workflow acceleration.",
+      "items": [
+        {
+          "label": "GitHub Copilot",
+          "highlighted": false
+        },
+        {
+          "label": "OpenAI Codex",
+          "highlighted": false
+        }
+      ]
+    }
+  ],
   "education": [
     {
-      "degree_or_certificate": "Bachelor of Arts in Accountancy",
+      "degree_or_certificate": "BS Commerce major in Accounting",
       "institution": "Xavier University College",
       "location": "Cagayan de Oro City, Philippines",
       "start": "June 1987",
@@ -121,6 +237,8 @@
     "email": "justintagarda@gmail.com",
     "phone": "(+63) 927-380-0613",
     "linkedin": "www.linkedin.com/in/justintagarda",
+    "github": "github.com/JustinTagarda",
+    "location": "Remote (UTC+8)",
     "portfolio": "www.justintagarda.com"
   },
   "extracted_text": "JUSTINIANO TAGARDA\nFULL-STACK .NET DEVELOPER | ASP.NET Core · REST APIs · SQL Server · React\nBackend Developer - ASP.NET Framework & SQL Server\nDrizzio / Digital Entrepreneur LLC - USA (Remote)\nNov 2024 - Jan 2026\n• Developed and maintained high-availability backend APIs using .NET, supporting production systems used by thousands of daily users.\n• Collaborated with stakeholders to translate business requirements into scalable backend solutions.\n• Managed SQL Server performance, backups, and troubleshooting.\n• Developed client-side components using Knockout.js and jQuery.\n• Administered IIS deployments and server monitoring.\nSoftware Developer - Freelance\n2021 - Present (Active)\n• Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications using modern web technologies.\n• Developed responsive, production-ready user interfaces using React, Next.js, and TypeScript, integrated with .NET and RESTful backend services.\n• Built full-stack features including API integrations, authentication flows, dashboards, and data-driven interfaces.\n• Collaborated directly with clients to gather requirements, refine functionality, and deliver maintainable production software.\n.NET Developer / System Administrator\nGEDAC Electric Company - Jeddah, Saudi Arabia\n2007 - 2020\n• Built and maintained the company website and multiple internal web applications, including ERP and inventory management systems that streamlined operations and improved data accuracy.\n• Developed a customer portal for real-time project tracking and internal tools used by branch offices to manage daily workflows.\n• Designed, deployed, and maintained business-critical systems supporting company operations and cross-department processes.\n• Supervised IT operations, ensuring system reliability, infrastructure stability, and effective technical support across the organization.\nComputer Programmer\nAl Salem Kitchen Company - Jeddah, Saudi Arabia\n1999 - 2006\n• Developed a company-wide inventory management system using Microsoft Access, improving tracking accuracy and streamlining internal processes.\n• Maintained and enhanced internal software tools to support daily operations and reporting.\n• Installed, configured, and supported LAN infrastructure across offices, factories, and warehouses, ensuring reliable connectivity and communication.\n• Provided technical support and troubleshooting for systems, hardware, and network issues across departments.\nPROFILE\nWORK EXPERIENCE\nSoftware Developer with 15+ years of experience designing, building, and maintaining enterprise web and desktop applications using .NET, ASP.NET, and SQL Server. Specialized in backend architecture, API development, and database performance optimization. Experienced working across the full stack, including modern JavaScript frameworks, to deliver scalable production systems. Comfortable collaborating with distributed remote teams.\nSKILLS\n• Backend: C#, .NET, ASP.NET Core, REST APIs\n• Frontend: React, Next.js, TypeScript, JavaScript, Tailwind CSS, jQuery, Knockout.js\n• Databases: SQL Server, PostgreSQL (Supabase), NoSQL\n• DevOps & Infrastructure: Docker, IIS, Azure DevOps\n• Tools: Git, GitHub, Visual Studio, VS Code, PowerShell\n• Collaboration: Jira, Slack, Figma\n• Productivity: GitHub Copilot, ChatGPT\nEDUCATION\nBachelor of Arts in Accountancy\nXavier University College\nCagayan de Oro City, Philippines\nJune 1987 - March 1992\nCOBOL Programming Certificate\nSystems Technology Institute\nCagayan de Oro City, Philippines\nJune 1992 - November 1992\nCONTACT ME\nEmail: justintagarda@gmail.com\nPhone: (+63) 927-380-0613\nLinkedIn: www.linkedin.com/in/justintagarda\nPortfolio: www.justintagarda.com\n-- 1 of 1 --"

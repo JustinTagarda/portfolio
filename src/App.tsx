@@ -170,51 +170,6 @@ const data = {
       },
     },
   ],
-  primaryStack: [".NET", "ASP.NET Core", "REST APIs", "SQL Server", "React", "Next.js", "TypeScript", "IIS"],
-  skillGroups: [
-    {
-      title: "Backend",
-      accent: "#3B82F6",
-      focus: "API-first backend engineering for scalable enterprise workflows.",
-      items: ["C#", ".NET", "ASP.NET Core", "REST APIs"],
-    },
-    {
-      title: "Frontend",
-      accent: "#14B8A6",
-      focus: "Modern React interfaces plus support for legacy enterprise UI stacks.",
-      items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "jQuery", "Knockout.js"],
-    },
-    {
-      title: "Databases",
-      accent: "#F59E0B",
-      focus: "Relational-first data design, query tuning, and reliable persistence.",
-      items: ["SQL Server", "PostgreSQL (Supabase)", "NoSQL"],
-    },
-    {
-      title: "DevOps & Infrastructure",
-      accent: "#60A5FA",
-      focus: "Deployment pipelines, IIS hosting, and production reliability practices.",
-      items: ["Docker", "IIS", "Azure DevOps"],
-    },
-    {
-      title: "Tools",
-      accent: "#22C55E",
-      focus: "Daily engineering toolkit for development, debugging, and delivery.",
-      items: ["Git", "GitHub", "Visual Studio", "VS Code", "PowerShell"],
-    },
-    {
-      title: "Collaboration",
-      accent: "#94A3B8",
-      focus: "Remote-first coordination with clients and distributed product teams.",
-      items: ["Jira", "Slack", "Figma"],
-    },
-    {
-      title: "Productivity",
-      accent: "#F97316",
-      focus: "Acceleration tools for coding, analysis, and documentation workflows.",
-      items: ["GitHub Copilot", "ChatGPT"],
-    },
-  ],
   contact: {
     email: "justintagarda@gmail.com",
     linkedin: "https://www.linkedin.com/in/justintagarda",
@@ -259,6 +214,7 @@ const data = {
 const formspreeEndpoint =
   import.meta.env.VITE_FORMSPREE_ENDPOINT?.trim() || "https://formspree.io/f/mpqjyoov";
 const resumeData = JSON.parse(resumeRaw) as ResumeData;
+const skillGroups = resumeData.skills.filter((group) => group.title !== "AI Tools");
 const workExperiences = resumeData.work_experience;
 const currentlyActiveExperience = workExperiences.find((item) => item.end.toLowerCase().includes("present"));
 
@@ -295,8 +251,6 @@ export default function App() {
   const activeGallery = activeProject?.galleryImages ?? [];
   const activeImage = activeGallery[activeImageIndex];
   const isGalleryOpen = activeProject !== null;
-  const primarySkillSet = new Set(data.primaryStack.map((skill) => skill.toLowerCase()));
-
   const openGallery = (projectIndex: number, startAt = 0) => {
     setActiveProjectIndex(projectIndex);
     setActiveImageIndex(startAt);
@@ -933,7 +887,7 @@ export default function App() {
             </p>
           </div>
           <div className="mt-5 grid gap-4 md:mt-7 md:gap-5 md:grid-cols-2">
-            {data.skillGroups.map((group) => (
+            {skillGroups.map((group) => (
               <article
                 key={group.title}
                 className="group rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-5 shadow-[0_18px_50px_rgba(2,6,23,0.30)] transition hover:-translate-y-1 hover:border-[rgba(59,130,246,0.45)] md:p-6"
@@ -957,17 +911,16 @@ export default function App() {
                 </div>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {group.items.map((item) => {
-                    const isPrimary = primarySkillSet.has(item.toLowerCase());
                     return (
                       <span
-                        key={item}
+                        key={item.label}
                         className={
-                          isPrimary
+                          item.highlighted
                             ? "rounded-full border border-[rgba(59,130,246,0.50)] bg-[rgba(59,130,246,0.18)] px-3 py-1.5 text-xs font-medium text-[rgba(255,255,255,0.96)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
                             : "rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-3 py-1.5 text-xs text-[rgba(255,255,255,0.92)]"
                         }
                       >
-                        {item}
+                        {item.label}
                       </span>
                     );
                   })}
