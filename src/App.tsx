@@ -2,6 +2,11 @@ import { useCallback, useEffect, useState, type FormEvent } from "react";
 import profilePhoto from "./assets/images/profile-photo.webp";
 import resumeRaw from "../resume.json?raw";
 import type { ResumeData } from "./components/ResumePdfDocument";
+import jobTrackerAiScreenshot01 from "./assets/projects/job-tracker-ai/Screenshot-01.png";
+import jobTrackerAiScreenshot02 from "./assets/projects/job-tracker-ai/Screenshot-02.png";
+import jobTrackerAiScreenshot03 from "./assets/projects/job-tracker-ai/Screenshot-03.png";
+import jobTrackerAiScreenshot04 from "./assets/projects/job-tracker-ai/Screenshot-04.png";
+import jobTrackerAiScreenshot05 from "./assets/projects/job-tracker-ai/Screenshot-05.png";
 import audioscriptScreenshot01 from "./assets/projects/audioscript/Screenshot-01.png";
 import audioscriptScreenshot02 from "./assets/projects/audioscript/Screenshot-02.png";
 import audioscriptScreenshot03 from "./assets/projects/audioscript/Screenshot-03.png";
@@ -55,6 +60,35 @@ const data = {
     ],
   },
   projects: [
+    {
+      id: "job-tracker-ai",
+      featured: true,
+      title: "Job Tracker AI",
+      subtitle:
+        "WPF desktop app for Windows that captures job posts, extracts structured details, detects duplicates, tracks application status, and generates or edits cover letters with optional OpenAI assistance.",
+      browserLabel: "apps.microsoft.com",
+      coverImage: jobTrackerAiScreenshot01,
+      coverAlt: "Job Tracker AI application screenshot",
+      galleryImages: [
+        jobTrackerAiScreenshot01,
+        jobTrackerAiScreenshot02,
+        jobTrackerAiScreenshot03,
+        jobTrackerAiScreenshot04,
+        jobTrackerAiScreenshot05,
+      ],
+      bullets: [
+        "Capture job posts from screenshots, image files, and URLs.",
+        "Extract structured job details and flag likely duplicates before saving.",
+        "Track application status as Pending, Applied, or Declined, including decline reasons.",
+        "Generate and edit cover letters with optional OpenAI assistance, with local fallback and local record storage.",
+      ],
+      stack: ["WPF", ".NET 10", "C#", "Windows Forms interop", "WebView2", "Microsoft.Data.Sqlite"],
+      primaryLinkLabel: "Microsoft Store",
+      links: {
+        liveDemo: "https://apps.microsoft.com/detail/9pj2lxxpqm78?hl=en-US&gl=PH",
+        github: "",
+      },
+    },
     {
       id: "audioscript",
       featured: true,
