@@ -41,8 +41,8 @@ const data = {
   lead: "I design and deliver scalable backend-first systems with reliable APIs, optimized data layers, and production-focused execution.",
   heroChips: ["15+ Years", "Enterprise Systems", "Backend Architecture", "Full-Stack Delivery", "Remote"],
   socialLinks: [
-    { label: "GitHub", href: "#" },
-    { label: "LinkedIn", href: "#" },
+    { label: "GitHub", href: "https://github.com/JustinTagarda" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/justintagarda" },
     { label: "Email", href: "mailto:justintagarda@gmail.com" },
   ],
   about: {
@@ -583,7 +583,7 @@ export default function App() {
   }, [isResumePreviewOpen, isResumeDownloading]);
 
   return (
-    <main className="relative min-h-screen overflow-x-clip bg-[#0B1220] text-[rgba(255,255,255,0.92)]">
+    <main id="top" className="relative min-h-screen overflow-x-clip bg-[#0B1220] text-[rgba(255,255,255,0.92)]">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
         <div className="absolute -left-40 -top-40 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.45)_0%,_rgba(59,130,246,0)_70%)] opacity-30 blur-3xl" />
         <div className="absolute -bottom-48 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,_rgba(245,158,11,0.40)_0%,_rgba(245,158,11,0)_70%)] opacity-25 blur-3xl" />
@@ -592,7 +592,7 @@ export default function App() {
       <div className="relative z-10">
         <header className="sticky top-0 z-40 border-b border-[rgba(255,255,255,0.10)] bg-[rgba(11,18,32,0.60)] backdrop-blur-xl">
           <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5 md:px-8">
-            <a href="#" className="text-sm font-medium tracking-tight text-[rgba(255,255,255,0.94)] sm:text-base">
+            <a href="#top" className="text-sm font-medium tracking-tight text-[rgba(255,255,255,0.94)] sm:text-base">
               {data.name}
             </a>
 
