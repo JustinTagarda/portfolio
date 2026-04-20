@@ -876,7 +876,7 @@ export default function App() {
                       alt={project.coverAlt}
                       loading="lazy"
                       decoding="async"
-                      className="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                      className="aspect-[16/10] w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]"
                     />
                     <div className="flex items-center justify-between border-t border-[rgba(255,255,255,0.10)] bg-[rgba(11,18,32,0.70)] px-3 py-2 text-[11px] text-[rgba(255,255,255,0.84)] backdrop-blur">
                       <span>Open gallery</span>
