@@ -2,6 +2,9 @@ import { useCallback, useEffect, useState, type FormEvent } from "react";
 import profilePhoto from "./assets/images/profile-photo.webp";
 import resumeRaw from "../resume.json?raw";
 import type { ResumeData } from "./components/ResumePdfDocument";
+import rightspeakScreenshot01 from "./assets/projects/rightspeak/Screenshot-01.png";
+import rightspeakScreenshot02 from "./assets/projects/rightspeak/Screenshot-02.png";
+import rightspeakScreenshot03 from "./assets/projects/rightspeak/Screenshot-03.png";
 import jobTrackerAiScreenshot01 from "./assets/projects/job-tracker-ai/Screenshot-01.png";
 import jobTrackerAiScreenshot02 from "./assets/projects/job-tracker-ai/Screenshot-02.png";
 import jobTrackerAiScreenshot03 from "./assets/projects/job-tracker-ai/Screenshot-03.png";
@@ -60,6 +63,30 @@ const data = {
     ],
   },
   projects: [
+    {
+      id: "rightspeak",
+      featured: true,
+      title: "RightSpeak",
+      subtitle:
+        "Windows desktop text-to-speech utility that reads selected text with low friction, using reliable retrieval fallbacks, global hotkeys, tray quick actions, and configurable voice settings.",
+      browserLabel: "apps.microsoft.com",
+      coverImage: rightspeakScreenshot01,
+      coverAlt: "RightSpeak application screenshot",
+      galleryImages: [rightspeakScreenshot01, rightspeakScreenshot02, rightspeakScreenshot03],
+      bullets: [
+        "Reads selected text from other apps with staged retrieval: UI Automation, focused-control extraction, then clipboard fallback.",
+        "Supports manual text reading, selected-text reading, and document reading with production-focused reliability hardening.",
+        "Provides global hotkeys, tray quick actions, and stop controls for fast Windows-first workflows.",
+        "Supports downloadable voice models so users can choose and use preferred voices.",
+        "Includes speech-rate control, theme modes, and local diagnostics for maintainable day-to-day use.",
+      ],
+      stack: ["WPF", ".NET 10", "C#", "MVVM", "Win32 interop", "UI Automation"],
+      primaryLinkLabel: "Microsoft Store",
+      links: {
+        liveDemo: "https://apps.microsoft.com/store/detail/9MWX1Z4TKFL9?cid=DevShareMCLPCS",
+        github: "",
+      },
+    },
     {
       id: "job-tracker-ai",
       featured: true,
