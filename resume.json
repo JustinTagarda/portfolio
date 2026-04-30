@@ -79,6 +79,18 @@
         {
           "label": "REST APIs",
           "highlighted": true
+        },
+        {
+          "label": "ASP.NET",
+          "highlighted": false
+        },
+        {
+          "label": ".NET Core",
+          "highlighted": false
+        },
+        {
+          "label": "Entity Framework Core",
+          "highlighted": false
         }
       ]
     },
@@ -98,6 +110,10 @@
         {
           "label": "NoSQL",
           "highlighted": false
+        },
+        {
+          "label": "MySQL",
+          "highlighted": false
         }
       ]
     },
@@ -116,6 +132,10 @@
         },
         {
           "label": "Azure DevOps",
+          "highlighted": false
+        },
+        {
+          "label": "CI/CD Pipeline Practices",
           "highlighted": false
         }
       ]
@@ -150,7 +170,34 @@
           "highlighted": false
         },
         {
-          "label": "Knockout",
+          "label": "Knockout.js",
+          "highlighted": false
+        },
+        {
+          "label": "HTML",
+          "highlighted": false
+        },
+        {
+          "label": "CSS",
+          "highlighted": false
+        }
+      ]
+    },
+    {
+      "title": "Testing & Quality",
+      "accent": "#A3E635",
+      "focus": "Regression coverage and repeatable validation before release.",
+      "items": [
+        {
+          "label": "xUnit",
+          "highlighted": false
+        },
+        {
+          "label": "Automated Regression Testing",
+          "highlighted": false
+        },
+        {
+          "label": "Build/Test Validation",
           "highlighted": false
         }
       ]
@@ -178,6 +225,10 @@
         },
         {
           "label": "PowerShell",
+          "highlighted": false
+        },
+        {
+          "label": "Node.js",
           "highlighted": false
         }
       ]
@@ -212,6 +263,29 @@
         },
         {
           "label": "OpenAI Codex",
+          "highlighted": false
+        },
+        {
+          "label": "OpenAI API",
+          "highlighted": false
+        }
+      ]
+    },
+    {
+      "title": "Desktop & Legacy Systems",
+      "accent": "#C084FC",
+      "focus": "Desktop application and legacy business-system development.",
+      "items": [
+        {
+          "label": "WPF",
+          "highlighted": false
+        },
+        {
+          "label": "Windows Forms",
+          "highlighted": false
+        },
+        {
+          "label": "Microsoft Access",
           "highlighted": false
         }
       ]

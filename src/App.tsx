@@ -109,7 +109,7 @@ const data = {
         "Track status as Pending, Applied, or Declined.",
         "Generate and edit cover letters with optional OpenAI and local fallback.",
       ],
-      stack: ["WPF", ".NET 10", "C#", "Windows Forms interop", "WebView2", "Microsoft.Data.Sqlite"],
+      stack: ["WPF", ".NET 10", "C#", "Windows Forms interop", "WebView2", "SQLite"],
       primaryLinkLabel: "Microsoft Store",
       links: {
         liveDemo: "https://apps.microsoft.com/detail/9pj2lxxpqm78?hl=en-US&gl=PH",
@@ -163,7 +163,7 @@ const data = {
         "Generate flashcards from files or note photos with OCR.",
         "Use voice question playback for hands-free review.",
       ],
-      stack: ["Next.js", "React", "TypeScript", "Supabase", "Postgres", "Google Cloud Vision", "Google Cloud Text-to-Speech"],
+      stack: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Google Cloud Vision", "Google Cloud Text-to-Speech"],
       links: {
         liveDemo: "https://memocards.justintagarda.com",
         github: "",
@@ -195,7 +195,7 @@ const data = {
         "Costing engine with BOM rollups, weighted costs, waste, markup, and tax.",
         "Import/export tools with audit history.",
       ],
-      stack: ["Next.js", "React", "TypeScript", "Tailwind", "Supabase", "Postgres"],
+      stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
       links: {
         liveDemo: "https://costing.justintagarda.com",
         github: "",
@@ -275,7 +275,7 @@ const data = {
 const formspreeEndpoint =
   import.meta.env.VITE_FORMSPREE_ENDPOINT?.trim() || "https://formspree.io/f/mpqjyoov";
 const resumeData = JSON.parse(resumeRaw) as ResumeData;
-const skillGroups = resumeData.skills.filter((group) => group.title !== "AI Tools");
+const skillGroups = resumeData.skills;
 const workExperiences = resumeData.work_experience;
 const currentlyActiveExperience = workExperiences.find((item) => item.end.toLowerCase().includes("present"));
 
@@ -947,7 +947,7 @@ export default function App() {
               Core technologies I use to deliver scalable, production-ready business systems.
             </p>
           </div>
-          <div className="mt-5 grid gap-4 md:mt-7 md:gap-5 md:grid-cols-2">
+          <div className="mt-5 grid gap-4 md:mt-7 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
             {skillGroups.map((group) => (
               <article
                 key={group.title}
@@ -964,7 +964,7 @@ export default function App() {
                     </p>
                   </div>
                   <span
-                    className="rounded-full border px-2.5 py-1 text-[11px] font-medium text-[rgba(255,255,255,0.86)]"
+                    className="shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-[11px] font-medium text-[rgba(255,255,255,0.86)]"
                     style={{ borderColor: `${group.accent}66`, backgroundColor: `${group.accent}1A` }}
                   >
                     {group.items.length} skills
