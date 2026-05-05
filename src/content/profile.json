@@ -1,0 +1,64 @@
+{
+  "name": "Justiniano Tagarda",
+  "headline": "Senior Full Stack .NET Developer",
+  "lead": "I design and deliver scalable backend-first systems with reliable APIs, optimized data layers, and production-focused execution.",
+  "heroChips": ["15+ Years", "Enterprise Systems", "Backend Architecture", "Full-Stack Delivery", "Remote"],
+  "socialLinks": [
+    { "label": "GitHub", "href": "https://github.com/JustinTagarda" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/in/justintagarda" },
+    { "label": "Email", "href": "mailto:justintagarda@gmail.com" }
+  ],
+  "about": {
+    "eyebrow": "Senior full-stack enterprise delivery",
+    "subheadline": "Backend architecture, API development, and database performance optimization for production systems.",
+    "paragraphs": [
+      "Across 15+ years, I have delivered enterprise software for e-commerce platforms, internal business operations, and custom applications, from API layers to full workflow systems.",
+      "I focus on stable architecture, maintainable code, and measurable operational impact, collaborating directly with clients and distributed teams through implementation and long-term support."
+    ],
+    "highlights": [
+      "Backend architecture and systems thinking across APIs, databases, and long-lived business systems",
+      "End-to-end delivery from business requirements to usable software for real operational workflows",
+      "Full-stack flexibility across .NET backends and modern React/Next.js frontends",
+      "Operational ownership through deployments, monitoring, troubleshooting, and production support"
+    ]
+  },
+  "contact": {
+    "email": "justintagarda@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/justintagarda",
+    "location": "Remote (UTC+8) • Cagayan de Oro City, Philippines",
+    "responseTime": "Usually replies within 24 hours",
+    "engagement": "Available for full-time roles, long-term contracts, and project-based work. Immediate availability.",
+    "channels": [
+      {
+        "label": "Email",
+        "value": "justintagarda@gmail.com",
+        "href": "mailto:justintagarda@gmail.com",
+        "accent": "#3B82F6",
+        "primary": true
+      },
+      {
+        "label": "LinkedIn",
+        "value": "linkedin.com/in/justintagarda",
+        "href": "https://www.linkedin.com/in/justintagarda",
+        "accent": "#0EA5E9",
+        "primary": false
+      }
+    ]
+  },
+  "footer": {
+    "note": "Senior full-stack .NET developer delivering reliable APIs and enterprise systems.",
+    "projectStack": "Built with React, TypeScript, Vite, Tailwind CSS, React PDF, Formspree, and Firebase Hosting.",
+    "social": [
+      { "label": "GitHub", "href": "https://github.com/JustinTagarda" },
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/justintagarda" },
+      { "label": "Email", "href": "mailto:justintagarda@gmail.com" }
+    ]
+  },
+  "nav": [
+    { "label": "About", "href": "#about" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Work", "href": "#work" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Contact", "href": "#contact" }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "document": {
+    "sourceType": "standalone-user-data-profile",
+    "exportedAtUtc": "2026-05-05T03:24:32.9894923+00:00"
+  },
+  "preferences": {
+    "remotePreference": "Fully remote",
+    "availability": "Immediately",
+    "compensationStance": "Open",
+    "relocationStance": "Not open"
+  },
+  "strengths": [
+    {
+      "title": "Backend architecture and systems thinking",
+      "evidence": "Career history is centered on APIs, databases, internal platforms, and long-lived business systems."
+    },
+    {
+      "title": "Turning business needs into usable software",
+      "evidence": "Repeatedly worked from stakeholder requirements toward practical applications supporting real workflows."
+    },
+    {
+      "title": "Full-stack flexibility",
+      "evidence": "Can move between backend-heavy work and modern frontend delivery depending on project needs."
+    },
+    {
+      "title": "Operational ownership",
+      "evidence": "Backed delivery with deployment, support, troubleshooting, and reliability operations."
+    }
+  ],
+  "careerGoals": [
+    "Continue in remote full-stack .NET or backend .NET roles with immediate contribution to APIs and SQL-backed systems.",
+    "Deepen ASP.NET Core, React, Next.js, TypeScript, automated testing, and CI/CD practices.",
+    "Grow into senior backend/full-stack ownership for stable, maintainable business systems."
+  ],
+  "jobTargets": [
+    "Full-stack .NET Developer",
+    "Backend .NET Developer",
+    "ASP.NET Core Developer",
+    "C# / SQL Server Developer",
+    "Full-stack Developer with React/Next.js",
+    "Internal Systems / Business Applications Developer"
+  ]
+}

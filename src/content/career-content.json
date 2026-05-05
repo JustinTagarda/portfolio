@@ -1,8 +1,8 @@
 {
   "source_file_name": "Resume - Justiniano Tagarda.pdf",
   "name": "JUSTINIANO TAGARDA",
-  "title": "FULL-STACK .NET DEVELOPER | ASP.NET Core · REST APIs · SQL Server · React",
-  "profile": "Software Developer with 15+ years of experience designing, building, and maintaining enterprise web and desktop applications using .NET, ASP.NET, and SQL Server. Specialized in backend architecture, API development, and database performance optimization. Experienced working across the full stack, including modern JavaScript frameworks, to deliver scalable production systems. Comfortable collaborating with distributed remote teams.",
+  "title": "SENIOR FULL STACK .NET DEVELOPER | ASP.NET Core · REST APIs · SQL Server · React",
+  "profile": "Senior Full Stack .NET Developer with 15+ years of experience delivering business-critical web and desktop systems across .NET, ASP.NET, and SQL Server. Backend-first in architecture, with proven full-stack delivery using React, Next.js, and TypeScript. Strong in API design, data modeling, production troubleshooting, and long-term maintainability for enterprise and internal operations platforms.",
   "work_experience": [
     {
       "job_title": "Backend Developer - ASP.NET Framework & SQL Server",
@@ -11,11 +11,11 @@
       "start": "Nov 2024",
       "end": "Jan 2026",
       "responsibilities": [
-        "Developed and maintained high-availability backend APIs using .NET, supporting production systems used by thousands of daily users.",
-        "Collaborated with stakeholders to translate business requirements into scalable backend solutions.",
-        "Managed SQL Server performance, backups, and troubleshooting.",
+        "Delivered and maintained high-availability .NET backend APIs supporting production systems used by thousands of daily users.",
+        "Collaborated with the team to translate business requirements into scalable backend solutions.",
+        "Shared responsibility with the team lead for SQL Server performance monitoring, backups, troubleshooting, and maintenance.",
         "Developed client-side components using Knockout.js and jQuery.",
-        "Administered IIS deployments and server monitoring."
+        "Assisted the team lead with IIS deployments, server monitoring, and production environment support."
       ]
     },
     {
@@ -25,10 +25,10 @@
       "start": "2021",
       "end": "Present (Active)",
       "responsibilities": [
-        "Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications using modern web technologies.",
-        "Developed responsive, production-ready user interfaces using React, Next.js, and TypeScript, integrated with .NET and RESTful backend services.",
-        "Built full-stack features including API integrations, authentication flows, dashboards, and data-driven interfaces.",
-        "Collaborated directly with clients to gather requirements, refine functionality, and deliver maintainable production software."
+        "Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications.",
+        "Developed responsive, production-ready interfaces with React, Next.js, and TypeScript integrated with .NET REST APIs.",
+        "Built full-stack features including API integrations, authentication flows, dashboards, and data-driven workflows.",
+        "Collaborated directly with clients to define scope, refine functionality, and ship maintainable production software."
       ]
     },
     {
@@ -40,8 +40,8 @@
       "responsibilities": [
         "Built and maintained the company website and multiple internal web applications, including ERP and inventory management systems that streamlined operations and improved data accuracy.",
         "Developed a customer portal for real-time project tracking and internal tools used by branch offices to manage daily workflows.",
-        "Designed, deployed, and maintained business-critical systems supporting company operations and cross-department processes.",
-        "Supervised IT operations, ensuring system reliability, infrastructure stability, and effective technical support across the organization."
+        "Designed, deployed, and maintained business-critical systems supporting cross-department operations.",
+        "Supervised IT operations to maintain system reliability, infrastructure stability, and effective technical support across the organization."
       ]
     },
     {

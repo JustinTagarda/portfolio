@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import profilePhoto from "./assets/images/profile-photo.webp";
-import resumeRaw from "../resume.json?raw";
+import resumeRaw from "./content/career-content.json?raw";
+import profileContentRaw from "./content/profile.json?raw";
+import careerProfileRaw from "./content/career-profile.json?raw";
 import type { ResumeData } from "./components/ResumePdfDocument";
 import rightspeakScreenshot01 from "./assets/projects/rightspeak/Screenshot-01.png";
 import rightspeakScreenshot02 from "./assets/projects/rightspeak/Screenshot-02.png";
@@ -38,7 +40,7 @@ import gedacCompanyWebsiteScreenshot05 from "./assets/projects/gedac-company-web
 
 type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
 
-const data = {
+const defaultData = {
   name: "Justiniano Tagarda",
   headline: "Full-Stack .NET Developer",
   lead: "I design and deliver scalable backend-first systems with reliable APIs, optimized data layers, and production-focused execution.",
@@ -270,6 +272,54 @@ const data = {
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
   ],
+};
+
+type ProfileContent = Pick<typeof defaultData, "name" | "headline" | "lead" | "heroChips" | "socialLinks" | "about" | "contact" | "footer" | "nav">;
+type CareerProfileContent = {
+  preferences?: {
+    availability?: string;
+  };
+  strengths?: Array<{
+    title: string;
+    evidence: string;
+  }>;
+};
+
+const profileContent = JSON.parse(profileContentRaw) as Partial<ProfileContent>;
+const careerProfileContent = JSON.parse(careerProfileRaw) as CareerProfileContent;
+const defaultHighlights = defaultData.about.highlights;
+const careerHighlights = (careerProfileContent.strengths ?? []).map((item) => `${item.title}: ${item.evidence}`);
+const mergedAboutHighlights =
+  profileContent.about?.highlights && profileContent.about.highlights.length > 0
+    ? profileContent.about.highlights
+    : careerHighlights.length > 0
+      ? careerHighlights
+      : defaultHighlights;
+const availabilityValue = careerProfileContent.preferences?.availability?.trim();
+const baseEngagementText = profileContent.contact?.engagement ?? defaultData.contact.engagement;
+const hasAvailabilityInEngagement = /availability/i.test(baseEngagementText);
+const availabilityNote = availabilityValue && !hasAvailabilityInEngagement ? ` ${availabilityValue} availability.` : "";
+
+const data = {
+  ...defaultData,
+  ...profileContent,
+  about: {
+    ...defaultData.about,
+    ...profileContent.about,
+    highlights: mergedAboutHighlights,
+  },
+  contact: {
+    ...defaultData.contact,
+    ...profileContent.contact,
+    engagement: `${baseEngagementText}${availabilityNote}`.trim(),
+    channels: profileContent.contact?.channels ?? defaultData.contact.channels,
+  },
+  footer: {
+    ...defaultData.footer,
+    ...profileContent.footer,
+    social: profileContent.footer?.social ?? defaultData.footer.social,
+  },
+  nav: profileContent.nav ?? defaultData.nav,
 };
 
 const formspreeEndpoint =
@@ -1336,3 +1386,4 @@ export default function App() {
     </main>
   );
 }
+
