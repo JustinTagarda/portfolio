@@ -47,68 +47,67 @@
 <body>
   <main>
     <h1>Privacy Policy for Job Tracker AI</h1>
-    <p class="updated">Last updated: April 12, 2026</p>
+    <p class="updated">Last updated: May 7, 2026</p>
 
     <h2>Overview</h2>
-    <p>Job Tracker AI is a Windows desktop application for managing job applications, analyzing job posts, and drafting or editing cover letters.</p>
-    <p>This product is local-first. Most user data is stored on the user's Windows device. AI-assisted features are optional and require the user to provide their own OpenAI API key.</p>
+    <p>Job Tracker AI is a Windows desktop app for job-post analysis, career-profile management, and cover-letter generation and editing.</p>
+    <p>The app is local-first. Primary user content is stored on the user's Windows device. AI workflows run through a local model/runtime path selected by the app.</p>
 
     <h2>Information Stored Locally</h2>
-    <p>Job Tracker AI can store the following information on the local device:</p>
+    <p>Job Tracker AI stores data locally on the device, including:</p>
     <ul>
-      <li>job-post records, including saved analysis results</li>
-      <li>job-post screenshots and extracted text artifacts</li>
-      <li>career-profile and applicant-profile data entered by the user</li>
-      <li>saved cover-letter drafts and edits</li>
-      <li>application settings, model settings, and prompt settings</li>
+      <li>job-post records and analysis results</li>
+      <li>uploaded or captured job-post images</li>
+      <li>career-profile data</li>
+      <li>generated and edited cover letters</li>
+      <li>app settings, model settings, and prompt settings</li>
+      <li>appearance/theme preference</li>
       <li>runtime diagnostic logs</li>
     </ul>
 
-    <h2>OpenAI API Key Handling</h2>
-    <p>If the user enables AI-assisted features, the user-provided OpenAI API key is stored in Windows Credential Manager under the JobTracker application credential target. The API key is not stored in the app's JSON or SQLite files.</p>
+    <h2>AI Processing</h2>
+    <p>The app's AI workflows run through the currently selected local model/runtime path.</p>
+    <p>For supported workflows, prompt content is sent to the local runtime used by that selected model. This content can include:</p>
+    <ul>
+      <li>job-post text from user-provided URLs and image OCR</li>
+      <li>career-profile fields used for analysis and drafting</li>
+      <li>cover-letter drafts during generation or modification</li>
+    </ul>
+    <p>Current app behavior does not require an OpenAI API key or OpenAI consent flow for these workflows.</p>
 
-    <h2>AI-Assisted Features and Data Transfer</h2>
-    <p>AI-assisted features are optional and are used only when all of the following are true:</p>
+    <h2>Network Activity</h2>
+    <p>The app may use network access for:</p>
     <ul>
-      <li>the user has stored an OpenAI API key</li>
-      <li>the user has turned on workflow AI-assist in Settings</li>
-      <li>the user has accepted the in-app OpenAI data-transfer consent</li>
+      <li>reading user-provided job-post URLs</li>
+      <li>Microsoft Store licensing/trial checks</li>
+      <li>Microsoft Store update checks and installs</li>
+      <li>opening external links from Settings (for example privacy policy/support pages)</li>
     </ul>
-    <p>When AI-assisted features are enabled, Job Tracker AI may send relevant content to OpenAI, including:</p>
-    <ul>
-      <li>job-post text captured from screenshots or URLs</li>
-      <li>career-profile and applicant-profile data needed for analysis or drafting</li>
-      <li>existing cover-letter content when the user asks the app to generate or edit a cover letter</li>
-    </ul>
-    <p>The app uses that content to perform job-post analysis, policy checks, legitimacy and fit analysis, and cover-letter generation or modification.</p>
-    <p>Turning AI mode off in the app stops future OpenAI transmission for those workflows.</p>
+    <p>AI inference for app workflows is designed to run through the local selected-model runtime on the device.</p>
 
     <h2>Sharing and Disclosure</h2>
     <p>Job Tracker AI does not sell user data.</p>
-    <p>When AI-assisted features are enabled, relevant workflow content is transmitted to OpenAI as the third-party AI service provider for the requested feature. Outside of that workflow, the app is designed to keep user data on the local device.</p>
+    <p>User content is stored locally except when network operations are triggered by app features such as URL capture, Microsoft Store services, or opening external links.</p>
 
     <h2>Security</h2>
-    <p>The app stores local records in application-managed files and databases on Windows. The app also uses Windows Credential Manager for the OpenAI API key.</p>
-    <p>Runtime diagnostics are retained locally to help with troubleshooting. Users should avoid storing unnecessary sensitive information in free-form fields and should review any data they choose to send through AI-assisted workflows.</p>
-    <p>No method of local storage, transmission, or electronic processing can be guaranteed to be completely secure.</p>
+    <p>The app uses local files and local SQLite-backed storage for persisted data. Users should avoid placing unnecessary sensitive information in free-form text fields.</p>
 
     <h2>User Controls</h2>
-    <p>Users can control data use in the following ways:</p>
+    <p>Users can:</p>
     <ul>
-      <li>keep the app in local mode without storing an OpenAI API key</li>
-      <li>turn workflow AI-assist on or off in Settings</li>
-      <li>remove the OpenAI API key from Windows Credential Manager</li>
-      <li>manage or delete local job-post records and profile data</li>
+      <li>select which local AI model is active</li>
+      <li>manage or delete local job-post and profile data</li>
+      <li>review and remove local app data files</li>
     </ul>
 
     <h2>Access and Deletion</h2>
-    <p>Users can access, review, edit, or delete job-post records, profile data, and other locally stored content through the app where supported. Uninstalling the app may not automatically remove all locally stored files or the saved OpenAI API key. Users who want fuller local cleanup may need to delete locally stored app data from their Windows device and remove the OpenAI API key from Windows Credential Manager.</p>
+    <p>Users can access, edit, and delete data inside the app where supported.</p>
+    <p>Uninstalling the app may not automatically remove all local data files or model/runtime artifacts. Users who want full cleanup should remove app data directories and related local model/runtime files manually.</p>
 
     <h2>Changes to This Privacy Policy</h2>
-    <p>This Privacy Policy may be updated from time to time. The latest version will be made available at the URL where this policy is published.</p>
+    <p>This policy may be updated over time. The latest version should be published at the app's privacy policy URL.</p>
 
     <h2>Contact</h2>
-    <p>If you have questions about this Privacy Policy, contact:</p>
     <ul>
       <li>Name: JustinTagarda</li>
       <li>Email: justintagarda@gmail.com</li>
