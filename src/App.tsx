@@ -16,6 +16,7 @@ import audioscriptScreenshot01 from "./assets/projects/audioscript/Screenshot-01
 import audioscriptScreenshot02 from "./assets/projects/audioscript/Screenshot-02.png";
 import audioscriptScreenshot03 from "./assets/projects/audioscript/Screenshot-03.png";
 import audioscriptScreenshot04 from "./assets/projects/audioscript/Screenshot-04.png";
+import audioscriptScreenshot05 from "./assets/projects/audioscript/Screenshot-05.png";
 import memocardsScreenshot01 from "./assets/projects/memocards/Screenshot-01.png";
 import memocardsScreenshot02 from "./assets/projects/memocards/Screenshot-02.png";
 import memocardsScreenshot03 from "./assets/projects/memocards/Screenshot-03.png";
@@ -123,19 +124,24 @@ const defaultData = {
       featured: true,
       title: "AudioScript",
       subtitle:
-        "Windows desktop transcription app for converting local audio and live playback into clean, editable text, with optional AI transcription and speaker diarization.",
+        "Windows desktop app for offline transcription, speaker diarization, transcript editing, and local session management.",
       browserLabel: "apps.microsoft.com",
-      coverImage: audioscriptScreenshot02,
+      coverImage: audioscriptScreenshot04,
       coverAlt: "AudioScript application screenshot",
-      galleryImages: [audioscriptScreenshot01, audioscriptScreenshot02, audioscriptScreenshot03, audioscriptScreenshot04],
-      bullets: [
-        "Available on Microsoft Store for direct install and updates.",
-        "Transcribes local audio files and live system playback.",
-        "Supports manual and OpenAI-assisted transcription with diarization.",
-        "Saves sessions and secures API keys with Windows Credential Manager.",
-        "Built with WPF (.NET 10), NAudio, and xUnit-tested core behavior.",
+      galleryImages: [
+        audioscriptScreenshot01,
+        audioscriptScreenshot02,
+        audioscriptScreenshot03,
+        audioscriptScreenshot04,
+        audioscriptScreenshot05,
       ],
-      stack: ["WPF", ".NET 10", "C#", "NAudio", "OpenAI API", "xUnit"],
+      bullets: [
+        "Runs transcription locally with Whisper models, including manual transcription mode.",
+        "Performs offline speaker diarization using bundled pyannote-community-1 assets.",
+        "Supports transcript row editing, split/duplicate/delete operations, and speaker renaming.",
+        "Exports transcripts to .docx with tab-delimited and interview-style layouts.",
+      ],
+      stack: ["WPF", ".NET 10", "C#", "NAudio", "Whisper.net", "xUnit"],
       primaryLinkLabel: "Microsoft Store",
       links: {
         liveDemo: "https://apps.microsoft.com/detail/9mvc9bqrq0r7?hl=en-US&gl=PH",
