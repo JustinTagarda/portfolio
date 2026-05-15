@@ -7,11 +7,6 @@ import type { ResumeData } from "./components/ResumePdfDocument";
 import rightspeakScreenshot01 from "./assets/projects/rightspeak/Screenshot-01.png";
 import rightspeakScreenshot02 from "./assets/projects/rightspeak/Screenshot-02.png";
 import rightspeakScreenshot03 from "./assets/projects/rightspeak/Screenshot-03.png";
-import jobTrackerAiScreenshot01 from "./assets/projects/job-tracker-ai/Screenshot-01.png";
-import jobTrackerAiScreenshot02 from "./assets/projects/job-tracker-ai/Screenshot-02.png";
-import jobTrackerAiScreenshot03 from "./assets/projects/job-tracker-ai/Screenshot-03.png";
-import jobTrackerAiScreenshot04 from "./assets/projects/job-tracker-ai/Screenshot-04.png";
-import jobTrackerAiScreenshot05 from "./assets/projects/job-tracker-ai/Screenshot-05.png";
 import audioscriptScreenshot01 from "./assets/projects/audioscript/Screenshot-01.png";
 import audioscriptScreenshot02 from "./assets/projects/audioscript/Screenshot-02.png";
 import audioscriptScreenshot03 from "./assets/projects/audioscript/Screenshot-03.png";
@@ -87,35 +82,6 @@ const defaultData = {
       primaryLinkLabel: "Microsoft Store",
       links: {
         liveDemo: "https://apps.microsoft.com/store/detail/9MWX1Z4TKFL9?cid=DevShareMCLPCS",
-        github: "",
-      },
-    },
-    {
-      id: "job-tracker-ai",
-      featured: true,
-      title: "Job Tracker AI",
-      subtitle:
-        "WPF desktop app for Windows that captures job posts, extracts structured details, detects duplicates, tracks application status, and generates or edits cover letters with optional OpenAI assistance.",
-      browserLabel: "apps.microsoft.com",
-      coverImage: jobTrackerAiScreenshot01,
-      coverAlt: "Job Tracker AI application screenshot",
-      galleryImages: [
-        jobTrackerAiScreenshot01,
-        jobTrackerAiScreenshot02,
-        jobTrackerAiScreenshot03,
-        jobTrackerAiScreenshot04,
-        jobTrackerAiScreenshot05,
-      ],
-      bullets: [
-        "Capture job posts from screenshots, images, and URLs.",
-        "Extract key details and prevent duplicate saves.",
-        "Track status as Pending, Applied, or Declined.",
-        "Generate and edit cover letters with optional OpenAI and local fallback.",
-      ],
-      stack: ["WPF", ".NET 10", "C#", "Windows Forms interop", "WebView2", "SQLite"],
-      primaryLinkLabel: "Microsoft Store",
-      links: {
-        liveDemo: "https://apps.microsoft.com/detail/9pj2lxxpqm78?hl=en-US&gl=PH",
         github: "",
       },
     },

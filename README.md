@@ -40,6 +40,14 @@ The goal of this site is clear positioning for hiring teams and clients looking 
 - Contact section with engagement details and communication channels
 - Custom `JT` favicon
 
+## Featured Projects
+
+- RightSpeak
+- AudioScript
+- MemoCards
+- Product Costing
+- GEDAC Company Website
+
 ## Tech Stack
 
 - React 19
