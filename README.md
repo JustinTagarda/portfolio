@@ -9,7 +9,7 @@ Modern single-page portfolio focused on enterprise-grade full-stack delivery, AI
 
 ## Overview
 
-This portfolio presents Justiniano Tagarda as a Senior Full Stack .NET Developer with 15+ years of hands-on delivery across:
+This portfolio presents Justiniano Tagarda as a Senior Full Stack .NET Developer | AI-Augmented Builder with 15+ years of hands-on delivery across:
 
 - High-availability APIs
 - React/Next.js interfaces
@@ -42,7 +42,7 @@ The goal of this site is clear positioning for hiring teams and clients looking 
   - AI-Assisted Development
   - Desktop & Legacy Systems
 - Contact section with engagement details and communication channels
-- Resume PDF output that reuses the website profile copy for shared header/about content
+- Resume PDF output that uses dedicated PDF header content from `src/content/career-content.json` and shared about/contact data from the website profile
 - Custom `JT` favicon
 
 ## Featured Projects
@@ -131,7 +131,8 @@ Every push to `main` triggers build and production deployment through GitHub Act
 - Website hero/about/footer copy: `src/content/profile.json`
 - Website timeline/experience extensions: `src/content/career-profile.json`
 - Resume PDF body content: `src/content/career-content.json`
-- Resume PDF shared header/about content: sourced from `src/content/profile.json`
+- Resume PDF title/header content: sourced from `src/content/career-content.json`
+- Resume PDF shared about/contact content: sourced from `src/content/profile.json`
 
 ## Contact
 

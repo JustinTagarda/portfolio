@@ -65,8 +65,9 @@ const defaultData = {
       id: "rightspeak",
       featured: true,
       title: "RightSpeak",
+      featureNote: "Local neural TTS with Piper / ONNX",
       subtitle:
-        "Listen instead of reading. RightSpeak brings selected text, supported documents, and pasted content to life with fast hotkeys, smooth controls, and natural voice options built for Windows.",
+        "Listen instead of reading. RightSpeak brings selected text, supported documents, and pasted content to life with fast hotkeys, smooth controls, and local neural voice options built for Windows.",
       browserLabel: "apps.microsoft.com",
       coverImage: rightspeakScreenshot01,
       coverAlt: "RightSpeak application screenshot",
@@ -75,10 +76,10 @@ const defaultData = {
         "Read pasted, selected, and supported document text aloud.",
         "Start fast with hotkeys and tray quick actions.",
         "Control playback with pause, resume, cancel, and stop.",
-        "Choose voices, adjust speed, and manage Piper models.",
+        "Choose voices, adjust speed, and manage local Piper voice models.",
         "Stay focused with a lightweight, always-on-top Windows design.",
       ],
-      stack: ["WPF", ".NET 10", "C#", "MVVM", "Win32 interop", "UI Automation"],
+      stack: ["WPF", ".NET 10", "C#", "MVVM", "Win32 interop", "UI Automation", "Local neural TTS"],
       primaryLinkLabel: "Microsoft Store",
       links: {
         liveDemo: "https://apps.microsoft.com/store/detail/9MWX1Z4TKFL9?cid=DevShareMCLPCS",
@@ -89,6 +90,7 @@ const defaultData = {
       id: "audioscript",
       featured: true,
       title: "AudioScript",
+      featureNote: "Local transcription with Whisper + pyannote",
       subtitle:
         "Windows desktop app for offline transcription, speaker diarization, transcript editing, and local session management.",
       browserLabel: "apps.microsoft.com",
@@ -107,7 +109,7 @@ const defaultData = {
         "Supports transcript row editing, split/duplicate/delete operations, and speaker renaming.",
         "Exports transcripts to .docx with tab-delimited and interview-style layouts.",
       ],
-      stack: ["WPF", ".NET 10", "C#", "NAudio", "Whisper.net", "xUnit"],
+      stack: ["WPF", ".NET 10", "C#", "NAudio", "Whisper.net", "pyannote", "xUnit"],
       primaryLinkLabel: "Microsoft Store",
       links: {
         liveDemo: "https://apps.microsoft.com/detail/9mvc9bqrq0r7?hl=en-US&gl=PH",
@@ -118,8 +120,9 @@ const defaultData = {
       id: "memocards",
       featured: true,
       title: "MemoCards",
+      featureNote: "OCR + Gemini 2.5 Flash Lite + AI card generation",
       subtitle:
-        "AI-powered flashcard app for private, per-user studying with spaced repetition, OCR-assisted card creation from notes/images, and voice-enabled review workflows.",
+        "AI-powered flashcard app for private, per-user studying with spaced repetition, OCR-assisted card creation from notes/images, and voice-enabled review workflows using Gemini 2.5 Flash Lite.",
       browserLabel: "memocards.justintagarda.com",
       coverImage: memocardsScreenshot01,
       coverAlt: "MemoCards application screenshot",
@@ -134,10 +137,19 @@ const defaultData = {
       ],
       bullets: [
         "Google sign-in with private per-user decks and study data.",
-        "Generate flashcards from files or note photos with OCR.",
+        "Generate flashcards from files or note photos with OCR and Gemini 2.5 Flash Lite.",
         "Use voice question playback for hands-free review.",
       ],
-      stack: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Google Cloud Vision", "Google Cloud Text-to-Speech"],
+      stack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Supabase",
+        "PostgreSQL",
+        "Google Cloud Vision",
+        "Google Vertex AI",
+        "Google Cloud Text-to-Speech",
+      ],
       links: {
         liveDemo: "https://memocards.justintagarda.com",
         github: "",
@@ -910,6 +922,11 @@ export default function App() {
                 <div className="space-y-6 lg:pt-1">
                   <div className="space-y-3">
                     <h3 className="text-2xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)]">{project.title}</h3>
+                    {"featureNote" in project && project.featureNote && (
+                      <span className="inline-flex rounded-full border border-[rgba(245,158,11,0.30)] bg-[rgba(245,158,11,0.14)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#FBBF24]">
+                        {project.featureNote}
+                      </span>
+                    )}
                     <p className="text-base leading-relaxed text-[rgba(255,255,255,0.70)]">{project.subtitle}</p>
                   </div>
 

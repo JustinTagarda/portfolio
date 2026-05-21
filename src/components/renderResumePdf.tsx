@@ -22,7 +22,7 @@ const websiteProfile = JSON.parse(profileContentRaw) as WebsiteProfileContent;
 function buildPdfResume(resume: ResumeData): ResumeData {
   const linkedIn = websiteProfile.contact?.linkedin ?? resume.contact.linkedin;
   const location = websiteProfile.contact?.location ?? resume.contact.location;
-  const websiteTitle = websiteProfile.headline ?? resume.title;
+  const websiteTitle = resume.title;
   const websiteAboutSummary = [
     websiteProfile.about?.subheadline,
     ...(websiteProfile.about?.paragraphs ?? []),
