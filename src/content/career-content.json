@@ -19,13 +19,13 @@
       ]
     },
     {
-      "job_title": "Software Developer - Freelance",
-      "company": null,
+      "job_title": "Freelance Software Developer",
+        "company": "AI-augmented full-stack development",
       "location": null,
       "start": "2021",
       "end": "Present (Active)",
       "responsibilities": [
-        "Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications.",
+        "Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications using AI-augmented development.",
         "Developed responsive, production-ready interfaces with React, Next.js, and TypeScript integrated with .NET REST APIs.",
         "Built full-stack features including API integrations, authentication flows, dashboards, and data-driven workflows.",
         "Collaborated directly with clients to define scope, refine functionality, and ship maintainable production software."
@@ -62,7 +62,7 @@
     {
       "title": "Backend",
       "accent": "#3B82F6",
-      "focus": "API-first backend engineering for scalable enterprise workflows.",
+      "focus": "APIs, integrations, and service layers for scalable business workflows.",
       "items": [
         {
           "label": "ASP.NET Core",
@@ -95,9 +95,36 @@
       ]
     },
     {
+      "title": "Business Systems",
+      "accent": "#38BDF8",
+      "focus": "Internal tools, portals, dashboards, and workflow systems for daily operations.",
+      "items": [
+        {
+          "label": "Internal Tools",
+          "highlighted": true
+        },
+        {
+          "label": "Admin Portals",
+          "highlighted": false
+        },
+        {
+          "label": "Custom Dashboards",
+          "highlighted": false
+        },
+        {
+          "label": "Workflow Automation",
+          "highlighted": false
+        },
+        {
+          "label": "Reporting Interfaces",
+          "highlighted": false
+        }
+      ]
+    },
+    {
       "title": "Databases",
       "accent": "#F59E0B",
-      "focus": "Relational-first data design, query tuning, and reliable persistence.",
+      "focus": "Database design, reporting queries, and performance tuning for reliable business data.",
       "items": [
         {
           "label": "SQL Server",
@@ -120,7 +147,7 @@
     {
       "title": "DevOps & Infrastructure",
       "accent": "#60A5FA",
-      "focus": "Deployment pipelines, IIS hosting, and production reliability practices.",
+      "focus": "Deployment, hosting, troubleshooting, and release workflows for production systems.",
       "items": [
         {
           "label": "Docker",
@@ -143,7 +170,7 @@
     {
       "title": "Frontend",
       "accent": "#14B8A6",
-      "focus": "Modern React interfaces plus support for legacy enterprise UI stacks.",
+      "focus": "Responsive dashboards, portals, and business interfaces built for real workflows.",
       "items": [
         {
           "label": "TypeScript",
@@ -159,6 +186,10 @@
         },
         {
           "label": "JavaScript",
+          "highlighted": false
+        },
+        {
+          "label": "Node.js",
           "highlighted": false
         },
         {
@@ -203,59 +234,9 @@
       ]
     },
     {
-      "title": "Tools",
-      "accent": "#22C55E",
-      "focus": "Daily engineering toolkit for development, debugging, and delivery.",
-      "items": [
-        {
-          "label": "Git",
-          "highlighted": false
-        },
-        {
-          "label": "GitHub",
-          "highlighted": false
-        },
-        {
-          "label": "Visual Studio",
-          "highlighted": false
-        },
-        {
-          "label": "VS Code",
-          "highlighted": false
-        },
-        {
-          "label": "PowerShell",
-          "highlighted": false
-        },
-        {
-          "label": "Node.js",
-          "highlighted": false
-        }
-      ]
-    },
-    {
-      "title": "Collaboration",
-      "accent": "#94A3B8",
-      "focus": "Remote-first coordination with clients and distributed product teams.",
-      "items": [
-        {
-          "label": "Jira",
-          "highlighted": false
-        },
-        {
-          "label": "Slack",
-          "highlighted": false
-        },
-        {
-          "label": "Figma",
-          "highlighted": false
-        }
-      ]
-    },
-    {
-      "title": "AI Tools",
+      "title": "AI-Assisted Development",
       "accent": "#F97316",
-      "focus": "Supporting AI-assisted tools for coding, analysis, and workflow acceleration.",
+      "focus": "Applied AI tools for faster coding, debugging, analysis, and workflow automation.",
       "items": [
         {
           "label": "GitHub Copilot",
@@ -274,7 +255,7 @@
     {
       "title": "Desktop & Legacy Systems",
       "accent": "#C084FC",
-      "focus": "Desktop application and legacy business-system development.",
+      "focus": "Windows desktop apps and legacy system modernization for internal operations.",
       "items": [
         {
           "label": "WPF",

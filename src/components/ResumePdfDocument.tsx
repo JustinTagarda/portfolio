@@ -90,20 +90,20 @@ const styles = StyleSheet.create({
     fontSize: 8.7,
     fontWeight: 700,
     letterSpacing: 0.46,
-    marginTop: 3.1,
+    marginTop: 4,
     textTransform: "uppercase",
   },
   contactRow: {
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 4.2,
+    marginTop: 3.6,
   },
   contactRowSecondary: {
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 0.9,
+    marginTop: 0.7,
   },
   contactItem: {
     color: "#334155",
@@ -120,14 +120,14 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     borderWidth: 1,
     flexDirection: "row",
-    height: 18,
     justifyContent: "center",
-    marginTop: 2.2,
-    paddingHorizontal: 9,
+    marginTop: 2.5,
+    paddingHorizontal: 7,
+    paddingVertical: 1.1,
   },
   contactPortfolioText: {
     color: "#FFFFFF",
-    fontSize: 7.45,
+    fontSize: 7.25,
     fontWeight: 700,
     letterSpacing: 0.2,
     lineHeight: 1.05,
@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
     fontSize: 8.65,
     lineHeight: 1.25,
     marginTop: 2.35,
+    maxWidth: 512,
   },
   roleList: {
     marginTop: 2.4,
@@ -278,7 +279,13 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
   },
   skillCard: {
-    paddingVertical: 3.8,
+    paddingVertical: 2.8,
+  },
+  skillsIntro: {
+    color: "#334155",
+    fontSize: 7.55,
+    lineHeight: 1.16,
+    marginTop: 2.2,
   },
   educationCard: {
     paddingVertical: 4.4,
@@ -313,23 +320,23 @@ const styles = StyleSheet.create({
   skillBulletList: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 0.35,
+    marginTop: 0.2,
   },
   skillBulletRow: {
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: 0.55,
-    marginRight: 6,
+    marginBottom: 0.35,
+    marginRight: 4.2,
   },
   skillBulletDot: {
     color: "#2563EB",
-    fontSize: 8.8,
-    marginRight: 1.9,
+    fontSize: 8.4,
+    marginRight: 1.6,
   },
   skillBulletText: {
     color: "#334155",
-    fontSize: 8.2,
-    lineHeight: 1.15,
+    fontSize: 7.9,
+    lineHeight: 1.1,
   },
 });
 
@@ -359,8 +366,7 @@ function formatEducationYears(start?: string, end?: string) {
 }
 
 export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdfDocumentProps) {
-  const visibleSkills = resume.skills.filter((group) => group.title !== "AI Tools");
-  const skillsRows = chunkIntoPairs(visibleSkills);
+  const skillsRows = chunkIntoPairs(resume.skills);
   const educationRows = chunkIntoPairs(resume.education);
 
   return (
@@ -438,6 +444,9 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
         <View style={styles.bottomGrid}>
           <View style={styles.gridSection}>
             <Text style={styles.sectionTitle}>Skills</Text>
+            <Text style={styles.skillsIntro}>
+              Delivery capabilities across backend systems, business workflows, databases, frontend interfaces, deployment, quality, AI-assisted development, and legacy systems.
+            </Text>
 
             <View style={styles.twoColumnGrid}>
               {skillsRows.map((row, rowIndex) => (

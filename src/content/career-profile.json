@@ -11,8 +11,8 @@
   },
   "strengths": [
     {
-      "title": "Backend architecture and systems thinking",
-      "evidence": "Career history is centered on APIs, databases, internal platforms, and long-lived business systems."
+      "title": "Full-stack architecture and systems thinking",
+      "evidence": "Career history spans APIs, databases, React/Next.js interfaces, internal platforms, and long-lived business systems."
     },
     {
       "title": "Turning business needs into usable software",
@@ -20,7 +20,7 @@
     },
     {
       "title": "Full-stack flexibility",
-      "evidence": "Can move between backend-heavy work and modern frontend delivery depending on project needs."
+      "evidence": "Can move between .NET backend work and modern React/Next.js frontend delivery depending on project needs."
     },
     {
       "title": "Operational ownership",
@@ -28,7 +28,7 @@
     }
   ],
   "careerGoals": [
-    "Continue in remote full-stack .NET or backend .NET roles with immediate contribution to APIs and SQL-backed systems.",
+    "Continue in remote full-stack .NET roles with immediate contribution to APIs, SQL-backed systems, and React/Next.js interfaces.",
     "Deepen ASP.NET Core, React, Next.js, TypeScript, automated testing, and CI/CD practices.",
     "Grow into senior backend/full-stack ownership for stable, maintainable business systems."
   ],

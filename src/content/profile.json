@@ -1,22 +1,22 @@
 {
   "name": "Justiniano Tagarda",
   "headline": "Senior Full Stack .NET Developer",
-  "lead": "I design and deliver scalable backend-first systems with reliable APIs, optimized data layers, and production-focused execution.",
-  "heroChips": ["15+ Years", "Enterprise Systems", "Backend Architecture", "Full-Stack Delivery", "Remote"],
+  "lead": "I design and deliver scalable business systems with reliable APIs, optimized data layers, production-focused execution, and practical AI-assisted development.",
+  "heroChips": ["15+ Years", "Enterprise Systems", "Full-Stack Delivery", "React/Next.js", "AI-Assisted Delivery", "Remote"],
   "socialLinks": [
     { "label": "GitHub", "href": "https://github.com/JustinTagarda" },
     { "label": "LinkedIn", "href": "https://www.linkedin.com/in/justintagarda" },
     { "label": "Email", "href": "mailto:justintagarda@gmail.com" }
   ],
   "about": {
-    "eyebrow": "Senior full-stack enterprise delivery",
-    "subheadline": "Backend architecture, API development, and database performance optimization for production systems.",
+    "eyebrow": "Senior full-stack delivery with practical AI augmentation",
+    "subheadline": "Full-stack delivery across .NET APIs, React/Next.js interfaces, and database-backed production systems.",
     "paragraphs": [
-      "Across 15+ years, I have delivered enterprise software for e-commerce platforms, internal business operations, and custom applications, from API layers to full workflow systems.",
-      "I focus on stable architecture, maintainable code, and measurable operational impact, collaborating directly with clients and distributed teams through implementation and long-term support."
+      "Across 15+ years, I have delivered enterprise software for e-commerce platforms, internal business operations, and custom applications, from API layers to responsive business interfaces.",
+      "I focus on stable architecture, maintainable code, measurable operational impact, and practical AI-assisted development, collaborating directly with clients and distributed teams through implementation and long-term support."
     ],
     "highlights": [
-      "Backend architecture and systems thinking across APIs, databases, and long-lived business systems",
+      "Full-stack systems thinking across APIs, databases, React/Next.js interfaces, and long-lived business systems",
       "End-to-end delivery from business requirements to usable software for real operational workflows",
       "Full-stack flexibility across .NET backends and modern React/Next.js frontends",
       "Operational ownership through deployments, monitoring, troubleshooting, and production support"
@@ -46,7 +46,7 @@
     ]
   },
   "footer": {
-    "note": "Senior full-stack .NET developer delivering reliable APIs and enterprise systems.",
+    "note": "Senior full-stack .NET developer delivering reliable APIs, React/Next.js interfaces, enterprise systems, and practical AI-assisted workflows.",
     "projectStack": "Built with React, TypeScript, Vite, Tailwind CSS, React PDF, Formspree, and Firebase Hosting.",
     "social": [
       { "label": "GitHub", "href": "https://github.com/JustinTagarda" },

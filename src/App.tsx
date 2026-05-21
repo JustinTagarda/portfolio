@@ -39,8 +39,8 @@ type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
 const defaultData = {
   name: "Justiniano Tagarda",
   headline: "Full-Stack .NET Developer",
-  lead: "I design and deliver scalable backend-first systems with reliable APIs, optimized data layers, and production-focused execution.",
-  heroChips: ["15+ Years", "Enterprise Systems", "Backend Architecture", "Full-Stack Delivery", "Remote"],
+  lead: "I design and deliver scalable business systems with reliable APIs, optimized data layers, responsive interfaces, and production-focused execution.",
+  heroChips: ["15+ Years", "Enterprise Systems", "Full-Stack Delivery", "React/Next.js", "Remote"],
   socialLinks: [
     { label: "GitHub", href: "https://github.com/JustinTagarda" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/justintagarda" },
@@ -48,9 +48,9 @@ const defaultData = {
   ],
   about: {
     eyebrow: "Full-stack enterprise delivery",
-    subheadline: "Backend architecture, API development, and database performance optimization for production systems.",
+    subheadline: "Full-stack delivery across .NET APIs, React/Next.js interfaces, and database-backed production systems.",
     paragraphs: [
-      "Across 15+ years, I have delivered enterprise software for e-commerce platforms, internal business operations, and custom applications, from API layers to full workflow systems.",
+      "Across 15+ years, I have delivered enterprise software for e-commerce platforms, internal business operations, and custom applications, from API layers to responsive business interfaces.",
       "I focus on stable architecture, maintainable code, and measurable operational impact, collaborating directly with clients and distributed teams through implementation and long-term support.",
     ],
     highlights: [
@@ -665,8 +665,8 @@ export default function App() {
           </div>
         </header>
 
-        <section className="mx-auto grid max-w-7xl items-start gap-8 px-4 pb-10 pt-10 sm:px-5 md:px-8 md:pb-12 md:pt-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-14 lg:pb-16 lg:pt-16">
-          <div className="space-y-7 lg:max-w-[42rem]">
+        <section className="mx-auto grid max-w-7xl items-start gap-8 px-4 pb-10 pt-10 sm:px-5 md:px-8 md:pb-12 md:pt-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-8 lg:pb-16 lg:pt-16 xl:gap-10">
+          <div className="space-y-7 lg:max-w-[52rem]">
               <p className="inline-flex rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-[rgba(255,255,255,0.70)]">
                .NET Core / REST APIs / SQL Server / React
               </p>
@@ -793,8 +793,8 @@ export default function App() {
             </p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Work Experience</h2>
             <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Roles and delivery scope sourced from the current resume, focused on enterprise systems, backend APIs, and
-              long-term production support.
+              Roles and delivery scope sourced from the current resume, focused on enterprise systems, .NET APIs,
+              React/Next.js interfaces, and long-term production support.
             </p>
           </div>
 
@@ -964,12 +964,12 @@ export default function App() {
         <section id="skills" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
           <div className="space-y-2.5">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Capability Map</p>
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Skills & Tools</h2>
-            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Core technologies I use to deliver scalable, production-ready business systems.
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Skills & Delivery Capabilities</h2>
+            <p className="w-full text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
+              Capabilities I use to build, modernize, automate, and support production business systems with practical AI-assisted development.
             </p>
           </div>
-          <div className="mt-5 grid gap-4 md:mt-7 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
+          <div className="mt-5 grid gap-4 md:mt-7 md:grid-cols-2 md:gap-5">
             {skillGroups.map((group) => (
               <article
                 key={group.title}
@@ -1028,7 +1028,7 @@ export default function App() {
               <div className="space-y-5 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)] p-5 shadow-[0_18px_50px_rgba(2,6,23,0.26)] md:p-6">
                 <h3 className="text-xl font-semibold tracking-tight md:text-2xl">Let&apos;s build something reliable</h3>
                 <p className="max-w-xl text-base leading-relaxed text-[rgba(255,255,255,0.70)] md:text-lg">
-                  I help teams design, build, and modernize .NET backends, APIs, and internal systems with production-ready execution.
+                  I help teams design, build, and modernize .NET APIs, React/Next.js interfaces, and internal systems with production-ready execution.
                 </p>
 
                 <div className="flex flex-wrap gap-2 text-xs">
