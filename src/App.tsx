@@ -89,13 +89,16 @@ const defaultData = {
         "Generate draft cards from pasted notes, uploaded text or image files, PDFs, and camera captures.",
         "Optional runtime components for OCR and TTS providers.",
         "Work in offline local SQLite mode or online Google Drive-backed mode.",
-        "Switch between light and dark themes from the in-app settings modal.",
       ],
       stack: ["Flutter", "Dart", "SQLite", "Google Drive", "Google Sign-In", "OCR"],
       primaryLinkLabel: "Microsoft Store",
       links: {
         liveDemo: "https://apps.microsoft.com/detail/9NLRQNJ22RPB?hl=en-us&gl=PH&ocid=pdpshare",
         github: "",
+      },
+      legalLinks: {
+        privacyPolicy: "https://justintagarda.com/legal/cognify-privacy-policy.html",
+        termsOfService: "https://justintagarda.com/legal/cognify-terms-of-service.html",
       },
     },
     {
@@ -282,9 +285,8 @@ const defaultData = {
     ],
   },
   nav: [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
     { label: "Products", href: "#products" },
+    { label: "Experience", href: "#experience" },
     { label: "Other Work", href: "#other-work" },
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
@@ -348,8 +350,8 @@ const currentlyActiveExperience = workExperiences.find((item) => item.end.toLowe
 
 function SectionDivider() {
   return (
-    <div aria-hidden className="mx-auto max-w-7xl px-5 md:px-8">
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.20)] to-transparent" />
+    <div aria-hidden className="mx-auto max-w-7xl px-4 md:px-6">
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.14)] to-transparent" />
     </div>
   );
 }
@@ -709,18 +711,21 @@ export default function App() {
           </div>
         </header>
 
-        <section className="mx-auto grid max-w-7xl items-start gap-8 px-4 pb-10 pt-10 sm:px-5 md:px-8 md:pb-12 md:pt-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-8 lg:pb-16 lg:pt-16 xl:gap-10">
-          <div className="space-y-7 lg:max-w-[52rem]">
+        <section className="mx-auto grid max-w-7xl items-start gap-6 px-4 pb-6 pt-6 sm:px-5 md:px-8 md:pb-8 md:pt-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-6 lg:pb-10 lg:pt-10 xl:gap-8">
+          <div className="space-y-6 lg:max-w-[52rem]">
               <p className="inline-flex rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-[rgba(255,255,255,0.70)]">
                .NET Core / REST APIs / SQL Server / React
               </p>
 
-            <div className="space-y-5">
+            <div className="space-y-4">
               <h1 className="text-4xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl lg:text-6xl lg:leading-tight">
                 {data.headline}
               </h1>
               <p className="max-w-2xl text-base leading-relaxed text-[rgba(255,255,255,0.70)] md:text-lg">
                 {data.lead}
+              </p>
+              <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.62)] md:text-base">
+                {data.about.paragraphs[0]}
               </p>
             </div>
 
@@ -789,7 +794,7 @@ export default function App() {
               </div>
             </article>
 
-            <div className="mt-3.5 grid grid-cols-1 gap-3">
+            <div className="mt-3 grid grid-cols-1 gap-3">
               <div className="rounded-2xl border border-[rgba(255,255,255,0.12)] bg-[linear-gradient(160deg,rgba(255,255,255,0.09)_0%,rgba(255,255,255,0.04)_100%)] p-4 text-center text-sm text-[rgba(255,255,255,0.92)] shadow-[0_14px_36px_rgba(2,6,23,0.28)] transition hover:-translate-y-1">
                 <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.74)]">Available for</span>
                 <span className="mt-1 block text-[15px] font-semibold leading-snug">Full-time / Long-term contract</span>
@@ -799,114 +804,8 @@ export default function App() {
           </div>
         </section>
 
-        <SectionDivider />
-
-        <section id="about" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
-          <div className="rounded-3xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 shadow-[0_18px_50px_rgba(15,23,42,0.14)] sm:p-6 md:p-10">
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#475569]">{data.about.eyebrow}</p>
-              <h2 className="text-2xl font-semibold tracking-tight text-[#0F172A] md:text-3xl">About</h2>
-              <p className="text-sm leading-relaxed text-[#334155] md:text-base">{data.about.subheadline}</p>
-            </div>
-            <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-              <div className="space-y-5 lg:max-w-[34rem]">
-                {data.about.paragraphs.map((text) => (
-                  <p key={text} className="text-base leading-relaxed text-[#334155]">
-                    {text}
-                  </p>
-                ))}
-              </div>
-              <ul className="space-y-4 text-sm leading-relaxed text-[#334155] md:text-base lg:border-l lg:border-[#E2E8F0] lg:pl-8">
-                {data.about.highlights.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <SectionDivider />
-
-        <section id="experience" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
-          <div className="space-y-2.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">
-              Career Timeline
-            </p>
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Work Experience</h2>
-            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Roles and delivery scope sourced from the current resume, focused on enterprise systems, .NET APIs,
-              React/Next.js interfaces, and long-term production support.
-            </p>
-          </div>
-
-          <div className="mt-5 grid items-start gap-5 md:mt-7 md:gap-6 lg:grid-cols-[18rem_minmax(0,1fr)]">
-            <aside className="space-y-3 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.30)] sm:p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[rgba(255,255,255,0.72)]">
-                Snapshot
-              </p>
-              <div className="space-y-2.5">
-                <div className="rounded-2xl border border-[rgba(59,130,246,0.36)] bg-[rgba(59,130,246,0.16)] px-3 py-2.5">
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Experience</p>
-                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">15+ years</p>
-                </div>
-                <div className="rounded-2xl border border-[rgba(245,158,11,0.36)] bg-[rgba(245,158,11,0.14)] px-3 py-2.5">
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Roles Listed</p>
-                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">{workExperiences.length}</p>
-                </div>
-                <div className="rounded-2xl border border-[rgba(16,185,129,0.36)] bg-[rgba(16,185,129,0.14)] px-3 py-2.5">
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Current Track</p>
-                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">
-                    {currentlyActiveExperience?.job_title ?? "Freelance delivery"}
-                  </p>
-                </div>
-              </div>
-            </aside>
-
-            <div className="relative space-y-4 pl-6 before:absolute before:bottom-2 before:left-2 before:top-2 before:w-px before:bg-[linear-gradient(180deg,_rgba(59,130,246,0.65)_0%,_rgba(148,163,184,0.20)_45%,_rgba(245,158,11,0.55)_100%)]">
-              {workExperiences.map((role) => {
-                const companyLine = role.company ? role.company : "Freelance";
-                const metaLine = role.location ? `${companyLine} · ${role.location}` : companyLine;
-                return (
-                  <article
-                    key={`${role.job_title}-${role.start}`}
-                    className="relative rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.28)] transition hover:-translate-y-0.5 hover:border-[rgba(59,130,246,0.48)] sm:p-5"
-                  >
-                    <span className="absolute -left-[1.45rem] top-7 h-3 w-3 rounded-full border border-[#0B1220] bg-[#3B82F6] shadow-[0_0_0_4px_rgba(59,130,246,0.25)]" />
-
-                    <div className="flex flex-wrap items-start justify-between gap-3">
-                      <div>
-                        <h3 className="text-lg font-semibold tracking-tight text-[rgba(255,255,255,0.94)]">
-                          {role.job_title}
-                        </h3>
-                        <p className="mt-1 text-sm text-[rgba(255,255,255,0.72)]">{metaLine}</p>
-                      </div>
-                      <span className="rounded-full border border-[rgba(255,255,255,0.16)] bg-[rgba(255,255,255,0.06)] px-3 py-1 text-xs font-medium text-[rgba(255,255,255,0.88)]">
-                        {role.start} - {role.end}
-                      </span>
-                    </div>
-
-                    <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[rgba(255,255,255,0.90)] md:text-[15px]">
-                      {role.responsibilities.map((item) => (
-                        <li key={item} className="flex items-start gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        <SectionDivider />
-
-        <section id="products" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
-          <div className="space-y-2.5">
+        <section id="products" className="mx-auto max-w-7xl px-4 py-8 sm:px-5 md:px-8 md:py-10 lg:py-12">
+          <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Shipped Products</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Products</h2>
             <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
@@ -914,7 +813,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="mt-5 space-y-5 md:mt-7 md:space-y-7">
+          <div className="mt-3 space-y-4 md:mt-4 md:space-y-5">
             {productProjectEntries.map(({ project, index: projectIndex }) => (
               <article
                 key={project.id}
@@ -1000,6 +899,27 @@ export default function App() {
                       </a>
                     )}
                   </div>
+                  {"legalLinks" in project && project.legalLinks && (
+                    <div className="inline-flex flex-wrap items-center gap-2 rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.04)] px-3 py-1.5 text-[12px] font-medium text-[rgba(255,255,255,0.70)] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                      <a
+                        href={project.legalLinks.privacyPolicy}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-full px-1.5 py-0.5 transition hover:bg-[rgba(255,255,255,0.06)] hover:text-[rgba(255,255,255,0.94)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                      >
+                        Privacy Policy
+                      </a>
+                      <span aria-hidden className="h-3.5 w-px bg-[rgba(255,255,255,0.18)]" />
+                      <a
+                        href={project.legalLinks.termsOfService}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-full px-1.5 py-0.5 transition hover:bg-[rgba(255,255,255,0.06)] hover:text-[rgba(255,255,255,0.94)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                      >
+                        Terms of Service
+                      </a>
+                    </div>
+                  )}
                 </div>
               </article>
             ))}
@@ -1008,8 +928,83 @@ export default function App() {
 
         <SectionDivider />
 
-        <section id="other-work" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
-          <div className="space-y-2.5">
+        <section id="experience" className="mx-auto max-w-7xl px-4 py-8 sm:px-5 md:px-8 md:py-10 lg:py-12">
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">
+              Career Timeline
+            </p>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Work Experience</h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
+              Roles and delivery scope sourced from the current resume, focused on enterprise systems, .NET APIs,
+              React/Next.js interfaces, and long-term production support.
+            </p>
+          </div>
+
+          <div className="mt-3 grid items-start gap-5 md:mt-4 md:gap-6 lg:grid-cols-[18rem_minmax(0,1fr)]">
+            <aside className="space-y-3 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.30)] sm:p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[rgba(255,255,255,0.72)]">
+                Snapshot
+              </p>
+              <div className="space-y-2.5">
+                <div className="rounded-2xl border border-[rgba(59,130,246,0.36)] bg-[rgba(59,130,246,0.16)] px-3 py-2.5">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Experience</p>
+                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">15+ years</p>
+                </div>
+                <div className="rounded-2xl border border-[rgba(245,158,11,0.36)] bg-[rgba(245,158,11,0.14)] px-3 py-2.5">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Roles Listed</p>
+                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">{workExperiences.length}</p>
+                </div>
+                <div className="rounded-2xl border border-[rgba(16,185,129,0.36)] bg-[rgba(16,185,129,0.14)] px-3 py-2.5">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Current Track</p>
+                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">
+                    {currentlyActiveExperience?.job_title ?? "Freelance delivery"}
+                  </p>
+                </div>
+              </div>
+            </aside>
+
+            <div className="relative space-y-4 pl-6 before:absolute before:bottom-2 before:left-2 before:top-2 before:w-px before:bg-[linear-gradient(180deg,_rgba(59,130,246,0.65)_0%,_rgba(148,163,184,0.20)_45%,_rgba(245,158,11,0.55)_100%)]">
+              {workExperiences.map((role) => {
+                const companyLine = role.company ? role.company : "Freelance";
+                const metaLine = role.location ? `${companyLine} · ${role.location}` : companyLine;
+                return (
+                  <article
+                    key={`${role.job_title}-${role.start}`}
+                    className="relative rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.28)] transition hover:-translate-y-0.5 hover:border-[rgba(59,130,246,0.48)] sm:p-5"
+                  >
+                    <span className="absolute -left-[1.45rem] top-7 h-3 w-3 rounded-full border border-[#0B1220] bg-[#3B82F6] shadow-[0_0_0_4px_rgba(59,130,246,0.25)]" />
+
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-lg font-semibold tracking-tight text-[rgba(255,255,255,0.94)]">
+                          {role.job_title}
+                        </h3>
+                        <p className="mt-1 text-sm text-[rgba(255,255,255,0.72)]">{metaLine}</p>
+                      </div>
+                      <span className="rounded-full border border-[rgba(255,255,255,0.16)] bg-[rgba(255,255,255,0.06)] px-3 py-1 text-xs font-medium text-[rgba(255,255,255,0.88)]">
+                        {role.start} - {role.end}
+                      </span>
+                    </div>
+
+                    <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[rgba(255,255,255,0.90)] md:text-[15px]">
+                      {role.responsibilities.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        <section id="other-work" className="mx-auto max-w-7xl px-4 py-8 sm:px-5 md:px-8 md:py-10 lg:py-12">
+          <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Selected Work</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Other Work</h2>
             <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
@@ -1018,7 +1013,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="mt-5 space-y-5 md:mt-7 md:space-y-7">
+          <div className="mt-3 space-y-4 md:mt-4 md:space-y-5">
             {otherWorkEntries.map(({ project, index: projectIndex }) => (
               <article
                 key={project.id}
@@ -1110,15 +1105,15 @@ export default function App() {
           </div>
         </section>
 
-        <section id="skills" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
-          <div className="space-y-2.5">
+        <section id="skills" className="mx-auto max-w-7xl px-4 py-8 sm:px-5 md:px-8 md:py-10 lg:py-12">
+          <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Capability Map</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Skills & Delivery Capabilities</h2>
             <p className="w-full text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
               Capabilities I use to build, modernize, automate, and support production business systems with practical AI-assisted development.
             </p>
           </div>
-          <div className="mt-5 grid gap-4 md:mt-7 md:grid-cols-2 md:gap-5">
+          <div className="mt-3 grid gap-4 md:mt-4 md:grid-cols-2 md:gap-5">
             {skillGroups.map((group) => (
               <article
                 key={group.title}
@@ -1165,15 +1160,15 @@ export default function App() {
         {isContactSectionVisible && <SectionDivider />}
 
         {isContactSectionVisible && (
-          <section id="contact" className="mx-auto max-w-7xl px-4 pb-12 pt-10 sm:px-5 md:px-8 md:pb-20 md:pt-14 lg:pt-16 lg:pb-20">
-            <div className="space-y-2.5">
+          <section id="contact" className="mx-auto max-w-7xl px-4 pb-10 pt-8 sm:px-5 md:px-8 md:pb-14 md:pt-10 lg:pt-12 lg:pb-14">
+            <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Get In Touch</p>
               <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Contact</h2>
               <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
                 Share your project goals, scope, and timeline. I usually respond within 24 hours.
               </p>
             </div>
-            <div className="mt-5 grid gap-6 md:mt-7 md:gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="mt-3 grid gap-6 md:mt-4 md:gap-8 lg:grid-cols-[0.95fr_1.05fr]">
               <div className="space-y-5 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.05)] p-5 shadow-[0_18px_50px_rgba(2,6,23,0.26)] md:p-6">
                 <h3 className="text-xl font-semibold tracking-tight md:text-2xl">Let&apos;s build something reliable</h3>
                 <p className="max-w-xl text-base leading-relaxed text-[rgba(255,255,255,0.70)] md:text-lg">
@@ -1264,7 +1259,7 @@ export default function App() {
                 <button
                   type="submit"
                   disabled={contactStatus === "sending"}
-                  className={`mt-5 inline-flex rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
+                  className={`mt-3 inline-flex rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
                     contactStatus === "sending"
                       ? "cursor-not-allowed opacity-75"
                       : "hover:-translate-y-0.5 hover:brightness-110"

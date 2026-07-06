@@ -24,8 +24,7 @@ The goal of this site is clear positioning for hiring teams and clients looking 
 
 - Enterprise-style landing page with strong visual hierarchy
 - Sticky top navigation with smooth section anchor scrolling
-- Hero section with credibility highlights, availability status, and AI-assisted delivery positioning
-- About section with concise delivery-focused narrative
+- Hero section with credibility highlights, merged background summary, availability status, and AI-assisted delivery positioning
 - Product showcase cards with:
   - architecture and capability highlights
   - stack tags
