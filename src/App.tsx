@@ -69,7 +69,6 @@ const defaultData = {
   projects: [
     {
       id: "cognify",
-      featured: true,
       title: "Cognify: Focus & Study",
       featureNote: "Flutter study app with offline and online modes",
       subtitle: "Flutter study app for building, reviewing, and generating cards from notes, files, and photos.",
@@ -101,7 +100,6 @@ const defaultData = {
     },
     {
       id: "rightspeak",
-      featured: true,
       title: "RightSpeak",
       featureNote: "Local neural TTS with Piper / ONNX",
       subtitle:
@@ -126,7 +124,6 @@ const defaultData = {
     },
     {
       id: "audioscript",
-      featured: true,
       title: "AudioScript",
       featureNote: "Local transcription with Whisper + pyannote",
       subtitle:
@@ -156,7 +153,6 @@ const defaultData = {
     },
     {
       id: "memocards",
-      featured: true,
       title: "MemoCards",
       featureNote: "OCR + Gemini 2.5 Flash Lite + AI card generation",
       subtitle:
@@ -195,7 +191,6 @@ const defaultData = {
     },
     {
       id: "product-costing",
-      featured: true,
       title: "Product Costing",
       subtitle: "Cloud-based product costing and operations workspace for small businesses.",
       browserLabel: "costing.justintagarda.com",
@@ -227,7 +222,6 @@ const defaultData = {
     },
     {
       id: "gedac-company-website",
-      featured: true,
       title: "GEDAC Company Website",
       subtitle:
         "Corporate website conceived, designed, and developed end-to-end for GEDAC Electric Company to present products, services, and company capabilities.",
@@ -290,7 +284,8 @@ const defaultData = {
   nav: [
     { label: "About", href: "#about" },
     { label: "Experience", href: "#experience" },
-    { label: "Work", href: "#work" },
+    { label: "Products", href: "#products" },
+    { label: "Other Work", href: "#other-work" },
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
   ],
@@ -362,10 +357,9 @@ function SectionDivider() {
 export default function App() {
   const year = new Date().getFullYear();
   const isContactSectionVisible = false;
-  const featuredProjects = data.projects
-    .map((project, index) => ({ project, index }))
-    .filter(({ project }) => project.featured);
-  const projectsToShow = featuredProjects.length > 0 ? featuredProjects : data.projects.map((project, index) => ({ project, index }));
+  const projectEntries = data.projects.map((project, index) => ({ project, index }));
+  const productProjectEntries = projectEntries.filter(({ project }) => project.id !== "gedac-company-website");
+  const otherWorkEntries = projectEntries.filter(({ project }) => project.id === "gedac-company-website");
   const visibleNavItems = data.nav.filter((item) => isContactSectionVisible || item.href !== "#contact");
 
   const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
@@ -706,10 +700,10 @@ export default function App() {
                 </a>
               ))}
               <a
-                href="#work"
+                href="#products"
                 className="rounded-full bg-[#3B82F6] px-3.5 py-1.5 text-xs font-semibold text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1220] md:px-4 md:py-1.5 md:text-sm"
               >
-                View Work
+                View Products
               </a>
             </nav>
           </div>
@@ -743,10 +737,10 @@ export default function App() {
 
             <div className="flex flex-wrap items-center gap-3">
               <a
-                href="#work"
+                href="#products"
                 className="rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(59,130,246,0.30)] transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1220]"
               >
-                View Featured Projects
+                View Products
               </a>
               {isContactSectionVisible && (
                 <a
@@ -911,19 +905,17 @@ export default function App() {
 
         <SectionDivider />
 
-        <section id="work" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
+        <section id="products" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
           <div className="space-y-2.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Case Study</p>
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-              {projectsToShow.length > 1 ? "Featured Projects" : "Featured Project"}
-            </h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Shipped Products</p>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Products</h2>
             <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Production-focused builds highlighting enterprise web delivery, operational reliability, and long-term maintainability.
+              Products I have shipped and currently maintain, with live links, screenshots, and implementation details.
             </p>
           </div>
 
           <div className="mt-5 space-y-5 md:mt-7 md:space-y-7">
-            {projectsToShow.map(({ project, index: projectIndex }) => (
+            {productProjectEntries.map(({ project, index: projectIndex }) => (
               <article
                 key={project.id}
                 className="grid items-start gap-6 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_60px_rgba(2,6,23,0.35)] transition hover:-translate-y-1 sm:p-5 md:gap-8 md:p-8 lg:grid-cols-[1.05fr_0.95fr]"
@@ -1015,6 +1007,108 @@ export default function App() {
         </section>
 
         <SectionDivider />
+
+        <section id="other-work" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
+          <div className="space-y-2.5">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Selected Work</p>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Other Work</h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
+              Client and company work that does not belong in the products shelf, but still demonstrates delivery
+              scope, implementation depth, and long-term maintenance.
+            </p>
+          </div>
+
+          <div className="mt-5 space-y-5 md:mt-7 md:space-y-7">
+            {otherWorkEntries.map(({ project, index: projectIndex }) => (
+              <article
+                key={project.id}
+                className="grid items-start gap-6 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_60px_rgba(2,6,23,0.35)] transition hover:-translate-y-1 sm:p-5 md:gap-8 md:p-8 lg:grid-cols-[1.05fr_0.95fr]"
+              >
+                <div className="rounded-2xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.04)] p-4 sm:p-5">
+                  <div className="flex items-center gap-2 border-b border-[rgba(255,255,255,0.10)] pb-3">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#EF4444]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]" />
+                    <span className="ml-2 text-xs text-[rgba(255,255,255,0.70)]">{project.browserLabel}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const coverIndex = project.galleryImages.findIndex((image) => image === project.coverImage);
+                      openGallery(projectIndex, coverIndex >= 0 ? coverIndex : 0);
+                    }}
+                    className="group mt-4 block w-full overflow-hidden rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.03)] text-left transition hover:border-[rgba(59,130,246,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                  >
+                    <img
+                      src={project.coverImage}
+                      alt={project.coverAlt}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[16/10] w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]"
+                    />
+                    <div className="flex items-center justify-between border-t border-[rgba(255,255,255,0.10)] bg-[rgba(11,18,32,0.70)] px-3 py-2 text-[11px] text-[rgba(255,255,255,0.84)] backdrop-blur">
+                      <span>Open gallery</span>
+                      <span>{project.galleryImages.length} screenshots</span>
+                    </div>
+                  </button>
+                </div>
+
+                <div className="space-y-6 lg:pt-1">
+                  <div className="space-y-3">
+                    <h3 className="text-2xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)]">{project.title}</h3>
+                    {"featureNote" in project && project.featureNote && (
+                      <span className="inline-flex rounded-full border border-[rgba(245,158,11,0.30)] bg-[rgba(245,158,11,0.14)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#FBBF24]">
+                        {project.featureNote}
+                      </span>
+                    )}
+                    <p className="text-base leading-relaxed text-[rgba(255,255,255,0.70)]">{project.subtitle}</p>
+                  </div>
+
+                  <ul className="space-y-2 text-sm leading-relaxed text-[rgba(255,255,255,0.92)] md:text-base">
+                    {project.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2">
+                        <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2.5">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-3 py-1.5 text-xs font-medium text-[rgba(255,255,255,0.92)]"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      href={project.links.liveDemo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                    >
+                      {project.primaryLinkLabel || "Live Demo"}
+                    </a>
+                    {project.links.github && (
+                      <a
+                        href={project.links.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-xl border border-[rgba(255,255,255,0.22)] px-5 py-3 text-sm font-semibold text-[rgba(255,255,255,0.92)] transition hover:-translate-y-0.5 hover:bg-[rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                      >
+                        GitHub Repo
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section id="skills" className="mx-auto max-w-7xl px-4 py-10 sm:px-5 md:px-8 md:py-14 lg:py-16">
           <div className="space-y-2.5">

@@ -1,6 +1,6 @@
 # Justiniano Tagarda | Portfolio
 
-Modern single-page portfolio focused on enterprise-grade full-stack delivery, AI-augmented development, and long-term production systems.
+Modern single-page portfolio plus products site focused on enterprise-grade full-stack delivery, shipped products, AI-augmented development, and long-term production systems.
 
 ## Production
 
@@ -26,11 +26,12 @@ The goal of this site is clear positioning for hiring teams and clients looking 
 - Sticky top navigation with smooth section anchor scrolling
 - Hero section with credibility highlights, availability status, and AI-assisted delivery positioning
 - About section with concise delivery-focused narrative
-- Featured project case-study cards with:
+- Product showcase cards with:
   - architecture and capability highlights
   - stack tags
   - external live demo and GitHub links
   - screenshot gallery modal
+- Other work section for client and company delivery that does not fit the product shelf
 - Image gallery viewer with keyboard navigation (`Esc`, left/right arrows)
 - Skills and delivery capabilities grouped by domain:
   - Backend
@@ -45,13 +46,16 @@ The goal of this site is clear positioning for hiring teams and clients looking 
 - Resume PDF output that uses dedicated PDF header content from `src/content/career-content.json` and shared about/contact data from the website profile
 - Custom `JT` favicon
 
-## Featured Projects
+## Products
 
 - Cognify: Focus & Study
 - RightSpeak
 - AudioScript
 - MemoCards
 - Product Costing
+
+## Other Work
+
 - GEDAC Company Website
 
 ## Tech Stack
