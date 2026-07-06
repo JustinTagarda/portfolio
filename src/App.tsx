@@ -4,6 +4,12 @@ import resumeRaw from "./content/career-content.json?raw";
 import profileContentRaw from "./content/profile.json?raw";
 import careerProfileRaw from "./content/career-profile.json?raw";
 import type { ResumeData } from "./components/ResumePdfDocument";
+import cognifyScreenshot01 from "./assets/projects/cognify/Screenshot-01.png";
+import cognifyScreenshot02 from "./assets/projects/cognify/Screenshot-02.png";
+import cognifyScreenshot03 from "./assets/projects/cognify/Screenshot-03.png";
+import cognifyScreenshot04 from "./assets/projects/cognify/Screenshot-04.png";
+import cognifyScreenshot05 from "./assets/projects/cognify/Screenshot-05.png";
+import cognifyScreenshot06 from "./assets/projects/cognify/Screenshot-06.png";
 import rightspeakScreenshot01 from "./assets/projects/rightspeak/Screenshot-01.png";
 import rightspeakScreenshot02 from "./assets/projects/rightspeak/Screenshot-02.png";
 import rightspeakScreenshot03 from "./assets/projects/rightspeak/Screenshot-03.png";
@@ -61,6 +67,38 @@ const defaultData = {
     ],
   },
   projects: [
+    {
+      id: "cognify",
+      featured: true,
+      title: "Cognify: Focus & Study",
+      featureNote: "Flutter study app with offline and online modes",
+      subtitle: "Flutter study app for building, reviewing, and generating cards from notes, files, and photos.",
+      browserLabel: "apps.microsoft.com",
+      coverImage: cognifyScreenshot01,
+      coverAlt: "Cognify study app screenshot",
+      galleryImages: [
+        cognifyScreenshot01,
+        cognifyScreenshot02,
+        cognifyScreenshot03,
+        cognifyScreenshot04,
+        cognifyScreenshot05,
+        cognifyScreenshot06,
+      ],
+      bullets: [
+        "Manage subjects, study sets, and cards.",
+        "Study cards in a guided session with answer, skip, and summary tracking.",
+        "Generate draft cards from pasted notes, uploaded text or image files, PDFs, and camera captures.",
+        "Optional runtime components for OCR and TTS providers.",
+        "Work in offline local SQLite mode or online Google Drive-backed mode.",
+        "Switch between light and dark themes from the in-app settings modal.",
+      ],
+      stack: ["Flutter", "Dart", "SQLite", "Google Drive", "Google Sign-In", "OCR"],
+      primaryLinkLabel: "Microsoft Store",
+      links: {
+        liveDemo: "https://apps.microsoft.com/detail/9NLRQNJ22RPB?hl=en-us&gl=PH&ocid=pdpshare",
+        github: "",
+      },
+    },
     {
       id: "rightspeak",
       featured: true,

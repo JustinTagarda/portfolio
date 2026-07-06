@@ -30,6 +30,7 @@ Every new session should read this file first before re-scanning the project.
 - Main implementation is centralized in `src/App.tsx:4` (large in-file `data` object + full UI rendering).
 - Work Experience section is implemented and rendered from `resume.json` data.
 - Work section now supports multiple featured projects rendered from the same project data model.
+- Cognify: Focus & Study was added as the first featured project in the Work section, using imported screenshots from `src/assets/projects/cognify/`.
 - Featured gallery images are loaded via `src/assets` imports (bundler-managed paths).
 - Resume PDF feature is implemented with in-app preview modal and A4 download action.
 - Resume layout/design status: `DONE` (single-page A4, preview/download parity, aligned capsules/chips).
@@ -329,10 +330,13 @@ Potentially unused artifacts from grep checks:
 - `src/assets/images/profile-photo.png` (no references found; `.webp` is used)
 - `public/projects/product-costing/cover.webp` (no references found)
 
-## Validation Results (2026-02-22 scan)
+## Validation Results (2026-07-06 scan)
 
 Commands executed:
 
+- Re-ran after adding Cognify as the first featured project:
+  - `npm run lint` -> passed.
+  - `npm run build` -> passed.
 - `npm run lint` -> passed.
 - `npm run build` -> passed.
 - Re-ran after Formspree integration:
@@ -355,8 +359,9 @@ Build output summary:
 
 - `dist/index.html` ~0.68 kB (gzip ~0.41 kB)
 - `dist/assets/profile-photo-*.webp` ~20.12 kB
-- `dist/assets/index-*.css` ~37.50 kB (gzip ~6.85 kB)
-- `dist/assets/index-*.js` ~236.59 kB (gzip ~71.10 kB)
+- `dist/assets/index-*.css` ~39.89 kB (gzip ~7.34 kB)
+- `dist/assets/index-*.js` ~254.43 kB (gzip ~75.29 kB)
+- `dist/assets/renderResumePdf-*.js` ~1.58 MB (gzip ~528 kB)
 - Vite build completed successfully.
 
 ## Quality / Risk Notes
@@ -366,6 +371,7 @@ Build output summary:
 - Hero social links are partially placeholder links (`#`), potential UX credibility issue.
 - Large screenshot assets may impact load/perf over slower networks.
   - GEDAC gallery images are especially large (~1.55 MB to ~3.37 MB each).
+  - Cognify adds six more imported screenshots to the portfolio asset set.
 - Resume renderer loads in a lazy chunk (`renderResumePdf-*.js`) when preview/download is used.
 - Core app content and layout are heavily centralized in one large file (`src/App.tsx`, ~1043 lines), increasing merge and maintenance friction.
 
@@ -394,6 +400,7 @@ README claims aligned with repo state:
 - Production URLs present (`README.md:7`, `README.md:8`)
 - Stack references include React 19 and Tailwind v4 (`README.md:45`, `README.md:48`)
 - Auto-deploy to Firebase on push to `main` documented (`README.md:51`, `README.md:108`)
+- Featured projects list now includes Cognify and matches the Work section order (`README.md:48`, `README.md:50`).
 
 ## Fast Start Commands (for next session)
 
@@ -407,6 +414,13 @@ npm run preview
 
 ## Recent Change Notes (append-only, newest first)
 
+- `2026-07-06`: Added Cognify: Focus & Study as the first featured project in the portfolio Work section.
+  - Imported six Cognify screenshots into `src/assets/projects/cognify/`.
+  - Inserted the new project at the top of `data.projects` so it renders first in the featured list.
+  - Updated README feature/project listings to match the current showcased set.
+- `2026-07-06`: Refined the Cognify bullet list to mention optional runtime components.
+  - Replaced the draft-card management bullet with a runtime-components bullet derived from the Cognify settings modal.
+  - Kept the change content-only; no layout or navigation changes.
 - `2026-02-23`: Reduced hero/about copy redundancy (text-only).
   - Rewrote hero lead into one concise value proposition line.
   - Reworked About paragraphs to focus on delivery depth and impact proof instead of repeating hero claims.

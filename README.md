@@ -26,7 +26,7 @@ The goal of this site is clear positioning for hiring teams and clients looking 
 - Sticky top navigation with smooth section anchor scrolling
 - Hero section with credibility highlights, availability status, and AI-assisted delivery positioning
 - About section with concise delivery-focused narrative
-- Featured project case-study card with:
+- Featured project case-study cards with:
   - architecture and capability highlights
   - stack tags
   - external live demo and GitHub links
@@ -47,6 +47,7 @@ The goal of this site is clear positioning for hiring teams and clients looking 
 
 ## Featured Projects
 
+- Cognify: Focus & Study
 - RightSpeak
 - AudioScript
 - MemoCards
