@@ -45,7 +45,7 @@ type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
 const defaultData = {
   name: "Justiniano Tagarda",
   headline: "Senior Full Stack .NET Developer",
-  lead: "I design and ship production systems with AI agents, reliable APIs, and React/Next.js interfaces.",
+  lead: "I design and ship production systems with AI agents across .NET APIs, React/Next.js, Flutter, and Supabase-backed products.",
   heroChips: ["15+ Years", "Enterprise Systems", "System Design", "Full-Stack Delivery", "React/Next.js", "Remote"],
   socialLinks: [
     { label: "GitHub", href: "https://github.com/JustinTagarda" },
@@ -54,7 +54,7 @@ const defaultData = {
   ],
   about: {
     eyebrow: "AI agents, human review, production systems",
-    subheadline: "Agent-assisted full-stack delivery across .NET APIs, React/Next.js interfaces, and database-backed production systems.",
+    subheadline: "Agent-assisted full-stack delivery across .NET APIs, React/Next.js interfaces, Flutter apps, Supabase-backed data layers, and production systems.",
     paragraphs: [
       "Built and maintained .NET APIs used by thousands of daily users.",
       "AI agents accelerate implementation and testing, while architecture, quality, and release stay human-led.",
@@ -817,7 +817,10 @@ export default function App() {
 
         <SectionDivider />
 
-        <section id="products" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-8 sm:px-5 md:scroll-mt-28 md:px-8 md:py-10 lg:scroll-mt-32 lg:py-12">
+        <section
+          id="products"
+          className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
+        >
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Shipped Products</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Products</h2>
@@ -941,7 +944,10 @@ export default function App() {
 
         <SectionDivider />
 
-        <section id="experience" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-8 sm:px-5 md:scroll-mt-28 md:px-8 md:py-10 lg:scroll-mt-32 lg:py-12">
+        <section
+          id="experience"
+          className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
+        >
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">
               Career Timeline
@@ -1016,7 +1022,10 @@ export default function App() {
 
         <SectionDivider />
 
-        <section id="other-work" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-8 sm:px-5 md:scroll-mt-28 md:px-8 md:py-10 lg:scroll-mt-32 lg:py-12">
+        <section
+          id="other-work"
+          className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
+        >
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Selected Work</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Other Work</h2>
@@ -1118,12 +1127,17 @@ export default function App() {
           </div>
         </section>
 
-        <section id="skills" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-8 sm:px-5 md:scroll-mt-28 md:px-8 md:py-10 lg:scroll-mt-32 lg:py-12">
+        <SectionDivider />
+
+        <section
+          id="skills"
+          className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
+        >
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Capability Map</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Skills & Delivery Capabilities</h2>
             <p className="w-full text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Capabilities I use to build, modernize, and support production systems with AI-assisted delivery and human review.
+              Capabilities I use to build, modernize, and support production systems across web, mobile, legacy, Flutter, Supabase, and AI-assisted delivery workflows.
             </p>
           </div>
           <div className="mt-3 grid gap-4 md:mt-4 md:grid-cols-2 md:gap-5">
@@ -1173,7 +1187,10 @@ export default function App() {
         {isContactSectionVisible && <SectionDivider />}
 
         {isContactSectionVisible && (
-          <section id="contact" className="mx-auto max-w-7xl scroll-mt-24 px-4 pb-10 pt-8 sm:px-5 md:scroll-mt-28 md:px-8 md:pb-14 md:pt-10 lg:scroll-mt-32 lg:pt-12 lg:pb-14">
+          <section
+            id="contact"
+            className="mx-auto max-w-7xl scroll-mt-[52px] px-4 pb-10 pt-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:pb-14 md:pt-10 lg:scroll-mt-[56px] lg:pt-12 lg:pb-14"
+          >
             <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Get In Touch</p>
               <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Contact</h2>

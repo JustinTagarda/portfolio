@@ -1,7 +1,7 @@
 {
   "name": "Justiniano Tagarda",
   "headline": "Senior Full Stack .NET Developer",
-  "lead": "I design and ship production systems with AI agents, reliable APIs, and React/Next.js interfaces.",
+  "lead": "I design and ship production systems with AI agents across .NET APIs, React/Next.js, Flutter, and Supabase-backed products.",
   "heroChips": ["15+ Years", "Enterprise Systems", "System Design", "Full-Stack Delivery", "React/Next.js", "Remote"],
   "socialLinks": [
     { "label": "GitHub", "href": "https://github.com/JustinTagarda" },
@@ -10,7 +10,7 @@
   ],
   "about": {
     "eyebrow": "AI agents, human review, production systems",
-    "subheadline": "Agent-assisted full-stack delivery across .NET APIs, React/Next.js interfaces, and database-backed production systems.",
+    "subheadline": "Agent-assisted full-stack delivery across .NET APIs, React/Next.js interfaces, Flutter apps, Supabase-backed data layers, and production systems.",
     "paragraphs": [
       "Built and maintained .NET APIs used by thousands of daily users.",
       "AI agents accelerate implementation and testing, while architecture, quality, and release stay human-led."

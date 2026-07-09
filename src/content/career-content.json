@@ -81,6 +81,10 @@
           "highlighted": true
         },
         {
+          "label": "ASP.NET Framework",
+          "highlighted": false
+        },
+        {
           "label": "ASP.NET",
           "highlighted": false
         },
@@ -109,6 +113,10 @@
         },
         {
           "label": "OpenAI API",
+          "highlighted": false
+        },
+        {
+          "label": "Google Cloud AI",
           "highlighted": false
         }
       ]
@@ -217,6 +225,10 @@
         },
         {
           "label": "PostgreSQL",
+          "highlighted": false
+        },
+        {
+          "label": "Supabase",
           "highlighted": false
         },
         {
