@@ -1,24 +1,24 @@
 {
   "name": "Justiniano Tagarda",
-  "headline": "Senior Full Stack .NET Developer Building with AI Agents",
-  "lead": "I design and build production systems with AI agents, tight feedback loops, reliable APIs, and React/Next.js interfaces.",
-  "heroChips": ["15+ Years", "Enterprise Systems", "AI Agents", "Full-Stack Delivery", "React/Next.js", "Remote"],
+  "headline": "Senior Full Stack .NET Developer",
+  "lead": "I design and ship production systems with AI agents, reliable APIs, and React/Next.js interfaces.",
+  "heroChips": ["15+ Years", "Enterprise Systems", "System Design", "Full-Stack Delivery", "React/Next.js", "Remote"],
   "socialLinks": [
     { "label": "GitHub", "href": "https://github.com/JustinTagarda" },
     { "label": "LinkedIn", "href": "https://www.linkedin.com/in/justintagarda" },
     { "label": "Email", "href": "mailto:justintagarda@gmail.com" }
   ],
   "about": {
-    "eyebrow": "Building software with AI agents and human review loops",
-    "subheadline": "Full-stack delivery across .NET APIs, React/Next.js interfaces, and database-backed production systems.",
+    "eyebrow": "AI agents, human review, production systems",
+    "subheadline": "Agent-assisted full-stack delivery across .NET APIs, React/Next.js interfaces, and database-backed production systems.",
     "paragraphs": [
-      "Across 15+ years, I have delivered enterprise software for e-commerce platforms, internal business operations, and custom applications, from API layers to responsive business interfaces.",
-      "I use AI agents to accelerate implementation, testing, and iteration, while I design the architecture, guardrails, and review loops that keep systems reliable and maintainable."
+      "Built and maintained .NET APIs used by thousands of daily users.",
+      "AI agents accelerate implementation and testing, while architecture, quality, and release stay human-led."
     ],
     "highlights": [
       "Agent-assisted implementation, testing, and iteration with human review built in",
-      "Full-stack systems thinking across APIs, databases, React/Next.js interfaces, and long-lived business systems",
       "End-to-end delivery from business requirements to usable software for real operational workflows",
+      "Full-stack systems thinking across APIs, databases, React/Next.js interfaces, and long-lived business systems",
       "Operational ownership through deployments, monitoring, troubleshooting, and production support"
     ]
   },

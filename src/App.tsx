@@ -44,26 +44,26 @@ type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
 
 const defaultData = {
   name: "Justiniano Tagarda",
-  headline: "Senior Full Stack .NET Developer Building with AI Agents",
-  lead: "I design and build production systems with AI agents, tight feedback loops, reliable APIs, and React/Next.js interfaces.",
-  heroChips: ["15+ Years", "Enterprise Systems", "AI Agents", "Full-Stack Delivery", "React/Next.js", "Remote"],
+  headline: "Senior Full Stack .NET Developer",
+  lead: "I design and ship production systems with AI agents, reliable APIs, and React/Next.js interfaces.",
+  heroChips: ["15+ Years", "Enterprise Systems", "System Design", "Full-Stack Delivery", "React/Next.js", "Remote"],
   socialLinks: [
     { label: "GitHub", href: "https://github.com/JustinTagarda" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/justintagarda" },
     { label: "Email", href: "mailto:justintagarda@gmail.com" },
   ],
   about: {
-    eyebrow: "Building software with AI agents and human review loops",
-    subheadline: "Full-stack delivery across .NET APIs, React/Next.js interfaces, and database-backed production systems.",
+    eyebrow: "AI agents, human review, production systems",
+    subheadline: "Agent-assisted full-stack delivery across .NET APIs, React/Next.js interfaces, and database-backed production systems.",
     paragraphs: [
-      "Across 15+ years, I have delivered enterprise software for e-commerce platforms, internal business operations, and custom applications, from API layers to responsive business interfaces.",
-      "I use AI agents to accelerate implementation, testing, and iteration, while I design the architecture, guardrails, and review loops that keep systems reliable and maintainable.",
+      "Built and maintained .NET APIs used by thousands of daily users.",
+      "AI agents accelerate implementation and testing, while architecture, quality, and release stay human-led.",
     ],
     highlights: [
       "Agent-assisted implementation, testing, and iteration with human review built in",
-      "Built and maintained high-availability .NET APIs supporting production systems used by thousands of daily users",
       "Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications",
       "Designed, deployed, and maintained ERP, inventory, and customer portal systems for long-term operations",
+      "Built and maintained high-availability .NET APIs supporting production systems used by thousands of daily users",
     ],
   },
   projects: [
@@ -682,6 +682,8 @@ export default function App() {
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
         <div className="absolute -left-40 -top-40 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,_rgba(59,130,246,0.45)_0%,_rgba(59,130,246,0)_70%)] opacity-30 blur-3xl" />
         <div className="absolute -bottom-48 -right-40 h-[32rem] w-[32rem] rounded-full bg-[radial-gradient(circle,_rgba(245,158,11,0.40)_0%,_rgba(245,158,11,0)_70%)] opacity-25 blur-3xl" />
+        <div className="absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(circle_at_18%_18%,rgba(59,130,246,0.13),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(245,158,11,0.10),transparent_24%),linear-gradient(180deg,rgba(15,23,42,0.28)_0%,rgba(15,23,42,0)_60%)] opacity-80" />
+        <div className="absolute inset-x-0 top-0 h-[38rem] bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:30px_30px] opacity-10" />
       </div>
 
       <div className="relative z-10">
@@ -714,18 +716,15 @@ export default function App() {
         <section className="mx-auto grid max-w-7xl items-start gap-6 px-4 pb-6 pt-6 sm:px-5 md:px-8 md:pb-8 md:pt-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-6 lg:pb-10 lg:pt-10 xl:gap-8">
           <div className="space-y-6 lg:max-w-[52rem]">
               <p className="inline-flex rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-[rgba(255,255,255,0.70)]">
-               .NET Core / REST APIs / SQL Server / React
+               AI-assisted delivery / human review / .NET / React
               </p>
 
             <div className="space-y-4">
-              <h1 className="text-4xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl lg:text-6xl lg:leading-tight">
+              <h1 className="text-4xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl lg:text-[3.25rem] lg:leading-tight xl:text-[4rem]">
                 {data.headline}
               </h1>
               <p className="max-w-2xl text-base leading-relaxed text-[rgba(255,255,255,0.70)] md:text-lg">
                 {data.lead}
-              </p>
-              <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.62)] md:text-base">
-                {data.about.paragraphs[0]}
               </p>
             </div>
 
@@ -747,14 +746,6 @@ export default function App() {
               >
                 View Products
               </a>
-              {isContactSectionVisible && (
-                <a
-                  href="#contact"
-                  className="rounded-xl border border-[rgba(255,255,255,0.24)] bg-transparent px-5 py-3 text-sm font-semibold text-[rgba(255,255,255,0.92)] transition hover:-translate-y-0.5 hover:bg-[rgba(255,255,255,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
-                >
-                  Contact Me
-                </a>
-              )}
               <button
                 type="button"
                 onClick={openResumePreview}
@@ -795,10 +786,30 @@ export default function App() {
             </article>
 
             <div className="mt-3 grid grid-cols-1 gap-3">
-              <div className="rounded-2xl border border-[rgba(255,255,255,0.12)] bg-[linear-gradient(160deg,rgba(255,255,255,0.09)_0%,rgba(255,255,255,0.04)_100%)] p-4 text-center text-sm text-[rgba(255,255,255,0.92)] shadow-[0_14px_36px_rgba(2,6,23,0.28)] transition hover:-translate-y-1">
-                <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.74)]">Available for</span>
-                <span className="mt-1 block text-[15px] font-semibold leading-snug">Full-time / Long-term contract</span>
-                <span className="block text-[15px] font-semibold leading-snug text-[rgba(191,219,254,0.96)]">Project-based / Remote</span>
+              <div className="rounded-2xl border border-[rgba(255,255,255,0.12)] bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.04)_100%)] p-4 shadow-[0_14px_36px_rgba(2,6,23,0.28)] transition hover:-translate-y-1">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.74)]">How I work</span>
+                  <span className="rounded-full border border-[rgba(59,130,246,0.30)] bg-[rgba(59,130,246,0.16)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[rgba(191,219,254,0.96)]">
+                    AI-assisted
+                  </span>
+                </div>
+
+                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                  {["Plan", "Agent", "Review", "Ship"].map((step) => (
+                    <div
+                      key={step}
+                      className="rounded-xl border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.04)] px-2 py-2 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]"
+                    >
+                      <span className="block text-[10px] font-semibold uppercase tracking-[0.14em] text-[rgba(255,255,255,0.88)]">
+                        {step}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-3 text-xs leading-relaxed text-[rgba(255,255,255,0.70)]">
+                  {data.about.paragraphs[0]}
+                </p>
               </div>
             </div>
           </div>
