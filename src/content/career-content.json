@@ -95,6 +95,25 @@
       ]
     },
     {
+      "title": "AI-Assisted Delivery",
+      "accent": "#F97316",
+      "focus": "Agent workflows, coding assistance, analysis, and review loops for faster production delivery.",
+      "items": [
+        {
+          "label": "GitHub Copilot",
+          "highlighted": false
+        },
+        {
+          "label": "OpenAI Codex",
+          "highlighted": false
+        },
+        {
+          "label": "OpenAI API",
+          "highlighted": false
+        }
+      ]
+    },
+    {
       "title": "Business Systems",
       "accent": "#38BDF8",
       "focus": "Internal tools, portals, dashboards, and workflow systems for daily operations.",
@@ -117,52 +136,6 @@
         },
         {
           "label": "Reporting Interfaces",
-          "highlighted": false
-        }
-      ]
-    },
-    {
-      "title": "Databases",
-      "accent": "#F59E0B",
-      "focus": "Database design, reporting queries, and performance tuning for reliable business data.",
-      "items": [
-        {
-          "label": "SQL Server",
-          "highlighted": true
-        },
-        {
-          "label": "PostgreSQL",
-          "highlighted": false
-        },
-        {
-          "label": "NoSQL",
-          "highlighted": false
-        },
-        {
-          "label": "MySQL",
-          "highlighted": false
-        }
-      ]
-    },
-    {
-      "title": "DevOps & Infrastructure",
-      "accent": "#60A5FA",
-      "focus": "Deployment, hosting, troubleshooting, and release workflows for production systems.",
-      "items": [
-        {
-          "label": "Docker",
-          "highlighted": false
-        },
-        {
-          "label": "IIS",
-          "highlighted": true
-        },
-        {
-          "label": "Azure DevOps",
-          "highlighted": false
-        },
-        {
-          "label": "CI/CD Pipeline Practices",
           "highlighted": false
         }
       ]
@@ -234,20 +207,47 @@
       ]
     },
     {
-      "title": "AI-Assisted Development",
-      "accent": "#F97316",
-      "focus": "Applied AI tools for faster coding, debugging, analysis, and workflow automation.",
+      "title": "Databases",
+      "accent": "#F59E0B",
+      "focus": "Database design, reporting queries, and performance tuning for reliable business data.",
       "items": [
         {
-          "label": "GitHub Copilot",
+          "label": "SQL Server",
+          "highlighted": true
+        },
+        {
+          "label": "PostgreSQL",
           "highlighted": false
         },
         {
-          "label": "OpenAI Codex",
+          "label": "NoSQL",
           "highlighted": false
         },
         {
-          "label": "OpenAI API",
+          "label": "MySQL",
+          "highlighted": false
+        }
+      ]
+    },
+    {
+      "title": "DevOps & Infrastructure",
+      "accent": "#60A5FA",
+      "focus": "Deployment, hosting, troubleshooting, and release workflows for production systems.",
+      "items": [
+        {
+          "label": "Docker",
+          "highlighted": false
+        },
+        {
+          "label": "IIS",
+          "highlighted": true
+        },
+        {
+          "label": "Azure DevOps",
+          "highlighted": false
+        },
+        {
+          "label": "CI/CD Pipeline Practices",
           "highlighted": false
         }
       ]

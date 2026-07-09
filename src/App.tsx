@@ -276,7 +276,7 @@ const defaultData = {
     ],
   },
   footer: {
-    note: "Full-stack .NET developer delivering reliable APIs and enterprise systems.",
+    note: "Senior full-stack .NET developer building production systems with AI-assisted delivery and human review.",
     projectStack: "Built with React, TypeScript, Vite, Tailwind CSS, React PDF, Formspree, and Firebase Hosting.",
     social: [
       { label: "GitHub", href: "https://github.com/JustinTagarda" },
@@ -815,7 +815,9 @@ export default function App() {
           </div>
         </section>
 
-        <section id="products" className="mx-auto max-w-7xl px-4 py-8 sm:px-5 md:px-8 md:py-10 lg:py-12">
+        <SectionDivider />
+
+        <section id="products" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-8 sm:px-5 md:scroll-mt-28 md:px-8 md:py-10 lg:scroll-mt-32 lg:py-12">
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Shipped Products</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Products</h2>
@@ -939,7 +941,7 @@ export default function App() {
 
         <SectionDivider />
 
-        <section id="experience" className="mx-auto max-w-7xl px-4 py-8 sm:px-5 md:px-8 md:py-10 lg:py-12">
+        <section id="experience" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-8 sm:px-5 md:scroll-mt-28 md:px-8 md:py-10 lg:scroll-mt-32 lg:py-12">
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">
               Career Timeline
@@ -1014,7 +1016,7 @@ export default function App() {
 
         <SectionDivider />
 
-        <section id="other-work" className="mx-auto max-w-7xl px-4 py-8 sm:px-5 md:px-8 md:py-10 lg:py-12">
+        <section id="other-work" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-8 sm:px-5 md:scroll-mt-28 md:px-8 md:py-10 lg:scroll-mt-32 lg:py-12">
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Selected Work</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Other Work</h2>
@@ -1116,12 +1118,12 @@ export default function App() {
           </div>
         </section>
 
-        <section id="skills" className="mx-auto max-w-7xl px-4 py-8 sm:px-5 md:px-8 md:py-10 lg:py-12">
+        <section id="skills" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-8 sm:px-5 md:scroll-mt-28 md:px-8 md:py-10 lg:scroll-mt-32 lg:py-12">
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Capability Map</p>
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Skills & Delivery Capabilities</h2>
             <p className="w-full text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Capabilities I use to build, modernize, automate, and support production business systems with practical AI-assisted development.
+              Capabilities I use to build, modernize, and support production systems with AI-assisted delivery and human review.
             </p>
           </div>
           <div className="mt-3 grid gap-4 md:mt-4 md:grid-cols-2 md:gap-5">
@@ -1171,7 +1173,7 @@ export default function App() {
         {isContactSectionVisible && <SectionDivider />}
 
         {isContactSectionVisible && (
-          <section id="contact" className="mx-auto max-w-7xl px-4 pb-10 pt-8 sm:px-5 md:px-8 md:pb-14 md:pt-10 lg:pt-12 lg:pb-14">
+          <section id="contact" className="mx-auto max-w-7xl scroll-mt-24 px-4 pb-10 pt-8 sm:px-5 md:scroll-mt-28 md:px-8 md:pb-14 md:pt-10 lg:scroll-mt-32 lg:pt-12 lg:pb-14">
             <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Get In Touch</p>
               <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Contact</h2>
