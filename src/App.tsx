@@ -44,26 +44,26 @@ type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
 
 const defaultData = {
   name: "Justiniano Tagarda",
-  headline: "Full-Stack .NET Developer",
-  lead: "I design and deliver scalable business systems with reliable APIs, optimized data layers, responsive interfaces, and production-focused execution.",
-  heroChips: ["15+ Years", "Enterprise Systems", "Full-Stack Delivery", "React/Next.js", "Remote"],
+  headline: "Senior Full Stack .NET Developer Building with AI Agents",
+  lead: "I design and build production systems with AI agents, tight feedback loops, reliable APIs, and React/Next.js interfaces.",
+  heroChips: ["15+ Years", "Enterprise Systems", "AI Agents", "Full-Stack Delivery", "React/Next.js", "Remote"],
   socialLinks: [
     { label: "GitHub", href: "https://github.com/JustinTagarda" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/justintagarda" },
     { label: "Email", href: "mailto:justintagarda@gmail.com" },
   ],
   about: {
-    eyebrow: "Full-stack enterprise delivery",
+    eyebrow: "Building software with AI agents and human review loops",
     subheadline: "Full-stack delivery across .NET APIs, React/Next.js interfaces, and database-backed production systems.",
     paragraphs: [
       "Across 15+ years, I have delivered enterprise software for e-commerce platforms, internal business operations, and custom applications, from API layers to responsive business interfaces.",
-      "I focus on stable architecture, maintainable code, and measurable operational impact, collaborating directly with clients and distributed teams through implementation and long-term support.",
+      "I use AI agents to accelerate implementation, testing, and iteration, while I design the architecture, guardrails, and review loops that keep systems reliable and maintainable.",
     ],
     highlights: [
+      "Agent-assisted implementation, testing, and iteration with human review built in",
       "Built and maintained high-availability .NET APIs supporting production systems used by thousands of daily users",
       "Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications",
       "Designed, deployed, and maintained ERP, inventory, and customer portal systems for long-term operations",
-      "Collaborated directly with clients and distributed teams to refine requirements and deliver maintainable production software",
     ],
   },
   projects: [

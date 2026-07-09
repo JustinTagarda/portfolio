@@ -9,7 +9,7 @@ Modern single-page portfolio plus products site focused on enterprise-grade full
 
 ## Overview
 
-This portfolio presents Justiniano Tagarda as a Senior Full Stack .NET Developer | AI-Augmented Builder with 15+ years of hands-on delivery across:
+This portfolio presents Justiniano Tagarda as a Senior Full Stack .NET Developer Building with AI Agents, with 15+ years of hands-on delivery across:
 
 - High-availability APIs
 - React/Next.js interfaces
