@@ -5,140 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy for Cognify</title>
   <style>
-    :root {
-      color-scheme: light dark;
-    }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
-    main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 40px 24px;
-    }
-    h1, h2 {
-      line-height: 1.25;
-    }
-    h1 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 2rem;
-    }
-    h2 {
-      margin-top: 32px;
-      margin-bottom: 12px;
-      font-size: 1.25rem;
-    }
-    p, li {
-      font-size: 1rem;
-    }
-    ul {
-      padding-left: 22px;
-    }
-    .updated {
-      margin-top: 0;
-      opacity: 0.8;
-    }
+    :root { color-scheme: light dark; }
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; margin: 0; padding: 0; }
+    main { max-width: 860px; margin: 0 auto; padding: 40px 24px; }
+    h1, h2 { line-height: 1.25; }
+    h1 { margin-top: 0; margin-bottom: 8px; font-size: 2rem; }
+    h2 { margin-top: 32px; margin-bottom: 12px; font-size: 1.25rem; }
+    p, li { font-size: 1rem; }
+    ul { padding-left: 22px; }
+    .updated { margin-top: 0; opacity: 0.8; }
   </style>
 </head>
 <body>
   <main>
     <h1>Privacy Policy for Cognify</h1>
-    <p class="updated">Last updated: July 6, 2026</p>
+    <p class="updated">Last updated: July 23, 2026</p>
 
     <h2>Overview</h2>
-    <p>Cognify is a study app for building, reviewing, and generating cards from notes, files, PDFs, and photos.</p>
-    <p>The app is designed to work locally first using a local SQLite database. Card generation runs through local app logic, and the app does not call a remote AI service for its core card-generation flow.</p>
+    <p>Cognify is a study application for creating, organizing, generating, and reviewing flashcards and other study content. Cognify is developed by JustinTagarda in the Philippines.</p>
+    <p>Cognify is designed to be local-first. The app can be used without a Google account, and local SQLite storage remains the working source of truth for study data. Cognify does not use a remote AI service for its core card-generation workflow.</p>
 
-    <h2>Information Stored Locally</h2>
-    <p>Cognify may store data locally on the device, including:</p>
+    <h2>Information Stored on Your Device</h2>
+    <p>Depending on the features you use, Cognify may store the following in app-private storage:</p>
     <ul>
-      <li>subjects, study sets, and cards</li>
-      <li>draft cards and card review states</li>
-      <li>notes, imported text, and generated study content</li>
-      <li>selected files, captured photos, and OCR-processed text used during generation</li>
-      <li>app settings such as theme, storage mode, and OCR provider preference</li>
-      <li>online sync metadata and local working-copy data when online mode is enabled</li>
-      <li>diagnostic logs written by the app</li>
+      <li>subjects, study sets, cards, draft cards, notes, imported text, and generated study content</li>
+      <li>review history, answers, progress, session summaries, and related study statistics</li>
+      <li>files, PDF-derived content, captured photos, cropped images, and OCR working data used during an import or generation flow</li>
+      <li>audio preferences and locally generated or cached study-session audio where supported</li>
+      <li>theme, storage-mode, OCR-engine, TTS-engine, and other app preferences</li>
+      <li>Google sync metadata, pending-sync records, recovery state, and local working-copy data when online sync is enabled</li>
+      <li>diagnostic logs used to troubleshoot failures and improve reliability</li>
+      <li>optional locally installed OCR or TTS runtime files when you choose to install them on a supported platform</li>
     </ul>
 
-    <h2>Offline Mode</h2>
-    <p>Cognify can be used in offline mode without a Google account.</p>
-    <p>In offline mode, study data is stored locally on the device and is not synchronized to Google Drive.</p>
+    <h2>Offline Use</h2>
+    <p>You may use Cognify in offline mode without signing in. In that mode, your study content is stored locally on the device and Cognify does not synchronize it to Google Drive.</p>
+    <p>Local data may remain after signing out or uninstalling, depending on the operating system and its app-data behavior. Clearing Cognify's app data or uninstalling the app is the device-level way to remove local data. You may also need to remove separately installed optional runtime files where applicable.</p>
 
-    <h2>Online Mode and Google Services</h2>
-    <p>If you choose online mode, Cognify may use Google sign-in and Google Drive appDataFolder storage to keep an account-scoped working copy of your data and sync it between devices.</p>
-    <p>When online mode is used, Cognify may process and store information such as:</p>
+    <h2>Google Sign-In and Google Drive Sync</h2>
+    <p>If you choose to sign in and enable online mode, Cognify uses Google services to authenticate you and optionally synchronize your study data between supported devices.</p>
+    <p>Depending on the sign-in response and features used, Cognify may receive and use:</p>
     <ul>
-      <li>your Google account subject and email address</li>
-      <li>study content you choose to save or sync</li>
-      <li>sync metadata required to keep the active online profile consistent</li>
+      <li>a Google account subject or account identifier</li>
+      <li>your Google account email address and profile/display name</li>
+      <li>your Google profile image URL for account presentation, where supplied by Google</li>
+      <li>authentication credentials or tokens needed to make authorized requests; these are stored and handled by the sign-in integration and are not displayed as study content</li>
     </ul>
-    <p>Cognify does not use Google Drive as a live database. The app stores and manages its own local working copy and sync metadata.</p>
+    <p>Cognify requests the Google Drive <code>appDataFolder</code> scope. It uses that private application-data area for an account-scoped working copy of Cognify data and synchronization metadata. Cognify keeps a local SQLite copy and does not use Google Drive as a live database.</p>
+    <p>Online sync is optional. If authorization expires or Google Drive is unavailable, Cognify keeps local study data available and may retain pending sync work for a later retry. Google services are also governed by Google's own policies and terms.</p>
 
-    <h2>Card Generation and OCR</h2>
-    <p>Cognify can generate draft cards from pasted notes, uploaded files, PDFs, and camera captures.</p>
-    <p>For image-based and scanned-document workflows, Cognify may use local OCR on the device. On Windows, the app supports Windows OCR and may also support optional locally installed OCR providers.</p>
-    <p>OCR processing is intended to stay local to your device. The app does not intentionally send OCR content to a cloud OCR service for its primary workflow.</p>
+    <h2>Notes, Files, Photos, OCR, and Card Generation</h2>
+    <p>Cognify can create draft cards from notes, pasted text, supported files, PDFs, scanned documents, camera photos, and cropped images. You choose what content to provide.</p>
+    <p>OCR processing is intended to run locally on the device. Android may use the bundled ML Kit text-recognition provider. Windows may use Windows OCR or an optional locally installed PP-OCRv6 provider. Optional provider packages and runtime files may be downloaded when you explicitly choose to install them on a supported platform.</p>
+    <p>OCR output and generated cards may contain the words and information present in your source material. Cognify does not intentionally send the primary OCR or core card-generation content to a cloud OCR or remote AI service.</p>
 
-    <h2>Network Activity</h2>
+    <h2>Speech Recognition and Text-to-Speech</h2>
+    <p>Some study and review flows can use speech recognition and text-to-speech. Android may use an available Android speech-recognition service and Android TextToSpeech engine. Windows may use Windows speech synthesis and, where installed, the optional KittenTTS runtime.</p>
+    <p>Speech recognition and synthesis depend on the operating system and selected provider. Cognify does not intentionally retain microphone recordings as study content. The operating system or selected third-party speech service may process audio or speech according to its own privacy practices; review the provider's terms and settings before using speech features.</p>
+
+    <h2>Advertising</h2>
+    <p>The Android version of Cognify may display native advertisements provided through Google Mobile Ads (AdMob). The Google Mobile Ads SDK may collect or receive device, advertising, diagnostic, and interaction information, including advertising identifiers, to deliver, measure, limit, or personalize advertising as permitted by applicable settings and law.</p>
+    <p>Cognify does not sell your personal information. Advertising data is handled by Google and its advertising partners under their own policies. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> and <a href="https://support.google.com/admob/answer/6128543">Google Mobile Ads privacy guidance</a> for more information.</p>
+
+    <h2>Network Activity and Third-Party Services</h2>
     <p>Cognify may use network access for:</p>
     <ul>
-      <li>signing in with Google when online mode is used</li>
-      <li>syncing app data through Google Drive appDataFolder</li>
-      <li>downloading optional local OCR provider files when the user chooses to install them</li>
-      <li>checking for Microsoft Store updates or licensing features when the app is distributed through the Store</li>
+      <li>Google sign-in, account-profile requests, and authorized Google Drive synchronization</li>
+      <li>optional OCR or TTS runtime downloads that you initiate</li>
+      <li>Android AdMob advertising</li>
+      <li>platform update, licensing, or add-on services where supported by a platform distribution channel</li>
     </ul>
-    <p>Outside of those features, Cognify is designed to operate locally.</p>
-
-    <h2>Sharing and Disclosure</h2>
-    <p>Cognify does not sell personal information.</p>
-    <p>Cognify does not share personal information with third-party advertisers.</p>
-    <p>The app may communicate with Google services only when you choose online mode or sign in with Google, and with Microsoft Store services when applicable to the installed build.</p>
+    <p>Except for these features and the services required by your operating system or selected provider, Cognify is designed to operate locally. Third-party services may have separate privacy policies, retention practices, and availability rules.</p>
 
     <h2>How Information Is Used</h2>
-    <p>Cognify uses stored or transmitted information to:</p>
+    <p>Cognify uses information to:</p>
     <ul>
-      <li>manage subjects, study sets, and cards</li>
-      <li>generate and review study content</li>
-      <li>sync data for users who choose online mode</li>
-      <li>support OCR-based import workflows</li>
-      <li>remember app settings and preferences</li>
-      <li>diagnose errors and improve reliability</li>
+      <li>create, store, organize, and review your study content</li>
+      <li>generate draft cards and process OCR inputs</li>
+      <li>evaluate answers locally and present study progress</li>
+      <li>provide optional Google authentication, backup, and synchronization</li>
+      <li>provide optional speech-recognition and text-to-speech functionality</li>
+      <li>remember preferences and maintain local app operation</li>
+      <li>diagnose failures and improve reliability through app diagnostics</li>
+      <li>display and measure advertisements on Android</li>
     </ul>
+
+    <h2>Sharing and Disclosure</h2>
+    <p>Cognify does not sell personal information and does not intentionally share personal information with third-party advertisers outside the advertising services described above.</p>
+    <p>Information may be sent to Google when you sign in, request Google profile information, enable Drive sync, or receive AdMob advertising. Information may also be processed by your operating system or an optional provider when you use speech, OCR, update, licensing, or add-on functionality.</p>
 
     <h2>Security</h2>
-    <p>Cognify uses local app storage for its offline database and online working copy. Users should avoid placing unnecessary sensitive information in free-form notes or imported files.</p>
-    <p>If you use online mode, your data is associated with your Google account and the app's sync model for that account.</p>
+    <p>Cognify uses app-private local storage and authorized Google service access for the features described in this policy. No method of storage or transmission is completely secure. Avoid placing unnecessary sensitive information in free-form notes, imported files, or photos.</p>
 
-    <h2>User Controls</h2>
-    <p>Users can:</p>
+    <h2>Your Choices and Controls</h2>
+    <p>You can:</p>
     <ul>
-      <li>choose offline mode or online mode</li>
-      <li>sign in or sign out of Google</li>
-      <li>manage subjects, study sets, cards, and drafts inside the app</li>
-      <li>change the theme and OCR provider settings where supported</li>
-      <li>remove local app data by deleting the app or clearing app data on the device</li>
+      <li>use Cognify offline without a Google account</li>
+      <li>choose whether to sign in and enable Google Drive sync</li>
+      <li>sign out of Google and switch back to offline mode</li>
+      <li>create, edit, review, or remove supported study content within the app</li>
+      <li>choose supported OCR and TTS providers and install or remove optional providers where available</li>
+      <li>manage Android permissions and advertising preferences through Android and Google settings</li>
+      <li>clear local app data or uninstall Cognify to remove device-local data</li>
+      <li>request deletion of your Cognify account-associated data using the <a href="/legal/cognify-delete-account.html">account deletion page</a></li>
     </ul>
 
-    <h2>Access and Deletion</h2>
-    <p>Users can view, edit, and delete app data inside Cognify where supported.</p>
-    <p>Uninstalling the app may not automatically remove every local data file, log, or optional OCR runtime artifact. Users who want full cleanup may need to remove app data directories and related local files manually.</p>
+    <h2>Account Deletion and Retention</h2>
+    <p>If you request deletion, we will verify the request and delete or remove access to Cognify account-associated data under our control, including account-linked Cognify sync data and the Cognify data stored in the Google Drive app-data area where we are able to do so.</p>
+    <p>Deletion of remote account-associated data does not automatically delete local SQLite data, local logs, cached files, captured photos, or optional OCR/TTS runtime files on your devices. Follow the instructions on the <a href="/legal/cognify-delete-account.html">account deletion page</a> for local cleanup.</p>
+    <p>We may retain limited information when reasonably necessary for security, fraud prevention, legal compliance, dispute resolution, or to document a deletion request. We do not retain data longer than reasonably necessary for those purposes.</p>
 
     <h2>Children's Privacy</h2>
-    <p>Cognify is not directed to children under 13, and we do not knowingly collect personal information from children under 13.</p>
+    <p>Cognify is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided personal information, contact us so we can review the request.</p>
 
     <h2>Changes to This Privacy Policy</h2>
-    <p>This policy may be updated over time. The latest version should be published at the app's privacy policy URL.</p>
+    <p>We may update this policy when Cognify's features, third-party services, or legal obligations change. The latest version will be published at this URL, together with its effective date.</p>
 
     <h2>Contact</h2>
     <ul>
       <li>Name: JustinTagarda</li>
-      <li>Email: justintagarda@gmail.com</li>
+      <li>Email: <a href="mailto:justintagarda@gmail.com">justintagarda@gmail.com</a></li>
       <li>Country: Philippines</li>
+    </ul>
+
+    <h2>Related pages</h2>
+    <ul>
+      <li><a href="/legal/cognify-delete-account.html">Cognify Account Deletion</a></li>
+      <li><a href="/legal/cognify-terms-of-service.html">Cognify Terms of Service</a></li>
     </ul>
   </main>
 </body>
