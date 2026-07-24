@@ -1,8 +1,8 @@
 {
   "source_file_name": "Resume - Justiniano Tagarda.pdf",
   "name": "JUSTINIANO TAGARDA",
-  "title": "SENIOR FULL STACK .NET DEVELOPER | AI-AUGMENTED BUILDER",
-  "profile": "Senior Full Stack .NET Developer with 15+ years of experience delivering business-critical web and desktop systems across .NET, ASP.NET, and SQL Server. Backend-first in architecture, with proven full-stack delivery using React, Next.js, and TypeScript. Strong in API design, data modeling, production troubleshooting, and long-term maintainability for enterprise and internal operations platforms.",
+  "title": "SENIOR .NET BACKEND & FULL-STACK DEVELOPER",
+  "profile": "Senior .NET developer with extensive experience building and supporting production APIs, SQL-backed business systems, internal platforms, and customer portals. Backend-first in C#, .NET, ASP.NET, and SQL Server, with full-stack delivery experience using React, Next.js, and TypeScript. Skilled at translating business requirements into maintainable software and supporting it through deployment, troubleshooting, and ongoing operations.",
   "work_experience": [
     {
       "job_title": "Backend Developer - ASP.NET Framework & SQL Server",
@@ -11,24 +11,24 @@
       "start": "Nov 2024",
       "end": "Jan 2026",
       "responsibilities": [
-        "Delivered and maintained high-availability .NET backend APIs supporting production systems used by thousands of daily users.",
-        "Collaborated with the team to translate business requirements into scalable backend solutions.",
-        "Shared responsibility with the team lead for SQL Server performance monitoring, backups, troubleshooting, and maintenance.",
-        "Developed client-side components using Knockout.js and jQuery.",
-        "Assisted the team lead with IIS deployments, server monitoring, and production environment support."
+        "Improved the .NET backend codebase and strengthened data bindings between backend services and frontend pages.",
+        "Delivered a Twilio communications dashboard across backend and frontend layers, giving support, operations staff, and company leadership visual reporting on SMS and email delivery status, failures, and client communication activity.",
+        "Led the end-to-end migration of multiple production websites, services, and databases - including the primary website and SQL Server environment - from Windows Server 2022 to newly provisioned Windows Server 2025 hosts, completing the cutover and retiring the legacy servers from active use.",
+        "Configured IIS, SQL Server, and dependent services on the new environment, supporting the migration and production cutover.",
+        "Monitored and maintained production server infrastructure, providing prompt incident support during service downtime."
       ]
     },
     {
       "job_title": "Freelance Software Developer",
-        "company": "AI-augmented full-stack development",
+      "company": "Independent",
       "location": null,
       "start": "2021",
       "end": "Present (Active)",
       "responsibilities": [
-        "Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications using AI-augmented development.",
-        "Developed responsive, production-ready interfaces with React, Next.js, and TypeScript integrated with .NET REST APIs.",
-        "Built full-stack features including API integrations, authentication flows, dashboards, and data-driven workflows.",
-        "Collaborated directly with clients to define scope, refine functionality, and ship maintainable production software."
+        "Built and shipped web, desktop, and cross-platform applications, including products published on the Microsoft Store and Google Play.",
+        "Built responsive React, Next.js, and TypeScript interfaces integrated with .NET REST APIs.",
+        "Implemented API integrations, authentication flows, dashboards, and data-driven business workflows.",
+        "Worked directly with clients to define scope, refine functionality, and deliver maintainable production software."
       ]
     },
     {
@@ -38,10 +38,10 @@
       "start": "2007",
       "end": "2020",
       "responsibilities": [
-        "Built and maintained the company website and multiple internal web applications, including ERP and inventory management systems that streamlined operations and improved data accuracy.",
-        "Developed a customer portal for real-time project tracking and internal tools used by branch offices to manage daily workflows.",
-        "Designed, deployed, and maintained business-critical systems supporting cross-department operations.",
-        "Supervised IT operations to maintain system reliability, infrastructure stability, and effective technical support across the organization."
+        "Built and maintained the company website, ERP applications, and inventory systems used to support daily operations and data accuracy.",
+        "Developed a customer portal for real-time project tracking and internal tools used by branch offices for daily workflows.",
+        "Designed, deployed, and maintained business-critical applications supporting cross-department operations.",
+        "Combined software delivery with IT operations to maintain system reliability, infrastructure stability, and responsive technical support."
       ]
     },
     {
@@ -51,10 +51,10 @@
       "start": "1999",
       "end": "2006",
       "responsibilities": [
-        "Developed a company-wide inventory management system using Microsoft Access, improving tracking accuracy and streamlining internal processes.",
-        "Maintained and enhanced internal software tools to support daily operations and reporting.",
-        "Installed, configured, and supported LAN infrastructure across offices, factories, and warehouses, ensuring reliable connectivity and communication.",
-        "Provided technical support and troubleshooting for systems, hardware, and network issues across departments."
+        "Developed a company-wide inventory management system in Microsoft Access to improve tracking and internal processes.",
+        "Maintained internal software tools supporting daily operations and reporting.",
+        "Supported LAN infrastructure across offices, factories, and warehouses.",
+        "Provided systems, hardware, and network troubleshooting across departments."
       ]
     }
   ],
@@ -62,7 +62,7 @@
     {
       "title": "Backend",
       "accent": "#3B82F6",
-      "focus": "APIs, integrations, and service layers for scalable business workflows.",
+      "focus": "C#, .NET APIs, integrations, and service layers for dependable business workflows.",
       "items": [
         {
           "label": "ASP.NET Core",
@@ -85,38 +85,7 @@
           "highlighted": false
         },
         {
-          "label": "ASP.NET",
-          "highlighted": false
-        },
-        {
-          "label": ".NET Core",
-          "highlighted": false
-        },
-        {
           "label": "Entity Framework Core",
-          "highlighted": false
-        }
-      ]
-    },
-    {
-      "title": "AI-Assisted Delivery",
-      "accent": "#F97316",
-      "focus": "Agent workflows, coding assistance, analysis, and review loops for faster production delivery.",
-      "items": [
-        {
-          "label": "GitHub Copilot",
-          "highlighted": false
-        },
-        {
-          "label": "OpenAI Codex",
-          "highlighted": false
-        },
-        {
-          "label": "OpenAI API",
-          "highlighted": false
-        },
-        {
-          "label": "Google Cloud AI",
           "highlighted": false
         }
       ]
@@ -170,19 +139,7 @@
           "highlighted": false
         },
         {
-          "label": "Node.js",
-          "highlighted": false
-        },
-        {
           "label": "Tailwind CSS",
-          "highlighted": false
-        },
-        {
-          "label": "jQuery",
-          "highlighted": false
-        },
-        {
-          "label": "Knockout.js",
           "highlighted": false
         },
         {
@@ -198,7 +155,7 @@
     {
       "title": "Testing & Quality",
       "accent": "#A3E635",
-      "focus": "Regression coverage and repeatable validation before release.",
+      "focus": "Automated regression coverage and repeatable validation before release.",
       "items": [
         {
           "label": "xUnit",
@@ -244,7 +201,7 @@
     {
       "title": "DevOps & Infrastructure",
       "accent": "#60A5FA",
-      "focus": "Deployment, hosting, troubleshooting, and release workflows for production systems.",
+      "focus": "IIS deployments, monitoring, troubleshooting, and release workflows for production systems.",
       "items": [
         {
           "label": "Docker",
@@ -265,9 +222,9 @@
       ]
     },
     {
-      "title": "Desktop & Legacy Systems",
+      "title": "Additional Experience",
       "accent": "#C084FC",
-      "focus": "Windows desktop apps and legacy system modernization for internal operations.",
+      "focus": "Legacy business applications and desktop systems.",
       "items": [
         {
           "label": "WPF",
@@ -289,15 +246,15 @@
       "degree_or_certificate": "BS Commerce major in Accounting",
       "institution": "Xavier University College",
       "location": "Cagayan de Oro City, Philippines",
-      "start": "June 1987",
-      "end": "March 1992"
+      "start": "",
+      "end": ""
     },
     {
       "degree_or_certificate": "COBOL Programming Certificate",
       "institution": "Systems Technology Institute",
       "location": "Cagayan de Oro City, Philippines",
-      "start": "June 1992",
-      "end": "November 1992"
+      "start": "",
+      "end": ""
     }
   ],
   "contact": {

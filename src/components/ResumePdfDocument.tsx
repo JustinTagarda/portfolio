@@ -445,7 +445,7 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
           <View style={styles.gridSection}>
             <Text style={styles.sectionTitle}>Skills</Text>
             <Text style={styles.skillsIntro}>
-              Delivery capabilities across backend systems, business workflows, databases, frontend interfaces, deployment, quality, AI-assisted development, legacy systems, Flutter, and Supabase-backed products.
+              Core capabilities for backend systems, SQL-backed business workflows, modern frontend interfaces, deployment, and production support.
             </Text>
 
             <View style={styles.twoColumnGrid}>

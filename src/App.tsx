@@ -239,17 +239,18 @@ const defaultData = {
         gedacCompanyWebsiteScreenshot05,
       ],
       bullets: [
-        "Planned and built the full public-facing company website.",
-        "Implemented interactions with jQuery and vanilla JavaScript.",
-        "Designed custom layouts and styling with vanilla CSS.",
-        "Delivered and maintained the site on ASP.NET Framework.",
-        "Live URL: http://gedac.com (currently HTTP-only).",
+        "Conceived, designed, and delivered GEDAC Electric Company's official public-facing website.",
+        "Built interactive website behavior using jQuery and vanilla JavaScript.",
+        "Created custom page layouts and styling with vanilla CSS.",
+        "Deployed and maintained the production site on ASP.NET Framework.",
+        "Continued supporting a long-running company website that remains operational today.",
       ],
       stack: ["ASP.NET Framework", "jQuery", "JavaScript", "CSS", "HTML"],
       links: {
         liveDemo: "http://gedac.com",
         github: "",
       },
+      primaryLinkLabel: "Visit Company Website",
     },
   ],
   contact: {
@@ -287,7 +288,7 @@ const defaultData = {
   nav: [
     { label: "Products", href: "#products" },
     { label: "Experience", href: "#experience" },
-    { label: "Other Work", href: "#other-work" },
+    { label: "Client & Company Work", href: "#other-work" },
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
   ],
@@ -1028,7 +1029,7 @@ export default function App() {
         >
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Selected Work</p>
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Other Work</h2>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Client &amp; Company Work</h2>
             <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
               Client and company work that does not belong in the products shelf, but still demonstrates delivery
               scope, implementation depth, and long-term maintenance.
