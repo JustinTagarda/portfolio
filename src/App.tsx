@@ -243,7 +243,7 @@ const defaultData = {
         "Built interactive website behavior using jQuery and vanilla JavaScript.",
         "Created custom page layouts and styling with vanilla CSS.",
         "Deployed and maintained the production site on ASP.NET Framework.",
-        "Continued supporting a long-running company website that remains operational today.",
+        "Solely designed and developed the website end-to-end, from backend and frontend implementation to hands-on server deployment and network infrastructure configuration.",
       ],
       stack: ["ASP.NET Framework", "jQuery", "JavaScript", "CSS", "HTML"],
       links: {
