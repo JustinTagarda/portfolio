@@ -2,7 +2,7 @@
   "name": "Justiniano Tagarda",
   "headline": "Senior .NET Backend & Full-Stack Developer",
   "lead": "I build and support production business systems with C#, .NET, SQL Server, React, and Next.js - from requirements through deployment.",
-  "heroChips": ["Production APIs", "Enterprise Systems", "SQL Server", "Full-Stack Delivery", "React/Next.js", "Remote"],
+  "heroChips": ["Production APIs", "Enterprise Systems", "SQL Server", "Full-Stack Delivery", "React/Next.js", "Open to Full-Time"],
   "socialLinks": [
     { "label": "GitHub", "href": "https://github.com/JustinTagarda" },
     { "label": "LinkedIn", "href": "https://www.linkedin.com/in/justintagarda" },
@@ -12,7 +12,7 @@
     "eyebrow": "Production systems, business workflows, and dependable delivery",
     "subheadline": "Senior .NET developer experienced in production APIs, SQL-backed business systems, and modern React/Next.js interfaces.",
     "paragraphs": [
-      "Built and maintained .NET APIs used by thousands of daily users, alongside internal systems, ERP workflows, and customer portals.",
+      "Built and maintained .NET APIs supporting production systems, internal platforms, ERP workflows, and customer portals.",
       "Experienced in turning business requirements into maintainable software, with hands-on ownership across development, deployment, troubleshooting, and support."
     ],
     "highlights": [

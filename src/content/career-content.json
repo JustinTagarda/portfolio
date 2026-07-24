@@ -3,7 +3,44 @@
   "name": "JUSTINIANO TAGARDA",
   "title": "SENIOR .NET BACKEND & FULL-STACK DEVELOPER",
   "profile": "Senior .NET developer with extensive experience building and supporting production APIs, SQL-backed business systems, internal platforms, and customer portals. Backend-first in C#, .NET, ASP.NET, and SQL Server, with full-stack delivery experience using React, Next.js, and TypeScript. Skilled at translating business requirements into maintainable software and supporting it through deployment, troubleshooting, and ongoing operations.",
+  "resume_profile": "Senior .NET backend and full-stack developer experienced in modernizing business-critical systems, production APIs, SQL-backed workflows, customer portals, and released products. Hands-on across system design, deployment, troubleshooting, and long-term support.",
+  "resume_show_photo": false,
+  "resume_availability": "Open to full-time remote senior .NET/backend or full-stack opportunities.",
+  "resume_portfolio_label": "Portfolio: published apps, production systems, and project case studies",
+  "resume_skill_summary": [
+    "Core: C#, .NET, ASP.NET Core, ASP.NET Framework, REST APIs, SQL Server, Entity Framework Core",
+    "Frontend: React, Next.js, TypeScript, JavaScript, Tailwind CSS",
+    "Delivery: IIS, Windows Server, Docker, Azure DevOps, xUnit, PostgreSQL",
+    "Cross-platform: Flutter, Dart, Microsoft Store, Google Play"
+  ],
+  "resume_education": [
+    {
+      "degree_or_certificate": "BS Commerce major in Accounting",
+      "institution": "Xavier University College",
+      "location": "Cagayan de Oro City, Philippines",
+      "start": "",
+      "end": ""
+    }
+  ],
   "work_experience": [
+    {
+      "job_title": "Freelance Software Developer",
+      "company": "Independent",
+      "location": null,
+      "start": "2021",
+      "end": "Present (Active)",
+      "responsibilities": [
+        "Built and shipped web, desktop, and cross-platform applications, including products published on the Microsoft Store and Google Play.",
+        "Built responsive React, Next.js, and TypeScript interfaces integrated with .NET REST APIs.",
+        "Implemented API integrations, authentication flows, dashboards, and data-driven business workflows.",
+        "Worked directly with clients to define scope, refine functionality, and deliver maintainable production software."
+      ],
+      "resume_responsibilities": [
+        "Built and shipped web, desktop, and cross-platform products, including applications published on the Microsoft Store and Google Play.",
+        "Delivered React, Next.js, and TypeScript interfaces integrated with .NET REST APIs, authentication flows, dashboards, and data-driven workflows.",
+        "Partnered directly with clients to define scope and deliver maintainable production software."
+      ]
+    },
     {
       "job_title": "Backend Developer - ASP.NET Framework & SQL Server",
       "company": "Drizzio / Digital Entrepreneur LLC",
@@ -16,19 +53,31 @@
         "Led the end-to-end migration of multiple production websites, services, and databases - including the primary website and SQL Server environment - from Windows Server 2022 to newly provisioned Windows Server 2025 hosts, completing the cutover and retiring the legacy servers from active use.",
         "Configured IIS, SQL Server, and dependent services on the new environment, supporting the migration and production cutover.",
         "Monitored and maintained production server infrastructure, providing prompt incident support during service downtime."
+      ],
+      "resume_responsibilities": [
+        "Delivered a Twilio communications dashboard with visual SMS and email status reporting for support, operations, and company leadership.",
+        "Led the end-to-end migration of production websites, services, and databases - including the primary website and SQL Server environment - from Windows Server 2022 to Windows Server 2025.",
+        "Improved .NET backend services and frontend data bindings for production workflows.",
+        "Configured IIS, SQL Server, and dependent services for the new environment, supporting the migration and production cutover.",
+        "Monitored production infrastructure and provided incident support during service downtime.",
+        "Completed the production cutover and retired legacy servers from active use."
       ]
     },
     {
-      "job_title": "Freelance Software Developer",
-      "company": "Independent",
-      "location": null,
-      "start": "2021",
-      "end": "Present (Active)",
+      "job_title": "IT Manager",
+      "company": "GEDAC Electric Company",
+      "location": "Jeddah, Saudi Arabia",
+      "start": "2015",
+      "end": "2020",
       "responsibilities": [
-        "Built and shipped web, desktop, and cross-platform applications, including products published on the Microsoft Store and Google Play.",
-        "Built responsive React, Next.js, and TypeScript interfaces integrated with .NET REST APIs.",
-        "Implemented API integrations, authentication flows, dashboards, and data-driven business workflows.",
-        "Worked directly with clients to define scope, refine functionality, and deliver maintainable production software."
+        "Promoted to IT Manager to supervise IT staff responsible for hardware, network maintenance, and employee technical support.",
+        "Owned monitoring, maintenance, and rapid downtime support for company-wide applications and infrastructure serving the head office, Saudi regional branches, and international sales offices.",
+        "Established and administered core infrastructure from the ground up, including SQL Server, IIS, file-sharing services, virtual machines, and network services used across departments."
+      ],
+      "resume_responsibilities": [
+        "Promoted to IT Manager to supervise IT staff responsible for hardware, network maintenance, and employee technical support.",
+        "Owned monitoring, maintenance, and downtime support for company-wide applications and infrastructure across the head office, Saudi regional branches, and international sales offices.",
+        "Established and administered SQL Server, IIS, file-sharing services, virtual machines, and network services used across departments."
       ]
     },
     {
@@ -36,12 +85,16 @@
       "company": "GEDAC Electric Company",
       "location": "Jeddah, Saudi Arabia",
       "start": "2007",
-      "end": "2020",
+      "end": "2015",
       "responsibilities": [
-        "Built and maintained the company website, ERP applications, and inventory systems used to support daily operations and data accuracy.",
-        "Developed a customer portal for real-time project tracking and internal tools used by branch offices for daily workflows.",
-        "Designed, deployed, and maintained business-critical applications supporting cross-department operations.",
-        "Combined software delivery with IT operations to maintain system reliability, infrastructure stability, and responsive technical support."
+        "Solely designed and developed C#/.NET Framework WinForms applications for inventory, projects, engineering, procurement, sales, operations, and management reporting, deployed through ClickOnce.",
+        "Modernized the legacy DOS-based inventory system into a customized Windows application, completing the transition and decommissioning the former platform.",
+        "Built the company website, gedac.com, and an ASP.NET Web Forms customer portal for project-status inquiries, client messaging, feedback, and document sharing with sales and engineering teams."
+      ],
+      "resume_responsibilities": [
+        "Solely designed and developed C#/.NET Framework WinForms applications for inventory, projects, engineering, procurement, sales, operations, and management reporting across company locations.",
+        "Modernized the legacy DOS-based inventory system into a customized Windows application and decommissioned the former platform.",
+        "Built gedac.com and an ASP.NET Web Forms customer portal for project-status inquiries, messaging, feedback, and document sharing."
       ]
     },
     {
@@ -55,6 +108,10 @@
         "Maintained internal software tools supporting daily operations and reporting.",
         "Supported LAN infrastructure across offices, factories, and warehouses.",
         "Provided systems, hardware, and network troubleshooting across departments."
+      ],
+      "resume_pdf_responsibilities": [
+        "Developed a company-wide Microsoft Access inventory management system to improve tracking and internal processes.",
+        "Supported internal software, LAN infrastructure, and technical troubleshooting across offices, factories, and warehouses."
       ]
     }
   ],

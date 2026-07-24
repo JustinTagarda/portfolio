@@ -7,6 +7,8 @@ export type ResumeWorkExperience = {
   start: string;
   end: string;
   responsibilities: string[];
+  resume_responsibilities?: string[];
+  resume_pdf_responsibilities?: string[];
 };
 
 export type ResumeEducation = {
@@ -42,6 +44,12 @@ export type ResumeData = {
   name: string;
   title: string;
   profile: string;
+  resume_profile?: string;
+  resume_show_photo?: boolean;
+  resume_availability?: string;
+  resume_portfolio_label?: string;
+  resume_skill_summary?: string[];
+  resume_education?: ResumeEducation[];
   work_experience: ResumeWorkExperience[];
   skills: ResumeSkillGroup[];
   education: ResumeEducation[];
@@ -104,6 +112,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     marginTop: 0.7,
+  },
+  availability: {
+    color: "#1D4ED8",
+    fontSize: 7.45,
+    fontWeight: 700,
+    marginTop: 1.6,
   },
   contactItem: {
     color: "#334155",
@@ -239,7 +253,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     flexShrink: 1,
     fontSize: 8.05,
-    lineHeight: 1.17,
+    lineHeight: 1.22,
   },
   bottomGrid: {
     marginTop: 9,
@@ -278,14 +292,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     paddingVertical: 3,
   },
-  skillCard: {
-    paddingVertical: 2.8,
-  },
   skillsIntro: {
     color: "#334155",
     fontSize: 7.55,
     lineHeight: 1.16,
-    marginTop: 2.2,
+  },
+  skillsCard: {
+    paddingVertical: 4,
   },
   educationCard: {
     paddingVertical: 4.4,
@@ -294,17 +307,6 @@ const styles = StyleSheet.create({
     color: "#0F172A",
     fontSize: 7.85,
     fontWeight: 700,
-  },
-  skillCardHeader: {
-    alignItems: "flex-start",
-    flexDirection: "row",
-  },
-  skillCardDot: {
-    borderRadius: 999,
-    height: 5.1,
-    marginRight: 3.8,
-    marginTop: 1.2,
-    width: 5.1,
   },
   blockBody: {
     color: "#334155",
@@ -317,26 +319,34 @@ const styles = StyleSheet.create({
     fontSize: 7.7,
     marginTop: 0.7,
   },
-  skillBulletList: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 0.2,
+  skillSummaryList: {
+    marginTop: 3,
   },
-  skillBulletRow: {
-    alignItems: "center",
+  skillSummaryRow: {
+    alignItems: "flex-start",
     flexDirection: "row",
-    marginBottom: 0.35,
-    marginRight: 4.2,
+    paddingVertical: 1.25,
   },
-  skillBulletDot: {
+  skillSummaryRowDivider: {
+    borderBottomColor: "#E7EDF5",
+    borderBottomWidth: 0.7,
+  },
+  skillSummaryDot: {
     color: "#2563EB",
     fontSize: 8.4,
-    marginRight: 1.6,
+    marginRight: 3.2,
+    width: 5.5,
   },
-  skillBulletText: {
+  skillSummaryText: {
     color: "#334155",
-    fontSize: 7.9,
-    lineHeight: 1.1,
+    flexGrow: 1,
+    flexShrink: 1,
+    fontSize: 8.05,
+    lineHeight: 1.2,
+  },
+  skillSummaryLabel: {
+    color: "#1D4ED8",
+    fontWeight: 700,
   },
 });
 
@@ -365,9 +375,21 @@ function formatEducationYears(start?: string, end?: string) {
   return [startYear, endYear].filter(Boolean).join(" - ");
 }
 
+function splitSkillSummaryItem(item: string) {
+  const separatorIndex = item.indexOf(":");
+
+  if (separatorIndex === -1) {
+    return { label: "", value: item };
+  }
+
+  return {
+    label: item.slice(0, separatorIndex),
+    value: item.slice(separatorIndex + 1).trim(),
+  };
+}
+
 export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdfDocumentProps) {
-  const skillsRows = chunkIntoPairs(resume.skills);
-  const educationRows = chunkIntoPairs(resume.education);
+  const educationRows = chunkIntoPairs(resume.resume_education ?? resume.education);
 
   return (
     <Document title={`${resume.name} - Resume`} author={resume.name}>
@@ -386,6 +408,7 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
               <Text style={styles.contactItem}>{resume.contact.linkedin}</Text>
               {resume.contact.github && <Text style={styles.contactItem}>{resume.contact.github}</Text>}
             </View>
+            {resume.resume_availability && <Text style={styles.availability}>{resume.resume_availability}</Text>}
             <View style={styles.contactPortfolioWrap}>
               <Text style={styles.contactPortfolioText}>Portfolio: {resume.contact.portfolio}</Text>
             </View>
@@ -428,7 +451,7 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
                   </View>
 
                   <View style={styles.bullets}>
-                    {role.responsibilities.map((item, index) => (
+                    {(role.resume_pdf_responsibilities ?? role.responsibilities).map((item, index) => (
                       <View key={`${role.job_title}-responsibility-${index}`} style={styles.bulletRow}>
                         <Text style={styles.bulletDot}>•</Text>
                         <Text style={styles.bulletText}>{item}</Text>
@@ -444,32 +467,30 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
         <View style={styles.bottomGrid}>
           <View style={styles.gridSection}>
             <Text style={styles.sectionTitle}>Skills</Text>
-            <Text style={styles.skillsIntro}>
-              Core capabilities for backend systems, SQL-backed business workflows, modern frontend interfaces, deployment, and production support.
-            </Text>
 
-            <View style={styles.twoColumnGrid}>
-              {skillsRows.map((row, rowIndex) => (
-                <View key={`skills-row-${rowIndex}`} style={rowIndex > 0 ? [styles.twoColumnRow, styles.twoColumnRowGap] : styles.twoColumnRow}>
-                  {row.map((group) => (
-                    <View key={group.title} style={[styles.twoColumnItem, styles.blockCard, styles.skillCard]}>
-                      <View style={styles.skillCardHeader}>
-                        <View style={[styles.skillCardDot, { backgroundColor: group.accent }]} />
-                        <Text style={styles.blockTitle}>{group.title}</Text>
-                      </View>
-                      <View style={styles.skillBulletList}>
-                        {group.items.map((skill) => (
-                          <View key={`${group.title}-${skill.label}`} style={styles.skillBulletRow}>
-                            <Text style={[styles.skillBulletDot, { color: group.accent }]}>•</Text>
-                            <Text style={styles.skillBulletText}>{skill.label}</Text>
-                          </View>
-                        ))}
-                      </View>
+            <View style={[styles.blockCard, styles.skillsCard]}>
+              <Text style={styles.skillsIntro}>
+                Core capabilities for backend systems, SQL-backed business workflows, modern frontend interfaces, deployment, and production support.
+              </Text>
+
+              <View style={styles.skillSummaryList}>
+                {(resume.resume_skill_summary ?? []).map((item, index, items) => {
+                  const { label, value } = splitSkillSummaryItem(item);
+
+                  return (
+                    <View
+                      key={item}
+                      style={index < items.length - 1 ? [styles.skillSummaryRow, styles.skillSummaryRowDivider] : styles.skillSummaryRow}
+                    >
+                      <Text style={styles.skillSummaryDot}>•</Text>
+                      <Text style={styles.skillSummaryText}>
+                        {label && <Text style={styles.skillSummaryLabel}>{label}: </Text>}
+                        {value}
+                      </Text>
                     </View>
-                  ))}
-                  {row.length === 1 && <View style={styles.twoColumnSpacer} />}
-                </View>
-              ))}
+                  );
+                })}
+              </View>
             </View>
           </View>
 
