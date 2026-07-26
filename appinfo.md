@@ -36,6 +36,9 @@ Every new session should read this file first before re-scanning the project.
 - Resume layout/design status: `DONE` (single-page A4, preview/download parity, aligned capsules/chips).
 - Contact form is wired to Formspree via frontend POST, with env override support and default endpoint fallback.
 - Build/deploy pipeline is configured and working (lint/build passed, Firebase deploy workflow present).
+- A repo-local private application tracker now exists at `records/job-applications.json` for recording JobStreet applications, fit notes, and status across sessions.
+- The job-post workflow document is `records/job-processing-requirements.md`; read it before analyzing any job-post URL, recruiter message, screenshot, or cover-letter request in this repo. It now also contains a reusable cover-letter template.
+- The `93524114` VA Masters record was updated after receiving the recruiter email from Alon Pearl.
 - Working tree state during analysis: clean (`git status --short` returned no changes).
 
 ## Project Identity
@@ -414,6 +417,20 @@ npm run preview
 
 ## Recent Change Notes (append-only, newest first)
 
+- `2026-07-24`: Added a persistent job-post workflow document and linked it from the session handoff cache.
+  - Created `records/job-processing-requirements.md` to define how job posts, screenshots, and recruiter messages should be matched to existing records.
+  - Added the document reference to `appinfo.md` so future sessions are directed to the workflow before analyzing or writing cover letters.
+  - The workflow requires checking for existing records first, then updating or creating `records/job-applications.json` as needed.
+- `2026-07-24`: Added a reusable cover-letter template to the workflow document.
+  - Appended a copy-ready template to `records/job-processing-requirements.md` for future cover-letter drafting requests.
+  - Kept the guidance generic so agents can tailor it to a verified role without inventing details.
+- `2026-07-24`: Updated the VA Masters tracker entry after the Alon Pearl recruiter email.
+  - Refreshed the `93524114` record with recruiter-replied email context.
+  - Added a notes field capturing that the recruiter asked to proceed with the next step.
+- `2026-07-24`: Added a private JobStreet application tracker for session continuity.
+  - Created `records/job-applications.json` as a repo-local, portfolio-excluded record of job posts discussed in this session.
+  - Seeded it with job URLs, fit scores, statuses, and next actions for the JobStreet roles already reviewed.
+  - Kept the tracker outside `src/` and `public/` so it does not affect the deployed portfolio.
 - `2026-07-06`: Added Cognify: Focus & Study as the first featured project in the portfolio Work section.
   - Imported six Cognify screenshots into `src/assets/projects/cognify/`.
   - Inserted the new project at the top of `data.projects` so it renders first in the featured list.

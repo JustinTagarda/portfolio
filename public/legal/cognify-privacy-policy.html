@@ -19,7 +19,7 @@
 <body>
   <main>
     <h1>Privacy Policy for Cognify</h1>
-    <p class="updated">Last updated: July 23, 2026</p>
+    <p class="updated">Last updated: July 26, 2026</p>
 
     <h2>Overview</h2>
     <p>Cognify is a study application for creating, organizing, generating, and reviewing flashcards and other study content. Cognify is developed by JustinTagarda in the Philippines.</p>
@@ -34,7 +34,7 @@
       <li>audio preferences and locally generated or cached study-session audio where supported</li>
       <li>theme, storage-mode, OCR-engine, TTS-engine, and other app preferences</li>
       <li>Google sync metadata, pending-sync records, recovery state, and local working-copy data when online sync is enabled</li>
-      <li>diagnostic logs used to troubleshoot failures and improve reliability</li>
+      <li>diagnostic logs used to troubleshoot failures and improve reliability; in Cognify's current release configuration, these logs remain on your device and are not attached to or sent through Feedback</li>
       <li>optional locally installed OCR or TTS runtime files when you choose to install them on a supported platform</li>
     </ul>
 
@@ -67,15 +67,25 @@
     <p>The Android version of Cognify may display native advertisements provided through Google Mobile Ads (AdMob). The Google Mobile Ads SDK may collect or receive device, advertising, diagnostic, and interaction information, including advertising identifiers, to deliver, measure, limit, or personalize advertising as permitted by applicable settings and law.</p>
     <p>Cognify does not sell your personal information. Advertising data is handled by Google and its advertising partners under their own policies. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> and <a href="https://support.google.com/admob/answer/6128543">Google Mobile Ads privacy guidance</a> for more information.</p>
 
+    <h2>Feedback</h2>
+    <p>If you use the Feedback screen, Cognify sends the feedback text you enter over HTTPS to a Cognify support relay operated by JustinTagarda using Google Apps Script. The relay delivers the message to the shared Cognify support email inbox at <a href="mailto:justintagarda.support@gmail.com">justintagarda.support@gmail.com</a>.</p>
+    <p>If you are signed in, Cognify shows an <strong>Include my email for follow-up</strong> option. Your Google account email address is sent with the feedback only when you leave that option selected. If you turn it off, or if you are not signed in, Cognify sends the feedback without an email address as anonymous feedback.</p>
+    <p>Feedback text is used to respond when contact information is provided and to improve Cognify. Raw diagnostic-log files, study content, attachments, Google access tokens, and Google account identifiers other than the optional email address are not currently sent through Feedback.</p>
+
     <h2>Network Activity and Third-Party Services</h2>
     <p>Cognify may use network access for:</p>
     <ul>
       <li>Google sign-in, account-profile requests, and authorized Google Drive synchronization</li>
       <li>optional OCR or TTS runtime downloads that you initiate</li>
       <li>Android AdMob advertising</li>
+      <li>the optional Feedback submission service described above</li>
       <li>platform update, licensing, or add-on services where supported by a platform distribution channel</li>
     </ul>
     <p>Except for these features and the services required by your operating system or selected provider, Cognify is designed to operate locally. Third-party services may have separate privacy policies, retention practices, and availability rules.</p>
+
+    <h2>Store Purchases and Add-ons</h2>
+    <p>On supported platforms, Cognify may use the applicable app store to check add-on entitlements and offer optional paid plans. The Windows version currently includes Microsoft Store add-on flows for a lifetime plan and a monthly plan. Android Google Play purchase products are not currently configured.</p>
+    <p>Cognify does not collect or store your payment-card details. The relevant app store processes payments and may process purchase, subscription, entitlement, device, and account information under its own terms and privacy policy. Cognify may receive the entitlement result needed to enable the purchased capability.</p>
 
     <h2>How Information Is Used</h2>
     <p>Cognify uses information to:</p>
@@ -87,15 +97,18 @@
       <li>provide optional speech-recognition and text-to-speech functionality</li>
       <li>remember preferences and maintain local app operation</li>
       <li>diagnose failures and improve reliability through app diagnostics</li>
+      <li>receive, respond to, and improve Cognify using voluntary feedback</li>
       <li>display and measure advertisements on Android</li>
     </ul>
 
     <h2>Sharing and Disclosure</h2>
     <p>Cognify does not sell personal information and does not intentionally share personal information with third-party advertisers outside the advertising services described above.</p>
-    <p>Information may be sent to Google when you sign in, request Google profile information, enable Drive sync, or receive AdMob advertising. Information may also be processed by your operating system or an optional provider when you use speech, OCR, update, licensing, or add-on functionality.</p>
+    <p>Information may be sent to Google when you sign in, request Google profile information, enable Drive sync, or receive AdMob advertising. Information may also be processed by your operating system, Microsoft Store, Google Play, or an optional provider when you use speech, OCR, updates, licensing, or add-on functionality.</p>
+    <p>When you send feedback, the feedback text and any email address you choose to include are transmitted to the Google Apps Script relay and delivered to the Cognify support inbox. Google provides the Apps Script and email services used for that delivery and handles information under its own policies.</p>
+    <p>Cognify's source code can support a separately configured remote diagnostic-log endpoint, but the current release configuration does not enable one. If a future release enables remote diagnostic logging, Cognify will update this policy before distribution to identify the data categories sent, recipient, purpose, retention period, and deletion process.</p>
 
     <h2>Security</h2>
-    <p>Cognify uses app-private local storage and authorized Google service access for the features described in this policy. No method of storage or transmission is completely secure. Avoid placing unnecessary sensitive information in free-form notes, imported files, or photos.</p>
+    <p>Cognify uses app-private local storage, HTTPS feedback transmission, and authorized Google service access for the features described in this policy. No method of storage or transmission is completely secure. Avoid placing unnecessary sensitive information in free-form notes, imported files, photos, or feedback.</p>
 
     <h2>Your Choices and Controls</h2>
     <p>You can:</p>
@@ -106,14 +119,17 @@
       <li>create, edit, review, or remove supported study content within the app</li>
       <li>choose supported OCR and TTS providers and install or remove optional providers where available</li>
       <li>manage Android permissions and advertising preferences through Android and Google settings</li>
+      <li>choose whether to include your signed-in email address with feedback</li>
       <li>clear local app data or uninstall Cognify to remove device-local data</li>
       <li>request deletion of your Cognify account-associated data using the <a href="/legal/cognify-delete-account.html">account deletion page</a></li>
     </ul>
+    <p>You may also contact us to request access to, correction of, deletion of, or to object to processing of personal information that we control, subject to applicable law and any lawful exceptions. Use the contact details below and identify the relevant Cognify feature or feedback message.</p>
 
     <h2>Account Deletion and Retention</h2>
     <p>If you request deletion, we will verify the request and delete or remove access to Cognify account-associated data under our control, including account-linked Cognify sync data and the Cognify data stored in the Google Drive app-data area where we are able to do so.</p>
     <p>Deletion of remote account-associated data does not automatically delete local SQLite data, local logs, cached files, captured photos, or optional OCR/TTS runtime files on your devices. Follow the instructions on the <a href="/legal/cognify-delete-account.html">account deletion page</a> for local cleanup.</p>
     <p>We may retain limited information when reasonably necessary for security, fraud prevention, legal compliance, dispute resolution, or to document a deletion request. We do not retain data longer than reasonably necessary for those purposes.</p>
+    <p>Feedback text and any opted-in contact email are retained only as long as needed to respond to the feedback and improve Cognify, for no longer than 24 months, unless a longer period is required by law or a deletion request is processed earlier.</p>
 
     <h2>Children's Privacy</h2>
     <p>Cognify is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided personal information, contact us so we can review the request.</p>

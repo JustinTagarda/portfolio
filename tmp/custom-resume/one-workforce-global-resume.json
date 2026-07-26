@@ -1,0 +1,67 @@
+{
+  "name": "JUSTINIANO TAGARDA",
+  "title": "FULL-STACK SOFTWARE DEVELOPER | .NET & REACT",
+  "contact": [
+    "justintagarda@gmail.com",
+    "+63 927 380 0613",
+    "Remote (UTC+8) - Cagayan de Oro City, Philippines",
+    "linkedin.com/in/justintagarda",
+    "github.com/JustinTagarda",
+    "justintagarda.com"
+  ],
+  "availability": "Open to full-time remote opportunities",
+  "summary": "Full-stack .NET developer with extensive experience delivering and supporting production web applications, REST APIs, SQL-backed business systems, and customer portals. Strong in C#, .NET, ASP.NET, SQL Server, React, Next.js, and TypeScript, with hands-on responsibility for deployment, troubleshooting, and long-term production support. Recent experience includes remote delivery for a US-based client and independently shipped products.",
+  "skills": [
+    ["Frontend", "React, Next.js, TypeScript, JavaScript, responsive interfaces"],
+    ["Backend", "C#, .NET, ASP.NET Framework, REST APIs, API integrations, authentication"],
+    ["Data", "SQL Server, PostgreSQL, SQL-backed business workflows"],
+    ["Delivery", "IIS, Windows Server, Docker, Azure DevOps, CI/CD practices, xUnit"],
+    ["Products", "Flutter, Dart, Microsoft Store, Google Play"]
+  ],
+  "experience": [
+    {
+      "role": "Freelance Software Developer",
+      "company": "Independent",
+      "location": "Remote",
+      "dates": "2021 - Present",
+      "bullets": [
+        "Built and shipped web, desktop, and cross-platform applications, including products published on the Microsoft Store and Google Play.",
+        "Delivered responsive React, Next.js, and TypeScript interfaces integrated with .NET REST APIs, authentication flows, dashboards, and data-driven workflows.",
+        "Partnered directly with clients to define scope, refine functionality, and deliver maintainable production software."
+      ]
+    },
+    {
+      "role": "Backend Developer - ASP.NET Framework & SQL Server",
+      "company": "Drizzio / Digital Entrepreneur LLC",
+      "location": "USA (Remote)",
+      "dates": "Nov 2024 - Jan 2026",
+      "bullets": [
+        "Improved .NET backend services and frontend data bindings for production business workflows.",
+        "Delivered a full-stack Twilio communications dashboard with visual SMS and email delivery-status reporting for support, operations, and leadership.",
+        "Led the end-to-end migration of production websites, services, and databases - including the primary SQL Server environment - to Windows Server 2025; configured IIS and dependent services for production cutover.",
+        "Monitored production infrastructure and provided incident support during service downtime."
+      ]
+    },
+    {
+      "role": "IT Manager / .NET Developer",
+      "company": "GEDAC Electric Company",
+      "location": "Jeddah, Saudi Arabia",
+      "dates": "2007 - 2020",
+      "bullets": [
+        "Sole developer of C#/.NET Framework WinForms applications for inventory, projects, engineering, procurement, sales, operations, and management reporting; promoted to IT Manager in 2015.",
+        "Modernized a legacy DOS inventory system into a Windows application and built gedac.com plus an ASP.NET Web Forms customer portal for project-status inquiries, messaging, feedback, and document sharing.",
+        "Established and supported SQL Server, IIS, file-sharing, virtual-machine, and network services across head office, Saudi regional branches, and international sales offices."
+      ]
+    },
+    {
+      "role": "Earlier Experience",
+      "company": "Computer Programmer - Al Salem Kitchen Company",
+      "location": "Jeddah, Saudi Arabia",
+      "dates": "1999 - 2006",
+      "bullets": [
+        "Developed a company-wide Microsoft Access inventory management system and supported internal software, LAN infrastructure, and technical troubleshooting across offices, factories, and warehouses."
+      ]
+    }
+  ],
+  "education": "BS Commerce major in Accounting - Xavier University College, Cagayan de Oro City, Philippines"
+}
