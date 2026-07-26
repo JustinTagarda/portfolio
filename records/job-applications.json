@@ -88,13 +88,14 @@
       "job_title": "Senior AWS Fullstack Engineer",
       "company": "WeSupport Incorporated",
       "location": "Makati City, Metro Manila (Remote)",
-      "application_status": "skipped",
-      "fit_score": 30,
-      "fit_summary": "Partial overlap with TypeScript and full-stack delivery, but the core AWS/CDK/IaC/SRE stack was not verified in the session.",
-      "cover_letter_status": "not_created",
+      "application_status": "drafted",
+      "fit_score": 40,
+      "fit_summary": "Transferable full-stack fit through production APIs, React/TypeScript, SQL-backed systems, Docker, IIS, Azure DevOps, deployments, and incident support. AWS, CDK, infrastructure-as-code, and SRE experience remain unverified.",
+      "cover_letter_status": "drafted_with_gap_notice",
       "recruiter_name": null,
       "last_activity": "assessed_and_skipped",
-      "next_action": "Skip unless AWS Lambda, CDK, and production cloud operations experience are confirmed."
+      "next_action": "Review the AWS/CDK/IaC/SRE experience gap and submit only if the employer is open to transferable full-stack and production-operations experience.",
+      "cover_letter": "Dear Hiring Team,\n\nI am applying for the Senior AWS Fullstack Engineer position. I am a senior full-stack developer with extensive experience building, maintaining, and supporting production applications using C#, .NET, REST APIs, SQL Server, React, Next.js, and TypeScript.\n\nMy experience aligns with the role's focus on end-to-end delivery, dependable systems, and production ownership. I have built API-driven business applications, dashboards, customer portals, and data-driven workflows, while working across backend services, frontend interfaces, databases, deployments, monitoring, troubleshooting, and ongoing support. My recent work included Docker and IIS-based deployments, Azure DevOps workflows, production server migrations, SQL Server administration, and incident response during service downtime.\n\nMy recent professional experience has been primarily in the .NET and Microsoft ecosystem rather than AWS/CDK. However, I bring a strong foundation in full-stack architecture, cloud-adjacent deployment operations, API integration, relational databases, and maintaining business-critical systems. I am comfortable learning new infrastructure tooling and contributing immediately where my existing engineering and production-support experience can provide value.\n\nI would welcome the opportunity to discuss how my full-stack delivery and operational experience could support your team. My résumé is attached, and selected projects are available at https://justintagarda.com.\n\nThank you for your time and consideration.\n\nSincerely,\nJustiniano Tagarda"
     },
     {
       "job_id": "93539537",
@@ -196,13 +197,14 @@
       "job_title": "Senior Full Stack Developer - 855391",
       "company": "Expansion International",
       "location": null,
-      "application_status": "skipped",
-      "fit_score": 35,
-      "fit_summary": "Weak match because the role depended on recent PHP/Symfony/Laravel experience that was not verified.",
-      "cover_letter_status": "not_created",
+      "application_status": "drafted",
+      "fit_score": 45,
+      "fit_summary": "Transferable full-stack fit through production .NET APIs, SQL Server business systems, React/Next.js, deployment, and operational support. PHP/Symfony/Laravel experience remains unverified and should be addressed before submitting.",
+      "cover_letter_status": "drafted_with_gap_notice",
       "recruiter_name": null,
       "last_activity": "assessed_and_skipped",
-      "next_action": "Skip unless PHP stack experience becomes current and verifiable."
+      "next_action": "Review the PHP/Symfony/Laravel experience gap and submit only if the employer is open to transferable full-stack experience.",
+      "cover_letter": "Dear Hiring Team,\n\nI am applying for the Senior Full Stack Developer position. I am a senior full-stack developer with extensive experience building, maintaining, and supporting production business systems using C#, .NET, SQL Server, REST APIs, React, Next.js, and TypeScript.\n\nMy background aligns with the role's focus on delivering reliable full-stack applications and translating business requirements into practical software. I have built production APIs, SQL-backed workflows, dashboards, customer portals, and internal systems, while also handling frontend integration, deployments, troubleshooting, and ongoing production support. In my recent backend role, I improved .NET services and frontend data bindings, delivered a communications reporting dashboard, and led the migration of production websites, services, and SQL Server databases to new Windows Server infrastructure.\n\nWhile my recent professional experience is primarily in the .NET ecosystem rather than PHP/Symfony/Laravel, I bring a strong foundation in full-stack architecture, API integration, relational databases, business workflows, and operational ownership. I am comfortable learning an unfamiliar application stack and contributing where my existing experience can provide immediate value.\n\nI would welcome the opportunity to discuss how my production full-stack and business-systems experience could support your team. My resume is attached, and selected projects are available at https://justintagarda.com.\n\nThank you for your time and consideration.\n\nSincerely,\nJustiniano Tagarda"
     },
     {
       "job_id": "93522951",
