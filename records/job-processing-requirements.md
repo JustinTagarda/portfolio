@@ -60,6 +60,21 @@ Recommended matching order:
 4. Same role description or core requirements.
 5. Closest semantic match across title, stack, and responsibilities.
 
+Application-channel guidance:
+
+- Indeed applications on ph.indeed.com do not require a cover letter unless the employer separately requests one.
+- JobStreet applications completed on jobstreet.com may require a cover letter; draft and show a copy-ready letter when the application form requests it.
+- Record the application channel and cover-letter requirement in the tracker when the information is known.
+
+Message and email handling guidance:
+
+- If the user posts or attaches a screenshot of an email, DM, or any message that implies a job-application update, first identify the sender and search the tracker for the matching record.
+- Never update a tracker record based only on the assumption that the newest screenshot or pasted message belongs to the most recent job record.
+- A tracker update based on an email or message requires a 100% verified match between the message and the record.
+- If the sender, company, role, or application context does not clearly match an existing record, ask for confirmation before updating anything.
+- Treat each screenshot or pasted message as a separate item to verify and match against the tracker before making changes.
+- Do not guess, infer, or “best-guess” the target record when the match is uncertain.
+
 When the user asks for a cover letter:
 
 - First verify whether the role is a reasonable fit.
@@ -90,5 +105,11 @@ Thank you for your time and consideration.
 
 Sincerely,
 [Full Name]
+
+Application form guidance:
+
+- For recurring numeric experience questions on relevant frontend/full-stack/JavaScript forms, use `8+` years when the role is asking for broad professional experience and the earlier web/software work is relevant.
+- Keep lower numbers only for narrowly scoped technologies that are only verified in the recent stack history, such as React or Next.js when the form asks for those specifically.
+- If a form asks for exact years rather than ranges, prefer the closest truthful whole number that supports the stronger professional framing, unless a narrower verified count is clearly more accurate.
 
 This workflow exists only for the repo-local record-keeping process. It must not be added to the public portfolio website.

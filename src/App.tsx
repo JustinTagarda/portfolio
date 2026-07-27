@@ -23,9 +23,7 @@ import memocardsScreenshot02 from "./assets/projects/memocards/Screenshot-02.png
 import memocardsScreenshot03 from "./assets/projects/memocards/Screenshot-03.png";
 import memocardsScreenshot04 from "./assets/projects/memocards/Screenshot-04.png";
 import memocardsScreenshot05 from "./assets/projects/memocards/Screenshot-05.png";
-import memocardsScreenshot06 from "./assets/projects/memocards/Screenshot-06.png";
-import memocardsScreenshot07 from "./assets/projects/memocards/Screenshot-07.png";
-import productCostingCover from "./assets/projects/product-costing/Screenshot-02.png";
+import productCostingCover from "./assets/projects/product-costing/Screenshot-01.png";
 import productCostingScreenshot01 from "./assets/projects/product-costing/Screenshot-01.png";
 import productCostingScreenshot02 from "./assets/projects/product-costing/Screenshot-02.png";
 import productCostingScreenshot03 from "./assets/projects/product-costing/Screenshot-03.png";
@@ -34,6 +32,8 @@ import productCostingScreenshot05 from "./assets/projects/product-costing/Screen
 import productCostingScreenshot06 from "./assets/projects/product-costing/Screenshot-06.png";
 import productCostingScreenshot07 from "./assets/projects/product-costing/Screenshot-07.png";
 import productCostingScreenshot08 from "./assets/projects/product-costing/Screenshot-08.png";
+import productCostingScreenshot09 from "./assets/projects/product-costing/Screenshot-09.png";
+import productCostingScreenshot10 from "./assets/projects/product-costing/Screenshot-10.png";
 import gedacCompanyWebsiteScreenshot01 from "./assets/projects/gedac-company-website/Screenshot-01.png";
 import gedacCompanyWebsiteScreenshot02 from "./assets/projects/gedac-company-website/Screenshot-02.png";
 import gedacCompanyWebsiteScreenshot03 from "./assets/projects/gedac-company-website/Screenshot-03.png";
@@ -169,14 +169,13 @@ const defaultData = {
         memocardsScreenshot03,
         memocardsScreenshot04,
         memocardsScreenshot05,
-        memocardsScreenshot06,
-        memocardsScreenshot07,
       ],
       bullets: [
         "Google sign-in with private per-user decks and study data.",
         "Generate flashcards from files or note photos with OCR and Gemini 2.5 Flash Lite.",
         "Use voice question playback for hands-free review.",
       ],
+      primaryLinkLabel: "View Live App",
       stack: [
         "Next.js",
         "React",
@@ -208,6 +207,8 @@ const defaultData = {
         productCostingScreenshot06,
         productCostingScreenshot07,
         productCostingScreenshot08,
+        productCostingScreenshot09,
+        productCostingScreenshot10,
       ],
       bullets: [
         "Google OAuth sign-in with persistent sessions.",
@@ -217,6 +218,7 @@ const defaultData = {
         "Costing engine with BOM rollups, weighted costs, waste, markup, and tax.",
         "Import/export tools with audit history.",
       ],
+      primaryLinkLabel: "View Live App",
       stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
       links: {
         liveDemo: "https://costing.justintagarda.com",
