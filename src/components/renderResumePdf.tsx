@@ -1,6 +1,6 @@
 import { pdf } from "@react-pdf/renderer";
+import { portfolioContent } from "../content/portfolio";
 import ResumePdfDocument, { type ResumeData } from "./ResumePdfDocument";
-import profileContentRaw from "../content/profile.json?raw";
 
 type WebsiteProfileContent = {
   name?: string;
@@ -17,7 +17,7 @@ type WebsiteProfileContent = {
   };
 };
 
-const websiteProfile = JSON.parse(profileContentRaw) as WebsiteProfileContent;
+const websiteProfile = portfolioContent.profile as WebsiteProfileContent;
 
 function buildPdfResume(resume: ResumeData): ResumeData {
   const linkedIn = websiteProfile.contact?.linkedin ?? resume.contact.linkedin;

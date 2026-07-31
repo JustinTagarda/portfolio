@@ -1,300 +1,11 @@
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import profilePhoto from "./assets/images/profile-photo.webp";
-import resumeRaw from "./content/career-content.json?raw";
-import profileContentRaw from "./content/profile.json?raw";
-import careerProfileRaw from "./content/career-profile.json?raw";
+import { appDefaultData, portfolioContent } from "./content/portfolio";
 import type { ResumeData } from "./components/ResumePdfDocument";
-import cognifyScreenshot01 from "./assets/projects/cognify/Screenshot-01.png";
-import cognifyScreenshot02 from "./assets/projects/cognify/Screenshot-02.png";
-import cognifyScreenshot03 from "./assets/projects/cognify/Screenshot-03.png";
-import cognifyScreenshot04 from "./assets/projects/cognify/Screenshot-04.png";
-import cognifyScreenshot05 from "./assets/projects/cognify/Screenshot-05.png";
-import cognifyScreenshot06 from "./assets/projects/cognify/Screenshot-06.png";
-import rightspeakScreenshot01 from "./assets/projects/rightspeak/Screenshot-01.png";
-import rightspeakScreenshot02 from "./assets/projects/rightspeak/Screenshot-02.png";
-import rightspeakScreenshot03 from "./assets/projects/rightspeak/Screenshot-03.png";
-import audioscriptScreenshot01 from "./assets/projects/audioscript/Screenshot-01.png";
-import audioscriptScreenshot02 from "./assets/projects/audioscript/Screenshot-02.png";
-import audioscriptScreenshot03 from "./assets/projects/audioscript/Screenshot-03.png";
-import audioscriptScreenshot04 from "./assets/projects/audioscript/Screenshot-04.png";
-import audioscriptScreenshot05 from "./assets/projects/audioscript/Screenshot-05.png";
-import memocardsScreenshot01 from "./assets/projects/memocards/Screenshot-01.png";
-import memocardsScreenshot02 from "./assets/projects/memocards/Screenshot-02.png";
-import memocardsScreenshot03 from "./assets/projects/memocards/Screenshot-03.png";
-import memocardsScreenshot04 from "./assets/projects/memocards/Screenshot-04.png";
-import memocardsScreenshot05 from "./assets/projects/memocards/Screenshot-05.png";
-import productCostingCover from "./assets/projects/product-costing/Screenshot-01.png";
-import productCostingScreenshot01 from "./assets/projects/product-costing/Screenshot-01.png";
-import productCostingScreenshot02 from "./assets/projects/product-costing/Screenshot-02.png";
-import productCostingScreenshot03 from "./assets/projects/product-costing/Screenshot-03.png";
-import productCostingScreenshot04 from "./assets/projects/product-costing/Screenshot-04.png";
-import productCostingScreenshot05 from "./assets/projects/product-costing/Screenshot-05.png";
-import productCostingScreenshot06 from "./assets/projects/product-costing/Screenshot-06.png";
-import productCostingScreenshot07 from "./assets/projects/product-costing/Screenshot-07.png";
-import productCostingScreenshot08 from "./assets/projects/product-costing/Screenshot-08.png";
-import productCostingScreenshot09 from "./assets/projects/product-costing/Screenshot-09.png";
-import productCostingScreenshot10 from "./assets/projects/product-costing/Screenshot-10.png";
-import gedacCompanyWebsiteScreenshot01 from "./assets/projects/gedac-company-website/Screenshot-01.png";
-import gedacCompanyWebsiteScreenshot02 from "./assets/projects/gedac-company-website/Screenshot-02.png";
-import gedacCompanyWebsiteScreenshot03 from "./assets/projects/gedac-company-website/Screenshot-03.png";
-import gedacCompanyWebsiteScreenshot04 from "./assets/projects/gedac-company-website/Screenshot-04.png";
-import gedacCompanyWebsiteScreenshot05 from "./assets/projects/gedac-company-website/Screenshot-05.png";
 
 type ContactSubmitStatus = "idle" | "sending" | "success" | "error";
 
-const defaultData = {
-  name: "Justiniano Tagarda",
-  headline: "Senior Full Stack .NET Developer",
-  lead: "I design and ship production systems with AI agents across .NET APIs, React/Next.js, Flutter, and Supabase-backed products.",
-  heroChips: ["15+ Years", "Enterprise Systems", "System Design", "Full-Stack Delivery", "React/Next.js", "Remote"],
-  socialLinks: [
-    { label: "GitHub", href: "https://github.com/JustinTagarda" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/justintagarda" },
-    { label: "Email", href: "mailto:justintagarda@gmail.com" },
-  ],
-  about: {
-    eyebrow: "AI agents, human review, production systems",
-    subheadline: "Agent-assisted full-stack delivery across .NET APIs, React/Next.js interfaces, Flutter apps, Supabase-backed data layers, and production systems.",
-    paragraphs: [
-      "Built and maintained .NET APIs used by thousands of daily users.",
-      "AI agents accelerate implementation and testing, while architecture, quality, and release stay human-led.",
-    ],
-    highlights: [
-      "Agent-assisted implementation, testing, and iteration with human review built in",
-      "Delivered end-to-end software solutions across e-commerce platforms, internal business systems, and custom enterprise applications",
-      "Designed, deployed, and maintained ERP, inventory, and customer portal systems for long-term operations",
-      "Built and maintained high-availability .NET APIs supporting production systems used by thousands of daily users",
-    ],
-  },
-  projects: [
-    {
-      id: "cognify",
-      title: "Cognify: Focus & Study",
-      featureNote: "Flutter study app with offline and online modes",
-      subtitle: "Flutter study app for building, reviewing, and generating cards from notes, files, and photos.",
-      browserLabel: "apps.microsoft.com",
-      coverImage: cognifyScreenshot01,
-      coverAlt: "Cognify study app screenshot",
-      galleryImages: [
-        cognifyScreenshot01,
-        cognifyScreenshot02,
-        cognifyScreenshot03,
-        cognifyScreenshot04,
-        cognifyScreenshot05,
-        cognifyScreenshot06,
-      ],
-      bullets: [
-        "Manage subjects, study sets, and cards.",
-        "Study cards in a guided session with answer, skip, and summary tracking.",
-        "Generate draft cards from pasted notes, uploaded text or image files, PDFs, and camera captures.",
-        "Optional runtime components for OCR and TTS providers.",
-        "Work in offline local SQLite mode or online Google Drive-backed mode.",
-      ],
-      stack: ["Flutter", "Dart", "SQLite", "Google Drive", "Google Sign-In", "OCR"],
-      primaryLinkLabel: "Microsoft Store",
-      links: {
-        liveDemo: "https://apps.microsoft.com/detail/9NLRQNJ22RPB?hl=en-us&gl=PH&ocid=pdpshare",
-        github: "",
-      },
-      legalLinks: {
-        privacyPolicy: "https://justintagarda.com/legal/cognify-privacy-policy.html",
-        termsOfService: "https://justintagarda.com/legal/cognify-terms-of-service.html",
-      },
-    },
-    {
-      id: "rightspeak",
-      title: "RightSpeak",
-      featureNote: "Local neural TTS with Piper / ONNX",
-      subtitle:
-        "Listen instead of reading. RightSpeak brings selected text, supported documents, and pasted content to life with fast hotkeys, smooth controls, and local neural voice options built for Windows.",
-      browserLabel: "apps.microsoft.com",
-      coverImage: rightspeakScreenshot01,
-      coverAlt: "RightSpeak application screenshot",
-      galleryImages: [rightspeakScreenshot01, rightspeakScreenshot02, rightspeakScreenshot03],
-      bullets: [
-        "Read pasted, selected, and supported document text aloud.",
-        "Start fast with hotkeys and tray quick actions.",
-        "Control playback with pause, resume, cancel, and stop.",
-        "Choose voices, adjust speed, and manage local Piper voice models.",
-        "Stay focused with a lightweight, always-on-top Windows design.",
-      ],
-      stack: ["WPF", ".NET 10", "C#", "MVVM", "Win32 interop", "UI Automation", "Local neural TTS"],
-      primaryLinkLabel: "Microsoft Store",
-      links: {
-        liveDemo: "https://apps.microsoft.com/store/detail/9MWX1Z4TKFL9?cid=DevShareMCLPCS",
-        github: "",
-      },
-    },
-    {
-      id: "audioscript",
-      title: "AudioScript",
-      featureNote: "Local transcription with Whisper + pyannote",
-      subtitle:
-        "Windows desktop app for offline transcription, speaker diarization, transcript editing, and local session management.",
-      browserLabel: "apps.microsoft.com",
-      coverImage: audioscriptScreenshot04,
-      coverAlt: "AudioScript application screenshot",
-      galleryImages: [
-        audioscriptScreenshot01,
-        audioscriptScreenshot02,
-        audioscriptScreenshot03,
-        audioscriptScreenshot04,
-        audioscriptScreenshot05,
-      ],
-      bullets: [
-        "Runs transcription locally with Whisper models, including manual transcription mode.",
-        "Performs offline speaker diarization using bundled pyannote-community-1 assets.",
-        "Supports transcript row editing, split/duplicate/delete operations, and speaker renaming.",
-        "Exports transcripts to .docx with tab-delimited and interview-style layouts.",
-      ],
-      stack: ["WPF", ".NET 10", "C#", "NAudio", "Whisper.net", "pyannote", "xUnit"],
-      primaryLinkLabel: "Microsoft Store",
-      links: {
-        liveDemo: "https://apps.microsoft.com/detail/9mvc9bqrq0r7?hl=en-US&gl=PH",
-        github: "",
-      },
-    },
-    {
-      id: "memocards",
-      title: "MemoCards",
-      featureNote: "OCR + Gemini 2.5 Flash Lite + AI card generation",
-      subtitle:
-        "AI-powered flashcard app for private, per-user studying with spaced repetition, OCR-assisted card creation from notes/images, and voice-enabled review workflows using Gemini 2.5 Flash Lite.",
-      browserLabel: "memocards.justintagarda.com",
-      coverImage: memocardsScreenshot01,
-      coverAlt: "MemoCards application screenshot",
-      galleryImages: [
-        memocardsScreenshot01,
-        memocardsScreenshot02,
-        memocardsScreenshot03,
-        memocardsScreenshot04,
-        memocardsScreenshot05,
-      ],
-      bullets: [
-        "Google sign-in with private per-user decks and study data.",
-        "Generate flashcards from files or note photos with OCR and Gemini 2.5 Flash Lite.",
-        "Use voice question playback for hands-free review.",
-      ],
-      primaryLinkLabel: "View Live App",
-      stack: [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Supabase",
-        "PostgreSQL",
-        "Google Cloud Vision",
-        "Google Vertex AI",
-        "Google Cloud Text-to-Speech",
-      ],
-      links: {
-        liveDemo: "https://memocards.justintagarda.com",
-        github: "",
-      },
-    },
-    {
-      id: "product-costing",
-      title: "Product Costing",
-      subtitle: "Cloud-based product costing and operations workspace for small businesses.",
-      browserLabel: "costing.justintagarda.com",
-      coverImage: productCostingCover,
-      coverAlt: "Product Costing application screenshot",
-      galleryImages: [
-        productCostingScreenshot01,
-        productCostingScreenshot02,
-        productCostingScreenshot03,
-        productCostingScreenshot04,
-        productCostingScreenshot05,
-        productCostingScreenshot06,
-        productCostingScreenshot07,
-        productCostingScreenshot08,
-        productCostingScreenshot09,
-        productCostingScreenshot10,
-      ],
-      bullets: [
-        "Google OAuth sign-in with persistent sessions.",
-        "Account sharing with owner/editor/viewer roles.",
-        "RLS and RPC-backed access control.",
-        "Mobile/tablet-friendly editors for dense workflows.",
-        "Costing engine with BOM rollups, weighted costs, waste, markup, and tax.",
-        "Import/export tools with audit history.",
-      ],
-      primaryLinkLabel: "View Live App",
-      stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL"],
-      links: {
-        liveDemo: "https://costing.justintagarda.com",
-        github: "",
-      },
-    },
-    {
-      id: "gedac-company-website",
-      title: "GEDAC Company Website",
-      subtitle:
-        "Corporate website conceived, designed, and developed end-to-end for GEDAC Electric Company to present products, services, and company capabilities.",
-      browserLabel: "gedac.com (HTTP)",
-      coverImage: gedacCompanyWebsiteScreenshot01,
-      coverAlt: "GEDAC company website screenshot",
-      galleryImages: [
-        gedacCompanyWebsiteScreenshot01,
-        gedacCompanyWebsiteScreenshot02,
-        gedacCompanyWebsiteScreenshot03,
-        gedacCompanyWebsiteScreenshot04,
-        gedacCompanyWebsiteScreenshot05,
-      ],
-      bullets: [
-        "Conceived, designed, and delivered GEDAC Electric Company's official public-facing website.",
-        "Built interactive website behavior using jQuery and vanilla JavaScript.",
-        "Created custom page layouts and styling with vanilla CSS.",
-        "Deployed and maintained the production site on ASP.NET Framework.",
-        "Solely designed and developed the website end-to-end, from backend and frontend implementation to hands-on server deployment and network infrastructure configuration.",
-      ],
-      stack: ["ASP.NET Framework", "jQuery", "JavaScript", "CSS", "HTML"],
-      links: {
-        liveDemo: "http://gedac.com",
-        github: "",
-      },
-      primaryLinkLabel: "Visit Company Website",
-    },
-  ],
-  contact: {
-    email: "justintagarda@gmail.com",
-    linkedin: "https://www.linkedin.com/in/justintagarda",
-    location: "Remote (UTC+8)",
-    responseTime: "Usually replies within 24 hours",
-    engagement: "Available for full-time roles, long-term contracts, and project-based work.",
-    channels: [
-      {
-        label: "Email",
-        value: "justintagarda@gmail.com",
-        href: "mailto:justintagarda@gmail.com",
-        accent: "#3B82F6",
-        primary: true,
-      },
-      {
-        label: "LinkedIn",
-        value: "linkedin.com/in/justintagarda",
-        href: "https://www.linkedin.com/in/justintagarda",
-        accent: "#0EA5E9",
-        primary: false,
-      },
-    ],
-  },
-  footer: {
-    note: "Senior full-stack .NET developer building production systems with AI-assisted delivery and human review.",
-    projectStack: "Built with React, TypeScript, Vite, Tailwind CSS, React PDF, Formspree, and Firebase Hosting.",
-    social: [
-      { label: "GitHub", href: "https://github.com/JustinTagarda" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/justintagarda" },
-      { label: "Email", href: "mailto:justintagarda@gmail.com" },
-    ],
-  },
-  nav: [
-    { label: "Products", href: "#products" },
-    { label: "Experience", href: "#experience" },
-    { label: "Client & Company Work", href: "#other-work" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#contact" },
-  ],
-};
+const defaultData = appDefaultData;
 
 type ProfileContent = Pick<typeof defaultData, "name" | "headline" | "lead" | "heroChips" | "socialLinks" | "about" | "contact" | "footer" | "nav">;
 type CareerProfileContent = {
@@ -307,8 +18,8 @@ type CareerProfileContent = {
   }>;
 };
 
-const profileContent = JSON.parse(profileContentRaw) as Partial<ProfileContent>;
-const careerProfileContent = JSON.parse(careerProfileRaw) as CareerProfileContent;
+const profileContent = portfolioContent.profile as Partial<ProfileContent>;
+const careerProfileContent = portfolioContent.careerProfile as CareerProfileContent;
 const defaultHighlights = defaultData.about.highlights;
 const careerHighlights = (careerProfileContent.strengths ?? []).map((item) => `${item.title}: ${item.evidence}`);
 const mergedAboutHighlights =
@@ -346,7 +57,7 @@ const data = {
 
 const formspreeEndpoint =
   import.meta.env.VITE_FORMSPREE_ENDPOINT?.trim() || "https://formspree.io/f/mpqjyoov";
-const resumeData = JSON.parse(resumeRaw) as ResumeData;
+const resumeData = portfolioContent.careerContent as ResumeData;
 const skillGroups = resumeData.skills;
 const workExperiences = resumeData.work_experience;
 const currentlyActiveExperience = workExperiences.find((item) => item.end.toLowerCase().includes("present"));
@@ -1535,4 +1246,3 @@ export default function App() {
     </main>
   );
 }
-
