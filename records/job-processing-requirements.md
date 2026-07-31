@@ -4,6 +4,19 @@ This document is the session-local operating rule for any JobStreet or recruiter
 
 When a new session starts with a job-post URL, screenshots, recruiter message, or a request to analyze a role or draft a cover letter, follow this workflow before answering:
 
+Job-post retrieval:
+
+- For Indeed job-post URLs, use the Google Chrome ChatGPT extension to retrieve the visible job-post data when available.
+- If Chrome retrieval is unavailable, use the Codex app's built-in browser as the alternative.
+- Use the retrieved page data—including title, company, location, work arrangement, job type, description, and requirements—for tracker matching and role analysis.
+- If both browser options fail, report which job details could not be verified and do not infer them from the URL alone.
+
+Required response for supplied job posts:
+
+- Whenever a job-post URL, screenshot, or recruiter message is provided, analyze the role using the verified posting data and the verified professional background before answering.
+- Always provide a recommendation after the analysis, such as pursue, consider, wait for clarification, or skip, with the main reasons and any important gaps.
+- A recommendation does not by itself authorize creating or updating a tracker record.
+
 1. Automatically search `records/job-applications.json` first. Do not ask for confirmation before doing this search.
 2. Match against existing records using all available evidence, not just the URL.
 3. Treat these as matching signals:
@@ -20,9 +33,11 @@ When a new session starts with a job-post URL, screenshots, recruiter message, o
    - if not found, company/recruiter and position/role match
    - if not found, do a quick verification that the job post is a new record and not already represented by a similar post
 5. If an exact or close match exists, show the job-post details, status, and action taken in the assistant reply right away and wait for further instructions.
-6. If a similar post exists, show the similar post details in the assistant reply and ask for confirmation before creating a new record.
-7. If no exact or close match found after quick verification, create a new entry in `records/job-applications.json` right away without requesting confirmation.
-8. Keep the record updated with:
+6. If a similar post exists, show the similar post details in the assistant reply and wait for the user's follow-up before taking any application-tracking action.
+7. When a job-post URL is shared without a follow-up instruction, still analyze the role and provide a recommendation, but treat it as not pursued and do not create or update a tracker record.
+8. If the user says "skip" or uses a similar phrase, do not create or update a tracker record.
+9. Create or update a tracker record only when the user clearly indicates pursuit, such as saying "applied," "applying," requesting a cover letter, or giving a similar instruction to proceed with the role.
+10. Keep the record updated with:
    - source URL
    - job title and company
    - recruiter name if known
@@ -41,14 +56,14 @@ Background source rule:
 
 Decision rules:
 
-- If the role is clearly outside the verified experience, record it as `skipped` and do not draft a cover letter.
+- If the role is clearly outside the verified experience, explain the mismatch and do not draft a cover letter. Create a `skipped` tracker record only if the user clearly indicates pursuit or asks for the role to be recorded.
 - If the role is a partial match, give an honest fit assessment before drafting anything.
 - If the role is a strong match, proceed with the analysis or cover letter after the tracker has been updated.
 - Do not invent qualifications, tools, or employer details that were not verified in the session.
 - Quick verification only applies to `records/job-applications.json`.
 - Treat posts as similar when they share similar company and position, similar job description, similar stack or requirements, or are almost identical in job nature.
 - The job must be 100% remote to proceed normally.
-- If the job post clearly says `hybrid`, `onsite`, or any similar in-office requirement, record it as `skipped`.
+- If the job post clearly says `hybrid`, `onsite`, or any similar in-office requirement, explain that it does not meet the fully remote preference. Create a `skipped` tracker record only if the user clearly indicates pursuit or asks for the role to be recorded.
 - If the job post is clearly 100% remote, proceed as normal.
 - If the location wording is unclear, show the job-post details and wait for further instructions before deciding.
 
@@ -86,6 +101,7 @@ Cover letter template guidance:
 
 - Use a short, copy-ready format with clean paragraphs.
 - Keep the tone professional, direct, and specific to the role.
+- Never suggest providing an introduction video, résumé video, or other application video in a cover letter. If the job post requests a video, keep that requirement separate from the cover letter.
 - Mention the role title, core fit, relevant stack, and production experience.
 - Mention the attached résumé and portfolio link when relevant.
 - Avoid unsupported claims, inflated metrics, or tools that were not verified in the session.
