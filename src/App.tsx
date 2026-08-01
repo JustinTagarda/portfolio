@@ -434,8 +434,13 @@ export default function App() {
               </p>
 
             <div className="space-y-4">
-              <h1 className="text-4xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl lg:text-[3.25rem] lg:leading-tight xl:text-[4rem]">
-                {data.headline}
+              <h1 className="text-4xl font-semibold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl lg:text-[3rem] lg:leading-tight xl:text-[3.75rem]">
+                {data.headline.split("Full-Stack").map((part, index, parts) => (
+                  <span key={`${part}-${index}`}>
+                    {part}
+                    {index < parts.length - 1 && <span className="whitespace-nowrap">Full-Stack</span>}
+                  </span>
+                ))}
               </h1>
               <p className="max-w-2xl text-base leading-relaxed text-[rgba(255,255,255,0.70)] md:text-lg">
                 {data.lead}
@@ -525,6 +530,84 @@ export default function App() {
                   {data.about.paragraphs[0]}
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        <section
+          id="experience"
+          className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
+        >
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">
+              Career Timeline
+            </p>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Work Experience</h2>
+            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
+              Roles and delivery scope sourced from the current resume, focused on enterprise systems, .NET APIs,
+              React/Next.js interfaces, and long-term production support.
+            </p>
+          </div>
+
+          <div className="mt-3 grid items-start gap-5 md:mt-4 md:gap-6 lg:grid-cols-[18rem_minmax(0,1fr)]">
+            <aside className="space-y-3 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.30)] sm:p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[rgba(255,255,255,0.72)]">
+                Snapshot
+              </p>
+              <div className="space-y-2.5">
+                <div className="rounded-2xl border border-[rgba(59,130,246,0.36)] bg-[rgba(59,130,246,0.16)] px-3 py-2.5">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Experience</p>
+                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">15+ years</p>
+                </div>
+                <div className="rounded-2xl border border-[rgba(245,158,11,0.36)] bg-[rgba(245,158,11,0.14)] px-3 py-2.5">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Roles Listed</p>
+                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">{workExperiences.length}</p>
+                </div>
+                <div className="rounded-2xl border border-[rgba(16,185,129,0.36)] bg-[rgba(16,185,129,0.14)] px-3 py-2.5">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Current Track</p>
+                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">
+                    {currentlyActiveExperience?.job_title ?? "Freelance delivery"}
+                  </p>
+                </div>
+              </div>
+            </aside>
+
+            <div className="relative space-y-4 pl-6 before:absolute before:bottom-2 before:left-2 before:top-2 before:w-px before:bg-[linear-gradient(180deg,_rgba(59,130,246,0.65)_0%,_rgba(148,163,184,0.20)_45%,_rgba(245,158,11,0.55)_100%)]">
+              {workExperiences.map((role) => {
+                const companyLine = role.company ? role.company : "Freelance";
+                const metaLine = role.location ? `${companyLine} · ${role.location}` : companyLine;
+                return (
+                  <article
+                    key={`${role.job_title}-${role.start}`}
+                    className="relative rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.28)] transition hover:-translate-y-0.5 hover:border-[rgba(59,130,246,0.48)] sm:p-5"
+                  >
+                    <span className="absolute -left-[1.45rem] top-7 h-3 w-3 rounded-full border border-[#0B1220] bg-[#3B82F6] shadow-[0_0_0_4px_rgba(59,130,246,0.25)]" />
+
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-lg font-semibold tracking-tight text-[rgba(255,255,255,0.94)]">
+                          {role.job_title}
+                        </h3>
+                        <p className="mt-1 text-sm text-[rgba(255,255,255,0.72)]">{metaLine}</p>
+                      </div>
+                      <span className="rounded-full border border-[rgba(255,255,255,0.16)] bg-[rgba(255,255,255,0.06)] px-3 py-1 text-xs font-medium text-[rgba(255,255,255,0.88)]">
+                        {role.start} - {role.end}
+                      </span>
+                    </div>
+
+                    <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[rgba(255,255,255,0.90)] md:text-[15px]">
+                      {role.responsibilities.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -656,86 +739,6 @@ export default function App() {
           </div>
         </section>
 
-        <SectionDivider />
-
-        <section
-          id="experience"
-          className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
-        >
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">
-              Career Timeline
-            </p>
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Work Experience</h2>
-            <p className="max-w-2xl text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Roles and delivery scope sourced from the current resume, focused on enterprise systems, .NET APIs,
-              React/Next.js interfaces, and long-term production support.
-            </p>
-          </div>
-
-          <div className="mt-3 grid items-start gap-5 md:mt-4 md:gap-6 lg:grid-cols-[18rem_minmax(0,1fr)]">
-            <aside className="space-y-3 rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.06)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.30)] sm:p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[rgba(255,255,255,0.72)]">
-                Snapshot
-              </p>
-              <div className="space-y-2.5">
-                <div className="rounded-2xl border border-[rgba(59,130,246,0.36)] bg-[rgba(59,130,246,0.16)] px-3 py-2.5">
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Experience</p>
-                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">15+ years</p>
-                </div>
-                <div className="rounded-2xl border border-[rgba(245,158,11,0.36)] bg-[rgba(245,158,11,0.14)] px-3 py-2.5">
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Roles Listed</p>
-                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">{workExperiences.length}</p>
-                </div>
-                <div className="rounded-2xl border border-[rgba(16,185,129,0.36)] bg-[rgba(16,185,129,0.14)] px-3 py-2.5">
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.70)]">Current Track</p>
-                  <p className="mt-1 text-sm font-semibold text-[rgba(255,255,255,0.94)]">
-                    {currentlyActiveExperience?.job_title ?? "Freelance delivery"}
-                  </p>
-                </div>
-              </div>
-            </aside>
-
-            <div className="relative space-y-4 pl-6 before:absolute before:bottom-2 before:left-2 before:top-2 before:w-px before:bg-[linear-gradient(180deg,_rgba(59,130,246,0.65)_0%,_rgba(148,163,184,0.20)_45%,_rgba(245,158,11,0.55)_100%)]">
-              {workExperiences.map((role) => {
-                const companyLine = role.company ? role.company : "Freelance";
-                const metaLine = role.location ? `${companyLine} · ${role.location}` : companyLine;
-                return (
-                  <article
-                    key={`${role.job_title}-${role.start}`}
-                    className="relative rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-4 shadow-[0_18px_50px_rgba(2,6,23,0.28)] transition hover:-translate-y-0.5 hover:border-[rgba(59,130,246,0.48)] sm:p-5"
-                  >
-                    <span className="absolute -left-[1.45rem] top-7 h-3 w-3 rounded-full border border-[#0B1220] bg-[#3B82F6] shadow-[0_0_0_4px_rgba(59,130,246,0.25)]" />
-
-                    <div className="flex flex-wrap items-start justify-between gap-3">
-                      <div>
-                        <h3 className="text-lg font-semibold tracking-tight text-[rgba(255,255,255,0.94)]">
-                          {role.job_title}
-                        </h3>
-                        <p className="mt-1 text-sm text-[rgba(255,255,255,0.72)]">{metaLine}</p>
-                      </div>
-                      <span className="rounded-full border border-[rgba(255,255,255,0.16)] bg-[rgba(255,255,255,0.06)] px-3 py-1 text-xs font-medium text-[rgba(255,255,255,0.88)]">
-                        {role.start} - {role.end}
-                      </span>
-                    </div>
-
-                    <ul className="mt-4 space-y-2 text-sm leading-relaxed text-[rgba(255,255,255,0.90)] md:text-[15px]">
-                      {role.responsibilities.map((item) => (
-                        <li key={item} className="flex items-start gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[#F59E0B]" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        <SectionDivider />
-
         <section
           id="other-work"
           className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
@@ -853,6 +856,9 @@ export default function App() {
             <p className="w-full text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
               Capabilities I use to build, modernize, and support production systems across web, mobile, legacy, Flutter, Supabase, and AI-assisted delivery workflows.
             </p>
+            <p className="text-xs font-medium text-[rgba(255,255,255,0.56)] md:text-sm">
+              {skillGroups.length} capability groups · {skillGroups.reduce((total, group) => total + group.items.length, 0)} skills across delivery, platforms, and infrastructure.
+            </p>
           </div>
           <div className="mt-3 grid gap-4 md:mt-4 md:grid-cols-2 md:gap-5">
             {skillGroups.map((group) => (
@@ -866,7 +872,7 @@ export default function App() {
                       <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: group.accent }} />
                       <h3 className="text-lg font-semibold tracking-tight">{group.title}</h3>
                     </div>
-                    <p className="text-xs leading-relaxed text-[rgba(255,255,255,0.62)] transition group-hover:text-[rgba(255,255,255,0.78)]">
+                    <p className="text-sm leading-relaxed text-[rgba(255,255,255,0.68)] transition group-hover:text-[rgba(255,255,255,0.82)]">
                       {group.focus}
                     </p>
                   </div>
@@ -884,8 +890,13 @@ export default function App() {
                         key={item.label}
                         className={
                           item.highlighted
-                            ? "rounded-full border border-[rgba(59,130,246,0.50)] bg-[rgba(59,130,246,0.18)] px-3 py-1.5 text-xs font-medium text-[rgba(255,255,255,0.96)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
-                            : "rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-3 py-1.5 text-xs text-[rgba(255,255,255,0.92)]"
+                            ? "rounded-full border px-2.5 py-1 text-xs font-medium text-[rgba(255,255,255,0.96)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
+                            : "rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-2.5 py-1 text-xs text-[rgba(255,255,255,0.92)]"
+                        }
+                        style={
+                          item.highlighted
+                            ? { borderColor: `${group.accent}80`, backgroundColor: `${group.accent}26` }
+                            : undefined
                         }
                       >
                         {item.label}
