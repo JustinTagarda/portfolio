@@ -164,6 +164,14 @@ The GitHub Actions workflow at `.github/workflows/firebase-hosting-production.ym
 - Page composition and interaction logic: `src/App.tsx`
 - HTML title, description, and favicon reference: `index.html`
 
+## Editing content safely
+
+- Edit portfolio copy, career data, resume data, links, and project metadata in `src/content/portfolio.json`.
+- Edit `src/content/portfolio.ts` only when adding or changing a project image key, updating the content schema, or changing runtime validation.
+- For a new project image, add the file under `src/assets/projects/`, add its static import and key to `portfolio.ts`, then reference that key from `portfolio.json`.
+- Do not recreate the retired `profile.json`, `career-profile.json`, or `career-content.json` files, and do not place active content defaults or project records in `App.tsx`.
+- After a content migration, validate the JSON, check project asset-key coverage, confirm no retired imports remain, run a non-emitting TypeScript check and lint, and build only when explicitly requested.
+
 ## Testing and known gaps
 
 - `npm run lint` is the available static quality check.

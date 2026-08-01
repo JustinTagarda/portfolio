@@ -13,6 +13,9 @@ import audioscriptScreenshot02 from "../assets/projects/audioscript/Screenshot-0
 import audioscriptScreenshot03 from "../assets/projects/audioscript/Screenshot-03.png";
 import audioscriptScreenshot04 from "../assets/projects/audioscript/Screenshot-04.png";
 import audioscriptScreenshot05 from "../assets/projects/audioscript/Screenshot-05.png";
+import localcamScreenshot01 from "../assets/projects/localcam/Screenshot-01.png";
+import localcamScreenshot02 from "../assets/projects/localcam/Screenshot-02.png";
+import localcamScreenshot03 from "../assets/projects/localcam/Screenshot-03.png";
 import memocardsScreenshot01 from "../assets/projects/memocards/Screenshot-01.png";
 import memocardsScreenshot02 from "../assets/projects/memocards/Screenshot-02.png";
 import memocardsScreenshot03 from "../assets/projects/memocards/Screenshot-03.png";
@@ -148,6 +151,9 @@ const projectAssets = {
   "audioscript-03": audioscriptScreenshot03,
   "audioscript-04": audioscriptScreenshot04,
   "audioscript-05": audioscriptScreenshot05,
+  "localcam-01": localcamScreenshot01,
+  "localcam-02": localcamScreenshot02,
+  "localcam-03": localcamScreenshot03,
   "memocards-01": memocardsScreenshot01,
   "memocards-02": memocardsScreenshot02,
   "memocards-03": memocardsScreenshot03,
