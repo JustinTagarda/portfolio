@@ -3,7 +3,7 @@
 ## Inheritance Rule
 
 - Always read and follow [D:\Projects\AGENTS.md](D:\Projects\AGENTS.md) first.
-- This file does not add extra rules yet; it only makes the global instructions apply to portfolio.
+- This file adds portfolio-specific content ownership, scope, and documentation guardrails in addition to the global instructions.
 
 ## Strict Repository Access Rules
 
@@ -28,6 +28,27 @@ These rules are mandatory compliance requirements and must be followed even if t
 - Preserve existing website and resume-PDF behavior during content refactors unless the user explicitly requests a behavior change.
 - Before retiring a content source, compare the migrated structure and values, verify project asset keys, and confirm no code still imports the retired source.
 - Preserve presentation-specific variants such as website copy, resume content, PDF responsibility selections, and PDF education selections. Do not normalize or rename them without explicit approval.
+
+## Content Editing Guardrails
+
+- Before editing, identify the exact content section requested: products, skills, profile, career content, résumé content, or site defaults.
+- Do not add, remove, reorder, or rewrite product entries when the request is limited to skills or capability updates.
+- Do not infer public URLs, screenshots, deployment status, or technologies from an external repository. Verify each claim in the source repository and state when evidence is not found.
+- Preserve existing uncommitted changes and avoid unrelated JSON reformatting or copy rewrites.
+- If a requested content update requires `src/content/portfolio.ts`, a new asset, or any file outside the approved scope, stop and request explicit scope approval before editing.
+- For every approved edit, report the files changed, the sections changed, the validation performed, and any remaining documentation or asset gaps.
+
+## Content Validation
+
+- After editing `src/content/portfolio.json`, parse the JSON and check project IDs and skill labels for duplicates.
+- If project metadata or assets changed, verify every project image key against the mapping in `src/content/portfolio.ts`.
+- Run the available lint and non-emitting TypeScript checks for content or schema changes when practical.
+- Build only when explicitly requested; content validation does not by itself authorize a production build.
+
+## Documentation Synchronization
+
+- Keep the project catalog and technology summaries in `README.md` synchronized with `src/content/portfolio.json`.
+- When a task changes portfolio capabilities but does not update `README.md`, report that the README may require a follow-up synchronization.
 
 ## Job Post Workflow Pointer
 

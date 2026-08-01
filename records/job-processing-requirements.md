@@ -49,10 +49,13 @@ Required response for supplied job posts:
 
 Background source rule:
 
-- Always read the files inside `D:\Projects\portfolio\src\content` when you need information about the user's professional background, work history, skills, resume content, or other verified career evidence.
-- Treat `src/content` as the primary source of truth for background facts in this repo.
-- Do not rely only on memory or prior session summaries when the relevant facts can be verified in `src/content`.
-- If a detail is not present in `src/content`, mark it as unverified unless the user explicitly provides it in the current session.
+- Always read `D:\Projects\portfolio\src\content\portfolio.json` when you need verified professional background, work history, skills, resume content, or other career evidence.
+- Use `careerContent` for resume, work history, skills, education, and resume contact facts.
+- Use `careerProfile` for availability, remote preference, strengths, career goals, and target roles.
+- Use `profile` for current website positioning and contact copy, and `appDefaults.projects` for verified portfolio-project descriptions and technology claims.
+- `src/content/portfolio.ts` is not professional-background evidence; use it only to confirm project image-key mapping when that is relevant.
+- Do not rely only on memory or prior session summaries when the relevant facts can be verified in `portfolio.json`.
+- If a detail is not present in the applicable `portfolio.json` section, mark it as unverified unless the user explicitly provides it in the current session.
 
 Decision rules:
 

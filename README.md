@@ -29,6 +29,7 @@ The project catalog is defined in `src/content/portfolio.json` and currently inc
 - **Cognify: Focus & Study** - Flutter/Dart study application with SQLite, Google Drive, Google Sign-In, and OCR capabilities.
 - **RightSpeak** - WPF/.NET desktop text-to-speech application using Win32 interop, UI Automation, and local neural TTS.
 - **AudioScript** - WPF/.NET transcription and audio workflow application using NAudio, Whisper.net, pyannote, and xUnit.
+- **LocalCam** - WPF/.NET local-network camera discovery and RTSP streaming application using ONVIF, LibVLCSharp, and MSIX.
 - **MemoCards** - Next.js/React learning application backed by Supabase/PostgreSQL and Google Cloud AI services.
 - **Product Costing** - Next.js/React costing application using TypeScript, Tailwind CSS, Supabase, and PostgreSQL.
 - **GEDAC Company Website** - ASP.NET Framework company website using jQuery, JavaScript, CSS, and HTML.
@@ -60,8 +61,10 @@ The first five projects appear under **Products**. GEDAC appears under **Other W
 - Frontend: React, Next.js, TypeScript, JavaScript, Tailwind CSS
 - Data: SQL Server, PostgreSQL, Supabase, MySQL, NoSQL
 - Infrastructure: IIS, Windows Server, Docker, Azure DevOps, Firebase Hosting
-- Desktop and cross-platform: WPF, Windows Forms, Flutter, Dart
-- Testing and quality: xUnit, automated regression testing, build/test validation
+- Desktop and cross-platform: WPF, Windows Forms, Flutter, Dart, Windows WASAPI, Win32 interop
+- AI and media: OpenAI APIs, Google Vertex AI, Gemini, ONNX Runtime, speech-to-text, text-to-speech, local OCR, speaker diarization
+- Networking and storage: WebSockets, TCP/UDP networking, SQLite, RTSP, ONVIF, network discovery, secure credential storage
+- Testing and quality: xUnit, Vitest, automated regression testing, build/test validation
 
 ## Architecture and data flow
 
@@ -169,8 +172,12 @@ The GitHub Actions workflow at `.github/workflows/firebase-hosting-production.ym
 - Edit portfolio copy, career data, resume data, links, and project metadata in `src/content/portfolio.json`.
 - Edit `src/content/portfolio.ts` only when adding or changing a project image key, updating the content schema, or changing runtime validation.
 - For a new project image, add the file under `src/assets/projects/`, add its static import and key to `portfolio.ts`, then reference that key from `portfolio.json`.
+- Keep the requested section as the scope boundary: a skills-only request must not add or modify product entries.
+- Use external repositories only as read-only evidence sources. Verify technologies, capabilities, links, and deployment claims before adding them to portfolio content.
+- Do not invent a project image, public URL, or live-demo status. If the schema requires an asset or mapping change, request approval for the expanded file scope first.
+- Preserve existing uncommitted changes and avoid unrelated formatting or content rewrites.
 - Do not recreate the retired `profile.json`, `career-profile.json`, or `career-content.json` files, and do not place active content defaults or project records in `App.tsx`.
-- After a content migration, validate the JSON, check project asset-key coverage, confirm no retired imports remain, run a non-emitting TypeScript check and lint, and build only when explicitly requested.
+- After a content update, parse the JSON, check project IDs and skill labels for duplicates, and verify project asset-key coverage when project metadata changes. For schema or asset changes, also run a non-emitting TypeScript check and lint. Build only when explicitly requested.
 
 ## Testing and known gaps
 
