@@ -45,7 +45,6 @@ export type ResumeData = {
   title: string;
   profile: string;
   resume_profile?: string;
-  resume_show_photo?: boolean;
   resume_availability?: string;
   resume_portfolio_label?: string;
   resume_skill_summary?: string[];
@@ -162,7 +161,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   section: {
-    marginTop: 8,
+    marginTop: 7,
   },
   sectionTitle: {
     color: "#334155",
@@ -254,15 +253,16 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     fontSize: 8.05,
     lineHeight: 1.22,
+    paddingRight: 4,
   },
   bottomGrid: {
-    marginTop: 9,
+    marginTop: 8,
   },
   gridSection: {
     marginTop: 0,
   },
   gridSectionGap: {
-    marginTop: 9.6,
+    marginTop: 8.6,
   },
   twoColumnGrid: {
     marginTop: 3.1,

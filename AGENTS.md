@@ -26,6 +26,7 @@ These rules are mandatory compliance requirements and must be followed even if t
 ## Content Migration Safety
 
 - Preserve existing website and resume-PDF behavior during content refactors unless the user explicitly requests a behavior change.
+- The resume PDF profile photo must remain visible unless the user explicitly changes this policy.
 - Before retiring a content source, compare the migrated structure and values, verify project asset keys, and confirm no code still imports the retired source.
 - Preserve presentation-specific variants such as website copy, resume content, PDF responsibility selections, and PDF education selections. Do not normalize or rename them without explicit approval.
 

@@ -29,20 +29,20 @@ function buildPdfResume(resume: ResumeData): ResumeData {
   ]
     .filter(Boolean)
     .join(" ");
-  const websiteSummary = websiteAboutSummary || websiteProfile.lead || resume.profile;
+  const pdfSummary = resume.resume_profile || websiteAboutSummary || websiteProfile.lead || resume.profile;
 
   return {
     ...resume,
     name: websiteProfile.name ?? resume.name,
     title: websiteTitle,
-    profile: websiteSummary,
+    profile: pdfSummary,
     contact: {
       ...resume.contact,
       email: websiteProfile.contact?.email ?? resume.contact.email,
       linkedin: linkedIn,
       location,
     },
-    // Keep the PDF focused on the resume content, but align the header/summary with the website.
+    // Keep the PDF focused on resume-specific content while aligning shared header details with the website.
     education: resume.education,
     work_experience: resume.work_experience,
     skills: resume.skills,
