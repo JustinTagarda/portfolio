@@ -65,7 +65,7 @@ const currentlyActiveExperience = workExperiences.find((item) => item.end.toLowe
 function SectionDivider() {
   return (
     <div aria-hidden className="mx-auto max-w-7xl px-4 md:px-6">
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.14)] to-transparent" />
+      <div className="h-[1.5px] bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.20)] to-transparent" />
     </div>
   );
 }
@@ -615,6 +615,71 @@ export default function App() {
         <SectionDivider />
 
         <section
+          id="skills"
+          className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
+        >
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Capability Map</p>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Skills & Delivery Capabilities</h2>
+            <p className="w-full text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
+              Capabilities I use to build, modernize, and support production systems across web, mobile, legacy, Flutter, Supabase, and AI-assisted delivery workflows.
+            </p>
+            <p className="text-xs font-medium text-[rgba(255,255,255,0.56)] md:text-sm">
+              {skillGroups.length} capability groups · {skillGroups.reduce((total, group) => total + group.items.length, 0)} skills across delivery, platforms, and infrastructure.
+            </p>
+          </div>
+          <div className="mt-3 grid gap-4 md:mt-4 md:grid-cols-2 md:gap-5">
+            {skillGroups.map((group) => (
+              <article
+                key={group.title}
+                className="group rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-5 shadow-[0_18px_50px_rgba(2,6,23,0.30)] transition hover:-translate-y-1 hover:border-[rgba(59,130,246,0.45)] md:p-6"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: group.accent }} />
+                      <h3 className="text-lg font-semibold tracking-tight">{group.title}</h3>
+                    </div>
+                    <p className="text-sm leading-relaxed text-[rgba(255,255,255,0.68)] transition group-hover:text-[rgba(255,255,255,0.82)]">
+                      {group.focus}
+                    </p>
+                  </div>
+                  <span
+                    className="shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-[11px] font-medium text-[rgba(255,255,255,0.86)]"
+                    style={{ borderColor: `${group.accent}66`, backgroundColor: `${group.accent}1A` }}
+                  >
+                    {group.items.length} skills
+                  </span>
+                </div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {group.items.map((item) => {
+                    return (
+                      <span
+                        key={item.label}
+                        className={
+                          item.highlighted
+                            ? "rounded-full border px-2.5 py-1 text-xs font-medium text-[rgba(255,255,255,0.96)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
+                            : "rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-2.5 py-1 text-xs text-[rgba(255,255,255,0.92)]"
+                        }
+                        style={
+                          item.highlighted
+                            ? { borderColor: `${group.accent}80`, backgroundColor: `${group.accent}26` }
+                            : undefined
+                        }
+                      >
+                        {item.label}
+                      </span>
+                    );
+                  })}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <SectionDivider />
+
+        <section
           id="products"
           className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
         >
@@ -739,6 +804,8 @@ export default function App() {
           </div>
         </section>
 
+        <SectionDivider />
+
         <section
           id="other-work"
           className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
@@ -838,71 +905,6 @@ export default function App() {
                       </a>
                     )}
                   </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <SectionDivider />
-
-        <section
-          id="skills"
-          className="mx-auto max-w-7xl scroll-mt-[52px] px-4 py-8 sm:px-5 md:scroll-mt-[54px] md:px-8 md:py-10 lg:scroll-mt-[56px] lg:py-12"
-        >
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[rgba(255,255,255,0.72)]">Capability Map</p>
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Skills & Delivery Capabilities</h2>
-            <p className="w-full text-sm leading-relaxed text-[rgba(255,255,255,0.75)] md:text-base">
-              Capabilities I use to build, modernize, and support production systems across web, mobile, legacy, Flutter, Supabase, and AI-assisted delivery workflows.
-            </p>
-            <p className="text-xs font-medium text-[rgba(255,255,255,0.56)] md:text-sm">
-              {skillGroups.length} capability groups · {skillGroups.reduce((total, group) => total + group.items.length, 0)} skills across delivery, platforms, and infrastructure.
-            </p>
-          </div>
-          <div className="mt-3 grid gap-4 md:mt-4 md:grid-cols-2 md:gap-5">
-            {skillGroups.map((group) => (
-              <article
-                key={group.title}
-                className="group rounded-3xl border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.07)] p-5 shadow-[0_18px_50px_rgba(2,6,23,0.30)] transition hover:-translate-y-1 hover:border-[rgba(59,130,246,0.45)] md:p-6"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                      <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: group.accent }} />
-                      <h3 className="text-lg font-semibold tracking-tight">{group.title}</h3>
-                    </div>
-                    <p className="text-sm leading-relaxed text-[rgba(255,255,255,0.68)] transition group-hover:text-[rgba(255,255,255,0.82)]">
-                      {group.focus}
-                    </p>
-                  </div>
-                  <span
-                    className="shrink-0 whitespace-nowrap rounded-full border px-3 py-1 text-[11px] font-medium text-[rgba(255,255,255,0.86)]"
-                    style={{ borderColor: `${group.accent}66`, backgroundColor: `${group.accent}1A` }}
-                  >
-                    {group.items.length} skills
-                  </span>
-                </div>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {group.items.map((item) => {
-                    return (
-                      <span
-                        key={item.label}
-                        className={
-                          item.highlighted
-                            ? "rounded-full border px-2.5 py-1 text-xs font-medium text-[rgba(255,255,255,0.96)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
-                            : "rounded-full border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.06)] px-2.5 py-1 text-xs text-[rgba(255,255,255,0.92)]"
-                        }
-                        style={
-                          item.highlighted
-                            ? { borderColor: `${group.accent}80`, backgroundColor: `${group.accent}26` }
-                            : undefined
-                        }
-                      >
-                        {item.label}
-                      </span>
-                    );
-                  })}
                 </div>
               </article>
             ))}
