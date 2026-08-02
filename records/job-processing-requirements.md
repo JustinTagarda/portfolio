@@ -131,4 +131,61 @@ Application form guidance:
 - Keep lower numbers only for narrowly scoped technologies that are only verified in the recent stack history, such as React or Next.js when the form asks for those specifically.
 - If a form asks for exact years rather than ranges, prefer the closest truthful whole number that supports the stronger professional framing, unless a narrower verified count is clearly more accurate.
 
+## Squirex Job Post Profile Data
+
+`job_post_profile` is optional and additive. It is intended for Squirex's read-only job-post grounding; the portfolio workflow, not Squirex, creates and updates it.
+
+Populate a profile only from verified job-post, recruiter, or candidate sources. Preserve provenance through `source_documents` and each structured item's `source_id`. Extract structured responsibilities, requirements, and technologies whenever verified source material is available.
+
+Keep recruiter guidance and candidate directives distinct from advertised job-post facts. Omit unknown or unverified data, including empty placeholder fields. Preserve backward compatibility for existing tracker consumers, and validate the JSON after every update.
+
+### Schema and Generation Rules
+
+The canonical additive structure is:
+
+```json
+{
+  "job_post_profile": {
+    "source_documents": [
+      {
+        "id": "job-post",
+        "type": "job_post",
+        "title": "Original job post",
+        "url": "https://...",
+        "captured_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "reliability": "primary",
+        "text": "Concise verified job-post source text or accurately preserved relevant excerpt",
+        "notes": ""
+      }
+    ],
+    "responsibilities": [
+      { "text": "Verified role responsibility", "priority": 100, "source_id": "job-post" }
+    ],
+    "requirements": [
+      { "text": "Verified requirement", "class": "required", "mandatory": true, "minimum_years": null, "priority": 100, "source_id": "job-post" }
+    ],
+    "technologies": [
+      { "name": "Technology name", "area": "backend", "proficiency": "professional", "requirement_class": "required", "priority": 100, "source_id": "job-post" }
+    ],
+    "interview_priorities": [
+      { "audience": "hiring_manager", "text": "Verified interview focus", "priority": 100, "source_id": "recruiter-guidance" }
+    ],
+    "directives": [
+      { "kind": "never_claim", "text": "Candidate-specific verified safeguard", "enabled": true, "source_id": "candidate-note" }
+    ],
+    "conflicts": [
+      { "topic": "Conflicting claim", "source_a_id": "job-post", "source_b_id": "recruiter-guidance", "status": "unresolved", "resolution_note": "Keep claims separate until verified." }
+    ]
+  }
+}
+```
+
+`source_documents` is required whenever a profile exists. Every `source_id` must match a document ID. Source `type` is one of `job_post`, `recruiter_guidance`, `candidate_note`, or `manual`; source `reliability` is one of `primary`, `recruiter_provided`, or `candidate_provided`. Requirement classes are `required`, `preferred`, `responsibility`, `communication`, and `eligibility`. Technology areas are `frontend`, `backend`, `api`, `database`, `cloud`, `delivery`, and `tooling`. Directive kinds are `emphasis`, `avoid`, `answer_style`, `verification`, and `never_claim`. Conflict status is `unresolved`, `confirmed`, or `superseded`.
+
+Assess every new or updated tracker record for Squirex eligibility. Enrich each existing record when verified source material is available; otherwise leave it unprofiled with no invented fallback. Use descending integer priorities, normally 100 for core facts and 70–90 for important preferences. Omit `interview_priorities`, `directives`, and `conflicts` when no verified data exists.
+
+Keep advertised job-post facts, recruiter guidance, candidate directives, and application-tracker analysis strictly separate. Do not convert `fit_score`, `fit_summary`, `notes`, `next_action`, cover-letter data, or application status into employer requirements. Squirex has read-only access; the portfolio workflow owns all profile generation and updates.
+
+Completion requires JSON validation after every update and a clean `git diff --check` result.
+
 This workflow exists only for the repo-local record-keeping process. It must not be added to the public portfolio website.

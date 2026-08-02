@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "generated_at": "2026-07-24",
   "source": "JobStreet posts discussed in this Codex session",
   "purpose": "Private application tracker stored in the repo for session continuity. Not used by the portfolio app.",
@@ -18,6 +18,113 @@
       "recruiter_name": null,
       "last_activity": "talent_acquisition_review_notice_received",
       "next_action": "Wait for a possible initial AI interview link from Penbrothers Talent Acquisition.",
+      "job_post_profile": {
+        "source_documents": [
+          {
+            "id": "job-post",
+            "type": "job_post",
+            "title": "Original job post",
+            "url": "https://ph.indeed.com/viewjob?jk=2267594ba7832cc1&from=shareddesktop_copy",
+            "captured_at": "2026-08-01T07:34:41Z",
+            "reliability": "primary",
+            "text": "Penbrothers seeks a product-minded Full Stack Engineer to build and ship end-to-end product experiences across frontend, backend, cloud infrastructure, and product execution. The posting specifies React, Next.js, TypeScript, Node.js, APIs, databases, AWS/serverless systems, deployment, monitoring, and AI-assisted development, with a minimum of 5+ years of professional software engineering experience.",
+            "notes": ""
+          }
+        ],
+        "responsibilities": [
+          {
+            "text": "Build and deliver end-to-end product features across frontend, backend, APIs, databases, and cloud environments.",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Own the full development lifecycle including implementation, testing, deployment, monitoring, debugging, and continuous improvement.",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Prototype and iterate quickly by translating product ideas into working solutions.",
+            "priority": 90,
+            "source_id": "job-post"
+          }
+        ],
+        "requirements": [
+          {
+            "text": "Minimum 5+ years of professional software engineering experience.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": 5,
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Strong experience building and maintaining web applications from frontend to backend.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": null,
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Experience working with cloud environments, preferably AWS.",
+            "class": "preferred",
+            "mandatory": false,
+            "minimum_years": null,
+            "priority": 80,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Ability to independently take ownership of features and deliver solutions.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": null,
+            "priority": 90,
+            "source_id": "job-post"
+          }
+        ],
+        "technologies": [
+          {
+            "name": "React",
+            "area": "frontend",
+            "proficiency": "strong experience",
+            "requirement_class": "required",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "name": "Next.js",
+            "area": "frontend",
+            "proficiency": "strong experience",
+            "requirement_class": "required",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "name": "TypeScript",
+            "area": "frontend",
+            "proficiency": "strong experience",
+            "requirement_class": "required",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "name": "Node.js",
+            "area": "backend",
+            "proficiency": "strong experience",
+            "requirement_class": "required",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "name": "AWS serverless technologies",
+            "area": "cloud",
+            "proficiency": "experience preferred",
+            "requirement_class": "preferred",
+            "priority": 80,
+            "source_id": "job-post"
+          }
+        ]
+      },
       "notes": "Applied through Indeed for the fully remote Full Stack Engineer role at Penbrothers. Indeed URL: https://ph.indeed.com/viewjob?jk=2267594ba7832cc1&from=shareddesktop_copy. The role is full-time, day shift 9:00 AM-6:00 PM Philippine time with flexible AEST overlap. Verified requirements include React, Next.js, TypeScript, Node.js, APIs, databases, AWS/serverless systems, product ownership, deployment, monitoring, and AI-assisted development. A cover letter PDF was created at records/cover-letter-penbrothers-full-stack-engineer.pdf and includes the portfolio URL www.justintagarda.com. Application questions were answered regarding identity verification consent, Indeed as the source, no referral, other pending applications, availability, prior Penbrothers employment, contact methods, and end-to-end product experience. A prior JobStreet application for the same or closely matching Penbrothers role was cancelled; this Indeed application was subsequently submitted. Penbrothers acknowledgment email from noreply@recruiterflowmail.com confirmed receipt of the Full Stack Engineer application and stated that the team will review it and respond shortly. Penbrothers Talent Acquisition Team email from talentacquisition@penbrothers.com confirmed applications are under review; candidates whose qualifications closely match may receive a link to an initial AI interview to complete at their convenience, and applications may be retained for future opportunities. Indeed applications generally do not require a cover letter unless the employer separately requests one."
     },
     {
@@ -1075,6 +1182,142 @@
       "recruiter_name": null,
       "last_activity": "application_submitted",
       "next_action": "Wait for employer response.",
+      "job_post_profile": {
+        "source_documents": [
+          {
+            "id": "job-post",
+            "type": "job_post",
+            "title": "Original job post",
+            "url": "https://ph.indeed.com/viewjob?jk=7150f3c8dcf17a38&from=shareddesktop_copy",
+            "captured_at": "2026-08-01T12:42:53Z",
+            "reliability": "primary",
+            "text": "Ezygos Global Services seeks a Full Stack Developer to build scalable web applications using Node.js and React.js across the full software development lifecycle. The posting describes a hands-on role developing features, building responsive interfaces, integrating frontend components with backend services and APIs, optimizing performance, troubleshooting, testing, reviewing code, documenting work, and collaborating with developers and stakeholders. It requires strong full-stack experience, Node.js and React.js proficiency, production web-application experience, frontend and backend fundamentals, web-development best practices, and problem-solving skills; a Computer Science or related technical degree is preferred. The role is fully remote for applicants currently based in the Philippines.",
+            "notes": ""
+          }
+        ],
+        "responsibilities": [
+          {
+            "text": "Develop and maintain modern web applications using Node.js and React.js.",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Integrate frontend components with backend services and APIs.",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Optimize applications for speed, scalability, and reliability.",
+            "priority": 90,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Troubleshoot technical issues, write automated tests, participate in code reviews, and maintain technical documentation.",
+            "priority": 90,
+            "source_id": "job-post"
+          }
+        ],
+        "requirements": [
+          {
+            "text": "Proficiency in Node.js and React.js.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": null,
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Experience building and maintaining production web applications.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": null,
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Bachelor's degree in Computer Science or a related technical field.",
+            "class": "preferred",
+            "mandatory": false,
+            "minimum_years": null,
+            "priority": 70,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Applicants must be currently based in the Philippines.",
+            "class": "eligibility",
+            "mandatory": true,
+            "minimum_years": null,
+            "priority": 90,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Strong experience as a Full Stack Developer.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": null,
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Strong understanding of frontend and backend development principles.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": null,
+            "priority": 90,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Knowledge of web development best practices and excellent problem-solving and analytical skills.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": null,
+            "priority": 90,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Portfolio, GitHub, or sample projects are a plus.",
+            "class": "preferred",
+            "mandatory": false,
+            "minimum_years": null,
+            "priority": 60,
+            "source_id": "job-post"
+          }
+        ],
+        "technologies": [
+          {
+            "name": "Node.js",
+            "area": "backend",
+            "proficiency": "required proficiency",
+            "requirement_class": "required",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "name": "React.js",
+            "area": "frontend",
+            "proficiency": "required proficiency",
+            "requirement_class": "required",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "name": "APIs",
+            "area": "api",
+            "proficiency": "experience integrating frontend and backend services",
+            "requirement_class": "required",
+            "priority": 90,
+            "source_id": "job-post"
+          },
+          {
+            "name": "Automated testing",
+            "area": "tooling",
+            "proficiency": "experience writing and maintaining tests",
+            "requirement_class": "required",
+            "priority": 80,
+            "source_id": "job-post"
+          }
+        ]
+      },
       "notes": "Indeed application submitted. Full-time fully remote Philippines role with listed compensation of PHP 100,000-150,000 per month. The application should represent Node.js as an adjacent or learning area rather than claim verified professional experience. Indeed applications generally do not require a cover letter unless the employer separately requests one."
     }
   ]
