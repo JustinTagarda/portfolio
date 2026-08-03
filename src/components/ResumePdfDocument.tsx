@@ -41,6 +41,7 @@ export type ResumeSkillGroup = {
 };
 
 export type ResumeData = {
+  source_file_name?: string;
   name: string;
   title: string;
   profile: string;
@@ -392,7 +393,10 @@ export default function ResumePdfDocument({ resume, profilePhotoSrc }: ResumePdf
   const educationRows = chunkIntoPairs(resume.resume_education ?? resume.education);
 
   return (
-    <Document title={`${resume.name} - Resume`} author={resume.name}>
+    <Document
+      title={resume.source_file_name?.replace(/\.pdf$/i, "") ?? `${resume.name} - Resume`}
+      author={resume.name}
+    >
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <View style={styles.headerInfo}>

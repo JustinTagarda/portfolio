@@ -103,6 +103,7 @@ When the user asks for a cover letter:
 Cover letter template guidance:
 
 - Use a short, copy-ready format with clean paragraphs.
+- Format the cover letter as plain text only—do not use Markdown, HTML, bullets, headings, or block quotes. Insert exactly two newline characters (`LF LF`) between every paragraph, creating one fully empty line. The copied text must preserve this empty line in a standard text editor. Return only the cover letter.
 - Keep the tone professional, direct, and specific to the role.
 - Never suggest providing an introduction video, résumé video, or other application video in a cover letter. If the job post requests a video, keep that requirement separate from the cover letter.
 - Mention the role title, core fit, relevant stack, and production experience.

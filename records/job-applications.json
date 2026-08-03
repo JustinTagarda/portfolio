@@ -660,15 +660,15 @@
       "job_title": "Full-stack Workspace Developer",
       "company": "Basalt Forge Systems",
       "location": null,
-      "application_status": "nda_returned_exercise_pending",
+      "application_status": "cto_conversation_pending",
       "fit_score": null,
       "fit_summary": "Application progressed to the technical exercise stage after the July 20, 2026 interview/conversation.",
       "cover_letter_status": "not_applicable",
       "recruiter_name": "Matt Traynor",
-      "last_activity": "reply_sent_nda_returned",
-      "next_action": "Wait for the technical exercise details from Basalt Forge Systems.",
+      "last_activity": "technical_exercise_submitted_and_positive_review_received",
+      "next_action": "Wait for Matt Traynor to provide a specific time for the CTO conversation during the week commencing August 10, 2026.",
       "interview_date": "2026-07-20",
-      "notes": "Email received July 27, 2026 from Matt Traynor at matt.traynor@basaltforge.dev. User replied appreciatively and returned the signed mutual NDA as an attachment. The email confirms progression to a take-home technical exercise. The technical exercise date has not yet been provided."
+      "notes": "Email received from Matt Traynor at matt.traynor@basaltforge.dev confirming that the self-contained take-home technical exercise for the Senior Full Stack Workspace Engineer role was attached. The user submitted the completed exercise on August 3, 2026 through the private GitHub repository https://github.com/JustinTagarda/basalt-forge-technical-screening-exercise and documented the working application, setup and validation instructions, design decisions and tradeoffs, potential future improvements, test-time notes, and AI-assisted development-tool usage and validation. Matt replied that the submission was reviewed in detail, was excellent, and was among the strongest submissions they had seen. Basalt Forge is moving the user to the next stage, a conversation with the CTO, with scheduling expected during the week commencing August 10, 2026. The user previously returned the signed mutual NDA as an attachment."
     },
     {
       "job_id": "93577801",
@@ -792,6 +792,7 @@
       "company": "DAPL IT Services",
       "location": "Work from Home",
       "application_status": "applied",
+      "application_channel": "company_site",
       "fit_score": 68,
       "fit_summary": "Partial fit through verified C#, .NET, JavaScript, REST APIs, Docker, SQL-backed production systems, Jira, and remote delivery. Python, Java, C++, Kubernetes, and deeper AWS/Azure/GCP experience are not verified.",
       "cover_letter_status": "not_required",
@@ -1147,10 +1148,10 @@
       "fit_score": 60,
       "fit_summary": "Partial match through verified React, Next.js, TypeScript, Tailwind CSS, REST APIs, third-party integrations, SQL/database work, Git, GitHub, Docker, Firebase Hosting, dashboards, reporting interfaces, background workflows, and production support. Python/FastAPI, Amazon SP-API, Amazon advertising data, BigQuery, Cloud Run, Cloud Tasks, and Google Cloud performance optimization are not verified.",
       "cover_letter_status": "not_created",
-      "recruiter_name": null,
-      "last_activity": "application_review_confirmation_received",
-      "next_action": "Await the employer's application-review outcome within 1-5 days; prepare for a possible online assessment if advanced.",
-      "notes": "Applied through Indeed and the recruiter website (Workable). Full-time remote contract role with day shift 7:00 AM-4:00 PM Philippine time and listed compensation of PHP 38,000-45,000 per month. Employer questions were answered with 2 years of data analytics/reporting-focused experience, 15 years of SQL experience, and 2 years of e-commerce data experience. This posting is a near-identical Rocket AMS repost/duplicate of job ID 9285d7a016f2f7f8 previously reviewed in the session. Workable application URL: https://apply.workable.com/rocketams/j/301AFA0BAF. The Workable form required first name, last name, email, +63 phone, address, and resume; photo was optional and resume import supported PDF, DOC, DOCX, ODT, and RTF. Required questions covered 2+ years of backend development, full-time Monday-Friday availability on an Australian-aligned day shift, React/Next.js, Python/FastAPI or similar, SQL, Docker, Git/GitHub, and reliable remote-work internet, power, and computer. Employer email from RocketAMS (noreply@candidates.workablemail.com) confirmed the profile was received and is currently in Application Review, with an expected update within 1-5 days regardless of outcome. Hiring stages listed: online assessment, video interview, initial interview, trial task, final interview, reference check, and offer stage. Indeed applications generally do not require a cover letter unless the employer separately requests one."
+      "recruiter_name": "Anne Pador",
+      "last_activity": "online_assessment_invitation_received",
+      "next_action": "Complete the approximately 56-minute online assessment by Tuesday, August 4, 2026, 11:45 PM Australia/Sydney (9:45 PM Philippine time).",
+      "notes": "Applied through Indeed and the recruiter website (Workable). Full-time remote contract role with day shift 7:00 AM-4:00 PM Philippine time and listed compensation of PHP 38,000-45,000 per month. Employer questions were answered with 2 years of data analytics/reporting-focused experience, 15 years of SQL experience, and 2 years of e-commerce data experience. This posting is a near-identical Rocket AMS repost/duplicate of job ID 9285d7a016f2f7f8 previously reviewed in the session. Workable application URL: https://apply.workable.com/rocketams/j/301AFA0BAF. The Workable form required first name, last name, email, +63 phone, address, and resume; photo was optional and resume import supported PDF, DOC, DOCX, ODT, and RTF. Required questions covered 2+ years of backend development, full-time Monday-Friday availability on an Australian-aligned day shift, React/Next.js, Python/FastAPI or similar, SQL, Docker, Git/GitHub, and reliable remote-work internet, power, and computer. Employer email from RocketAMS (noreply@candidates.workablemail.com) confirmed the profile was received and is currently in Application Review, with an expected update within 1-5 days regardless of outcome. Anne Pador (anne@rocketams.com.au) subsequently invited the candidate to an approximately 56-minute online assessment covering workplace personality, abstract reasoning, verbal comprehension, numerical comprehension, and attention and focus. The assessment deadline is Tuesday, August 4, 2026, 11:45 PM Australia/Sydney (9:45 PM Philippine time). Hiring stages listed: online assessment, video interview, initial interview, trial task, final interview, reference check, and offer stage. Indeed applications generally do not require a cover letter unless the employer separately requests one."
     },
     {
       "job_id": "60799433adb418d7",
@@ -1319,6 +1320,423 @@
         ]
       },
       "notes": "Indeed application submitted. Full-time fully remote Philippines role with listed compensation of PHP 100,000-150,000 per month. The application should represent Node.js as an adjacent or learning area rather than claim verified professional experience. Indeed applications generally do not require a cover letter unless the employer separately requests one."
+    },
+    {
+      "job_id": "9f05073fb16edd81",
+      "job_url": "https://ph.indeed.com/viewjob?jk=9f05073fb16edd81&from=shareddesktop_copy",
+      "source": "Indeed",
+      "job_title": "SQL/.NET Developer",
+      "company": "Buy It Direct",
+      "location": "Work from Home",
+      "application_status": "applied",
+      "fit_score": 88,
+      "fit_summary": "Strong match for the verified C#, .NET, SQL Server, REST API, internal business systems, production support, and stakeholder-collaboration background. Blazor, SSIS, SSRS, and UK transactional-retail experience are not verified.",
+      "cover_letter_status": "not_created",
+      "recruiter_name": null,
+      "last_activity": "employer_acknowledgment_received",
+      "next_action": "Wait for Buy It Direct application review and feedback.",
+      "notes": "Applied through Indeed for the fully remote, full-time SQL/.NET Developer role. The posting lists PHP 2,400,000 per year (approximately PHP 200,000 per month) and focuses on C#, .NET, SQL Server, T-SQL, SSIS, SSRS, Blazor, REST APIs, internal business systems, troubleshooting, Agile delivery, and AI-assisted development. The application included employer questions about UK status, C#/.NET experience, commercial technologies, AI-assisted tools, equality monitoring, privacy acceptance, and automated decision-making. Indeed applications generally do not require a cover letter unless the employer separately requests one. Buy It Direct Careers Team email from buyitdirect@hireful.app confirmed receipt of the SQL/.NET Developer application and stated that it will be reviewed with feedback to follow."
+    },
+    {
+      "job_id": "527b335e2fadf184",
+      "job_url": "https://ph.indeed.com/viewjob?jk=527b335e2fadf184&from=shareddesktop_copy",
+      "source": "Indeed",
+      "job_title": ".NET Developer - Legacy Applications",
+      "company": "INTEGRATED OFFICE SOLUTIONS",
+      "location": "National Capital Region (Remote / Work From Home)",
+      "application_status": "applied",
+      "fit_score": 86,
+      "fit_summary": "Strong match for the verified C#, .NET, ASP.NET, SQL Server, REST API, IIS, Windows Server, legacy business systems, production support, and stakeholder-collaboration background. Recent ASP.NET MVC 4/5, Entity Framework 6, ADO.NET, Bootstrap, and TFS/TFVC experience are not fully verified.",
+      "cover_letter_status": "not_created",
+      "recruiter_name": null,
+      "last_activity": "application_submitted",
+      "next_action": "Wait for employer response.",
+      "notes": "Applied through Indeed for the full-time remote/work-from-home role with a 6:00 AM-3:00 PM PHT schedule. The posting focuses on maintaining and enhancing an established ASP.NET MVC application and SQL Server database, T-SQL optimization, legacy-code support, IIS, Windows Server, APIs, production troubleshooting, careful deployment, documentation, and incremental modernization. Indeed applications generally do not require a cover letter unless the employer separately requests one."
+    },
+    {
+      "job_id": "38a571476f039f24",
+      "job_url": "https://ph.indeed.com/viewjob?jk=38a571476f039f24&from=shareddesktop_copy",
+      "source": "Indeed",
+      "job_title": "Principal Full Stack Engineer",
+      "company": "Sleek",
+      "location": "Philippines (Remote)",
+      "application_status": "applied",
+      "fit_score": 58,
+      "fit_summary": "Partial fit through full-stack product delivery, React/TypeScript, APIs, databases, production deployments, AI integrations, and autonomous business-systems development. Deep recent Node.js/TypeScript, principal-level distributed SaaS architecture, developer-platform ownership, AI observability, and formal engineering mentorship are not fully verified.",
+      "cover_letter_status": "not_created",
+      "recruiter_name": null,
+      "last_activity": "employer_acknowledgment_received",
+      "next_action": "Wait up to two weeks for Sleek Talent Acquisition to provide next steps; if no response, assume the application did not proceed.",
+      "notes": "Applied through Indeed for the remote Principal Full Stack Engineer role at Sleek. The role emphasizes production SaaS architecture, TypeScript/Node.js, React or Vue, Postgres/MongoDB, cloud operations, internal developer tooling, production AI, observability, technical leadership, mentoring, and autonomous delivery. Application responses described freelance status, full-stack experience, production AI workflows, and Codex-assisted development. No salary was listed in the verified posting. Sleek Talent Acquisition email confirmed receipt and stated that strong-match candidates will be contacted within two weeks with next steps; otherwise, the application may have moved forward with other candidates."
+    },
+    {
+      "job_id": "93508372",
+      "job_url": "https://ph.jobstreet.com/job/93508372?ref=search-standalone&type=standard&origin=showNewTab#sol=e041cc87c8eb83c2d6fff68a74166670438d099f",
+      "source": "JobStreet",
+      "job_title": "Application Support Developer (AU, Education, Remote)",
+      "company": "ConnectOS",
+      "location": "Mandaluyong City, Metro Manila (Remote)",
+      "application_status": "rejected",
+      "fit_score": 63,
+      "fit_summary": "Moderate fit through verified .NET/C#, REST APIs, React/Next.js, SQL Server, authentication, GitHub Actions, AI-assisted development, production support, and application modernization. Azure-specific services, Power BI/Fabric, Azure Data Factory, Service Bus, React Native, and formal TDD/BDD depth are not fully verified.",
+      "cover_letter_status": "not_created",
+      "recruiter_name": null,
+      "last_activity": "application_rejected",
+      "next_action": "No further action unless a future ConnectOS role is a better match.",
+      "notes": "Applied on the company's site after reviewing the JobStreet posting. ConnectOS Recruitment Team email from recruitment@connectos.co acknowledged the application and said the hiring team is actively reviewing it. They will contact shortlisted candidates and advised following up after 14 days without news. Verified role is a five-month full-time remote contract ending December 2026, scheduled Monday-Friday, 6:00 AM-3:00 PM PHT. The posting includes application support, documentation, code reviews, DevOps delivery, monitoring, on-call support, .NET/C#, REST APIs, React/Next.js, Azure services, Entra ID, SQL Server, Power BI, Azure Data Factory/Fabric, CI/CD, and application modernization. A subsequent ConnectOS Recruitment Team email from mary.capispisan@connectos.co stated that the company chose candidates whose experience more closely aligned with the role."
+    },
+    {
+      "job_id": "93665251",
+      "job_url": "https://ph.jobstreet.com/job/93665251?ref=search-standalone&type=standard&origin=showNewTab#sol=f3818ea359f64330c75738d58a7c23dbcdfaeb67",
+      "source": "JobStreet",
+      "application_channel": "jobstreet",
+      "job_title": "AI Application Developer",
+      "company": "Private Advertiser",
+      "location": "Makati City, Metro Manila (Remote)",
+      "application_status": "applied",
+      "fit_score": 68,
+      "fit_summary": "Good partial fit through verified C#/.NET, React/Next.js, TypeScript, SQL, REST APIs, AI-enabled feature work, security, and business-system delivery. Direct banking or payment integrations, high-volume financial transaction systems, cloud-platform depth, and formal financial compliance or reconciliation experience are not verified.",
+      "cover_letter_status": "created",
+      "recruiter_name": null,
+      "last_activity": "application_submitted",
+      "next_action": "Wait for employer response.",
+      "job_post_profile": {
+        "source_documents": [
+          {
+            "id": "job-post",
+            "type": "job_post",
+            "title": "Original JobStreet job post",
+            "url": "https://ph.jobstreet.com/job/93665251?ref=search-standalone&type=standard&origin=showNewTab#sol=f3818ea359f64330c75738d58a7c23dbcdfaeb67",
+            "captured_at": "2026-08-03T00:00:00Z",
+            "reliability": "primary",
+            "text": "Private Advertiser seeks an AI Application Developer for a remote, full-time role in Makati City. The role focuses on secure, scalable financial and business applications spanning accounting, lending, payment processing, reporting, compliance, and workflow automation. It calls for AI-enabled tools and features, modern full-stack development, REST integrations with banking, payment, ERP, and accounting services, SQL data integrity, cloud deployment, and awareness of financial security, audit, privacy, and regulatory requirements.",
+            "notes": ""
+          }
+        ],
+        "responsibilities": [
+          {
+            "text": "Build secure, scalable financial and business applications, including AI-powered tools and features.",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Develop responsive user interfaces, backend services, and REST API integrations with banking, payment, ERP, and accounting services.",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Maintain SQL data quality and support secure deployment, documentation, and cloud environments.",
+            "priority": 90,
+            "source_id": "job-post"
+          }
+        ],
+        "requirements": [
+          {
+            "text": "Bachelor's degree in computer science, IT, software engineering, or a related field.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": null,
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Five to eight years of experience building enterprise or financial applications.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": 5,
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Experience with REST APIs, SQL databases, cloud platforms, version control, CI/CD, and Agile delivery.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": null,
+            "priority": 90,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Experience in FinTech, financial services, banking, accounting, ERP, financial reporting, reconciliation, or compliance is preferred.",
+            "class": "preferred",
+            "mandatory": false,
+            "minimum_years": null,
+            "priority": 80,
+            "source_id": "job-post"
+          }
+        ],
+        "technologies": [
+          {
+            "name": ".NET",
+            "area": "backend",
+            "proficiency": "modern full-stack development",
+            "requirement_class": "required",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "name": "REST APIs",
+            "area": "api",
+            "proficiency": "integration with financial and business services",
+            "requirement_class": "required",
+            "priority": 90,
+            "source_id": "job-post"
+          },
+          {
+            "name": "SQL databases",
+            "area": "database",
+            "proficiency": "high-volume data and integrity",
+            "requirement_class": "required",
+            "priority": 90,
+            "source_id": "job-post"
+          },
+          {
+            "name": "Azure, AWS, or GCP",
+            "area": "cloud",
+            "proficiency": "cloud deployment experience",
+            "requirement_class": "required",
+            "priority": 80,
+            "source_id": "job-post"
+          },
+          {
+            "name": "Generative AI and LLM tools",
+            "area": "tooling",
+            "proficiency": "AI-powered development and product features",
+            "requirement_class": "preferred",
+            "priority": 80,
+            "source_id": "job-post"
+          }
+        ]
+      },
+      "notes": "User confirmed the JobStreet application was submitted for the fully remote AI Application Developer role. A tailored cover letter was created. Verified posting requirements include financial and business application development, AI-enabled features, .NET or comparable full-stack development, REST integrations, SQL data integrity, cloud deployment, and financial security, audit, privacy, and compliance awareness. Do not represent direct banking, payment, FinTech, or regulatory-compliance experience unless separately verified."
+    },
+    {
+      "job_id": "93606198",
+      "job_url": "https://ph.jobstreet.com/job/93606198?ref=search-standalone&type=standard&origin=showNewTab#sol=579deb7b0a3422b2a597fa7fe9d1598c77c830b9",
+      "source": "JobStreet",
+      "application_channel": "company_site",
+      "job_title": "Software Developer (uniPaaS) 16721",
+      "company": "REMOTE STAFF, INC.",
+      "location": "Makati City, Metro Manila (Remote)",
+      "application_status": "applied",
+      "fit_score": 73,
+      "fit_summary": "Good partial fit through verified .NET, SQL Server, JavaScript, HTML, Bootstrap, Flutter, full-stack development, dashboards, and remote delivery. The preferred four years of Magic/uniPaaS experience is not verified.",
+      "cover_letter_status": "not_created",
+      "cover_letter_requirement": "not_required",
+      "recruiter_name": null,
+      "last_activity": "application_submitted",
+      "next_action": "Wait for employer response.",
+      "job_post_profile": {
+        "source_documents": [
+          {
+            "id": "job-post",
+            "type": "job_post",
+            "title": "Original JobStreet job post",
+            "url": "https://ph.jobstreet.com/job/93606198?ref=search-standalone&type=standard&origin=showNewTab#sol=579deb7b0a3422b2a597fa7fe9d1598c77c830b9",
+            "captured_at": "2026-08-03T00:00:00Z",
+            "reliability": "primary",
+            "text": "REMOTE STAFF, INC. seeks a full-time, fully work-from-home Software Developer (uniPaaS) for an Australian SaaS client. The schedule is Monday to Friday, 7:00 AM to 4:00 PM Manila time. The work includes SQL dashboard reports and full-stack application development. The posting requires at least five years of software and web development with Microsoft SQL, HTML, JavaScript, Bootstrap, jQuery, .NET, Flutter, MS SQL, and HTML5; Magic/uniPaaS experience of at least four years is preferred.",
+            "notes": ""
+          }
+        ],
+        "responsibilities": [
+          {
+            "text": "Develop SQL-based dashboard reports and full-stack software applications.",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Program, test, and document work while collaborating with the team and Australian office.",
+            "priority": 90,
+            "source_id": "job-post"
+          },
+          {
+            "text": "Work autonomously, communicate clearly, and deliver reliably in a high-paced environment.",
+            "priority": 90,
+            "source_id": "job-post"
+          }
+        ],
+        "requirements": [
+          {
+            "text": "At least five years of software and web development experience with Microsoft SQL, HTML, and JavaScript.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": 5,
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "At least four years of Bootstrap, jQuery, JavaScript, .NET, Flutter, MS SQL, and HTML5 experience.",
+            "class": "required",
+            "mandatory": true,
+            "minimum_years": 4,
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "text": "At least four years of Magic/uniPaaS experience is preferred.",
+            "class": "preferred",
+            "mandatory": false,
+            "minimum_years": 4,
+            "priority": 80,
+            "source_id": "job-post"
+          }
+        ],
+        "technologies": [
+          {
+            "name": ".NET",
+            "area": "backend",
+            "proficiency": "minimum four years required",
+            "requirement_class": "required",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "name": "MS SQL",
+            "area": "database",
+            "proficiency": "minimum four years required",
+            "requirement_class": "required",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "name": "JavaScript",
+            "area": "frontend",
+            "proficiency": "minimum four years required",
+            "requirement_class": "required",
+            "priority": 100,
+            "source_id": "job-post"
+          },
+          {
+            "name": "Flutter",
+            "area": "frontend",
+            "proficiency": "minimum four years required",
+            "requirement_class": "required",
+            "priority": 90,
+            "source_id": "job-post"
+          },
+          {
+            "name": "Magic/uniPaaS",
+            "area": "tooling",
+            "proficiency": "minimum four years preferred",
+            "requirement_class": "preferred",
+            "priority": 80,
+            "source_id": "job-post"
+          }
+        ]
+      },
+      "notes": "User confirmed the application was submitted on the company's site for the fully remote, full-time role. The posting lists a 7:00 AM-4:00 PM PHT schedule and PHP 85,000-90,000 monthly salary. A previously drafted cover letter was not used because the company site did not require one. Magic/uniPaaS experience is not verified and should not be claimed."
+    },
+    {
+      "job_id": "111d42122b836153",
+      "job_url": "https://ph.indeed.com/viewjob?jk=111d42122b836153&from=shareddesktop_copy",
+      "source": "Indeed",
+      "job_title": "Junior Web Developer",
+      "company": "My Biz Niche",
+      "location": "Work from Home",
+      "application_status": "applied",
+      "application_channel": "company_site",
+      "fit_score": 50,
+      "fit_summary": "Partial fit through verified HTML, CSS, JavaScript, Tailwind CSS, REST APIs, production websites, troubleshooting, deployment, and end-to-end web delivery. WordPress, Shopify, Duda, CMS plugin development, and marketing-platform experience are not verified; the junior title and compensation are below the candidate's senior positioning.",
+      "cover_letter_status": "uploaded",
+      "recruiter_name": null,
+      "last_activity": "application_submitted_on_company_site",
+      "next_action": "Wait for employer response.",
+      "job_post_profile": {
+        "source_documents": [
+          {
+            "id": "job-post",
+            "type": "job_post",
+            "title": "Original job post",
+            "url": "https://ph.indeed.com/viewjob?jk=111d42122b836153&from=shareddesktop_copy",
+            "captured_at": "2026-08-03T00:00:00Z",
+            "reliability": "primary",
+            "text": "My Biz Niche seeks a fully remote Junior Web Developer to build and maintain websites, landing pages, custom features, plugins, and API integrations using WordPress, Shopify, Duda, HTML, CSS, JavaScript, REST APIs, and frontend styling frameworks. The posting requires a resume, cover letter, portfolio, and a Culture Index survey.",
+            "notes": "Indeed listing verified in Chrome."
+          }
+        ],
+        "responsibilities": [
+          { "text": "Build and maintain websites using WordPress, Shopify, Duda, and other CMS platforms.", "priority": 100, "source_id": "job-post" },
+          { "text": "Develop landing pages supporting SEO, PPC, and digital marketing campaigns.", "priority": 90, "source_id": "job-post" },
+          { "text": "Create custom features, plugins, and API integrations.", "priority": 90, "source_id": "job-post" },
+          { "text": "Troubleshoot, maintain, optimize, and quality-assure websites before deployment.", "priority": 90, "source_id": "job-post" }
+        ],
+        "requirements": [
+          { "text": "Experience building websites with WordPress, Shopify, Duda, or similar CMS platforms.", "class": "required", "mandatory": true, "minimum_years": null, "priority": 100, "source_id": "job-post" },
+          { "text": "Strong HTML, CSS, and JavaScript skills.", "class": "required", "mandatory": true, "minimum_years": null, "priority": 100, "source_id": "job-post" },
+          { "text": "Experience with REST API integrations.", "class": "required", "mandatory": true, "minimum_years": null, "priority": 90, "source_id": "job-post" },
+          { "text": "Familiarity with Tailwind CSS, Sass, or Bootstrap.", "class": "preferred", "mandatory": false, "minimum_years": null, "priority": 80, "source_id": "job-post" },
+          { "text": "Portfolio showcasing websites or web applications.", "class": "required", "mandatory": true, "minimum_years": null, "priority": 80, "source_id": "job-post" }
+        ],
+        "technologies": [
+          { "name": "WordPress", "area": "frontend", "proficiency": "required by posting", "requirement_class": "required", "priority": 100, "source_id": "job-post" },
+          { "name": "Shopify", "area": "frontend", "proficiency": "required by posting", "requirement_class": "required", "priority": 100, "source_id": "job-post" },
+          { "name": "Duda", "area": "frontend", "proficiency": "required by posting", "requirement_class": "required", "priority": 100, "source_id": "job-post" },
+          { "name": "HTML", "area": "frontend", "proficiency": "strong skills required", "requirement_class": "required", "priority": 100, "source_id": "job-post" },
+          { "name": "CSS", "area": "frontend", "proficiency": "strong skills required", "requirement_class": "required", "priority": 100, "source_id": "job-post" },
+          { "name": "JavaScript", "area": "frontend", "proficiency": "strong skills required", "requirement_class": "required", "priority": 100, "source_id": "job-post" },
+          { "name": "REST APIs", "area": "api", "proficiency": "experience required", "requirement_class": "required", "priority": 90, "source_id": "job-post" },
+          { "name": "Tailwind CSS", "area": "frontend", "proficiency": "familiarity preferred", "requirement_class": "preferred", "priority": 80, "source_id": "job-post" }
+        ]
+      },
+      "notes": "Applied on the My Biz Niche company site for the fully remote, full-time Junior Web Developer role. The Indeed posting lists PHP 35,000-43,000 monthly and requires a Culture Index survey plus resume, cover letter, and portfolio. The résumé, cover letter, and portfolio were submitted through the company site. WordPress, Shopify, and Duda experience are not verified in the portfolio background."
+    },
+    {
+      "job_id": "358e68c34c4aff90",
+      "job_url": "https://ph.indeed.com/viewjob?jk=358e68c34c4aff90&from=shareddesktop_copy",
+      "source": "Indeed",
+      "application_channel": "Indeed",
+      "job_title": "Software Development Team Lead",
+      "company": "Lucid Fashion",
+      "location": "Work from Home",
+      "application_status": "applied",
+      "fit_score": 76,
+      "fit_summary": "Good transferable fit through hands-on production coding, .NET and full-stack delivery, Next.js, React, TypeScript, GitHub workflows, AI-assisted development, CI/CD, deployment, monitoring, troubleshooting, and prior IT staff supervision. Three years specifically leading a software development team, Asana, Google Workspace, and formal engineering-team mentoring are not fully verified.",
+      "cover_letter_status": "not_created",
+      "recruiter_name": null,
+      "last_activity": "application_submitted",
+      "next_action": "Wait for employer response.",
+      "job_post_profile": {
+        "source_documents": [
+          {
+            "id": "job-post",
+            "type": "job_post",
+            "title": "Original job post",
+            "url": "https://ph.indeed.com/viewjob?jk=358e68c34c4aff90&from=shareddesktop_copy",
+            "captured_at": "2026-08-03T00:00:00Z",
+            "reliability": "primary",
+            "text": "Lucid Fashion seeks a fully remote Software Development Team Lead to manage and mentor a team of 4-6 developers while remaining hands-on with coding, architecture, code review, GitHub workflows, AI-assisted development, project delivery, monitoring, and process improvement. The posting lists PHP 90,000-120,000 monthly.",
+            "notes": "Indeed listing verified in Chrome."
+          }
+        ],
+        "responsibilities": [
+          { "text": "Lead, mentor, and support a team of 4-6 developers.", "priority": 100, "source_id": "job-post" },
+          { "text": "Coordinate between development and operations and keep projects on track.", "priority": 100, "source_id": "job-post" },
+          { "text": "Manage GitHub repositories, branching strategies, pull requests, and development workflows.", "priority": 90, "source_id": "job-post" },
+          { "text": "Review code, provide technical guidance, and contribute to architecture and production code.", "priority": 100, "source_id": "job-post" },
+          { "text": "Help adopt AI-assisted development tools and improve engineering processes.", "priority": 90, "source_id": "job-post" }
+        ],
+        "requirements": [
+          { "text": "At least 3 years leading a software development team or serving as a senior software engineer with team leadership responsibilities.", "class": "required", "mandatory": true, "minimum_years": 3, "priority": 100, "source_id": "job-post" },
+          { "text": "Strong hands-on coding, code review, and scalable technical solution design experience.", "class": "required", "mandatory": true, "minimum_years": null, "priority": 100, "source_id": "job-post" },
+          { "text": "Strong understanding of GitHub, Git workflows, pull requests, code reviews, and version control best practices.", "class": "required", "mandatory": true, "minimum_years": null, "priority": 100, "source_id": "job-post" },
+          { "text": "Experience with Next.js and modern full-stack web development.", "class": "preferred", "mandatory": false, "minimum_years": null, "priority": 90, "source_id": "job-post" },
+          { "text": "Experience with Asana, Slack, GitHub, and Google Workspace.", "class": "required", "mandatory": true, "minimum_years": null, "priority": 80, "source_id": "job-post" },
+          { "text": "Excellent written and spoken English communication skills.", "class": "communication", "mandatory": true, "minimum_years": null, "priority": 80, "source_id": "job-post" }
+        ],
+        "technologies": [
+          { "name": "Next.js", "area": "frontend", "proficiency": "preferred", "requirement_class": "preferred", "priority": 90, "source_id": "job-post" },
+          { "name": "GitHub", "area": "delivery", "proficiency": "required", "requirement_class": "required", "priority": 100, "source_id": "job-post" },
+          { "name": "Git", "area": "delivery", "proficiency": "required", "requirement_class": "required", "priority": 100, "source_id": "job-post" },
+          { "name": "Asana", "area": "tooling", "proficiency": "required", "requirement_class": "required", "priority": 80, "source_id": "job-post" },
+          { "name": "Slack", "area": "tooling", "proficiency": "required", "requirement_class": "required", "priority": 80, "source_id": "job-post" },
+          { "name": "Google Workspace", "area": "tooling", "proficiency": "required", "requirement_class": "required", "priority": 80, "source_id": "job-post" },
+          { "name": "CI/CD", "area": "delivery", "proficiency": "nice to have", "requirement_class": "preferred", "priority": 70, "source_id": "job-post" }
+        ],
+        "directives": [
+          { "kind": "never_claim", "text": "Do not claim three years of software-development-team leadership unless separately verified.", "enabled": true, "source_id": "job-post" }
+        ]
+      },
+      "notes": "Applied through Indeed for the fully remote, full-time Software Development Team Lead role at Lucid Fashion. Posting lists PHP 90,000-120,000 monthly. Verified background supports hands-on coding, architecture, GitHub workflows, AI-assisted development, CI/CD, monitoring, operations coordination, and prior IT staff supervision. Three years specifically leading a software development team, Asana, Google Workspace, and formal engineering-team mentoring remain unverified."
     }
   ]
 }
