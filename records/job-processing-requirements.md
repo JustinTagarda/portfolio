@@ -119,7 +119,7 @@ I am applying for the [job title] position. I am a [seniority] developer with ex
 
 My background aligns well with this role’s focus on [key responsibilities from the job post]. I have worked on [briefly mention relevant work examples, such as APIs, databases, frontend integration, production support, migrations, dashboards, or client-facing systems], and I focus on delivering maintainable software that solves real business problems.
 
-I would welcome the opportunity to contribute my experience in [role-specific strengths] to your team. My résumé is attached, and selected projects are available at https://justintagarda.com.
+I would welcome the opportunity to contribute my experience in [role-specific strengths] to your team. My résumé is attached, and selected projects are available at https://www.justintagarda.com
 
 Thank you for your time and consideration.
 
@@ -190,3 +190,34 @@ Keep advertised job-post facts, recruiter guidance, candidate directives, and ap
 Completion requires JSON validation after every update and a clean `git diff --check` result.
 
 This workflow exists only for the repo-local record-keeping process. It must not be added to the public portfolio website.
+
+## Application History and Audit Trail
+
+The tracker must preserve a chronological history for application activity. Existing summary fields remain for backward compatibility, but `history` is the authoritative record of events over time.
+
+The canonical tracker metadata includes `history_schema_version: 1`. Each application record should contain a `history` array. Each history item must include:
+
+- `event_id`: stable unique identifier for the event
+- `event_type`: a standardized event name
+- `occurred_at`: when the event happened, using an ISO date or timestamp
+- `recorded_at`: when the event was added to the tracker
+- `date_precision`: `exact`, `date_only`, or `unknown`
+- `source`: `user`, `job_post`, `recruiter_message`, `employer_email`, `application_form`, `system`, or `migration`
+- `source_reference`: message subject, screenshot, URL, or other evidence reference when available
+- `summary`: concise factual description
+- `details`: an object for additional verified structured data
+
+Allowed event types include `record_created`, `job_assessed`, `application_started`, `application_submitted`, `application_acknowledged`, `assessment_invited`, `assessment_started`, `assessment_completed`, `interview_invited`, `interview_scheduled`, `interview_completed`, `technical_exercise_received`, `technical_exercise_submitted`, `employer_replied`, `candidate_replied`, `cover_letter_created`, `application_rejected`, `application_withdrawn`, `application_status_changed`, and `next_action_updated`.
+
+Whenever a verified application event is received or recorded:
+
+1. Append a new history event; never silently overwrite prior events.
+2. Update the current summary fields such as `application_status`, `last_activity`, `next_action`, and `notes`.
+3. Verify the event against the exact tracker record before adding it.
+4. Do not invent dates, times, outcomes, or interview/assessment completion status. Use `date_only` or `unknown` when precision is unavailable.
+5. Prevent duplicates using `event_id`, event type, source reference, and the matching application record.
+6. Preserve conflicting information as a later event with an explanatory note rather than deleting the earlier event.
+
+For existing records, reconstruct only verifiable historical events from existing dated fields and notes. Mark reconstructed entries with `source: migration`; leave unverifiable gaps unrecorded. Existing records may temporarily have an empty or absent history array during migration, but all newly created or updated records must include `history`.
+
+After every tracker update, validate the JSON, confirm history entries are valid and chronologically ordered, and run `git diff --check`.

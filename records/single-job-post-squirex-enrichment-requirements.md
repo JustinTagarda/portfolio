@@ -46,7 +46,7 @@ Target job post:
 
 5. If the job post cannot be verified, do not infer or invent missing information. Report what could not be verified and leave the Squirex profile unchanged.
 
-6. Update the matching record in `records/job-applications.json` only when the target identity is sufficiently verified. Preserve all existing tracker fields and add or update only the additive `job_post_profile` field.
+6. Update the matching record in `records/job-applications.json` only when the target identity is sufficiently verified. Preserve all existing tracker fields and add or update only the additive `job_post_profile` and, when interview preparation is required, the separate additive `interview_preparation` field.
 
 ## Answer Assist Readiness Gate
 
@@ -70,6 +70,9 @@ Before declaring the record Answer Assist-ready, verify all of the following:
 - candidate-specific safeguards are included in `directives` when needed to prevent unsupported claims;
 - `conflicts` are included when verified sources disagree, and unresolved conflicts are not presented as settled facts;
 - unknown, unavailable, or unverified facts are omitted or explicitly reported rather than guessed.
+- interview preparation is generated before an interview when the tracker shows an interview invitation or scheduled interview;
+- generated clarification questions are grounded in verified role facts, recruiter guidance, or documented uncertainties and are stored separately from employer facts;
+- company-specific questions are generated only from verified company or recruiter information; otherwise the company-specific area is explicitly reported as unavailable.
 
 If a required readiness condition cannot be satisfied, do not claim the profile is complete. Obtain missing verified source material or report the record as `not Answer Assist-ready` with the exact missing fields.
 
@@ -123,6 +126,42 @@ Generate `job_post_profile` according to the canonical schema in `records/job-pr
 - `directives`, only for verified candidate-specific instructions;
 - `conflicts`, only when there are genuinely conflicting verified sources.
 
+## Interview Preparation
+
+When a verified recruiter message or tracker history indicates an interview invitation or scheduled interview, generate interview preparation before the interview. This preparation is candidate-generated and must remain separate from `job_post_profile`, application status, fit analysis, and application history.
+
+The preparation must include concise clarification questions grounded in the verified posting and recruiter material, covering relevant gaps such as:
+
+- role scope, ownership, expected outcomes, and first priorities;
+- required technologies, architecture, integrations, and production responsibilities;
+- seniority, collaboration model, decision-making authority, and success measures;
+- work schedule, timezone expectations, employment structure, compensation, equity, and benefits when missing or ambiguous;
+- interview stages, technical evaluation, onboarding, and next steps;
+- company or product context only when that context is verified.
+
+Store preparation as an additive tracker-entry field with this shape:
+
+```json
+{
+  "interview_preparation": {
+    "generated_at": "YYYY-MM-DDTHH:mm:ssZ",
+    "status": "ready",
+    "clarification_questions": [
+      {
+        "question": "Question for the interviewer",
+        "category": "scope",
+        "priority": 100,
+        "reason": "Verified gap or ambiguity that makes the question useful",
+        "source_ids": ["job-post"]
+      }
+    ],
+    "omissions": []
+  }
+}
+```
+
+Use descending integer priorities. Each question must include at least one valid `source_id` from the record's `job_post_profile.source_documents`. Do not present a generated question as a verified employer statement. Omit unsupported questions and list unavailable areas in `omissions`. Do not add recruiter guidance, candidate availability, or generated questions to `requirements`, `responsibilities`, or `interview_priorities`.
+
 Preserve provenance:
 
 - every structured item must have a `source_id`;
@@ -159,6 +198,7 @@ After the update:
    - whether the profile was created or updated;
    - the source documents used;
    - the number of responsibilities, requirements, and technologies generated;
+   - the number and categories of interview clarification questions generated, if interview preparation was required;
    - omitted sections or unverifiable details;
    - validation and `git diff --check` results;
    - confirmation that no unrelated record was changed.
@@ -169,6 +209,7 @@ After the update:
 - Do not modify unrelated job records.
 - Do not invent job-post facts, recruiter guidance, candidate directives, qualifications, technologies, or interview priorities.
 - Do not convert `fit_score`, `fit_summary`, `notes`, `next_action`, cover-letter data, or application status into employer requirements.
+- Do not convert generated interview questions or their rationales into employer requirements, recruiter guidance, or verified company facts.
 - Do not modify `records/job-processing-requirements.md` unless the canonical schema itself is inconsistent with the requested profile and the change is explicitly authorized.
 
 ## Final Answer Assist Acceptance Check
@@ -180,5 +221,7 @@ Before finishing, include exactly one readiness result:
 - `not Answer Assist-ready` — one or more required grounding areas could not be verified or represented.
 
 For the second or third result, list every omitted field or grounding area and explain whether it was unavailable in the source, ambiguous, or unsupported by the current schema.
+
+If interview preparation was required, also confirm that the record contains non-empty, source-grounded clarification questions and that company-specific questions were omitted or documented when company information was not verified.
 
 Confirm that the generated profile can be selected by Squirex and can produce non-empty context for role, requirements, and technologies when those categories are present in the verified posting.
