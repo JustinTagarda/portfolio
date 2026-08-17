@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8FAFC",
     color: "#0F172A",
     fontFamily: "Helvetica",
-    paddingTop: 14,
-    paddingBottom: 8,
+    paddingTop: 10,
+    paddingBottom: 4,
     paddingHorizontal: 20,
     fontSize: 9.1,
     lineHeight: 1.24,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 8,
+    marginTop: 4,
     paddingBottom: 5,
   },
   headerInfo: {
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   section: {
-    marginTop: 7,
+    marginTop: 5,
   },
   sectionTitle: {
     color: "#334155",
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     maxWidth: 512,
   },
   roleList: {
-    marginTop: 2.4,
+    marginTop: 1.8,
   },
   roleCard: {
     backgroundColor: "#FFFFFF",
@@ -187,10 +187,10 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     borderWidth: 1,
     paddingHorizontal: 7,
-    paddingVertical: 4.05,
+    paddingVertical: 3,
   },
   roleCardGap: {
-    marginTop: 2.4,
+    marginTop: 1.2,
   },
   roleHeader: {
     alignItems: "center",
@@ -236,11 +236,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   bullets: {
-    marginTop: 1.85,
+    marginTop: 1.2,
   },
   bulletRow: {
     flexDirection: "row",
-    marginBottom: 0.62,
+    marginBottom: 0.3,
   },
   bulletDot: {
     color: "#2563EB",
@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
     paddingRight: 4,
   },
   bottomGrid: {
-    marginTop: 8,
+    marginTop: 3,
   },
   gridSection: {
     marginTop: 0,
@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 1,
     paddingHorizontal: 6,
-    paddingVertical: 3,
+    paddingVertical: 2.4,
   },
   skillsIntro: {
     color: "#334155",
@@ -299,7 +299,7 @@ const styles = StyleSheet.create({
     lineHeight: 1.16,
   },
   skillsCard: {
-    paddingVertical: 4,
+    paddingVertical: 3,
   },
   educationCard: {
     paddingVertical: 4.4,
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
   skillSummaryRow: {
     alignItems: "flex-start",
     flexDirection: "row",
-    paddingVertical: 1.25,
+    paddingVertical: 0.7,
   },
   skillSummaryRowDivider: {
     borderBottomColor: "#E7EDF5",

@@ -1210,7 +1210,7 @@
       "recruiter_name": "Collene Brillantes",
       "last_activity": "application_rejected",
       "next_action": "No further action unless a future reopening or new opportunity arises.",
-      "notes": "Email from Collene Brillantes at 24x7 Direct stated the application was not short-listed and would be kept on file for potential future opportunities.",
+      "notes": "Email from Collene Brillantes at 24x7 Direct confirmed that the application was not advanced because another candidate was hired for the Full Stack Developer role. The email also stated that 24x7 Direct may contact the candidate about future openings matching his skills and knowledge.",
       "history": [
         {
           "event_id": "migration_b4f06d67d46beda4_record_created",
@@ -1238,6 +1238,22 @@
             "status": "rejected",
             "next_action": "No further action unless a future reopening or new opportunity arises.",
             "legacy_last_activity": "application_rejected"
+          }
+        },
+        {
+          "event_id": "2026-08-17_b4f06d67_application_rejected_employer_email",
+          "event_type": "application_rejected",
+          "occurred_at": "2026-08-17",
+          "recorded_at": "2026-08-17",
+          "date_precision": "date_only",
+          "source": "employer_email",
+          "source_reference": "Update on your application to 24x7 Direct",
+          "summary": "24x7 Direct stated that another candidate was hired for the Full Stack Developer role and the application would not move forward.",
+          "details": {
+            "sender": "Collene Brillantes",
+            "company": "24x7 Direct",
+            "role": "Full Stack Developer",
+            "future_contact_possible": true
           }
         }
       ]
@@ -10238,13 +10254,13 @@
       "job_title": "Senior Full-Stack Software Engineer (C# / Angular)",
       "company": null,
       "location": "Remote; Philippines",
-      "application_status": "application_started",
+      "application_status": "applied",
       "fit_score": 74,
       "fit_summary": "Good match through verified C#/.NET, EF Core, SQL Server, PostgreSQL, REST APIs, JWT authentication, Docker, production systems, and full-stack ownership. Angular, Railway, CQRS, DDD, messaging architecture, and explicit functional-programming experience are not verified.",
       "cover_letter_status": "created",
       "recruiter_name": null,
-      "last_activity": "cover_letter_created",
-      "next_action": "Submit the application with the required subject phrase \"Golden Circle\" and verify the employer contact instructions.",
+      "last_activity": "application_submitted",
+      "next_action": "Wait for the employer to review the application and provide next steps.",
       "notes": "OnlineJobs.ph lists a full-time, 40-hour remote role for a Filipino senior full-stack engineer. Compensation is $8-$10 per hour. The verified posting requests C#/.NET, EF Core, Angular, Tailwind CSS, PostgreSQL and/or SQL Server, Docker, Railway, JWT, Clean Architecture, DDD, CQRS, SOLID, messaging, multi-tenant SaaS, and OWASP-aware security. User confirmed pursuit and requested a cover letter. Angular and several architecture-specific requirements are gaps and must not be claimed as professional experience.",
       "job_post_profile": {
         "source_documents": [
@@ -10436,6 +10452,20 @@
           "source_reference": "User request for cover letter",
           "summary": "Created a copy-ready cover letter aligned with verified experience and the job requirements.",
           "details": {
+            "required_subject_phrase": "Golden Circle"
+          }
+        },
+        {
+          "event_id": "2026-08-15_1704331_application_submitted",
+          "event_type": "application_submitted",
+          "occurred_at": "2026-08-15",
+          "recorded_at": "2026-08-15",
+          "date_precision": "date_only",
+          "source": "user",
+          "source_reference": "User confirmation: application sent",
+          "summary": "User confirmed that the application was sent for the Senior Full-Stack Software Engineer (C# / Angular) role.",
+          "details": {
+            "channel": "OnlineJobs.ph",
             "required_subject_phrase": "Golden Circle"
           }
         }
