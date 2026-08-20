@@ -26,7 +26,7 @@ Production portfolio and products site for Justiniano Tagarda, a senior .NET bac
 
 The project catalog is defined in `src/content/portfolio.json` and currently includes:
 
-- **Cognify: Focus & Study** - Flutter/Dart study application with SQLite, Google Drive, Google Sign-In, and OCR capabilities.
+- **Cognify: Focus & Study** - Cross-platform Flutter/Dart study application for Android and Windows desktop with SQLite, Google Drive, Google Sign-In, AI-assisted card generation, and OCR capabilities.
 - **RightSpeak** - WPF/.NET desktop text-to-speech application using Win32 interop, UI Automation, and local neural TTS.
 - **AudioScript** - WPF/.NET transcription and audio workflow application using NAudio, Whisper.net, pyannote, and xUnit.
 - **LocalCam** - WPF/.NET local-network camera discovery and RTSP streaming application using ONVIF, LibVLCSharp, and MSIX.

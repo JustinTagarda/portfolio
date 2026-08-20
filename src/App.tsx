@@ -766,6 +766,16 @@ export default function App() {
                     >
                       {project.primaryLinkLabel || "Live Demo"}
                     </a>
+                    {project.links.googlePlay && (
+                      <a
+                        href={project.links.googlePlay}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                      >
+                        Google Play
+                      </a>
+                    )}
                     {project.links.github && (
                       <a
                         href={project.links.github}
@@ -894,6 +904,16 @@ export default function App() {
                     >
                       {project.primaryLinkLabel || "Live Demo"}
                     </a>
+                    {project.links.googlePlay && (
+                      <a
+                        href={project.links.googlePlay}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-xl bg-[#3B82F6] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                      >
+                        Google Play
+                      </a>
+                    )}
                     {project.links.github && (
                       <a
                         href={project.links.github}

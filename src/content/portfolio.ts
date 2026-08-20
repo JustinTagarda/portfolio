@@ -5,6 +5,11 @@ import cognifyScreenshot03 from "../assets/projects/cognify/Screenshot-03.png";
 import cognifyScreenshot04 from "../assets/projects/cognify/Screenshot-04.png";
 import cognifyScreenshot05 from "../assets/projects/cognify/Screenshot-05.png";
 import cognifyScreenshot06 from "../assets/projects/cognify/Screenshot-06.png";
+import cognifyScreenshot07 from "../assets/projects/cognify/Screenshot-07.png";
+import cognifyScreenshot08 from "../assets/projects/cognify/Screenshot-08.png";
+import cognifyScreenshot09 from "../assets/projects/cognify/Screenshot-09.png";
+import cognifyScreenshot10 from "../assets/projects/cognify/Screenshot-10.png";
+import cognifyScreenshot11 from "../assets/projects/cognify/Screenshot-11.png";
 import rightspeakScreenshot01 from "../assets/projects/rightspeak/Screenshot-01.png";
 import rightspeakScreenshot02 from "../assets/projects/rightspeak/Screenshot-02.png";
 import rightspeakScreenshot03 from "../assets/projects/rightspeak/Screenshot-03.png";
@@ -93,6 +98,7 @@ type ProjectContent = {
   primaryLinkLabel: string;
   links: {
     liveDemo: string;
+    googlePlay?: string;
     github: string;
   };
   legalLinks?: {
@@ -143,6 +149,11 @@ const projectAssets = {
   "cognify-04": cognifyScreenshot04,
   "cognify-05": cognifyScreenshot05,
   "cognify-06": cognifyScreenshot06,
+  "cognify-07": cognifyScreenshot07,
+  "cognify-08": cognifyScreenshot08,
+  "cognify-09": cognifyScreenshot09,
+  "cognify-10": cognifyScreenshot10,
+  "cognify-11": cognifyScreenshot11,
   "rightspeak-01": rightspeakScreenshot01,
   "rightspeak-02": rightspeakScreenshot02,
   "rightspeak-03": rightspeakScreenshot03,
